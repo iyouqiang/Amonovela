@@ -1,0 +1,57 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target 'CXP' do
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'SocketRocket'
+pod 'Masonry'
+pod 'Bugly', '~> 2.4.8'
+pod 'IQKeyboardManager'
+pod 'YYModel'
+pod 'MJExtension'
+pod 'MJRefresh'
+pod 'SnapKit'
+pod 'Charts'
+pod 'DropDown'
+pod 'Bugly'
+pod 'Moya/RxSwift'
+pod 'RxCocoa'
+pod 'HandyJSON'
+pod "SideMenu"
+pod 'SideMenuSwift'
+pod "JXSegmentedView"
+pod "iCarousel"
+pod 'BTNavigationDropdownMenu'
+pod 'ZendeskAnswerBotSDK' # AnswerBot only on the Unified SDK
+pod 'ZendeskSupportSDK' # Support only on the Unified SDK
+pod 'ZendeskChatSDK' # Chat only on the Unified SDK
+end
+
+target 'Champagne' do
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'SocketRocket'
+pod 'Masonry'
+pod 'Bugly', '~> 2.4.8'
+pod 'IQKeyboardManager'
+pod 'YYModel'
+pod 'MJExtension'
+pod 'MJRefresh'
+pod 'SnapKit'
+pod 'Charts'
+pod 'DropDown'
+pod 'Bugly'
+pod 'Moya/RxSwift'
+pod 'RxCocoa'
+pod 'HandyJSON'
+pod "SideMenu"
+pod 'SideMenuSwift'
+pod "JXSegmentedView"
+pod "iCarousel"
+pod 'ZendeskAnswerBotSDK' # AnswerBot only on the Unified SDK
+pod 'ZendeskSupportSDK' # Support only on the Unified SDK
+pod 'ZendeskChatSDK' # Chat only on the Unified SDK
+pod "GPassword"
+pod 'BTNavigationDropdownMenu'
+end

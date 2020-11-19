@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ShareSecret</key>
+	<string>63d21beb11534048918a67c56c42dd9e</string>
+	<key>DynamicLinksDomain</key>
+	<string></string>
+	<key>FirebaseLinkURL</key>
+	<string></string>
+	<key>CHANNEL</key>
+	<string>maribacaappmain-89</string>
+	<key>SENSORSANALY</key>
+	<dict>
+		<key>SA_CONFIGURE_DEBUG_URL</key>
+		<string>http://bi.dreame.com:18108/config?project=MB_project </string>
+		<key>SA_SERVER_DEBUG_URL</key>
+		<string>http://bi.dreame.com:18108/sa?project=MB_project </string>
+		<key>SA_CONFIGURE_RELEASE_URL</key>
+		<string>http://bi.dreame.com:18108/config?project=MB_project </string>
+		<key>SA_SERVER_RELEASE_URL</key>
+		<string>http://bi.dreame.com:18108/sa?project=MB_project </string>
+	</dict>
+	<key>InterfaceCode</key>
+	<integer>122</integer>
+	<key>TARGET_NAMESPACE</key>
+	<string>Mari_Baca</string>
+	<key>HOSTURL</key>
+	<dict>
+		<key>ad_release_NetAddress</key>
+		<string>http://ad.maribaca.fun</string>
+		<key>ad_pretest_NetAddress</key>
+		<string>http://yufa-maribaca.fun</string>
+		<key>ad_debug_NetAddress</key>
+		<string>http://test-maribaca.fun</string>
+		<key>web_release_NetAddress</key>
+		<string>https://m.maribaca.fun</string>
+		<key>web_pretest_NetAddress</key>
+		<string>https://yufa-m.innovel.ltd</string>
+		<key>web_debug_NetAddress</key>
+		<string>http://test-m.maribaca.fun</string>
+		<key>subscription_release_NetAddress</key>
+		<string>https://h5.maribaca.fun</string>
+		<key>subscription_pretest_NetAddress</key>
+		<string>https://yufa-h5.maribaca.fun</string>
+		<key>subscription_debug_NetAddress</key>
+		<string>https://test-h5.maribaca.fun</string>
+		<key>openPlatform_debug_NetAddress</key>
+		<string>http://test-open.maribaca.fun</string>
+		<key>openPlatform_pretest_NetAddress</key>
+		<string>https://yufa-open.maribaca.fun</string>
+		<key>openPlatform_release_NetAddress</key>
+		<string>https://open.maribaca.fun</string>
+		<key>collect_debug_NetAddress</key>
+		<string>http://collect.maribaca.fun</string>
+		<key>collect_pretest_NetAddress</key>
+		<string>https://collect.maribaca.fun</string>
+		<key>collect_release_NetAddress</key>
+		<string>https://collect.maribaca.fun</string>
+		<key>social_debug_NetAddress</key>
+		<string>http://test-social.maribaca.fun</string>
+		<key>social_pretest_NetAddress</key>
+		<string>https://yufa-social.maribaca.fun</string>
+		<key>social_release_NetAddress</key>
+		<string>https://social.maribaca.fun</string>
+		<key>activity_debug_NetAddress</key>
+		<string>http://test-activity.maribaca.fun</string>
+		<key>activity_pretest_NetAddress</key>
+		<string>https://yufa-activity.maribaca.fun</string>
+		<key>activity_release_NetAddress</key>
+		<string>https://activity.maribaca.fun</string>
+		<key>host_debug_main_NetAddress</key>
+		<string>http://test-api.maribaca.fun</string>
+		<key>host_pretest_main_NetAddress</key>
+		<string>https://yufa-api.maribaca.fun</string>
+		<key>host_release_main_NetAddress</key>
+		<string>https://api.maribaca.fun</string>
+	</dict>
+	<key>APPTAG</key>
+	<string>0</string>
+	<key>ORIGINPRODUCT</key>
+	<string>6</string>
+	<key>APPID</key>
+	<string>1529082813</string>
+	<key>JPUSH_APPID</key>
+	<string></string>
+	<key>Facebook_APPID</key>
+	<string></string>
+	<key>AppsFlyerDevKey</key>
+	<string></string>
+	<key>Google_APPID</key>
+	<string></string>
+	<key>BUGLY</key>
+	<dict>
+		<key>BUGLY_RELEASE_APPID</key>
+		<string>7cd2227901</string>
+		<key>QDAS_RELEASE_APP_KEY</key>
+		<string>d59622ee-8f9b-4cca-827b-1e44ae1b6057</string>
+		<key>BUGLY_DEBUG_APPID</key>
+		<string>5a48c49770</string>
+		<key>QDAS_DEBUG_APP_KEY</key>
+		<string>081659fc-f6a6-41ec-89f8-f9faf6d7d789</string>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D733201E255A34D500E215C4 /* NetworkAddress in Resources */ = {isa = PBXBuildFile; fileRef = D733201D255A34D400E215C4 /* NetworkAddress */; };
+		D77C868B255D5D5900950088 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C868A255D5D5900950088 /* ViewController.m */; };
+		D7A05F5024E6281C00162FB7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A05F4F24E6281C00162FB7 /* AppDelegate.m */; };
+		D7A05F5324E6281C00162FB7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A05F5224E6281C00162FB7 /* SceneDelegate.m */; };
+		D7A05F5924E6281C00162FB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A05F5724E6281C00162FB7 /* Main.storyboard */; };
+		D7A05F5B24E6281E00162FB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A05F5A24E6281E00162FB7 /* Assets.xcassets */; };
+		D7A05F5E24E6281E00162FB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A05F5C24E6281E00162FB7 /* LaunchScreen.storyboard */; };
+		D7A05F6124E6281E00162FB7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A05F6024E6281E00162FB7 /* main.m */; };
+		D7A05F6B24E6281E00162FB7 /* EncryptionToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A05F6A24E6281E00162FB7 /* EncryptionToolTests.m */; };
+		D7A05F7624E6281F00162FB7 /* EncryptionToolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A05F7524E6281F00162FB7 /* EncryptionToolUITests.m */; };
+		D7A05F9124E6291100162FB7 /* EncryptionTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A05F8B24E6291100162FB7 /* EncryptionTools.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D7A05F6724E6281E00162FB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7A05F4324E6281C00162FB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7A05F4A24E6281C00162FB7;
+			remoteInfo = EncryptionTool;
+		};
+		D7A05F7224E6281F00162FB7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7A05F4324E6281C00162FB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7A05F4A24E6281C00162FB7;
+			remoteInfo = EncryptionTool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D733201D255A34D400E215C4 /* NetworkAddress */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = NetworkAddress; path = EncryptionTool/decryptPage/NetworkAddress; sourceTree = SOURCE_ROOT; };
+		D77C868A255D5D5900950088 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D7A05F4B24E6281C00162FB7 /* EncryptionTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptionTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A05F4E24E6281C00162FB7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D7A05F4F24E6281C00162FB7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D7A05F5124E6281C00162FB7 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		D7A05F5224E6281C00162FB7 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		D7A05F5424E6281C00162FB7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D7A05F5824E6281C00162FB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D7A05F5A24E6281E00162FB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7A05F5D24E6281E00162FB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D7A05F5F24E6281E00162FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7A05F6024E6281E00162FB7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D7A05F6624E6281E00162FB7 /* EncryptionToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncryptionToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A05F6A24E6281E00162FB7 /* EncryptionToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncryptionToolTests.m; sourceTree = "<group>"; };
+		D7A05F6C24E6281E00162FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7A05F7124E6281F00162FB7 /* EncryptionToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncryptionToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A05F7524E6281F00162FB7 /* EncryptionToolUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncryptionToolUITests.m; sourceTree = "<group>"; };
+		D7A05F7724E6281F00162FB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7A05F8724E6291100162FB7 /* EncryptionTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionTools.h; sourceTree = "<group>"; };
+		D7A05F8B24E6291100162FB7 /* EncryptionTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionTools.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D7A05F4824E6281C00162FB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A05F6324E6281E00162FB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A05F6E24E6281F00162FB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D7A05F4224E6281C00162FB7 = {
+			isa = PBXGroup;
+			children = (
+				D7A05F4D24E6281C00162FB7 /* EncryptionTool */,
+				D7A05F6924E6281E00162FB7 /* EncryptionToolTests */,
+				D7A05F7424E6281F00162FB7 /* EncryptionToolUITests */,
+				D7A05F4C24E6281C00162FB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D7A05F4C24E6281C00162FB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7A05F4B24E6281C00162FB7 /* EncryptionTool.app */,
+				D7A05F6624E6281E00162FB7 /* EncryptionToolTests.xctest */,
+				D7A05F7124E6281F00162FB7 /* EncryptionToolUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7A05F4D24E6281C00162FB7 /* EncryptionTool */ = {
+			isa = PBXGroup;
+			children = (
+				D7A05FA524E6647400162FB7 /* decryptPage */,
+				D7A05FA424E6645800162FB7 /* encryptPage */,
+				D7A05F8324E6291100162FB7 /* Security */,
+				D7A05F4E24E6281C00162FB7 /* AppDelegate.h */,
+				D7A05F4F24E6281C00162FB7 /* AppDelegate.m */,
+				D7A05F5124E6281C00162FB7 /* SceneDelegate.h */,
+				D7A05F5224E6281C00162FB7 /* SceneDelegate.m */,
+				D7A05F5424E6281C00162FB7 /* ViewController.h */,
+				D77C868A255D5D5900950088 /* ViewController.m */,
+				D7A05F5724E6281C00162FB7 /* Main.storyboard */,
+				D7A05F5A24E6281E00162FB7 /* Assets.xcassets */,
+				D7A05F5C24E6281E00162FB7 /* LaunchScreen.storyboard */,
+				D7A05F5F24E6281E00162FB7 /* Info.plist */,
+				D7A05F6024E6281E00162FB7 /* main.m */,
+			);
+			path = EncryptionTool;
+			sourceTree = "<group>";
+		};
+		D7A05F6924E6281E00162FB7 /* EncryptionToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				D7A05F6A24E6281E00162FB7 /* EncryptionToolTests.m */,
+				D7A05F6C24E6281E00162FB7 /* Info.plist */,
+			);
+			path = EncryptionToolTests;
+			sourceTree = "<group>";
+		};
+		D7A05F7424E6281F00162FB7 /* EncryptionToolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D7A05F7524E6281F00162FB7 /* EncryptionToolUITests.m */,
+				D7A05F7724E6281F00162FB7 /* Info.plist */,
+			);
+			path = EncryptionToolUITests;
+			sourceTree = "<group>";
+		};
+		D7A05F8324E6291100162FB7 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				D7A05F8724E6291100162FB7 /* EncryptionTools.h */,
+				D7A05F8B24E6291100162FB7 /* EncryptionTools.m */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		D7A05FA424E6645800162FB7 /* encryptPage */ = {
+			isa = PBXGroup;
+			children = (
+				D733201D255A34D400E215C4 /* NetworkAddress */,
+			);
+			path = encryptPage;
+			sourceTree = "<group>";
+		};
+		D7A05FA524E6647400162FB7 /* decryptPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = decryptPage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D7A05F4A24E6281C00162FB7 /* EncryptionTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7A05F7A24E6281F00162FB7 /* Build configuration list for PBXNativeTarget "EncryptionTool" */;
+			buildPhases = (
+				D7A05F4724E6281C00162FB7 /* Sources */,
+				D7A05F4824E6281C00162FB7 /* Frameworks */,
+				D7A05F4924E6281C00162FB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncryptionTool;
+			productName = EncryptionTool;
+			productReference = D7A05F4B24E6281C00162FB7 /* EncryptionTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D7A05F6524E6281E00162FB7 /* EncryptionToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7A05F7D24E6281F00162FB7 /* Build configuration list for PBXNativeTarget "EncryptionToolTests" */;
+			buildPhases = (
+				D7A05F6224E6281E00162FB7 /* Sources */,
+				D7A05F6324E6281E00162FB7 /* Frameworks */,
+				D7A05F6424E6281E00162FB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7A05F6824E6281E00162FB7 /* PBXTargetDependency */,
+			);
+			name = EncryptionToolTests;
+			productName = EncryptionToolTests;
+			productReference = D7A05F6624E6281E00162FB7 /* EncryptionToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D7A05F7024E6281F00162FB7 /* EncryptionToolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7A05F8024E6281F00162FB7 /* Build configuration list for PBXNativeTarget "EncryptionToolUITests" */;
+			buildPhases = (
+				D7A05F6D24E6281F00162FB7 /* Sources */,
+				D7A05F6E24E6281F00162FB7 /* Frameworks */,
+				D7A05F6F24E6281F00162FB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7A05F7324E6281F00162FB7 /* PBXTargetDependency */,
+			);
+			name = EncryptionToolUITests;
+			productName = EncryptionToolUITests;
+			productReference = D7A05F7124E6281F00162FB7 /* EncryptionToolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7A05F4324E6281C00162FB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = Yochi;
+				TargetAttributes = {
+					D7A05F4A24E6281C00162FB7 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					D7A05F6524E6281E00162FB7 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = D7A05F4A24E6281C00162FB7;
+					};
+					D7A05F7024E6281F00162FB7 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = D7A05F4A24E6281C00162FB7;
+					};
+				};
+			};
+			buildConfigurationList = D7A05F4624E6281C00162FB7 /* Build configuration list for PBXProject "EncryptionTool" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D7A05F4224E6281C00162FB7;
+			productRefGroup = D7A05F4C24E6281C00162FB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7A05F4A24E6281C00162FB7 /* EncryptionTool */,
+				D7A05F6524E6281E00162FB7 /* EncryptionToolTests */,
+				D7A05F7024E6281F00162FB7 /* EncryptionToolUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7A05F4924E6281C00162FB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7A05F5E24E6281E00162FB7 /* LaunchScreen.storyboard in Resources */,
+				D7A05F5B24E6281E00162FB7 /* Assets.xcassets in Resources */,
+				D733201E255A34D500E215C4 /* NetworkAddress in Resources */,
+				D7A05F5924E6281C00162FB7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A05F6424E6281E00162FB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A05F6F24E6281F00162FB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D7A05F4724E6281C00162FB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7A05F5024E6281C00162FB7 /* AppDelegate.m in Sources */,
+				D7A05F6124E6281E00162FB7 /* main.m in Sources */,
+				D7A05F9124E6291100162FB7 /* EncryptionTools.m in Sources */,
+				D7A05F5324E6281C00162FB7 /* SceneDelegate.m in Sources */,
+				D77C868B255D5D5900950088 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A05F6224E6281E00162FB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7A05F6B24E6281E00162FB7 /* EncryptionToolTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A05F6D24E6281F00162FB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7A05F7624E6281F00162FB7 /* EncryptionToolUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7A05F6824E6281E00162FB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7A05F4A24E6281C00162FB7 /* EncryptionTool */;
+			targetProxy = D7A05F6724E6281E00162FB7 /* PBXContainerItemProxy */;
+		};
+		D7A05F7324E6281F00162FB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7A05F4A24E6281C00162FB7 /* EncryptionTool */;
+			targetProxy = D7A05F7224E6281F00162FB7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D7A05F5724E6281C00162FB7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7A05F5824E6281C00162FB7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D7A05F5C24E6281E00162FB7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7A05F5D24E6281E00162FB7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D7A05F7824E6281F00162FB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D7A05F7924E6281F00162FB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7A05F7B24E6281F00162FB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CRD2T8LG95;
+				INFOPLIST_FILE = EncryptionTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreame.EncryptionTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D7A05F7C24E6281F00162FB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CRD2T8LG95;
+				INFOPLIST_FILE = EncryptionTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreame.EncryptionTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D7A05F7E24E6281F00162FB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CRD2T8LG95;
+				INFOPLIST_FILE = EncryptionToolTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreame.EncryptionToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EncryptionTool.app/EncryptionTool";
+			};
+			name = Debug;
+		};
+		D7A05F7F24E6281F00162FB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CRD2T8LG95;
+				INFOPLIST_FILE = EncryptionToolTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreame.EncryptionToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EncryptionTool.app/EncryptionTool";
+			};
+			name = Release;
+		};
+		D7A05F8124E6281F00162FB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CRD2T8LG95;
+				INFOPLIST_FILE = EncryptionToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreame.EncryptionToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EncryptionTool;
+			};
+			name = Debug;
+		};
+		D7A05F8224E6281F00162FB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CRD2T8LG95;
+				INFOPLIST_FILE = EncryptionToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dreame.EncryptionToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EncryptionTool;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D7A05F4624E6281C00162FB7 /* Build configuration list for PBXProject "EncryptionTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7A05F7824E6281F00162FB7 /* Debug */,
+				D7A05F7924E6281F00162FB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7A05F7A24E6281F00162FB7 /* Build configuration list for PBXNativeTarget "EncryptionTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7A05F7B24E6281F00162FB7 /* Debug */,
+				D7A05F7C24E6281F00162FB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7A05F7D24E6281F00162FB7 /* Build configuration list for PBXNativeTarget "EncryptionToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7A05F7E24E6281F00162FB7 /* Debug */,
+				D7A05F7F24E6281F00162FB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7A05F8024E6281F00162FB7 /* Build configuration list for PBXNativeTarget "EncryptionToolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7A05F8124E6281F00162FB7 /* Debug */,
+				D7A05F8224E6281F00162FB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D7A05F4324E6281C00162FB7 /* Project object */;
+}

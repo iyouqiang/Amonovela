@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="axP-Ru-dqX" customClass="FCShareItemView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kt7-EU-fRq">
+                    <rect key="frame" x="15" y="25" width="60" height="75"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareDownload" translatesAutoresizingMaskIntoConstraints="NO" id="tkd-vv-itD">
+                            <rect key="frame" x="6" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="Y3p-nk-Ore"/>
+                                <constraint firstAttribute="height" constant="48" id="dgq-iO-Hmq"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保存" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njo-9w-tVo">
+                            <rect key="frame" x="0.0" y="56" width="60" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.5725490196078431" green="0.57647058823529407" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AiT-Q9-hqs">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="75"/>
+                            <connections>
+                                <action selector="shareItemSaveImgAction:" destination="axP-Ru-dqX" eventType="touchUpInside" id="1bM-XV-gyn"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="tkd-vv-itD" firstAttribute="top" secondItem="kt7-EU-fRq" secondAttribute="top" id="1pe-4X-uap"/>
+                        <constraint firstAttribute="trailing" secondItem="AiT-Q9-hqs" secondAttribute="trailing" id="5fr-Kj-csw"/>
+                        <constraint firstAttribute="trailing" secondItem="njo-9w-tVo" secondAttribute="trailing" id="9Fw-Cy-0zz"/>
+                        <constraint firstItem="tkd-vv-itD" firstAttribute="centerX" secondItem="kt7-EU-fRq" secondAttribute="centerX" id="Esj-Gl-GcB"/>
+                        <constraint firstItem="AiT-Q9-hqs" firstAttribute="top" secondItem="kt7-EU-fRq" secondAttribute="top" id="FNt-XG-0kX"/>
+                        <constraint firstAttribute="height" constant="75" id="Z6r-Rb-n9z"/>
+                        <constraint firstItem="njo-9w-tVo" firstAttribute="top" secondItem="tkd-vv-itD" secondAttribute="bottom" constant="8" id="ch4-po-BH5"/>
+                        <constraint firstAttribute="width" constant="60" id="d4n-Qq-Yjg"/>
+                        <constraint firstItem="njo-9w-tVo" firstAttribute="leading" secondItem="kt7-EU-fRq" secondAttribute="leading" id="fkE-vl-MNu"/>
+                        <constraint firstItem="AiT-Q9-hqs" firstAttribute="leading" secondItem="kt7-EU-fRq" secondAttribute="leading" id="p77-uD-QD7"/>
+                        <constraint firstAttribute="bottom" secondItem="AiT-Q9-hqs" secondAttribute="bottom" id="qtF-32-lha"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA7-Ib-760">
+                    <rect key="frame" x="205" y="25" width="60" height="75"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareWechatCircle" translatesAutoresizingMaskIntoConstraints="NO" id="omg-aw-GoA">
+                            <rect key="frame" x="6" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="1uD-bw-aFz"/>
+                                <constraint firstAttribute="width" constant="48" id="CeP-NO-9T1"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT3-8I-Kz6">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="75"/>
+                            <connections>
+                                <action selector="shareItemWechatCircleAction:" destination="axP-Ru-dqX" eventType="touchUpInside" id="3zB-jQ-7Pv"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朋友圈" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8y7-H9-g0N">
+                            <rect key="frame" x="0.0" y="56" width="60" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.57254901960000004" green="0.57647058819999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="AT3-8I-Kz6" secondAttribute="bottom" id="AY5-AT-biV"/>
+                        <constraint firstItem="omg-aw-GoA" firstAttribute="centerX" secondItem="WA7-Ib-760" secondAttribute="centerX" id="ISr-Dp-IIT"/>
+                        <constraint firstItem="AT3-8I-Kz6" firstAttribute="top" secondItem="WA7-Ib-760" secondAttribute="top" id="QbJ-1Y-9bM"/>
+                        <constraint firstAttribute="trailing" secondItem="AT3-8I-Kz6" secondAttribute="trailing" id="Zzn-ke-ppA"/>
+                        <constraint firstAttribute="trailing" secondItem="8y7-H9-g0N" secondAttribute="trailing" id="b6d-Ni-b3v"/>
+                        <constraint firstItem="8y7-H9-g0N" firstAttribute="leading" secondItem="WA7-Ib-760" secondAttribute="leading" id="eDh-Pd-z2t"/>
+                        <constraint firstAttribute="width" constant="60" id="nDm-yg-m3R"/>
+                        <constraint firstItem="AT3-8I-Kz6" firstAttribute="leading" secondItem="WA7-Ib-760" secondAttribute="leading" id="nXf-AX-GlW"/>
+                        <constraint firstItem="8y7-H9-g0N" firstAttribute="top" secondItem="omg-aw-GoA" secondAttribute="bottom" constant="8" id="ndK-QS-DGI"/>
+                        <constraint firstItem="omg-aw-GoA" firstAttribute="top" secondItem="WA7-Ib-760" secondAttribute="top" id="z7B-16-ERR"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVj-pZ-pvw">
+                    <rect key="frame" x="110" y="25" width="60" height="75"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shareWechat" translatesAutoresizingMaskIntoConstraints="NO" id="QkX-fP-hCi">
+                            <rect key="frame" x="6" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="LYg-w3-0ok"/>
+                                <constraint firstAttribute="height" constant="48" id="fYZ-BT-YhU"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZb-kP-YKs">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="75"/>
+                            <connections>
+                                <action selector="shareItemWechatAction:" destination="axP-Ru-dqX" eventType="touchUpInside" id="kqy-cC-BNa"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信好友" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCM-h6-yDO">
+                            <rect key="frame" x="0.0" y="56" width="60" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.57254901960000004" green="0.57647058819999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="eCM-h6-yDO" firstAttribute="leading" secondItem="EVj-pZ-pvw" secondAttribute="leading" id="4cM-HD-Fyt"/>
+                        <constraint firstAttribute="width" constant="60" id="GhV-rK-SQq"/>
+                        <constraint firstItem="eCM-h6-yDO" firstAttribute="top" secondItem="QkX-fP-hCi" secondAttribute="bottom" constant="8" id="LTw-eJ-znw"/>
+                        <constraint firstAttribute="trailing" secondItem="eCM-h6-yDO" secondAttribute="trailing" id="Lo5-X9-atf"/>
+                        <constraint firstAttribute="trailing" secondItem="EZb-kP-YKs" secondAttribute="trailing" id="OfB-HW-tGI"/>
+                        <constraint firstItem="EZb-kP-YKs" firstAttribute="leading" secondItem="EVj-pZ-pvw" secondAttribute="leading" id="Zdb-4Y-Nge"/>
+                        <constraint firstItem="QkX-fP-hCi" firstAttribute="centerX" secondItem="EVj-pZ-pvw" secondAttribute="centerX" id="cHT-rv-bCg"/>
+                        <constraint firstAttribute="bottom" secondItem="EZb-kP-YKs" secondAttribute="bottom" id="for-ox-gSy"/>
+                        <constraint firstItem="QkX-fP-hCi" firstAttribute="top" secondItem="EVj-pZ-pvw" secondAttribute="top" id="kcj-FM-4Kf"/>
+                        <constraint firstItem="EZb-kP-YKs" firstAttribute="top" secondItem="EVj-pZ-pvw" secondAttribute="top" id="sJQ-bo-dn2"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJQ-2m-yeS">
+                    <rect key="frame" x="172" y="120" width="31" height="30"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" red="0.74509803919999995" green="0.76862745099999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="shareItemCancelAction:" destination="axP-Ru-dqX" eventType="touchUpInside" id="iea-HS-IFu"/>
+                    </connections>
+                </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWz-K7-QKx">
+                    <rect key="frame" x="300" y="25" width="60" height="75"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telegram" translatesAutoresizingMaskIntoConstraints="NO" id="ZQq-q5-VkR">
+                            <rect key="frame" x="6" y="0.0" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Haf-f1-ovA"/>
+                                <constraint firstAttribute="width" constant="48" id="Wlj-YQ-vb9"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oZ-Dt-8ZG">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="75"/>
+                            <connections>
+                                <action selector="shareItemTelegramAction:" destination="axP-Ru-dqX" eventType="touchUpInside" id="hbq-Qu-7cY"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telegram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uw-Gg-DfB">
+                            <rect key="frame" x="0.0" y="56" width="60" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.57254901960000004" green="0.57647058819999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="9oZ-Dt-8ZG" firstAttribute="top" secondItem="tWz-K7-QKx" secondAttribute="top" id="1TZ-ta-H7O"/>
+                        <constraint firstAttribute="bottom" secondItem="9oZ-Dt-8ZG" secondAttribute="bottom" id="698-qn-Vi0"/>
+                        <constraint firstItem="ZQq-q5-VkR" firstAttribute="top" secondItem="tWz-K7-QKx" secondAttribute="top" id="7BI-N8-jfP"/>
+                        <constraint firstAttribute="trailing" secondItem="9oZ-Dt-8ZG" secondAttribute="trailing" id="7cz-hZ-Dbg"/>
+                        <constraint firstItem="1Uw-Gg-DfB" firstAttribute="top" secondItem="ZQq-q5-VkR" secondAttribute="bottom" constant="8" id="AAn-ua-Vy9"/>
+                        <constraint firstAttribute="trailing" secondItem="1Uw-Gg-DfB" secondAttribute="trailing" id="HqQ-CL-hkC"/>
+                        <constraint firstItem="1Uw-Gg-DfB" firstAttribute="leading" secondItem="tWz-K7-QKx" secondAttribute="leading" id="Nnh-dL-2VH"/>
+                        <constraint firstItem="9oZ-Dt-8ZG" firstAttribute="leading" secondItem="tWz-K7-QKx" secondAttribute="leading" id="SvI-1r-k9V"/>
+                        <constraint firstAttribute="width" constant="60" id="h0y-Ze-WKH"/>
+                        <constraint firstItem="ZQq-q5-VkR" firstAttribute="centerX" secondItem="tWz-K7-QKx" secondAttribute="centerX" id="oMf-T2-5Kh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.15294117647058825" green="0.15686274509803921" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="WA7-Ib-760" firstAttribute="height" secondItem="EVj-pZ-pvw" secondAttribute="height" id="I9M-1K-aCB"/>
+                <constraint firstItem="tWz-K7-QKx" firstAttribute="height" secondItem="WA7-Ib-760" secondAttribute="height" id="IPg-Fh-Inr"/>
+                <constraint firstItem="EVj-pZ-pvw" firstAttribute="top" secondItem="kt7-EU-fRq" secondAttribute="top" id="LEM-cI-Rsm"/>
+                <constraint firstItem="kt7-EU-fRq" firstAttribute="top" secondItem="axP-Ru-dqX" secondAttribute="top" constant="25" id="Ws9-5I-brD"/>
+                <constraint firstItem="QJQ-2m-yeS" firstAttribute="top" secondItem="kt7-EU-fRq" secondAttribute="bottom" constant="20" id="XtC-bN-VRm"/>
+                <constraint firstItem="kt7-EU-fRq" firstAttribute="leading" secondItem="axP-Ru-dqX" secondAttribute="leading" constant="15" id="bXX-nN-TWP"/>
+                <constraint firstItem="EVj-pZ-pvw" firstAttribute="leading" secondItem="kt7-EU-fRq" secondAttribute="trailing" constant="35" id="dim-IA-bDM"/>
+                <constraint firstItem="WA7-Ib-760" firstAttribute="leading" secondItem="EVj-pZ-pvw" secondAttribute="trailing" constant="35" id="drV-9a-UFn"/>
+                <constraint firstItem="QJQ-2m-yeS" firstAttribute="centerX" secondItem="axP-Ru-dqX" secondAttribute="centerX" id="o9B-p1-gKd"/>
+                <constraint firstItem="EVj-pZ-pvw" firstAttribute="height" secondItem="kt7-EU-fRq" secondAttribute="height" id="oKL-xw-Ska"/>
+                <constraint firstItem="WA7-Ib-760" firstAttribute="top" secondItem="EVj-pZ-pvw" secondAttribute="top" id="tjv-Ql-jel"/>
+                <constraint firstItem="tWz-K7-QKx" firstAttribute="top" secondItem="WA7-Ib-760" secondAttribute="top" id="tvq-8M-Twd"/>
+                <constraint firstItem="tWz-K7-QKx" firstAttribute="leading" secondItem="WA7-Ib-760" secondAttribute="trailing" constant="35" id="zh0-dv-K7l"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="36.956521739130437" y="-4.3526785714285712"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="shareDownload" width="48" height="48"/>
+        <image name="shareWechat" width="48" height="48"/>
+        <image name="shareWechatCircle" width="48" height="48"/>
+        <image name="telegram" width="48" height="48"/>
+    </resources>
+</document>

@@ -1,0 +1,180 @@
+PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - Alamofire (5.3.0)
+  - BTNavigationDropdownMenu (0.5)
+  - Bugly (2.4.8)
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
+  - DropDown (2.3.13)
+  - GPassword (1.0.9)
+  - HandyJSON (5.0.2)
+  - iCarousel (1.8.3)
+  - IQKeyboardManager (6.1.1)
+  - JXSegmentedView (1.1.0)
+  - Masonry (1.1.0)
+  - MJExtension (3.0.15.1)
+  - MJRefresh (3.1.15.7)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
+  - SideMenu (5.0.1)
+  - SideMenuSwift (2.0.6)
+  - SnapKit (4.2.0)
+  - SocketRocket (0.5.1)
+  - YYModel (1.0.4)
+  - ZendeskAnswerBotProvidersSDK (2.1.1):
+    - ZendeskSupportProvidersSDK (~> 5.1.1)
+  - ZendeskAnswerBotSDK (2.1.1):
+    - ZendeskAnswerBotProvidersSDK (~> 2.1.1)
+    - ZendeskMessagingSDK (~> 3.8.0)
+  - ZendeskChatProvidersSDK (2.9.0)
+  - ZendeskChatSDK (2.9.0):
+    - ZendeskChatProvidersSDK (~> 2.9.0)
+    - ZendeskMessagingSDK (~> 3.8.0)
+  - ZendeskCommonUISDK (6.0.0):
+    - ZendeskSDKConfigurationsSDK (~> 1.1.6)
+  - ZendeskCoreSDK (2.4.1)
+  - ZendeskMessagingAPISDK (3.8.0):
+    - ZendeskSDKConfigurationsSDK (~> 1.1.6)
+  - ZendeskMessagingSDK (3.8.0):
+    - ZendeskCommonUISDK (~> 6.0.0)
+    - ZendeskMessagingAPISDK (~> 3.8.0)
+  - ZendeskSDKConfigurationsSDK (1.1.6)
+  - ZendeskSupportProvidersSDK (5.1.1):
+    - ZendeskCoreSDK (~> 2.4.1)
+  - ZendeskSupportSDK (5.1.1):
+    - ZendeskMessagingSDK (~> 3.8.0)
+    - ZendeskSupportProvidersSDK (~> 5.1.1)
+
+DEPENDENCIES:
+  - AFNetworking
+  - BTNavigationDropdownMenu
+  - Bugly
+  - Bugly (~> 2.4.8)
+  - Charts
+  - DropDown
+  - GPassword
+  - HandyJSON
+  - iCarousel
+  - IQKeyboardManager
+  - JXSegmentedView
+  - Masonry
+  - MJExtension
+  - MJRefresh
+  - Moya/RxSwift
+  - RxCocoa
+  - SDWebImage
+  - SideMenu
+  - SideMenuSwift
+  - SnapKit
+  - SocketRocket
+  - YYModel
+  - ZendeskAnswerBotSDK
+  - ZendeskChatSDK
+  - ZendeskSupportSDK
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - IQKeyboardManager
+    - JXSegmentedView
+    - Masonry
+    - MJExtension
+    - MJRefresh
+    - YYModel
+  trunk:
+    - AFNetworking
+    - Alamofire
+    - BTNavigationDropdownMenu
+    - Bugly
+    - Charts
+    - DropDown
+    - GPassword
+    - HandyJSON
+    - iCarousel
+    - Moya
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SDWebImage
+    - SideMenu
+    - SideMenuSwift
+    - SnapKit
+    - SocketRocket
+    - ZendeskAnswerBotProvidersSDK
+    - ZendeskAnswerBotSDK
+    - ZendeskChatProvidersSDK
+    - ZendeskChatSDK
+    - ZendeskCommonUISDK
+    - ZendeskCoreSDK
+    - ZendeskMessagingAPISDK
+    - ZendeskMessagingSDK
+    - ZendeskSDKConfigurationsSDK
+    - ZendeskSupportProvidersSDK
+    - ZendeskSupportSDK
+
+SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
+  BTNavigationDropdownMenu: ba3a26fdb6a56c4721c31df8a0875106c259663a
+  Bugly: da3c02408c14838d498429320545a8e439392978
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  GPassword: 9ab27430219a8d70790a4154aa6c3255d6bd4a31
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  JXSegmentedView: 072a2979323f98fc5d0e0e5dc2342549ae8a5c8f
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
+  SideMenuSwift: f12ca1b11faad909bfc2878df37e0a1c40fa4570
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+  ZendeskAnswerBotProvidersSDK: 77e7a1c92fa32639647f6305d55adc151608cfe9
+  ZendeskAnswerBotSDK: a3ceb8c659b76eb343871625699e282b2af7f225
+  ZendeskChatProvidersSDK: dd8cbf33c4b7209a8ee7945faa4d2cd3b609ff15
+  ZendeskChatSDK: 942bad4d4d5ec0c40fbd6d2690c1cc2e8c24d879
+  ZendeskCommonUISDK: f496b95e2cb728bd5729fe022f400cf1dedda00b
+  ZendeskCoreSDK: 2dc9457ae01d024ca02f60f6134ad1ad90136c29
+  ZendeskMessagingAPISDK: e315a6ad7a9b6cae9e52d946df4aa8a7727abdf5
+  ZendeskMessagingSDK: 774d88bec0671d58ae51c9964d4c4f9bb4142095
+  ZendeskSDKConfigurationsSDK: 2fa9413915db85c993f58ad8f7902bea0b6090a5
+  ZendeskSupportProvidersSDK: 51c9d4a826f7bd87e3109e5c801c602a6b62c762
+  ZendeskSupportSDK: dcb2596ad05a63d662e8c7924357babbf327b421
+
+PODFILE CHECKSUM: 1cf8eee0fa51e6887a67afdc02d5994a45e4872b
+
+COCOAPODS: 1.8.4

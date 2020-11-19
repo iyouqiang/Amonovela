@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="64K-ac-vUg">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户的所有仓位共用保证金，不同仓位的盈亏可以互相抵消，适合有传统商品/金融合约经验的用户，以及套利/套保类用户。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DS-bq-7C6">
+                    <rect key="frame" x="15" y="43" width="384" height="50.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.41176470588235292" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全仓保证金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySl-Az-Rcs">
+                    <rect key="frame" x="15" y="20" width="384" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="bM5-aZ-Qu4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <color key="textColor" red="0.41176470590000003" green="0.41568627450000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="逐仓保证金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFr-sU-JES">
+                    <rect key="frame" x="15" y="113.5" width="384" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="v1v-AK-c2U"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <color key="textColor" red="0.41176470590000003" green="0.41568627450000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="各个仓位的保证金独立计算，盈亏单独核算，适合有金融衍生品经验的用户，以及追求高杠杆的用户。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jx-Pw-Rmu">
+                    <rect key="frame" x="15" y="136.5" width="384" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.41176470590000003" green="0.41568627450000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="3jx-Pw-Rmu" firstAttribute="leading" secondItem="64K-ac-vUg" secondAttribute="leading" constant="15" id="3iJ-zL-SLX"/>
+                <constraint firstAttribute="trailing" secondItem="3jx-Pw-Rmu" secondAttribute="trailing" constant="15" id="B79-7F-Ecf"/>
+                <constraint firstItem="3jx-Pw-Rmu" firstAttribute="top" secondItem="QFr-sU-JES" secondAttribute="bottom" constant="3" id="JLr-Be-wUd"/>
+                <constraint firstItem="ySl-Az-Rcs" firstAttribute="top" secondItem="64K-ac-vUg" secondAttribute="top" constant="20" id="KNn-nE-HWW"/>
+                <constraint firstItem="ySl-Az-Rcs" firstAttribute="leading" secondItem="64K-ac-vUg" secondAttribute="leading" constant="15" id="OBV-m6-f4C"/>
+                <constraint firstItem="2DS-bq-7C6" firstAttribute="top" secondItem="ySl-Az-Rcs" secondAttribute="bottom" constant="3" id="Plb-pR-Udu"/>
+                <constraint firstItem="QFr-sU-JES" firstAttribute="leading" secondItem="64K-ac-vUg" secondAttribute="leading" constant="15" id="RGO-4C-iW1"/>
+                <constraint firstAttribute="trailing" secondItem="ySl-Az-Rcs" secondAttribute="trailing" constant="15" id="SIR-Xp-2wg"/>
+                <constraint firstAttribute="trailing" secondItem="2DS-bq-7C6" secondAttribute="trailing" constant="15" id="Xxa-V7-Mkt"/>
+                <constraint firstItem="2DS-bq-7C6" firstAttribute="leading" secondItem="64K-ac-vUg" secondAttribute="leading" constant="15" id="f7S-AZ-Gos"/>
+                <constraint firstAttribute="trailing" secondItem="QFr-sU-JES" secondAttribute="trailing" constant="15" id="u6Z-3n-G4z"/>
+                <constraint firstItem="QFr-sU-JES" firstAttribute="top" secondItem="2DS-bq-7C6" secondAttribute="bottom" constant="20" id="zjQ-LR-VKa"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="44.927536231884062" y="77.678571428571431"/>
+        </view>
+    </objects>
+</document>

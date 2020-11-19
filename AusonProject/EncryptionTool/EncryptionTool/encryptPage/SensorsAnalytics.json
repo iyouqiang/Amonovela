@@ -1,0 +1,1095 @@
+{
+	"ACTION": {
+		"e.g": {
+			"event": "clickEvent",
+			"parameter": {}
+		},
+		"MBAMyViewDirector\/UITabBar\/_sendAction:withEvent:": {
+			"event": "clickEventwowlwlwwwww"
+		}
+	},
+	"update": ["all", "1.7.0"],
+	"GESTURE": {
+		"e.g": {
+			"event": "clickEvent",
+			"parameter": {}
+		}
+	},
+	"DYNAMICEVENT": {
+		"e.g:className(类名)": {
+			"analyticDatas(hook该类的方法列表)": [{
+				"moment": "调用时机（after默认,before,instead）",
+				"EventSelectorName": "demoMethod",
+				"parameter": {}
+			}, {
+				"moment": "调用时机",
+				"EventSelectorName": "+demoMethod(类方法带加号)",
+				"parameter": {}
+			}]
+		}
+	},
+	"LOCAL": {
+		"analyticTouchEventSettingNotificationsCloseNotification": {
+			"event": "SettingNotificationsCloseNotification"
+		},
+		"analyticTouchEventMeInboxClickGraphicMessage": {
+			"event": "MeInboxClickGraphicMessage"
+		},
+		"analyticTouchEventMeDownloadsDelete": {
+			"event": "MeDownloadsDelete"
+		},
+		"analyticDatasearchHotKeyClick:": {
+			"event": "searchHotKeyClick",
+			"parameter": {
+				"HotKey_type": {
+					"MBATagModule": "type"
+				},
+				"hot_key": {
+					"MBATagModule": "tagName"
+				}
+			}
+		},
+		"analyticTouchEventloginWithFacebook": {
+			"event": "loginWithFacebook"
+		},
+		"analyticTouchEventreaderAddShelf": {
+			"event": "readerAddShelf"
+		},
+		"analyticDatalistenOn:": {
+			"event": "listenOn",
+			"parameter": {
+				"listen_gender": {
+					"MBAReaderListenTool": "currentVoiceType"
+				},
+				"qid": {
+					"MBAUserModule": "userId"
+				},
+				"chapter_index": {
+					"MBAChapterModule": "chapterId"
+				},
+				"book_id": {
+					"MBABookInfoModule": "bookId"
+				},
+				"book_name": {
+					"MBABookInfoModule": "bookName"
+				}
+			}
+		},
+		"analyticTouchEventcreateaccountdisplaypassword": {
+			"event": "createaccountdisplaypassword"
+		},
+		"analyticTouchEventlogincreatedaccount": {
+			"event": "logincreatedaccount"
+		},
+		"analyticTouchEventMeInboxmessage": {
+			"event": "MeInboxmessage"
+		},
+		"analyticTouchEventReaderDownloads": {
+			"event": "ReaderDownloads"
+		},
+		"analyticTouchEventmyCenterCleanCache": {
+			"event": "myCenterCleanCache"
+		},
+		"analyticTouchEventloginWithEmail": {
+			"event": "loginWithEmail"
+		},
+		"analyticTouchEventcreateaccountlogin": {
+			"event": "createaccountlogin"
+		},
+		"analyticTouchEventFont1": {
+			"event": "Font1"
+		},
+		"analyticTouchEventtaskMe": {
+			"event": "taskMe"
+		},
+		"analyticDataaf_passback:": {
+			"event": "af_passback",
+			"parameter": {
+				"passback_content": ""
+			}
+		},
+		"analyticTouchEventSearchassociationtag": {
+			"event": "Searchassociationtag"
+		},
+		"analyticTouchEventbookDetailMoreRead": {
+			"event": "bookDetailMoreRead"
+		},
+		"analyticTouchEventNovelDetailsWriterHomepage": {
+			"event": "NovelDetailsWriterHomepage"
+		},
+		"analyticTouchEventdeleteBrowseHistory": {
+			"event": "deleteBrowseHistory"
+		},
+		"analyticTouchEventdownloadBookDetail": {
+			"event": "downloadBookDetail"
+		},
+		"analyticTouchEventreaderMoreAddShelf": {
+			"event": "readerMoreAddShelf"
+		},
+		"analyticTouchEventAllremainingchapters": {
+			"event": "Allremainingchapters"
+		},
+		"analyticDatarecommendBookList:": {
+			"event": "recommendBookList",
+			"parameter": {
+				"booklist_title": "",
+				"booklist_show_model": "",
+				"book_id": "",
+				"action_type": ""
+			}
+		},
+		"analyticDatapushEvent:": {
+			"event": "pushEvent",
+			"parameter": {
+				"os_type": "",
+				"push_id": {
+					"MBARemoteNotificationModule": "pushID"
+				},
+				"push_action": {
+					"MBARemoteNotificationModule": "sensorsActionType"
+				},
+				"push_type": {
+					"MBARemoteNotificationModule": "type"
+				},
+				"action_type": {
+					"MBARemoteNotificationModule": "pushType"
+				}
+			}
+		},
+		"analyticDataFollowEvent:": {
+			"event": "followEvent",
+			"parameter": {
+				"content_category": "",
+				"follow_action": "",
+				"follow_event_model": "",
+				"follow_event_seat": "",
+				"follow_type": "",
+				"book_id": {
+					"CYBookModule": "bookId",
+					"MBABookInfoModule": "bookId"
+				},
+				"book_name": {
+					"CYBookModule": "bookName",
+					"MBABookInfoModule": "bookName"
+				}
+			}
+		},
+		"analyticTouchEventReaderComment": {
+			"event": "ReaderComment"
+		},
+		"analyticTouchEventcloseAutoPay": {
+			"event": "closeAutoPay"
+		},
+		"analyticDatacouponShow": {
+			"event": "couponShow"
+		},
+		"analyticTouchEventbookDetailMoreShare": {
+			"event": "bookDetailMoreShare"
+		},
+		"analyticTouchEventNovelDetailsClassification": {
+			"event": "NovelDetailsClassification"
+		},
+		"analyticTouchEventLibraryRemove": {
+			"event": "LibraryRemove"
+		},
+		"analyticTouchEventSearchassociationwriter": {
+			"event": "Searchassociationwriter"
+		},
+		"analyticTouchEvent10chapters": {
+			"event": "10chapters"
+		},
+		"analyticTouchEventlogindisplaypassword": {
+			"event": "logindisplaypassword"
+		},
+		"analyticTouchEventreaderPricePlan": {
+			"event": "readerPricePlan"
+		},
+		"analyticTouchEventbookDetailCatalogChapter": {
+			"event": "bookDetailCatalogChapter"
+		},
+		"analyticTouchEventspace_small": {
+			"event": "space_small"
+		},
+		"analyticTouchEventopenAutoPay": {
+			"event": "openAutoPay"
+		},
+		"analyticTouchEventloginWithGoogle": {
+			"event": "loginWithGoogle"
+		},
+		"analyticTouchEventMeDownloadsRead": {
+			"event": "MeDownloadsRead"
+		},
+		"analyticTouchEventMeInboxDelete": {
+			"event": "MeInboxDelete"
+		},
+		"analyticTouchEventSettingLogOut": {
+			"event": "SettingLogOut"
+		},
+		"analyticTouchEventSearchDeleteSearchHistory": {
+			"event": "SearchDeleteSearchHistory"
+		},
+		"analyticTouchEventmyCenter2Logout": {
+			"event": "myCenter2Logout"
+		},
+		"analyticTouchEventLibraryClick": {
+			"event": "LibraryClick"
+		},
+		"analyticTouchEventReaderPaidPageTurnonautounlock": {
+			"event": "ReaderPaidPageTurnonautounlock"
+		},
+		"analyticTouchEventMeWalletEpisodesUnlocked": {
+			"event": "MeWalletEpisodesUnlocked"
+		},
+		"analyticTouchEventMeViewedDelete": {
+			"event": "MeViewedDelete"
+		},
+		"analyticTouchEventMeEarnRewards": {
+			"event": "MeEarnRewards"
+		},
+		"analyticTouchEventLibraryinbox": {
+			"event": "Libraryinbox"
+		},
+		"analyticTouchEventpageSwitch3": {
+			"event": "pageSwitch3"
+		},
+		"analyticTouchEventforgetpasswordlogin": {
+			"event": "forgetpasswordlogin"
+		},
+		"analyticTouchEventFont2": {
+			"event": "Font2"
+		},
+		"analyticTouchEventSettingNotificationsClosewaitforfreeReminder": {
+			"event": "SettingNotificationsClosewaitforfreeReminder"
+		},
+		"analyticTouchEventbookshelfCalendarClick": {
+			"event": "bookshelfCalendarClick"
+		},
+		"analyticTouchEventloginforgetpassword": {
+			"event": "loginforgetpassword"
+		},
+		"analyticTouchEventSearchClearSearchHistory": {
+			"event": "SearchClearSearchHistory"
+		},
+		"analyticDatasubmitRechargeOrder:": {
+			"event": "submitRechargeOrder",
+			"parameter": {
+				"amount": {
+					"HYSubsriptionProductModel": "price_intValue",
+					"MBAConsumableProductModule": "price_intValue"
+				},
+				"product_id": {
+					"HYSubsriptionProductModel": "productId",
+					"MBAConsumableProductModule": "productId"
+				},
+				"receipt_digest": "",
+				"recharge_type": 3,
+				"currency_code": {
+					"MBASubscriptionProductModule": "currency_code",
+					"MBAConsumableProductModule": "currency_code"
+				},
+				"coin_num": {
+					"HYSubsriptionProductModel": "coinsNumber",
+					"MBAConsumableProductModule": "coinNumber"
+				},
+				"free_coupon_num": "",
+				"MCC": {
+					"MBAClient": "mcc"
+				}
+			}
+		},
+		"analyticTouchEventDiscoverClick": {
+			"event": "DiscoverClick"
+		},
+		"analyticTouchEventautoRoll": {
+			"event": "autoRoll"
+		},
+		"analyticTouchEventMeFeedbackClick": {
+			"event": "MeFeedbackClick"
+		},
+		"analyticTouchEventMeWalletTurnoffautounlock": {
+			"event": "MeWalletTurnoffautounlock"
+		},
+		"analyticTouchEventBookDetailsPageClickCover": {
+			"event": "BookDetailsPageClickCover"
+		},
+		"analyticTouchEventforgetpasswordresendmail": {
+			"event": "forgetpasswordresendmail"
+		},
+		"analyticTouchEventWriterHomepageFollow": {
+			"event": "WriterHomepageFollow"
+		},
+		"analyticTouchEventcreateaccountresendmail": {
+			"event": "createaccountresendmail"
+		},
+		"analyticTouchEventlisten": {
+			"event": "listen"
+		},
+		"analyticTouchEventReaderMoreTurnonautounlock": {
+			"event": "ReaderMoreTurnonautounlock"
+		},
+		"analyticTouchEventMeInboxClickRecommendedBook": {
+			"event": "MeInboxClickRecommendedBook"
+		},
+		"analyticTouchEventBackcolor1": {
+			"event": "Backcolor1"
+		},
+		"analyticDataSearchNovel:": {
+			"event": "SearchNovel",
+			"parameter": {
+				"search_word": {
+					"MBASearchViewDirector": {
+						"textField": "text"
+					}
+				},
+				"result_count": {
+					"MBASearchViewDirector": "resultCount"
+				},
+				"source": {
+					"MBASearchViewDirector": "searchSource"
+				},
+				"result_page": {
+					"MBASearchViewDirector": "page"
+				}
+			}
+		},
+		"analyticTouchEventMERedemptionCode": {
+			"event": "MERedemptionCode"
+		},
+		"analyticDataaddBookshelf_for_newuser:": {
+			"event": "addBookshelf_for_newuser",
+			"parameter": {
+				"book_ids": "",
+				"qid": {
+					"MBAUserModule": "userId"
+				},
+				"add_book_num": ""
+			}
+		},
+		"analyticTouchEventbookDetailCatalog": {
+			"event": "bookDetailCatalog"
+		},
+		"analyticDatainvite_event:": {
+			"event": "invite_event",
+			"parameter": {
+				"invite_source": 1,
+				"invitor_qid": {
+					"MBAUserModule": "qid"
+				},
+				"is_new_user": ""
+			}
+		},
+		"analyticTouchEventMeFollowingUnfollow": {
+			"event": "MeFollowingUnfollow"
+		},
+		"analyticTouchEventbookcityCalendarClick": {
+			"event": "bookcityCalendarClick"
+		},
+		"analyticTouchEventforgetpasswordopenmail": {
+			"event": "forgetpasswordopenmail"
+		},
+		"analyticTouchEventLibraryViewed": {
+			"event": "LibraryViewed"
+		},
+		"analyticTouchEvent20chapters": {
+			"event": "20chapters"
+		},
+		"analyticTouchEventDiscoverSearch": {
+			"event": "DiscoverSearch"
+		},
+		"analyticTouchEventLibraryClassification": {
+			"event": "LibraryClassification"
+		},
+		"analyticTouchEventLibraryEditLibrary": {
+			"event": "LibraryEditLibrary"
+		},
+		"analyticTouchEventWriterHomepageNovelDetails": {
+			"event": "WriterHomepageNovelDetails"
+		},
+		"analyticTouchEventcalendarUnlock": {
+			"event": "calendarUnlock"
+		},
+		"analyticDatagetRechargeInfoError:": {
+			"event": "getRechargeInfoError",
+			"parameter": {
+				"error_content": "",
+				"error_msg": "",
+				"error_url": "",
+				"product_id": "",
+				"server_type": "",
+				"error_code": ""
+			}
+		},
+		"analyticDataclickJump:": {
+			"event": "clickJump",
+			"parameter": {
+				"jumpPosition": "",
+				"triggerPosition": "",
+				"jumpContent": ""
+			}
+		},
+		"analyticTouchEvent50chapters": {
+			"event": "50chapters"
+		},
+		"analyticTouchEventreaderDirectory": {
+			"event": "readerDirectory"
+		},
+		"analyticTouchEventMeWalletBonusReceived": {
+			"event": "MeWalletBonusReceived"
+		},
+		"analyticTouchEventforgetpasswordsendmail": {
+			"event": "forgetpasswordsendmail"
+		},
+		"analyticTouchEventlistenVoicemen": {
+			"event": "listenVoicemen"
+		},
+		"analyticDatafirstChargeActivity:": {
+			"event": "firstChargeActivity",
+			"parameter": {
+				"activity_type": 1,
+				"action_type": ""
+			}
+		},
+		"analyticTouchEventDiscoverviewall": {
+			"event": "Discoverviewall"
+		},
+		"analyticTouchEventcreatedaccountlogin": {
+			"event": "createdaccountlogin"
+		},
+		"analyticDataauthorClick:": {
+			"event": "authorClick",
+			"parameter": {
+				"author_name": {
+					"MBABookInfoModule": "authorName"
+				},
+				"book_id": {
+					"MBABookInfoModule": "bookId"
+				},
+				"book_name": {
+					"MBABookInfoModule": "bookName"
+				}
+			}
+		},
+		"analyticTouchEventFont3": {
+			"event": "Font3"
+		},
+		"analyticDatagenre_click:": {
+			"event": "genre_click",
+			"parameter": {
+				"entrancepage": ""
+			}
+		},
+		"analyticDataWebPageview:": {
+			"event": "webPageview",
+			"parameter": {
+				"$title": "",
+				"$url": ""
+			}
+		},
+		"analyticDataappleRechargeError:": {
+			"event": "appleRechargeError",
+			"parameter": {
+				"error_code": "",
+				"error_code_content": "",
+				"error_type": ""
+			}
+		},
+		"analyticTouchEventlistentiming90min": {
+			"event": "listentiming90min"
+		},
+		"analyticTouchEventpageSwitch1": {
+			"event": "pageSwitch1"
+		},
+		"analyticTouchEventLoginWithApple": {
+			"event": "loginWithApple"
+		},
+		"analyticTouchEventMeInboxClickMessageRedirection": {
+			"event": "MeInboxClickMessageRedirection"
+		},
+		"analyticTouchEventMeInboxReadMark": {
+			"event": "MeInboxReadMark"
+		},
+		"analyticTouchEventBackcolor2": {
+			"event": "Backcolor2"
+		},
+		"analyticTouchEventExitreader": {
+			"event": "Exitreader"
+		},
+		"analyticTouchEventMeViewedClick": {
+			"event": "MeViewedClick"
+		},
+		"analyticDatashare_invite_event:": {
+			"event": "share_invite_event",
+			"parameter": {
+				"share_invite_qid": "",
+				"share_invite_url": ""
+			}
+		},
+		"analyticTouchEventdayNightSwitch": {
+			"event": "dayNightSwitch"
+		},
+		"analyticTouchEventNovelDetailsTableofContents": {
+			"event": "NovelDetailsTableofContents"
+		},
+		"analyticTouchEventMeWalletClick": {
+			"event": "MeWalletClick"
+		},
+		"analyticTouchEventNetworkTipsn": {
+			"event": "NetworkTipsn"
+		},
+		"analyticTouchEventUnlockwithoutdownloading": {
+			"event": "Unlockwithoutdownloading"
+		},
+		"analyticDataMessageClick:": {
+			"event": "messageClick",
+			"parameter": {
+				"jump_type": {
+					"MBAInboxMessageModule": "jumpType"
+				},
+				"message_content": {
+					"MBAInboxMessageModule": "messageContent"
+				},
+				"message_type": {
+					"MBAInboxMessageModule": "sender"
+				}
+			}
+		},
+		"analyticTouchEventSearchTrendingSearches": {
+			"event": "SearchTrendingSearches"
+		},
+		"analyticTouchEventLibraryDownloads": {
+			"event": "LibraryDownloads"
+		},
+		"analyticDatarecommendEvent:": {
+			"event": "recommendEvent",
+			"parameter": {
+				"content_type": "",
+				"model_index": "",
+				"content": "",
+				"model_type": "",
+				"action_type": ""
+			}
+		},
+		"analyticTouchEventMeInboxClickTextMessage": {
+			"event": "MeInboxClickTextMessage"
+		},
+		"analyticTouchEventLibraryEarnRewards": {
+			"event": "LibraryEarnRewards"
+		},
+		"analyticTouchEventlistentiming30min": {
+			"event": "listentiming30min"
+		},
+		"analyticTouchEventtextSizebig": {
+			"event": "textSize-big"
+		},
+		"analyticTouchEventstartGame": {
+			"event": "startGame"
+		},
+		"analyticTouchEventlistentimingno": {
+			"event": "listentimingno"
+		},
+		"analyticDatafollowauthor_event:": {
+			"event": "followauthor_event",
+			"parameter": {
+				"author_by_name": {
+					"MBAWriterInfoModule": "nickname"
+				}
+			}
+		},
+		"analyticTouchEventlistenspeed": {
+			"event": "listenspeed"
+		},
+		"analyticTouchEventReaderMoreTurnoffautounlock": {
+			"event": "ReaderMoreTurnoffautounlock"
+		},
+		"analyticTouchEventSearchSearchHistory": {
+			"event": "SearchSearchHistory"
+		},
+		"analyticTouchEventmyCenter2Login": {
+			"event": "myCenter2Login"
+		},
+		"analyticTouchEventNovelDetailsTag": {
+			"event": "NovelDetailsTag"
+		},
+		"analyticTouchEventreaderMoreShare": {
+			"event": "readerMoreShare"
+		},
+		"analyticTouchEventbookDetailAddShelf": {
+			"event": "bookDetailAddShelf"
+		},
+		"analyticTouchEventcontinueGame": {
+			"event": "continueGame"
+		},
+		"analyticTouchEventDownloadPurchaseall": {
+			"event": "DownloadPurchaseall"
+		},
+		"analyticTouchEventMeTobeaDreameWriter": {
+			"event": "MeTobeaDreameWriter"
+		},
+		"analyticTouchEventcreateaccountopenmail": {
+			"event": "createaccountopenmail"
+		},
+		"analyticTouchEventlistenVoicewomen": {
+			"event": "listenVoicewomen"
+		},
+		"analyticTouchEventtextSizesmall": {
+			"event": "textSize-small"
+		},
+		"analyticDatadialogEvent:": {
+			"event": "dialogEvent",
+			"parameter": {
+				"content": {
+					"MBAActivityModule": "activityId"
+				},
+				"button_type": "",
+				"type": "",
+				"action_type": ""
+			}
+		},
+		"analyticDataclickBookList:": {
+			"event": "clickBookList",
+			"parameter": {
+				"booklist_title": {
+					"MBABookReadingListModule": "topic"
+				},
+				"booklist_id": "",
+				"book_id": {
+					"MBABookInfoModule": "bookId"
+				},
+				"book_name": {
+					"MBABookInfoModule": "bookName"
+				}
+			}
+		},
+		"analyticTouchEventReaderThoughtsofAuthorWriterHomepage": {
+			"event": "ReaderThoughtsofAuthorWriterHomepage"
+		},
+		"analyticTouchEventBackcolor3": {
+			"event": "Backcolor3"
+		},
+		"analyticTouchEventMeWalletTurnonautounlock": {
+			"event": "MeWalletTurnonautounlock"
+		},
+		"analyticDatarecommendShow:": {
+			"event": "recommendShow",
+			"parameter": {
+				"recommend_show_model": "",
+				"recommend_show_seat": "",
+				"book_id": "",
+				"book_ids": ""
+			}
+		},
+		"analyticTouchEventReadPurchaseall": {
+			"event": "ReadPurchaseall"
+		},
+		"analyticDataReadMachine:": {
+			"event": "readMachine",
+			"parameter": {
+				"machine6": {
+					"MBAReaderConfig": "fontSize_intValue"
+				},
+				"content_category": "",
+				"machine1": {
+					"MBAReaderConfig": "fontType_intValue"
+				},
+				"book_id": {
+					"MBABookInfoModule": "bookId"
+				},
+				"operation_mode": "",
+				"machine15": {
+					"MBAReaderConfig": "customBrightness_intValue"
+				},
+				"game_progress": "",
+				"book_name": {
+					"MBABookInfoModule": "bookName"
+				},
+				"machine2": {
+					"MBAReaderConfig": "theme_intValue"
+				}
+			}
+		},
+		"analyticTouchEventMeDownloadsClick": {
+			"event": "MeDownloadsClick"
+		},
+		"analyticTouchEventNetworkTipsy": {
+			"event": "NetworkTipsy"
+		},
+		"analyticTouchEventSearchassociationbook": {
+			"event": "Searchassociationbook"
+		},
+		"analyticDatagenreFiltrateEvent:": {
+			"event": "genreFiltrateEvent",
+			"parameter": {
+				"book_status_id": {
+					"MBABookStatusModule": "statusId_intValue"
+				},
+				"book_sub_cat_id": {
+					"MBATagModule": "tagId_intValue"
+				},
+				"book_sub_cat_name": {
+					"MBATagModule": "tagName"
+				},
+				"book_status_name": {
+					"MBABookStatusModule": "statusName"
+				}
+			}
+		},
+		"analyticTouchEventMeInboxClick": {
+			"event": "MeInboxClick"
+		},
+		"analyticDataReadNovels:": {
+			"event": "readNovels",
+			"parameter": {
+				"discount": {
+					"MBAChapterModule": "chapterDiscount"
+				},
+				"jump_detail": "",
+				"buy_type": "",
+				"chapter_pay_type": "",
+				"coin_num": {
+					"MBAChapterModule": "contentPrice_intValue"
+				},
+				"read_mode": "",
+				"author_by_name": {
+					"MBABookInfoModule": "authorName"
+				},
+				"chapter_id": {
+					"MBAChapterModule": "chapterId"
+				},
+				"chapter_name": {
+					"MBAChapterModule": "chapterTitle"
+				},
+				"book_first_cat": {
+					"MBABookInfoModule": "catId_intValue"
+				},
+				"book_id": {
+					"MBABookInfoModule": "bookId"
+				},
+				"is_today_update": "",
+				"chapter_index": {
+					"MBAChapterModule": "position"
+				},
+				"auto_pay": "",
+				"book_name": {
+					"MBABookInfoModule": "bookName"
+				},
+				"book_pay_type": "",
+				"coupon_remain": {
+					"MBAUserBalanceModule": "couponNumber"
+				},
+				"coin_remain": {
+					"MBAUserBalanceModule": "coinNumber"
+				}
+			}
+		},
+		"analyticTouchEventMeFollowingWriterHomepage": {
+			"event": "MeFollowingWriterHomepage"
+		},
+		"analyticTouchEventMeInboxClickMessage": {
+			"event": "MeInboxClickMessage"
+		},
+		"analyticTouchEventMeWalletTransactionHistory": {
+			"event": "MeWalletTransactionHistory"
+		},
+		"analyticDataTagClick:": {
+			"event": "tagClick",
+			"parameter": {
+				"$referrer": {
+					"MBACaptureTool": "referrer"
+				},
+				"tag_name": {
+					"MBATagModule": "tagName"
+				},
+				"tag_show_seat": ""
+			}
+		},
+		"analyticTouchEventMeInboxClickRecommendedText": {
+			"event": "MeInboxClickRecommendedText"
+		},
+		"analyticDataclickRecommend:": {
+			"event": "clickRecommend",
+			"parameter": {
+				"model_type": "",
+				"recommend_show_seat": "",
+				"model_element_id": "",
+				"book_id": {
+					"CYBookModule": "bookId",
+					"MBABookInfoModule": "bookId"
+				},
+				"model_content": "",
+				"book_name": {
+					"CYBookModule": "bookName",
+					"MBABookInfoModule": "bookName"
+				},
+				"current_read_book_id": {
+					"MBABookDetailedViewDirector": {
+						"bookModel": "bookId"
+					},
+					"MBABookReader": {
+						"bookInfo": "bookId"
+					}
+				}
+			}
+		},
+		"analyticTouchEventSettingNotificationsCloseLibraryUpdates": {
+			"event": "SettingNotificationsCloseLibraryUpdates"
+		},
+		"analyticTouchEventspace_big": {
+			"event": "space_big"
+		},
+		"analyticTouchEventExitReaderAddLibrary": {
+			"event": "ExitReaderAddLibrary"
+		},
+		"analyticTouchEventtaskBookshelf": {
+			"event": "taskBookshelf"
+		},
+		"analyticTouchEventMeFollowingClick": {
+			"event": "MeFollowingClick"
+		},
+		"analyticDatasubmitRecharge:": {
+			"event": "submitRecharge",
+			"parameter": {
+				"amount": {
+					"HYSubsriptionProductModel": "price_intValue",
+					"MBAConsumableProductModule": "price_intValue"
+				},
+				"is_bundle": "",
+				"product_id": {
+					"HYSubsriptionProductModel": "productId",
+					"MBAConsumableProductModule": "productId"
+				},
+				"recharge_type": 3,
+				"currency_code": {
+					"HYSubsriptionProductModel": "currencySymbol",
+					"MBAConsumableProductModule": "currency_code"
+				},
+				"coin_num": {
+					"HYSubsriptionProductModel": "coinsNumber",
+					"MBAConsumableProductModule": "coinNumber"
+				},
+				"recharge_gateway": 0,
+				"MCC": {
+					"MBAClient": "mcc"
+				}
+			}
+		},
+		"analyticTouchEventDiscoverdownrefresh": {
+			"event": "Discoverdownrefresh"
+		},
+		"analyticTouchEventlistentiming15min": {
+			"event": "listentiming15min"
+		},
+		"analyticDatalistenOff:": {
+			"event": "listenOff",
+			"parameter": {
+				"close_type": {
+					"MBAReaderListenTool": "stopReason"
+				},
+				"listen_time": "",
+				"chapter_index": {
+					"MBAChapterModule": "chapterId"
+				},
+				"qid": {
+					"MBAUserModule": "userId"
+				},
+				"book_id": {
+					"MBABookInfoModule": "bookId"
+				},
+				"book_name": {
+					"MBABookInfoModule": "bookName"
+				}
+			}
+		},
+		"analyticTouchEventbookshelfUnfollowClick": {
+			"event": "bookshelfUnfollowClick"
+		},
+		"analyticTouchEventreaderStartUnlock": {
+			"event": "readerStartUnlock"
+		},
+		"analyticDataClickAd:": {
+			"event": "clickAd",
+			"parameter": {
+				"ad_content_type": {
+					"MBABannerModule": "type"
+				},
+				"ad_content": {
+					"MBABannerModule": "title"
+				},
+				"ad_model_detail_seat": 101,
+				"ad_target_id": {
+					"MBABannerModule": "trackTargetId"
+				},
+				"ad_content_id": {
+					"MBABannerModule": "identifier"
+				},
+				"ad_model_type": 1
+			}
+		},
+		"analyticDatadirectedRecommend:": {
+			"event": "directedRecommend",
+			"parameter": {
+				"book_Oid": {
+					"MBABookInfoModule": "bookId"
+				},
+				"book_ids": "",
+				"qid": {
+					"MBAUserModule": "userId"
+				},
+				"recommend_show_seat": "",
+				"book_id": "",
+				"recommend_show_model": "",
+				"show_type": "",
+				"book_name": {
+					"MBABookInfoModule": "bookName"
+				}
+			}
+		},
+		"analyticTouchEventMEClick": {
+			"event": "MEClick"
+		},
+		"analyticDataAppReceivedNotification:": {
+			"event": "AppReceivedNotification",
+			"parameter": {
+				"msg_id": "",
+				"msg_title": ""
+			}
+		},
+		"analyticTouchEventDiscoverinbox": {
+			"event": "Discoverinbox"
+		},
+		"analyticTouchEventreaderSetting": {
+			"event": "readerSetting"
+		},
+		"analyticTouchEventlistentiming60min": {
+			"event": "listentiming60min"
+		},
+		"analyticTouchEventpageSwitch2": {
+			"event": "pageSwitch2"
+		},
+		"analyticTouchEventSettingClick": {
+			"event": "SettingClick"
+		},
+		"analyticTouchEventlight_setup": {
+			"event": "light_setup"
+		},
+		"analyticTouchEventBookDetailsPageSlidecover": {
+			"event": "BookDetailsPageSlidecover"
+		},
+		"analyticTouchEventLibrarySearch": {
+			"event": "LibrarySearch"
+		},
+		"analyticTouchEventreaderUnlockNow": {
+			"event": "readerUnlockNow"
+		},
+		"analyticDataShare:": {
+			"event": "share",
+			"parameter": {
+				"book_id": {
+					"MBAShareModule": "bookId"
+				},
+				"share_content": {
+					"MBAShareModule": "bookName"
+				},
+				"share_channel": {
+					"MBAShareModule": "channelType"
+				}
+			}
+		},
+		"analyticTouchEventMeRecharge": {
+			"event": "MeRecharge"
+		},
+		"analyticDatarechargeError:": {
+			"event": "rechargeError",
+			"parameter": {
+				"recharge_type": {
+					"MBASensorsEventModel": "rechargeType"
+				},
+				"is_cancel": {
+					"MBASensorsEventModel": "isCancel"
+				},
+				"error_code": {
+					"MBASensorsEventModel": "errorCode"
+				},
+				"number_book_of_bookshelf": {
+					"MBASensorsEventModel": "numberBookOfBookshelf"
+				},
+				"error_type": {
+					"MBASensorsEventModel": "errorType"
+				},
+				"error_code_content": {
+					"MBASensorsEventModel": "errorDesc"
+				},
+				"receipt_digest": {
+					"MBASensorsEventModel": "receiptDigest"
+				}
+			}
+		},
+		"analyticDataclickNovelsOfBookshelf:": {
+			"event": "clickNovelsOfBookshelf",
+			"parameter": {
+				"book_first_cat": {
+					"MBABookInfoModule": "catId"
+				},
+				"book_pay_type": "",
+				"book_status": {
+					"MBABookInfoModule": "serialStatus"
+				},
+				"author_by_name": {
+					"MBABookInfoModule": "authorName"
+				},
+				"book_id": {
+					"MBABookInfoModule": "bookId"
+				},
+				"book_name": {
+					"MBABookInfoModule": "bookName"
+				}
+			}
+		},
+		"analyticDatacomment:": {
+			"event": "comment",
+			"parameter": {
+				"chapter_id": {
+					"MBACommentModule": "chapterId",
+					"MBAChapterModule": "chapterId"
+				},
+				"comment_id": {
+					"MBACommentModule": "commentId"
+				},
+				"word_count": "",
+				"book_id": {
+					"MBAChapterCommentReplyViewDirector": "bookId",
+					"MBACommentModule": "bookId",
+					"MBABookInfoModule": "bookId",
+					"MBAPopularChapterCommentViewDirector": "bookId"
+				},
+				"chapter_name": {
+					"MBACommentModule": "chapterName",
+					"MBAChapterModule": "chapterTitle"
+				},
+				"comment_type": "",
+				"book_name": {
+					"MBAPopularChapterCommentViewDirector": "bookName",
+					"MBABookInfoModule": "bookName",
+					"MBAChapterCommentReplyViewDirector": "bookName"
+				}
+			}
+		},
+		"analyticDatalogout": {
+			"event": "logout"
+		},
+		"analyticTouchEventMeInboxNotification": {
+			"event": "MeInboxNotification"
+		}
+	},
+	"TABLEVIEW": {
+		"e.g": {
+			"event": "clickEvent",
+			"parameter": {}
+		}
+	},
+	"COLLECTIONVIEW": {
+		"e.g": {
+			"event": "clickEvent",
+			"parameter": {}
+		}
+	}
+}

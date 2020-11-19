@@ -1,0 +1,11 @@
+framework module KLineXP {
+  umbrella header "KLineXP.h"
+
+  export *
+  module * { export * }
+}
+
+module KLineXP.Swift {
+    header "KLineXP-Swift.h"
+    requires objc
+}

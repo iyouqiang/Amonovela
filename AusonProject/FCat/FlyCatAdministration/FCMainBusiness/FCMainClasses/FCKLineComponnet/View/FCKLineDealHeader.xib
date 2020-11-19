@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FCKLineDealHeader" customModule="FlyCatAdministration" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcW-gs-mZN">
+                    <rect key="frame" x="15" y="0.0" width="25" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格(--)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95I-Y6-i6a">
+                    <rect key="frame" x="206.5" y="0.0" width="45" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量(--)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsh-CZ-swb">
+                    <rect key="frame" x="315" y="0.0" width="45" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="方向" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m5-6w-x5U">
+                    <rect key="frame" x="112.5" y="0.0" width="25" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.098039215690000001" green="0.1058823529" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2m5-6w-x5U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4QX-xW-Era"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="95I-Y6-i6a" secondAttribute="bottom" id="8zI-8w-Glv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="KcW-gs-mZN" secondAttribute="bottom" id="9gL-jy-3qC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Hsh-CZ-swb" secondAttribute="bottom" id="AwX-72-Cuy"/>
+                <constraint firstAttribute="trailing" secondItem="Hsh-CZ-swb" secondAttribute="trailing" constant="15" id="YPD-B6-Xa0"/>
+                <constraint firstItem="2m5-6w-x5U" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="0.6" id="YfW-VR-duS"/>
+                <constraint firstItem="Hsh-CZ-swb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fr5-Li-ENv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2m5-6w-x5U" secondAttribute="bottom" id="gbS-L7-zL1"/>
+                <constraint firstItem="KcW-gs-mZN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="osg-nZ-RLD"/>
+                <constraint firstItem="KcW-gs-mZN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vF1-Ql-DRy"/>
+                <constraint firstItem="95I-Y6-i6a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x3c-MT-hNw"/>
+                <constraint firstItem="95I-Y6-i6a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.1" id="ypn-SZ-WC7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="accountLab" destination="Hsh-CZ-swb" id="kbX-Iu-Vr2"/>
+                <outlet property="priceLab" destination="95I-Y6-i6a" id="uvN-b0-YKT"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="84"/>
+        </view>
+    </objects>
+</document>

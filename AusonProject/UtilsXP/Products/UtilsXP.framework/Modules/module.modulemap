@@ -1,0 +1,11 @@
+framework module UtilsXP {
+  umbrella header "UtilsXP.h"
+
+  export *
+  module * { export * }
+}
+
+module UtilsXP.Swift {
+    header "UtilsXP-Swift.h"
+    requires objc
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HOSTURL_SPOT</key>
+	<string>https://spot.chex.pro</string>
+	<key>HOSTURL_SWAP</key>
+	<string>https://swap.chex.pro</string>
+	<key>HOSTURL_API</key>
+	<string>https://api.chex.pro</string>
+	<key>HOSTURL_DOMAIN</key>
+	<string>https://app-api.chex.pro</string>
+	<key>HOSTURL_INVITE</key>
+	<string>https://www.chex.pro/invite</string>
+	<key>HOSTURL_KYC</key>
+	<string>https://www.chex.pro/account/kyc</string>
+	<key>HOSTURL_ASSETS</key>
+	<string>https://c2c.chex.pro/assets</string>
+	<key>HOSTURL_TRADE</key>
+	<string>https://c2c.chex.pro/easy-trade</string>
+	<key>HOSTURL_MASSETS</key>
+	<string>https://c2c.chex.pro/assets</string>
+	<key>HOSTURL_EASYTRADE</key>
+	<string>https://c2c.chex.pro/easy-trade</string>
+	<key>HOSTURL_NEWGUIDE</key>
+	<string>https://supportchex.zendesk.com/hc/zh-cn/categories/900000201863-%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97</string>
+	<key>HOSTURL_CPEEXCHANGE</key>
+	<string>https://supportchex.zendesk.com/hc/zh-cn/articles/900003238606-%E5%85%B3%E4%BA%8EChampagne-Exchange</string>
+	<key>HOSTURL_TRADESKILL</key>
+	<string>https://supportchex.zendesk.com/hc/zh-cn/sections/900000476043-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%BC%95</string>
+</dict>
+</plist>
