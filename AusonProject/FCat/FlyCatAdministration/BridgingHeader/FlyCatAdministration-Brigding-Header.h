@@ -67,6 +67,7 @@
 #import "FCShareTool.h"
 #import "NSObject+PCRequestExtension.h"
 #import "PCWKWebHybridController.h"
+#import "FCInputBoxTextFieldView.h"
 
 #endif /* FlyCatAdministration_Brigding_Header_h */
 

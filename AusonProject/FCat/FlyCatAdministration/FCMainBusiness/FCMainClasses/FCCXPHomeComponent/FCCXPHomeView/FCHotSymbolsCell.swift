@@ -10,6 +10,7 @@ import UIKit
 
 class FCHotSymbolsCell: UITableViewCell {
 
+    @IBOutlet weak var hotBgView: UIView!
     @IBOutlet weak var tradeSymbolL:UILabel!
     @IBOutlet weak var tradeNumL: UILabel!
     @IBOutlet weak var tradeLatesPriceL: UILabel!
@@ -19,15 +20,22 @@ class FCHotSymbolsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         tradeBtn.layer.cornerRadius = 5.0
+        tradeNumL.font = UIFont(_customTypeSize: 13)
+        tradeLatesPriceL.font = UIFont(_customTypeSize: 15)
+        trademeasureL.font = UIFont(_customTypeSize: 13)
+        tradeBtn.titleLabel?.font = UIFont(_customTypeSize: 14)
         tradeNumL.adjustsFontSizeToFitWidth = true
         tradeLatesPriceL.adjustsFontSizeToFitWidth = true
         trademeasureL.adjustsFontSizeToFitWidth = true
         self.backgroundColor = COLOR_CellBgColor
         self.contentView.backgroundColor = COLOR_CellBgColor
+        self.hotBgView.layer.cornerRadius = 8;
+        self.hotBgView.clipsToBounds = true
+        self.hotBgView.backgroundColor = COLOR_HexColor(0x1D2439)
     }
     
     var symbolModel:FCHomeSymbolsModel? {
-        
+         
         didSet{
             
             guard let symbolModel = symbolModel else {
@@ -58,14 +66,14 @@ class FCHotSymbolsCell: UITableViewCell {
             let attrStr = NSMutableAttributedString.init(string: tradeSymbolL.text ?? "")
     
             // 富文本修改位置大小
-            attrStr.addAttribute(NSAttributedString.Key.foregroundColor, value:COLOR_HexColor(0xdadada), range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
-            attrStr.addAttribute(NSAttributedString.Key.font, value:UIFont.systemFont(ofSize: 16), range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
+            attrStr.addAttribute(NSAttributedString.Key.foregroundColor, value:UIColor.white, range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
+            attrStr.addAttribute(NSAttributedString.Key.font, value:UIFont(_customTypeSize: 16), range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
             tradeSymbolL.attributedText = attrStr
             
             tradeNumL.text = "24H量 \(symbolModel.tradingAmount ?? "")"
-            tradeLatesPriceL.text = symbolModel.latestPrice
+            tradeLatesPriceL.text = "$ \(symbolModel.latestPrice ?? "")"
+            tradeLatesPriceL.setAttributeColor(COLOR_MinorTextColor, range: NSMakeRange(0, 1))
             trademeasureL.text = "\(symbolModel.fiatPrice ?? "")\(symbolModel.fiatCurrency ?? "")"
-            
             
             if (symbolModel.changePercent! as NSString).floatValue >= 0 {
                 tradeBtn.setTitle("+\(symbolModel.changePercent ?? "--")%", for: .normal)
@@ -76,12 +84,6 @@ class FCHotSymbolsCell: UITableViewCell {
                 tradeBtn.backgroundColor = COLOR_BGFailColor
                 tradeBtn.setTitleColor(COLOR_FailColor, for: .normal)
             }
-            
-            #if BS_TARGETCXP
-          
-            tradeBtn.setTitleColor(.white, for: .normal)
-            
-            #endif
         }
     }
 

@@ -42,29 +42,33 @@ class FCPasswordModifyView: UIView {
     
     private func loadSubviews() {
         
-        let titleLab = fc_labelInit(text: "修改密码", textColor: COLOR_White, textFont: 18, bgColor: COLOR_Clear)
+        //let titleLab = fc_labelInit(text: "修改密码", textColor: UIColor.white, textFont: 18, bgColor: UIColor.clear)
         self.oldPwdComponent = FCPasswordComponent.init(placeholder: "请输入旧密码", leftImg: "")
+        self.oldPwdComponent?.isHighlight = true
         self.oldPwdComponent?.regularExpression = "[0-9A-Za-z]{0,16}$"
         self.newPwdComponent = FCPasswordComponent.init(placeholder: "请输入新密码", leftImg: "")
+        self.newPwdComponent?.isHighlight = true
         self.validPwdcomponent = FCPasswordComponent.init(placeholder: "请确认新密码",  leftImg: "")
-        let bottomLab =  fc_labelInit(text: "6-16位含数字和字母组合，并与原密码不同", textColor: COLOR_FooterTextColor, textFont: 15, bgColor: COLOR_Clear)
+        self.validPwdcomponent?.isHighlight = true
+        let bottomLab =  fc_labelInit(text: "8-16位含数字和字母组合，并与原密码不同", textColor: UIColor.white, textFont: 15, bgColor: UIColor.clear)
         self.confirmBtn = FCThemeButton.init(title: "确定", frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 50) , cornerRadius: 4)
         
-        self.addSubview(titleLab)
+        //self.addSubview(titleLab)
         self.addSubview(self.oldPwdComponent!)
         self.addSubview(self.newPwdComponent!)
         self.addSubview(self.validPwdcomponent!)
         self.addSubview(bottomLab)
         self.addSubview(self.confirmBtn!)
         
-        
+        /**
         titleLab.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(50 + 64)
             make.left.equalToSuperview()
         }
+         */
         
         self.oldPwdComponent?.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLab.snp.bottom).offset(40)
+            make.top.equalTo(kNAVIGATIONHEIGHT + 40)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalTo(40)
@@ -85,18 +89,17 @@ class FCPasswordModifyView: UIView {
         }
         
         bottomLab.snp.makeConstraints { (make) in
-            make.top.equalTo(self.validPwdcomponent!.snp.bottom).offset(20)
+            make.top.equalTo(self.confirmBtn!.snp.bottom).offset(20)
             make.left.equalToSuperview()
             make.right.lessThanOrEqualToSuperview()
         }
         
         self.confirmBtn?.snp.makeConstraints { (make) in
-            make.top.equalTo(bottomLab.snp.bottom).offset(20)
+            make.top.equalTo(self.validPwdcomponent!.snp.bottom).offset(45)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalTo(50)
         }
-        
     }
     
     private func handleRxSignals() {
@@ -114,21 +117,26 @@ class FCPasswordModifyView: UIView {
         self.callback?(self.oldPwdComponent?.textFiled.text ?? "", self.newPwdComponent?.textFiled.text ?? "")
     }
     
-    
     private func isParamsLegal () -> Bool{
-        if self.oldPwdComponent?.textFiled.text?.count ?? 0 < 6 {
+        
+        if self.oldPwdComponent?.textFiled.text?.count ?? 0 < 8 {
             self.makeToast("旧密码有误", position: .top)
             return false
         } else if self.oldPwdComponent?.textFiled.text == self.newPwdComponent?.textFiled.text {
             self.makeToast("不能与原密码相同", position: .top)
             return false
         }
-        else if self.newPwdComponent?.textFiled.text?.count ?? 0 < 6 {
+        else if self.newPwdComponent?.textFiled.text?.count ?? 0 < 8 {
             
             self.makeToast("新密码有误", position: .top)
             return false
         } else if self.newPwdComponent?.textFiled.text != self.validPwdcomponent?.textFiled.text {
             self.makeToast("两次输入的密码不一致", position: .top)
+            return false
+        }
+        
+        if ((newPwdComponent?.textFiled.text ?? "") as! NSString).isValidatePassWordLegal() == false {
+            self.makeToast("设置密码不规范", position: .top)
             return false
         }
         

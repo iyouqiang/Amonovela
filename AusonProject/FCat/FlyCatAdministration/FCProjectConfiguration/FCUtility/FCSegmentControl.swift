@@ -27,7 +27,6 @@ class FCSegmentControl: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func setSelected(_ index: Int) {
         
         if index < self.items.count {
@@ -36,10 +35,9 @@ class FCSegmentControl: UIView {
             
             if isMarket {
                 
-                selectedBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+                selectedBtn?.titleLabel?.font = UIFont(_customTypeSize: 22)
             }
 
-            
             if self.underLine != nil {
                 
                 self.underLine.snp.remakeConstraints { (make) in
@@ -48,7 +46,6 @@ class FCSegmentControl: UIView {
                     make.left.equalTo((selectedBtn?.titleLabel?.snp.left)!)
                     make.right.equalTo((selectedBtn?.titleLabel?.snp.right)!)
                 }
-                
             }
             
             for i in 0..<items.count {
@@ -58,7 +55,7 @@ class FCSegmentControl: UIView {
                 
                 if isMarket && index != i {
                     
-                    button?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                    button?.titleLabel?.font = UIFont(_customTypeSize: 15)
                 }
             }
         }
@@ -97,10 +94,10 @@ class FCSegmentControl: UIView {
                     make.right.lessThanOrEqualToSuperview()
                 }
                 
-                //                if (lastView != nil) {
+                // if (lastView != nil) {
                 //
-                //                    make.width.equalTo(lastView)
-                //                }
+                //     make.width.equalTo(lastView)
+                //  }
             }
             
             lastView = button
@@ -110,8 +107,11 @@ class FCSegmentControl: UIView {
             
             self.underLine = fc_UIViewInit(bgColor: tintColor)
             if isMarket {
-                self.underLine.backgroundColor = COLOR_ThemeBtnEndColor
+               
             }
+            
+            self.underLine.backgroundColor = COLOR_MainThemeColor
+            
             self.addSubview(self.underLine)
             
             let firstBtn = self.items[0] as? UIButton
@@ -122,13 +122,11 @@ class FCSegmentControl: UIView {
                 make.left.equalTo((firstBtn?.titleLabel?.snp.left)!)
                 make.right.equalTo((firstBtn?.titleLabel?.snp.right)!)
             }
-            
         }
         
         //默认选中
         setSelected(0)
     }
-    
     
     func setFixedWidth(titles: [String], fontSize: CGFloat, normalColor: UIColor, tintColor: UIColor, showUnderLine: Bool) {
         
@@ -166,6 +164,7 @@ class FCSegmentControl: UIView {
             
             self.underLine = fc_UIViewInit(bgColor: tintColor)
             self.addSubview(self.underLine)
+            self.underLine.backgroundColor = COLOR_MainThemeColor
             
             let firstBtn = self.items[0] as? UIButton
             
@@ -175,15 +174,11 @@ class FCSegmentControl: UIView {
                 make.left.equalTo((firstBtn?.titleLabel?.snp.left)!)
                 make.right.equalTo((firstBtn?.titleLabel?.snp.right)!)
             }
-            
         }
         
         //默认选中
         setSelected(0)
     }
-    
-    
-    
     
     @objc private func itemClicked(sender: UIButton) {
         

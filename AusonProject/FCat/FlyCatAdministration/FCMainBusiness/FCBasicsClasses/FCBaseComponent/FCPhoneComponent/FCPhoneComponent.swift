@@ -29,9 +29,12 @@ class FCPhoneComponent: UIView, UITextFieldDelegate {
     var countryList: FCountryCodeModel!
     let disposeBag = DisposeBag()
     var textFieldDidBeginEditingBlock:(() -> Void)?
-    
+    var bottomLine: UIView!
     var coutryCode: String = ""
     var phone: String = ""
+    var topTitleL: UILabel!
+    var topRegionL: UILabel!
+    var isHighlight = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,23 +48,35 @@ class FCPhoneComponent: UIView, UITextFieldDelegate {
     
     private func loadSubviews() {
         
-        self.phoneTxd = fc_textfiledInit(placeholder: "请输入手机号", holderColor: COLOR_MinorTextColor, textColor: COLOR_White, fontSize: 15, borderStyle: UITextField.BorderStyle.none)
-        // self.phoneTxd.
+        self.phoneTxd = fc_textfiledInit(placeholder: "请输入手机号", holderColor: COLOR_MinorTextColor, textColor: UIColor.white, fontSize: 15, borderStyle: UITextField.BorderStyle.none)
         self.phoneTxd.keyboardType = .phonePad
-        let leftView = UIImageView.init(image: UIImage(named: "mine_phone"))
-        self.phoneTxd.leftView = leftView
+        //let leftView = UIImageView.init(image: UIImage(named: "mine_phone"))
+        //self.phoneTxd.leftView = leftView
         self.phoneTxd.leftViewMode = .always
         setupRightView()
-        self.phoneTxd.rightView = rightView
+        self.phoneTxd.leftView = rightView
         self.phoneTxd.rightViewMode = .always
         self.phoneTxd.clearButtonMode = .whileEditing
         self.phoneTxd.delegate = self
+        self.phoneTxd.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
+        bottomLine = UIView.init(frame: .zero)
+        bottomLine.backgroundColor = COLOR_LineColor
         
-        let bottomLine = UIView.init(frame: .zero)
-        bottomLine.backgroundColor = COLOR_SeperateColor
-        
+        topTitleL = UILabel()
+        topTitleL.isHidden = true
+        topTitleL.textColor = COLOR_MinorTextColor
+        topTitleL.textAlignment = .left
+        topTitleL.font = self.phoneTxd.font
+        topTitleL.backgroundColor = .clear
+        topTitleL.text = phoneTxd.placeholder;
+        self.addSubview(topTitleL)
         self.addSubview(self.phoneTxd)
         self.addSubview(bottomLine)
+        
+        topTitleL.snp.makeConstraints { (make) in
+            make.left.equalTo(50)
+            make.bottom.equalTo(0)
+        }
         
         self.phoneTxd.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -83,39 +98,82 @@ class FCPhoneComponent: UIView, UITextFieldDelegate {
     
     private func setupRightView () {
         
+        topRegionL = UILabel()
+        topRegionL.textColor = COLOR_MinorTextColor
+        topRegionL.textAlignment = .left
+        topRegionL.font = self.phoneTxd.font
+        topRegionL.backgroundColor = .clear
+        topRegionL.text = "地区"
+        self.addSubview(topRegionL)
+        
         self.coutryCode = self.countryList.defaultCountryCode?.code ?? ""
-        let rightBtn: UIButton = fc_buttonInit(imgName: nil, title: self.countryList.defaultCountryCode?.code, fontSize: 15, titleColor: COLOR_White, bgColor: COLOR_BGColor)
-          rightBtn.contentHorizontalAlignment = .right
+        let rightBtn: UIButton = fc_buttonInit(imgName: "arrow_down", title: self.countryList.defaultCountryCode?.code, fontSize: 15, titleColor: UIColor.white, bgColor: COLOR_BGColor)
+          rightBtn.contentHorizontalAlignment = .left
+          rightBtn.semanticContentAttribute = .forceRightToLeft
           rightBtn.rx.tap.subscribe { (onNext) in
              self.dropDown?.show()
           }.disposed(by: disposeBag)
         self.rightBtn = rightBtn
-          
-        let imgBtn = UIButton(type: .custom)
-        imgBtn.setImage(UIImage(named: "arrow_down"), for: .normal)
-        imgBtn.rx.tap.subscribe {  (onNext) in
-           self.dropDown?.show()
-        }.disposed(by: disposeBag)
-        self.imgBtn = imgBtn
         
-        self.rightView = UIView.init()
+//        let imgBtn = UIButton(type: .custom)
+//        imgBtn.setImage(UIImage(named: ""), for: .normal)
+//        imgBtn.rx.tap.subscribe {  (onNext) in
+//           self.dropDown?.show()
+//        }.disposed(by: disposeBag)
+//        self.imgBtn = imgBtn
+        
+        self.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 44))
         self.rightView.addSubview(rightBtn)
-        self.rightView.addSubview(imgBtn)
+        //self.rightView.addSubview(imgBtn)
         
-        rightBtn.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.left.equalToSuperview()
-            make.height.equalToSuperview()
-            make.width.equalTo(60)
-            make.bottom.equalToSuperview()
+        topRegionL.snp_makeConstraints { (make) in
+            make.left.equalTo(0)
+            make.bottom.equalTo(-40)
         }
         
-        imgBtn.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.right.equalToSuperview()
-            make.left.equalTo(rightBtn.snp.right)
-            make.width.equalTo(16)
-             make.bottom.equalToSuperview()
+        rightBtn.snp.makeConstraints { (make) in
+            
+            make.edges.equalToSuperview()
+            make.width.equalTo(60)
+        }
+        
+//        imgBtn.snp.makeConstraints { (make) in
+//            make.top.equalToSuperview()
+//            make.right.equalToSuperview()
+//            make.left.equalTo(rightBtn.snp.right)
+//            make.width.equalTo(0)
+//            make.bottom.equalToSuperview()
+//        }
+    }
+    
+    @objc private func textFieldChange(textField: UITextField) {
+        
+        if textField.text?.count ?? 0 > 0 {
+            
+            UIView.animate(withDuration: 0.2) {
+                
+                self.topTitleL.snp_updateConstraints { (make) in
+                    make.bottom.equalTo(-40)
+                }
+                self.layoutIfNeeded()
+            }
+            topTitleL.isHidden = false
+            self.bottomLine?.backgroundColor = isHighlight ? COLOR_MainThemeColor : COLOR_MinorTextColor
+            topRegionL.textColor = self.bottomLine?.backgroundColor
+            topTitleL.textColor = self.bottomLine?.backgroundColor
+        }else {
+            
+            UIView.animate(withDuration: 0.2) {
+                
+                self.topTitleL.snp_updateConstraints { (make) in
+                    make.bottom.equalTo(0)
+                }
+                self.layoutIfNeeded()
+            }
+            topTitleL.isHidden = true
+            self.bottomLine?.backgroundColor = COLOR_MinorTextColor
+            topTitleL.textColor = self.bottomLine?.backgroundColor
+            topRegionL.textColor = self.bottomLine?.backgroundColor
         }
     }
     
@@ -127,10 +185,11 @@ class FCPhoneComponent: UIView, UITextFieldDelegate {
         self.dropDown?.bottomOffset = CGPoint(x: 0, y: 40)
         self.dropDown?.selectRow(0)  //默认选中
         self.dropDown?.textFont = UIFont.init(_customTypeSize: 12)
-        self.dropDown?.textColor = COLOR_PrimeTextColor
+        self.dropDown?.textColor = COLOR_MinorTextColor
         self.dropDown?.cellHeight = 40
-        self.dropDown?.backgroundColor = COLOR_MinorTextColor
-        self.dropDown?.selectionBackgroundColor = COLOR_LineColor
+        self.dropDown?.selectedTextColor = UIColor.white
+        self.dropDown?.backgroundColor = COLOR_CellBgColor
+        self.dropDown?.selectionBackgroundColor = COLOR_CellBgColor
         self.dropDown?.separatorColor = .clear
         //self.dropDown?.separatorInsetLeft = true //分割线左对齐
         
@@ -204,7 +263,7 @@ class FCPhoneComponent: UIView, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+            
         if let textFieldDidBeginEditingBlock = self.textFieldDidBeginEditingBlock {
             textFieldDidBeginEditingBlock()
         }

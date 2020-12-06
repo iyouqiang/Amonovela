@@ -56,9 +56,9 @@ class FCSortComponent: UIView {
     }
     
     private func loadSubviews () {
-        self.nameBtn = fc_buttonInit(imgName: "sortNone", title: "名称", fontSize: 13, titleColor: COLOR_MinorTextColor, bgColor: COLOR_Clear)
-        self.priceBtn = fc_buttonInit(imgName: "sortNone", title: "最新价", fontSize: 13, titleColor: COLOR_MinorTextColor, bgColor: COLOR_Clear)
-        self.changeBtn = fc_buttonInit(imgName: "sortNone", title: "涨跌幅", fontSize: 13, titleColor: COLOR_MinorTextColor, bgColor: COLOR_Clear)
+        self.nameBtn = fc_buttonInit(imgName: "sortNone", title: "交易对/成交量", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
+        self.priceBtn = fc_buttonInit(imgName: "sortNone", title: "最新价", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
+        self.changeBtn = fc_buttonInit(imgName: "sortNone", title: "24h涨跌幅", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
         
         self.nameBtn.setTitleAndImageInset(insetType: .FCBtnInsetTypeImgRight, imgLabInset: 5, imgWidth: 10)
         self.priceBtn.setTitleAndImageInset(insetType: .FCBtnInsetTypeImgRight, imgLabInset: 5, imgWidth: 10)
@@ -72,21 +72,21 @@ class FCSortComponent: UIView {
             make.top.equalToSuperview()
             make.left.equalToSuperview().offset(kMarginScreenLR)
             make.height.equalToSuperview()
-            make.width.equalTo(70)
+            make.width.equalTo(100)
         }
         
         self.priceBtn.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
             make.height.equalToSuperview()
-            make.width.equalTo(70)
+            make.width.equalTo(100)
         }
         
         self.changeBtn.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
             make.right.equalToSuperview().offset(-kMarginScreenLR)
             make.height.equalToSuperview()
-            make.width.equalTo(70)
+            make.width.equalTo(100)
         }
     }
     
@@ -158,12 +158,12 @@ class FCSortComponent: UIView {
     }
     
     private func configAscStyle(button: UIButton) {
-        button.setTitleColor(COLOR_White, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.setImage(UIImage(named: "sortAsc"), for: .normal)
     }
     
     private func configDescStyle(button: UIButton) {
-        button.setTitleColor(COLOR_White, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.setImage(UIImage(named: "sortDesc"), for: .normal)
     }
     

@@ -44,12 +44,12 @@ class FCChangePhoneNumberController: UIViewController {
             titleStr = titleStr.count == 0 ? "" : titleStr
             
             /// 标题
-            phoneNumTitleL = fc_labelInit(text: titleStr, textColor: COLOR_CellTitleColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+            phoneNumTitleL = fc_labelInit(text: titleStr, textColor: COLOR_CellTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
             phoneNumTitleL.text = "手机号码"
             self.view.addSubview(phoneNumTitleL)
 
             /// 手机号码
-            phoneNumL = fc_labelInit(text: titleStr, textColor: COLOR_CellTitleColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+            phoneNumL = fc_labelInit(text: titleStr, textColor: COLOR_CellTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
             phoneNumL.textAlignment = .right
             phoneNumL.text = self.replacePhone(str: titleStr)
             self.view.addSubview(phoneNumL)
@@ -69,7 +69,8 @@ class FCChangePhoneNumberController: UIViewController {
             arrowImgView.snp.makeConstraints { (make) in
                 make.right.equalTo(-15)
                 make.centerY.equalTo(phoneNumL.snp_centerY)
-                make.height.width.equalTo(16)
+                make.height.equalTo(10)
+                make.width.equalTo(6)
             }
             
             phoneNumL.snp.makeConstraints { (make) in
@@ -97,7 +98,7 @@ class FCChangePhoneNumberController: UIViewController {
                 make.height.equalTo(50)
             }
             
-            bottomLabel =  fc_labelInit(text: "一个手机号码只能作为一个账号的登录名，绑定手机号码需要通过短信验证码", textColor: COLOR_FooterTextColor, textFont: 15, bgColor: COLOR_Clear)
+            bottomLabel =  fc_labelInit(text: "一个手机号码只能作为一个账号的登录名，绑定手机号码需要通过短信验证码", textColor: COLOR_FooterTextColor, textFont: 15, bgColor: UIColor.clear)
             self.view.addSubview(bottomLabel)
             bottomLabel.snp.makeConstraints { (make) in
                 

@@ -54,7 +54,6 @@ class FCRegisterConfirmView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func loadSubviews() {
         
         var title: String = ""
@@ -82,18 +81,18 @@ class FCRegisterConfirmView: UIView {
         
         self.segmentControl = FCSegmentControl.init(frame: CGRect.zero)
         segmentControl?.itemSpace = 13
-        segmentControl?.setTitles(titles: ["手机登录", "邮箱登录"], fontSize: 18, normalColor: COLOR_MinorTextColor, tintColor: COLOR_White, showUnderLine: false)
+        segmentControl?.setTitles(titles: ["手机登录", "邮箱登录"], fontSize: 18, normalColor: COLOR_MinorTextColor, tintColor: UIColor.white, showUnderLine: false)
         self.segmentControl?.isUserInteractionEnabled = false
         self.segmentControl?.setSelected(self.loginType == .phone ? 0 : 1)
         
-        self.titleLab = fc_labelInit(text: title, textColor: COLOR_White, textFont: 15, bgColor: COLOR_Clear)
+        self.titleLab = fc_labelInit(text: title, textColor: UIColor.white, textFont: 15, bgColor: UIColor.clear)
         self.codeComponent = FCTextFieldComponent.init(placeholder: placeholder, leftImg: "")
         self.codeComponent?.regularExpression = "[0-9A-Za-z]{0,16}$"
-        self.tipsLab = fc_labelInit(text: tips, textColor: COLOR_White, textFont: 15, bgColor: COLOR_Clear)
+        self.tipsLab = fc_labelInit(text: tips, textColor: UIColor.white, textFont: 15, bgColor: UIColor.clear)
         
-        self.remindLab_0 = fc_labelInit(text: remindText_0, textColor: COLOR_MinorTextColor, textFont: 15, bgColor: COLOR_Clear)
-        self.remindLab_1 = fc_labelInit(text: remindText_1, textColor: COLOR_MinorTextColor, textFont: 15, bgColor: COLOR_Clear)
-        self.remindLab_2 = fc_labelInit(text: remindText_2, textColor: COLOR_MinorTextColor, textFont: 15, bgColor: COLOR_Clear)
+        self.remindLab_0 = fc_labelInit(text: remindText_0, textColor: COLOR_MinorTextColor, textFont: 15, bgColor: UIColor.clear)
+        self.remindLab_1 = fc_labelInit(text: remindText_1, textColor: COLOR_MinorTextColor, textFont: 15, bgColor: UIColor.clear)
+        self.remindLab_2 = fc_labelInit(text: remindText_2, textColor: COLOR_MinorTextColor, textFont: 15, bgColor: UIColor.clear)
         self.countdownBtn = FCCountDownButton.init(normalTitle: "获取验证码", countdownTitle: "后重试", resendTitle: "重新发送验证码", duration: 60)
         
         let remindView = UIView.init(frame: .zero)
@@ -104,8 +103,8 @@ class FCRegisterConfirmView: UIView {
         
         self.registerBtn = FCThemeButton.init(title: "完成注册",  frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 50) , cornerRadius: 4)
         
-        let remindLab = fc_labelInit(text: "已有账号？", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: COLOR_Clear)
-        self.loginBtn = fc_buttonInit(imgName: nil, title: "立即登录", fontSize: 15, titleColor: COLOR_BtnTitleColor, bgColor: COLOR_Clear)
+        let remindLab = fc_labelInit(text: "已有账号？", textColor: COLOR_MinorTextColor, textFont: 14, bgColor: UIColor.clear)
+        self.loginBtn = fc_buttonInit(imgName: nil, title: "立即登录", fontSize: 14, titleColor: COLOR_BtnTitleColor, bgColor: UIColor.clear)
         let bottomView = UIView.init(frame: .zero)
         bottomView.addSubview(remindLab)
         bottomView.addSubview(self.loginBtn!)

@@ -26,23 +26,24 @@ typedef enum : NSUInteger {
 
 @interface PCCustomAction : NSObject
 
-@property (nonatomic, strong) NSString *btnTitle;
-@property (nonatomic, copy) void(^PCCustomActionBlock)(NSString *message);
+@property (nonatomic, strong) NSString * _Nullable btnTitle;
+@property (nonatomic, copy) void(^ _Nullable PCCustomActionBlock)(NSString *message);
 @property (nonatomic, assign) PCCustomActionStyle preferredStyle;
 
 @end
 
 @interface PCCustomAlert : UIView
 
-@property (nonatomic, readonly) NSArray *actions;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *message;
-@property (nonatomic, strong) UITextField *inputTextField;
-@property (nonatomic, strong) UILabel *messageL; // 预留，避免出现富文本弹窗
+@property (nonatomic, readonly) NSArray * _Nullable actions;
+@property (nonatomic, strong) NSString * _Nullable title;
+@property (nonatomic, strong) NSString * _Nullable message;
+@property (nonatomic, strong) UITextField * _Nullable inputTextField;
+@property (nonatomic, strong) UILabel * _Nullable messageL; // 预留，避免出现富文本弹窗
 @property (nonatomic, assign) BOOL arbitrarilyDisappear;
 
+
 /** 弹窗初始化 */
-+ (instancetype)alertViewWithTitle:(nullable NSString *)title message:(nullable NSString *)message preferredStyle:(PCCustomAlertStyle)preferredStyle;
++ (instancetype _Nullable )alertViewWithTitle:(nullable NSString *)title message:(nullable NSString *)message preferredStyle:(PCCustomAlertStyle)preferredStyle;
 
 /** 界面完全外部自定义 底部弹窗 */
 + (instancetype _Nullable )alertCustomView:(UIView *_Nullable)customView;
@@ -52,6 +53,9 @@ typedef enum : NSUInteger {
 
 /** 视图弹窗 🚧施工完成就撤退 */
 + (void)showAppInConstructionAlert;
+
+/** 警告弹窗 */
++ (void)showWarningAlertMessage:(NSString *_Nullable)message;
 
 /** 按钮事件初始化 */
 - (void)addAction:(NSString *_Nullable)btnTitle style:(PCCustomActionStyle)style btnAction:(void(^_Nullable)(NSString * _Nonnull message))btnActionBlock;

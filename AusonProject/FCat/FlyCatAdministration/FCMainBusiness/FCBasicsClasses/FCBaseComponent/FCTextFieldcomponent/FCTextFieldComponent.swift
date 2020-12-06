@@ -19,20 +19,38 @@ class FCTextFieldComponent: UIView, UITextFieldDelegate {
     var regularExpression: String? = nil
     var textFieldDidBeginEditingBlock: (() -> Void)?
     var text: String? = ""
+    var topTitleL: UILabel!
+    var isHighlight = false
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(placeholder: String? = "", holderColor: UIColor? = COLOR_MinorTextColor, textColor: UIColor? = COLOR_White, fontSize: CGFloat? = 15, leftImg: String?, keyboardType: UIKeyboardType? = .default) {
+    init(placeholder: String? = "", holderColor: UIColor? = COLOR_MinorTextColor, textColor: UIColor? = UIColor.white, fontSize: CGFloat? = 15, leftImg: String?, keyboardType: UIKeyboardType? = .default) {
         super.init(frame: CGRect.zero)
         
         self.textFiled = fc_textfiledInit(placeholder: placeholder, holderColor: holderColor, textColor: textColor, fontSize: 15, borderStyle: UITextField.BorderStyle.none)
+        self.textFiled.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
         self.textFiled.setModifyClearButton()
         self.textFiled.clearButtonMode = .whileEditing
         let bottomLine = UIView.init(frame: .zero)
         self.bottomLine = bottomLine
-        bottomLine.backgroundColor = COLOR_SeperateColor
+        bottomLine.backgroundColor = COLOR_LineColor
+        
+        topTitleL = UILabel()
+        topTitleL.isHidden = true
+        topTitleL.textColor = COLOR_MinorTextColor
+        topTitleL.textAlignment = .left
+        topTitleL.font = self.textFiled.font
+        topTitleL.backgroundColor = .clear
+        topTitleL.text = textFiled.placeholder;
+        self.addSubview(topTitleL)
+        
+        topTitleL.snp.makeConstraints { (make) in
+            make.left.equalTo(0)
+            make.bottom.equalTo(0)
+        }
+        
         self.addSubview(self.textFiled)
         self.addSubview(bottomLine)
         
@@ -47,6 +65,36 @@ class FCTextFieldComponent: UIView, UITextFieldDelegate {
         self.textFiled.delegate = self
         self.textFiled.clearButtonMode = .whileEditing
         
+    }
+    
+    @objc private func textFieldChange(textField: UITextField) {
+        
+        if textField.text?.count ?? 0 > 0 {
+            
+            UIView.animate(withDuration: 0.2) {
+                
+                self.topTitleL.snp_updateConstraints { (make) in
+                    make.bottom.equalTo(-40)
+                }
+                self.layoutIfNeeded()
+            }
+            topTitleL.isHidden = false
+            self.bottomLine?.backgroundColor = isHighlight ? COLOR_MainThemeColor : COLOR_MinorTextColor
+            topTitleL.textColor = self.bottomLine?.backgroundColor
+            
+        }else {
+            
+            UIView.animate(withDuration: 0.2) {
+                
+                self.topTitleL.snp_updateConstraints { (make) in
+                    make.bottom.equalTo(0)
+                }
+                self.layoutIfNeeded()
+            }
+            topTitleL.isHidden = true
+            self.bottomLine?.backgroundColor = COLOR_MinorTextColor
+            topTitleL.textColor = self.bottomLine?.backgroundColor
+        }
     }
     
     private func setupConstraints () {

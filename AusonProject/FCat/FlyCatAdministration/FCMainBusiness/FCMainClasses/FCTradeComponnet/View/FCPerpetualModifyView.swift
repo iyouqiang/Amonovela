@@ -163,7 +163,7 @@ class FCPerpetualModifyView: UIView {
            
            
            /// 可平量
-           availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 12), bgColor: .clear)
+           availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
            addSubview(availableVolumeL)
            
            /// 市价平仓 平仓去人按钮

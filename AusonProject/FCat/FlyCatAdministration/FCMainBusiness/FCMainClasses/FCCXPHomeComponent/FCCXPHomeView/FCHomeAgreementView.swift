@@ -51,9 +51,42 @@ class FCHomeAgreementView: UIView {
     override func awakeFromNib() {
         
         self.tradingSkillView.layer.cornerRadius = 5.0
+        self.tradingSkillView.backgroundColor = COLOR_HexColor(0x232A3F)
         self.inviteFriendView.layer.cornerRadius = 5.0
+        self.inviteFriendView.backgroundColor = COLOR_HexColor(0x232A3F)
         self.tendencyView.layer.cornerRadius = 5.0
-        self.tendencyView.clipsToBounds = true
+        self.tendencyView.backgroundColor = COLOR_HexColor(0x232A3F)
+        
         self.backgroundColor = COLOR_BGColor
+        
+        /// 加入渐变
+        let layer = CAGradientLayer()
+        layer.frame = self.tendencyView.bounds
+        self.tendencyView.clipsToBounds = true
+        layer.startPoint = CGPoint(x: 0, y: 1)
+        layer.endPoint = CGPoint(x: 1, y: 0)
+        let endColor = COLOR_HexColorAlpha(0x515F7D, alpha: 0.06)
+        let starColor = COLOR_HexColorAlpha(0x283147, alpha: 1.0)
+        layer.colors = [starColor.cgColor, endColor.cgColor]
+        layer.locations = [0, 1]
+        self.tendencyView.layer.insertSublayer(layer, at: 0)
+        
+        let layer1 = CAGradientLayer()
+        layer1.frame = self.tradingSkillView.bounds
+        self.tradingSkillView.clipsToBounds = true
+        layer1.startPoint = CGPoint(x: 0, y: 1)
+        layer1.endPoint = CGPoint(x: 1, y: 0)
+        layer1.colors = [starColor.cgColor, endColor.cgColor]
+        layer1.locations = [0, 1]
+        self.tradingSkillView.layer.insertSublayer(layer1, at: 0)
+        
+        let layer2 = CAGradientLayer()
+        layer2.frame = self.inviteFriendView.bounds
+        self.inviteFriendView.clipsToBounds = true
+        layer2.startPoint = CGPoint(x: 0, y: 1)
+        layer2.endPoint = CGPoint(x: 1, y: 0)
+        layer2.colors = [starColor.cgColor, endColor.cgColor]
+        layer2.locations = [0, 1]
+        self.inviteFriendView.layer.insertSublayer(layer2, at: 0)
     }
 }

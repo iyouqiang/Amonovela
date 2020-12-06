@@ -14,7 +14,7 @@
 {
     if (@available(iOS 9.0, *)) {
      
-        return [UIFont fontWithName:@"PingFangSC-Regular" size:size];
+        return [UIFont fontWithName:@"PingFangSC-Semibold" size:size];
     }else {
         return [UIFont systemFontOfSize:size];
     }

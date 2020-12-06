@@ -87,30 +87,29 @@ public func COLOR_HexColorAlpha(_ rgbValue: Int, alpha: CGFloat) -> (UIColor) {
                    alpha: alpha)
 }
 
-/** 白色 */
-public let COLOR_White = COLOR_HexColor(0xffffff)
+/** 导航栏背景色 */
+public let COLOR_navBgColor = COLOR_HexColor(0x212733)
 
-/** 透明色 */
-public let COLOR_Clear = UIColor.clear
+/** cell的背景颜色 **/
+public let COLOR_CellBgColor = COLOR_HexColor(0x171D31)
+
+public let COLOR_MainThemeColor = COLOR_HexColor(0xFFC400)
 
 /** 背景色 */
 public let COLOR_BACKGROUNDColor = COLOR_HexColor(0xf2f2f2)
 
 /** 背景色 */
-public let COLOR_BGColor = COLOR_HexColor(0x191B20)
+public let COLOR_BGColor = COLOR_HexColor(0x171D31)
     //COLOR_HexColor(0x101114)//
 
 /** tabbar颜色 */
-public let COLOR_TabBarBgColor  = COLOR_HexColor(0x141416)
+public let COLOR_TabBarBgColor  = COLOR_HexColor(0x212733)
 
-/** 背景色 */
-public let COLOR_TabBarTintColor  = COLOR_HexColor(0xFEC92D)//COLOR_HexColor(0xFFB718)
+public let COLOR_TabBarTintColor  = COLOR_HexColor(0xEFB90C)
 
 /** TabBar选择色 */
-public let COLOR_tabbarNormalColor = COLOR_HexColor(0xFFAD17)
+public let COLOR_tabbarNormalColor = COLOR_HexColor(0x848D9B)
 
-/** 导航栏背景色 */
-public let COLOR_navBgColor = COLOR_HexColor(0x191B20)
 //COLOR_HexColor(0x101114)
 /** page 黄色 */
 public let COLOR_YELLOWColor = COLOR_HexColor(0xF4B043)
@@ -137,14 +136,13 @@ public let COLOR_RichBtnTitleColor = COLOR_HexColor(0x696A6D)
 public let COLOR_PrimeTextColor = COLOR_HexColor(0xffffff)
 
 /** 次要文字颜色(浅灰) **/
-public let COLOR_MinorTextColor = COLOR_HexColor(0x69696D)
+public let COLOR_MinorTextColor = COLOR_HexColor(0x848D9B)
 
 /** 图标坐标刻度数值颜色*/
 public let COLOR_ChartAxisColor = COLOR_HexColor(0xDADADD)
 
 /** 图标辅助说明文案颜色*/
 public let COLOR_CharTipsColor = COLOR_HexColor(0x8F9698)
-
 
 /** 页脚文字颜色(浅灰) **/
 public let COLOR_FooterTextColor = COLOR_HexColor(0x58595C)
@@ -155,11 +153,10 @@ public let COLOR_TipsTextColor = COLOR_HexColor(0xEA1751)
 /** cell的背景颜色 水槽颜色 **/
 public let COLOR_SectionFooterBgColor = COLOR_HexColor(0x141416)
 
-/** cell的背景颜色 **/
-public let COLOR_CellBgColor = COLOR_HexColor(0x191A1C)//COLOR_HexColor(0x191B20)
+//COLOR_HexColor(0x191B20)
 
 /** cell的title颜色 **/
-public let COLOR_CellTitleColor = COLOR_HexColor(0xB0B1B4)
+public let COLOR_CellTitleColor = COLOR_HexColor(0x6E7E97)
 
 /** cell的message颜色 **/
 public let COLOR_CellMessageColor = COLOR_HexColor(0xB0B1B4)
@@ -171,10 +168,14 @@ public let COLOR_HighlightColor = COLOR_HexColor(0xffad17)
 public let COLOR_subTitleColor = COLOR_HexColor(0x4D4D4D )
 
 /** 线条分割线颜色 */
-public let COLOR_LineColor = COLOR_HexColorAlpha(0xffffff, alpha: 0.05)
+public let COLOR_LineColor = COLOR_HexColor(0x394155)
+    //COLOR_HexColorAlpha(0xffffff, alpha: 0.05)
+
+/** 局部背景色 */
+public let COLOR_PartColor = COLOR_HexColor(0x2A2F3A)
 
 /** 线条分割线颜色 */
-public let COLOR_SeperateColor = COLOR_HexColor(0x262830)
+//public let COLOR_SeperateColor = COLOR_HexColor(0x394155)
 
 /** 输入框颜色 */
 public let COLOR_InputColor = COLOR_HexColor(0xcccccc)
@@ -186,20 +187,25 @@ public let COLOR_InputBorder = COLOR_HexColor(0x434343)
 public let COLOR_InputText = COLOR_HexColor(0xDADADD)
 
 /** 涨跌幅颜色 */
-public let COLOR_RiseColor = COLOR_HexColor(0x2AB462)
+//public let COLOR_RiseColor = COLOR_HexColor(0x2AB462)
+//public let COLOR_FailColor = COLOR_HexColor(0xFB4B50)
 
-public let COLOR_BGRiseColor = COLOR_HexColorAlpha(0x2AB462, alpha: 1.0)
+public let COLOR_RiseColor = COLOR_HexColor(0x2CB362)
+public let COLOR_FailColor = COLOR_HexColor(0xE0274A)
+
+//public let COLOR_BGRiseColor = COLOR_HexColorAlpha(0x2AB462, alpha: 1.0)
 //COLOR_HexColor(0x2AB462)
-public let COLOR_FailColor = COLOR_HexColor(0xFB4B50)
-public let COLOR_BGFailColor = COLOR_HexColorAlpha(0xFB4B50, alpha: 1.0)
-//COLOR_HexColor(0xFB4B50)
+//public let COLOR_BGFailColor = COLOR_HexColorAlpha(0xFB4B50, alpha: 1.0)
+
+public let COLOR_BGRiseColor = COLOR_HexColorAlpha(0x2CB362, alpha: 0.2)
+public let COLOR_BGFailColor = COLOR_HexColorAlpha(0xE0274A, alpha: 0.2)
 
 public let HOSTURL_SPOT = "http://spot.chainxp.io"
 public let HOSTURL_SWAP = "http://swap.chainxp.io"
 public let HOSTURL_API  = "http://api.chainxp.io"
 
 public let HOSTURL_INVITE    = "http://chainxp.io/invite"
-public let HOSTURL_KYC       = "http://chainxp.io/account/kyc"
+public let HOSTURL_KYC       = "http://chainxp.io/account/full/kyc"
 public let HOSTURL_ASSETS    = "http://c2c.chainxp.io/thirdparty/assets"
 public let HOSTURL_TRADE     = "http://c2c.chainxp.io/thirdparty/trade"
 public let HOSTURL_MASSETS   = "http://c2c.chainxp.io/assets"

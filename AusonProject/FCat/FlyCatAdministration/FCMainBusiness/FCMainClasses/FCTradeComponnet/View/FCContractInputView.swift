@@ -74,19 +74,19 @@ class FCContractInputView: UIView {
     
     func setUp() {
         
-        preTitleL = fc_labelInit(text: "", textColor: COLOR_CellTitleColor, textFont: UIFont.systemFont(ofSize: 16), bgColor: .clear)
+        preTitleL = fc_labelInit(text: "", textColor: COLOR_CellTitleColor, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
         addSubview(preTitleL)
         
         textField = UITextField()
         textField.tintColor = COLOR_TabBarTintColor
         textField.keyboardType = .decimalPad
-        textField.font = UIFont.systemFont(ofSize: 16)
+        textField.font = UIFont(_customTypeSize: 16)
         textField.textColor = COLOR_RichBtnTitleColor
         textField.borderStyle = .none
         textField.textAlignment = .right
         addSubview(textField)
         
-        suffixL = fc_labelInit(text: "", textColor: COLOR_CellTitleColor, textFont: UIFont.systemFont(ofSize: 16), bgColor: .clear)
+        suffixL = fc_labelInit(text: "", textColor: COLOR_CellTitleColor, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
         suffixL.textAlignment = .right
         addSubview(suffixL)
         

@@ -41,6 +41,7 @@
         _bannerView.scrollSpeed = 0.2;
         _bannerView.delegate = self;
         _bannerView.dataSource = self;
+        _bannerView.clipsToBounds = YES;
         [self addSubview:_bannerView];
         
         _pageView = [[UIPageControl alloc] init];
@@ -94,7 +95,7 @@
         _count = 0;
     }
     
-    [_bannerView scrollToItemAtIndex:_count+1 animated:YES];
+    [_bannerView scrollToItemAtIndex:_count animated:YES];
     _count ++;
 }
 
@@ -122,15 +123,20 @@
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view{
     if (view == nil) {
         UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.clipsToBounds = YES;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         [imageView sd_setImageWithURL:[NSURL URLWithString:self.dataSource[index]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             
         }];
       
         imageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(carousel.bounds));
+        
         return imageView;
     }else{
+        
         //view.backgroundColor = self.dataSource[index];
+        UIImageView *imageView = (UIImageView *)view;
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.dataSource[index]] placeholderImage:[UIImage imageNamed:@"home_banner"]];
         return view;
     }
     return nil;

@@ -141,7 +141,7 @@ class FCAdjustmentMarginController: UIViewController, UIGestureRecognizerDelegat
         }
         
         /// 增加额 平仓额
-        maximumL = fc_labelInit(text: "最多增加：0.00", textColor: COLOR_TabBarTintColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        maximumL = fc_labelInit(text: "最多增加：0.00", textColor: COLOR_TabBarTintColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         self.view.addSubview(maximumL)
         
         maximumL.snp.makeConstraints { (make) in
@@ -152,7 +152,7 @@ class FCAdjustmentMarginController: UIViewController, UIGestureRecognizerDelegat
             make.top.equalTo(topMenContainerView.snp_bottom).offset(20)
         }
         
-        closePositionL = fc_labelInit(text: "追加后强平价格为：0.00", textColor: COLOR_TabBarTintColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        closePositionL = fc_labelInit(text: "追加后强平价格为：0.00", textColor: COLOR_TabBarTintColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         self.view.addSubview(closePositionL)
         
         closePositionL.snp.makeConstraints { (make) in
@@ -174,7 +174,7 @@ class FCAdjustmentMarginController: UIViewController, UIGestureRecognizerDelegat
         }
         
         sliderContainerView.backgroundColor = COLOR_BGColor
-        longShortDirectL = fc_labelInit(text: "BTCUSDT永续 多头方向", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        longShortDirectL = fc_labelInit(text: "BTCUSDT永续 多头方向", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         longShortDirectL.textAlignment = .center
         sliderContainerView.addSubview(longShortDirectL)
         
@@ -204,10 +204,10 @@ class FCAdjustmentMarginController: UIViewController, UIGestureRecognizerDelegat
         sliderView.addTarget(self, action: #selector(sliderChangeValue), for: .valueChanged)
         
         /// 杠杆水平
-        startValueL = fc_labelInit(text: "0", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        startValueL = fc_labelInit(text: "0", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         sliderContainerView.addSubview(startValueL)
         
-        endValueL = fc_labelInit(text: "100", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        endValueL = fc_labelInit(text: "100", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         endValueL.textAlignment = .right
         sliderContainerView.addSubview(endValueL)
         

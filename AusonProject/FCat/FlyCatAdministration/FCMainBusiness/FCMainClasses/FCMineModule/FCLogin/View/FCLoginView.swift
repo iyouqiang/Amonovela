@@ -10,6 +10,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import JXSegmentedView
 
 enum FCLoginType {
     case phone
@@ -31,7 +32,7 @@ class FCLoginView: UIView {
     var forgetBtn: UIButton?
     var registerBtn: UIButton?
     var loginType: FCLoginType = .phone
-    
+    var dismissBtn: UIButton!
     
     typealias FinishBlock = (_ isLegal: Bool, _ loginType: FCLoginType, _ countryCode: String?, _ phoneNum: String?, _ phonePwd: String?, _ email: String?, _ emailPwd: String ) -> Void
     var callback: FinishBlock?
@@ -40,6 +41,7 @@ class FCLoginView: UIView {
     
     var forgetCallback: pushblock?
     var registerCallback: pushblock?
+    var dismissLoginViewBlock: pushblock?
     
     /*
      // Only override draw() if you perform custom drawing.
@@ -61,13 +63,17 @@ class FCLoginView: UIView {
     
     private func loadSubviews() {
         
+        let imageView = UIImageView(image: UIImage(named: "login_edit"));
+        self.addSubview(imageView)
+        
+        // 当前委托
         self.segmentControl = FCSegmentControl.init(frame: CGRect.zero)
-        segmentControl?.itemSpace = 13
-        segmentControl?.setTitles(titles: ["手机登录", "邮箱登录"], fontSize: 18, normalColor: COLOR_MinorTextColor, tintColor: COLOR_White, showUnderLine: false)
+        segmentControl?.itemSpace = 20
+        segmentControl?.setTitles(titles: ["手机", "邮箱"], fontSize: 15, normalColor: COLOR_MinorTextColor, tintColor: UIColor.white, showUnderLine: true)
         self.addSubview(self.segmentControl!)
         
         self.segmentControl?.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(kNAVIGATIONHEIGHT)
+            make.top.equalTo(imageView.snp.bottom).offset(30)
             make.left.equalToSuperview().offset(kMarginScreenLR)
             make.height.equalTo(25)
         }
@@ -75,42 +81,66 @@ class FCLoginView: UIView {
         loadPhoneSubviews()
         loadEmailSubviews()
         
-        self.loginBtn = FCThemeButton.init(title: "登录", frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 50) , cornerRadius: 4)
+        self.dismissBtn = fc_buttonInit(imgName: "", title: "取消", fontSize: 15, titleColor: COLOR_MinorTextColor, bgColor: UIColor.clear)
+        self.dismissBtn.contentHorizontalAlignment = .left
+        self.dismissBtn.addTarget(self, action: #selector(dismissLoginViewClick), for: .touchUpInside)
+        self.addSubview(self.dismissBtn)
+        
+        imageView.snp.makeConstraints({ (make) in
+          
+            make.top.equalTo(self.dismissBtn.snp_bottom).offset(30)
+            make.left.equalTo(14)
+            make.height.equalTo(32.5)
+            make.width.equalTo(169)
+        })
+        
+        self.dismissBtn.snp_makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.top.equalTo(0)
+            make.width.height.equalTo(50)
+        }
+        
+        self.loginBtn = FCThemeButton.init(title: "登录",fontSize:16, frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 44) , cornerRadius: 4)
         self.addSubview(self.loginBtn!)
         
         reloadContentView(loginType: .phone)
         self.loginType = .phone
         
-        self.forgetBtn = fc_buttonInit(imgName: nil, title: "忘记密码", fontSize: 15, titleColor: COLOR_BtnTitleColor, bgColor: COLOR_Clear)
-        let tipsLab = fc_labelInit(text: "没有账号？", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: COLOR_Clear)
-        self.registerBtn = fc_buttonInit(imgName: nil, title: "立即注册", fontSize: 15, titleColor: COLOR_BtnTitleColor, bgColor: COLOR_Clear)
-        let bottomLab = fc_labelInit(text: "更专业 更稳定 更高效", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: COLOR_Clear)
+        self.forgetBtn = fc_buttonInit(imgName: nil, title: "忘记密码?", fontSize: 13, titleColor: COLOR_BtnTitleColor, bgColor: UIColor.clear)
+        let tipsLab = fc_labelInit(text: "还没有注册账号？", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: UIColor.clear)
+        self.registerBtn = fc_buttonInit(imgName: nil, title: "立即注册", fontSize: 15, titleColor: COLOR_BtnTitleColor, bgColor: UIColor.clear)
+        //let bottomLab = fc_labelInit(text: "更专业 更稳定 更高效", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: UIColor.clear)
         
         self.addSubview(self.forgetBtn!)
         self.addSubview(tipsLab)
         self.addSubview(self.registerBtn!)
-        self.addSubview(bottomLab)
+        //self.addSubview(bottomLab)
         
         self.forgetBtn?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.loginBtn!.snp.bottom).offset(20)
-            make.left.equalToSuperview().offset(kMarginScreenLR)
+            make.top.equalTo(self.loginBtn!.snp.bottom).offset(15)
+            //make.left.equalToSuperview().offset(kMarginScreenLR)
+            make.centerX.equalTo(self.loginBtn!.snp_centerX)
         })
         
         tipsLab.snp.makeConstraints { (make) in
-            make.top.equalTo(self.loginBtn!.snp.bottom).offset(20)
-            make.right.equalTo(self.registerBtn!.snp.left)
-            make.height.equalTo(self.registerBtn!)
+            make.bottom.equalToSuperview().offset(-kTABBARHEIGHT + 10)
+            make.centerX.equalToSuperview().offset(-30)
+            //make.height.equalTo(self.registerBtn!)
+            make.height.equalTo(30)
         }
         
         self.registerBtn?.snp.makeConstraints({ (make) in
             make.top.equalTo(self.loginBtn!.snp.bottom).offset(20)
-            make.right.equalToSuperview().offset(-kMarginScreenLR)
+            make.left.equalTo(tipsLab.snp_right)
+            make.centerY.equalTo(tipsLab.snp_centerY)
         })
         
+        /**
         bottomLab.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-30)
             make.centerX.equalToSuperview()
         }
+         */
     }
     
     private func loadPhoneSubviews () {
@@ -123,8 +153,8 @@ class FCLoginView: UIView {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
-        
-        self.phonePwdComponent = FCPasswordComponent.init(placeholder: "请输入登录密码", leftImg: "mine_phonePwd")
+        // mine_phonePwd
+        self.phonePwdComponent = FCPasswordComponent.init(placeholder: "密码", leftImg: "")
         self.phoneContentView?.addSubview(self.phonePwdComponent!)
         self.phonePwdComponent?.snp.makeConstraints({ (make) in
             make.top.equalTo(self.phoneComponent!.snp.bottom).offset(30)
@@ -143,10 +173,9 @@ class FCLoginView: UIView {
         })
     }
     
-    
     private func loadEmailSubviews () {
         self.emailContentView = UIView.init(frame: .zero)
-        self.emailComponent = FCEmailComponent.init(placeholder: "请输入邮箱", leftImg: "mine_email")
+        self.emailComponent = FCEmailComponent.init(placeholder: "请输入邮箱", leftImg: "")
         self.emailContentView?.addSubview(self.emailComponent!)
         self.emailComponent?.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -154,7 +183,7 @@ class FCLoginView: UIView {
             make.right.equalToSuperview()
         }
         
-        self.emailPwdComponnet = FCPasswordComponent.init(placeholder: "请输入登录密码", leftImg: "mine_emailPwd")
+        self.emailPwdComponnet = FCPasswordComponent.init(placeholder: "密码", leftImg: "")
         self.emailContentView?.addSubview(self.emailPwdComponnet!)
         self.emailPwdComponnet?.snp.makeConstraints({ (make) in
             make.top.equalTo(self.emailComponent!.snp.bottom).offset(30)
@@ -187,12 +216,11 @@ class FCLoginView: UIView {
             self.emailContentView?.isHidden = false
         }
         
-        
         self.loginBtn?.snp.remakeConstraints({ (make) in
             make.top.equalTo(refView!.snp.bottom).offset(30)
             make.left.equalToSuperview().offset(kMarginScreenLR)
             make.right.equalToSuperview().offset(-kMarginScreenLR)
-            make.height.equalTo(50)
+            make.height.equalTo(44)
         })
     }
     
@@ -216,6 +244,11 @@ class FCLoginView: UIView {
         }.disposed(by: disposeBag)
     }
     
+    @objc func dismissLoginViewClick() {
+        if let dismissLoginViewBlock = self.dismissLoginViewBlock {
+            dismissLoginViewBlock()
+        }
+    }
     
     func loginBtnClick () {
         if self.loginBtn?.isEnabled == false {return}

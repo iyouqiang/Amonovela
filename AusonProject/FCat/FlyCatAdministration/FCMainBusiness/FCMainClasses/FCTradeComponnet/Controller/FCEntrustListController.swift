@@ -31,12 +31,12 @@ class FCEntrustListController: UIViewController {
        
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44))
         /// 当前委托
-        let entrustL = fc_labelInit(text: "当前委托", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 16), bgColor: .clear)
+        let entrustL = fc_labelInit(text: "当前委托", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
         headerView.addSubview(entrustL)
         entrustL.frame = CGRect(x: 15, y: 0, width: 150, height: 44)
         
         /// 历史记录
-        let historyL = fc_labelInit(text: "历史记录", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let historyL = fc_labelInit(text: "历史记录", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         historyL.textAlignment = .right
         headerView.addSubview(historyL)
         historyL.frame = CGRect(x: kSCREENWIDTH - 145, y: 0, width: 130, height: 44)
@@ -50,7 +50,7 @@ class FCEntrustListController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint

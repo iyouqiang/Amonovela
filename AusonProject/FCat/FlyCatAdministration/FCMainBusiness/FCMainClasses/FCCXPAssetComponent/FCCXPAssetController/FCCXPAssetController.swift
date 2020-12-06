@@ -239,13 +239,13 @@ extension FCCXPAssetController: UITableViewDataSource, UITableViewDelegate
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             
             if indexPath.row < 2 {
-                return 145
+                return 155
             }else if (indexPath.row == 2) {
                 return 220
             }else if (indexPath.row == 3) {
                 return 220
             }
-            return 120
+            return 155
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

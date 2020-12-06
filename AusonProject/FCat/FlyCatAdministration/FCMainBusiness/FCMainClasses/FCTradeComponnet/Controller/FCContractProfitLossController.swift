@@ -25,7 +25,7 @@ class FCContractProfitLossController: UIViewController {
     var isVeiwScrollEnabled = false
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -90,7 +90,7 @@ class FCContractProfitLossController: UIViewController {
         triggerTableView.delegate = self
         triggerTableView.dataSource = self
         triggerTableView.register(UINib(nibName: "FCContractProfitLossCell", bundle: Bundle.main), forCellReuseIdentifier: FCPfofitLossIdentifier)
-        triggerTableView.separatorColor = COLOR_SeperateColor
+        triggerTableView.separatorColor = COLOR_LineColor
         triggerTableView.tableFooterView = UIView()
     }
     

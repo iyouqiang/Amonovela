@@ -112,10 +112,10 @@ class FCClosePositionView: UIView {
     func setupView() {
          
         /// 第一栏 平仓永续 多头
-        symbolTitleL = fc_labelInit(text: "平仓BTCUSDT永续", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        symbolTitleL = fc_labelInit(text: "平仓BTCUSDT永续", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         addSubview(symbolTitleL)
         
-        leverageL = fc_labelInit(text: "多头100.00X", textColor: COLOR_RiseColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        leverageL = fc_labelInit(text: "多头100.00X", textColor: COLOR_RiseColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         addSubview(leverageL)
         
         //trade_close
@@ -188,7 +188,7 @@ class FCClosePositionView: UIView {
         }
         
         /// 可平量
-        availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 12), bgColor: .clear)
+        availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
         addSubview(availableVolumeL)
         
         /// 市价平仓 平仓去人按钮

@@ -78,10 +78,10 @@ class FCQuickNavView: UIView {
 
             // 标题
             let titleLabel = UILabel()
-            titleLabel.font = UIFont.systemFont(ofSize: 14)
+            titleLabel.font = UIFont(_customTypeSize: 15)
             titleLabel.text = item.title
             titleLabel.textAlignment = .center
-            titleLabel.textColor = COLOR_CellTitleColor
+            titleLabel.textColor = UIColor.white
             menuItem.addSubview(titleLabel)
             titleLabel.snp.makeConstraints { (make) in
                 make.top.equalTo(iconImageView.snp.bottom).offset(8.0)

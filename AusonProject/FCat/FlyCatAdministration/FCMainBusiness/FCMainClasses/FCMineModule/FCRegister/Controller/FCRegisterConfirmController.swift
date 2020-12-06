@@ -19,6 +19,7 @@ class FCRegisterConfirmController: UIViewController {
     var confirmView: FCRegisterConfirmView?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.edgesForExtendedLayout = .all

@@ -47,7 +47,7 @@ class FCContractListController: UIViewController {
     }
     
     func loadLeftNavItem () {
-        let lab = fc_labelInit(text: "合约", textColor: COLOR_ThemeBtnEndColor, textFont: 18, bgColor: COLOR_Clear)
+        let lab = fc_labelInit(text: "合约", textColor: COLOR_ThemeBtnEndColor, textFont: 18, bgColor: UIColor.clear)
         lab.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         let item = UIBarButtonItem.init(customView: lab)
         self.navigationItem.leftBarButtonItem = item
@@ -87,7 +87,7 @@ class FCContractListController: UIViewController {
         segmentedDataSource?.titleNormalFont = UIFont.init(_customTypeSize: 14)
         segmentedDataSource?.itemSpacing = 25
         
-        segmentedDataSource?.titleNormalColor = COLOR_White
+        segmentedDataSource?.titleNormalColor = UIColor.white
         segmentedDataSource?.titleSelectedColor = COLOR_ThemeBtnEndColor
         segmentedView.dataSource = self.segmentedDataSource
     }

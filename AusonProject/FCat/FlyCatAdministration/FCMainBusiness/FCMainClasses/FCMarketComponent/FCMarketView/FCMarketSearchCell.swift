@@ -36,7 +36,7 @@ class FCMarketSearchCell: UITableViewCell {
         self.titleL = UILabel.init(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH-60, height: 44))
         self.titleL.textColor = COLOR_PrimeTextColor
         self.titleL.text = "BT -Btcdo Token"
-        self.titleL.font = UIFont.systemFont(ofSize: 14)
+        self.titleL.font = UIFont(_customTypeSize: 14)
         self.contentView.addSubview(self.titleL)
     
         self.imageIcon = UIImageView.init(frame: CGRect(x: kSCREENWIDTH-35, y: 12, width: 20, height: 20))

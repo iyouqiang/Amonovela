@@ -49,5 +49,4 @@
 /** 登录过期 */
 + (void)showAlertExpiry:(NSString *)expiryMessage;
 
-
 @end

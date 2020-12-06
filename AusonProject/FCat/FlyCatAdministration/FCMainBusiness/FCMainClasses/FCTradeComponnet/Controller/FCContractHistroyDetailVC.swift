@@ -20,22 +20,22 @@ class FCContractHistroyDetailVC: UIViewController {
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 40))
         sectionHeaderView.backgroundColor = COLOR_BGColor
         /// 成交明细
-        let titleL = fc_labelInit(text: "成交明细", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 16), bgColor: .clear)
+        let titleL = fc_labelInit(text: "成交明细", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
         sectionHeaderView.addSubview(titleL)
         titleL.frame = CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 40)
         
         // 成交时间 成交价 成交量
-        let tradingTm = fc_labelInit(text: "成交时间", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let tradingTm = fc_labelInit(text: "成交时间", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         sectionHeaderView.addSubview(tradingTm)
         tradingTm.frame = CGRect(x: 15, y: 50, width: 100, height: 40)
         
-        let tradeingPrice = fc_labelInit(text: "成交价", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let tradeingPrice = fc_labelInit(text: "成交价", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         tradeingPrice.textAlignment = .center
         sectionHeaderView.addSubview(tradeingPrice)
         tradeingPrice.frame = CGRect(x: 15, y: 50, width: 100, height: 40)
         tradeingPrice.center = CGPoint(x: sectionHeaderView.center.x, y: tradeingPrice.center.y)
         
-        let tradeingVolum = fc_labelInit(text: "成交量", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let tradeingVolum = fc_labelInit(text: "成交量", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         tradeingVolum.textAlignment = .right
         sectionHeaderView.addSubview(tradeingVolum)
         tradeingVolum.frame = CGRect(x: kSCREENWIDTH - 115, y: 40, width: 100, height: 50)

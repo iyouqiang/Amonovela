@@ -17,7 +17,7 @@ enum FCBtnInsetType {
     case FCBtnInsetTypeImgBottom
 }
 
-func fc_buttonInit(imgName : String?, title : String? = "", fontSize : CGFloat? = 12, titleColor : UIColor? = COLOR_ThemeBtnTextColor, bgColor : UIColor? = COLOR_Clear) -> UIButton {
+func fc_buttonInit(imgName : String?, title : String? = "", fontSize : CGFloat? = 12, titleColor : UIColor? = COLOR_ThemeBtnTextColor, bgColor : UIColor? = UIColor.clear) -> UIButton {
     
     let button = UIButton.init(type: .custom)
     button.setTitle(title, for: .normal)
@@ -39,7 +39,7 @@ func fc_buttonInit(imgName : String?, title : String? = "", fontSize : CGFloat? 
 
 extension UIButton {
     
-    func fc_buttonConfig(imgName : String?, title : String? = "", fontSize : CGFloat? = 12, titleColor : UIColor? = COLOR_ThemeBtnTextColor, bgColor : UIColor? = COLOR_Clear) {
+    func fc_buttonConfig(imgName : String?, title : String? = "", fontSize : CGFloat? = 12, titleColor : UIColor? = COLOR_ThemeBtnTextColor, bgColor : UIColor? = UIColor.clear) {
         self.setTitle(title, for: .normal)
         self.titleLabel?.font = UIFont.init(_customTypeSize: fontSize!)
         self.setTitleColor(titleColor, for: .normal)

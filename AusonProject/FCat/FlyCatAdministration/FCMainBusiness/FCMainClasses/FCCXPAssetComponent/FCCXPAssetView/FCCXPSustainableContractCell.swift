@@ -20,12 +20,17 @@ class FCCXPSustainableContractCell: UITableViewCell {
     @IBOutlet weak var availableMarginL: UILabel!
     @IBOutlet weak var usedMarginL: UILabel!
     @IBOutlet weak var assetAccountTitleL: UILabel!
-    
     @IBOutlet weak var digitAssetEquityL: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.contentView.backgroundColor = COLOR_BGColor
+        self.assetAccountTitleL.font = UIFont(_customTypeSize: 16)
+        self.assetBgImgView.backgroundColor = COLOR_navBgColor
+        self.assetBgImgView.layer.cornerRadius = 8
+        self.assetBgImgView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

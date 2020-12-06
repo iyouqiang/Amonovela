@@ -13,8 +13,8 @@ public func fc_labelInit(text: String?, textColor: UIColor?, textFont: CGFloat?,
     let label = UILabel()
     label.text = text ?? ""
     label.font = UIFont.init(_customTypeSize: textFont ?? 15)
-    label.textColor = textColor ?? COLOR_White
-    label.backgroundColor = bgColor ?? COLOR_Clear
+    label.textColor = textColor ?? UIColor.white
+    label.backgroundColor = bgColor ?? UIColor.clear
     label.numberOfLines = 0
     
     return label

@@ -15,6 +15,7 @@ class FCPasswordResetController: UIViewController {
     var phoneNum: String = ""
     var email: String = ""
     var verificationId: String = ""
+    var verificationCode: String = ""
     
     var resetView: FCPasswordResetView?
     override func viewDidLoad() {
@@ -35,9 +36,11 @@ class FCPasswordResetController: UIViewController {
         
         self.edgesForExtendedLayout = .all
         
+        /**
         self.addrightNavigationItemImgNameStr(nil, title: "重置密码", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 17), clickCallBack: {
             weakSelf?.resetView?.confirmBtnClick()
         })
+         */
     }
 
     func setupSubviews (){
@@ -64,7 +67,7 @@ class FCPasswordResetController: UIViewController {
         
         self.resetView?.confirmAction(callback: { [weak self](pwd: String, validPwd: String, code: String) in
             
-            let confirmApi = FCApi_Password_ResetConfirm(verificationId: self?.verificationId ?? "", verificationCode: code, password: validPwd)
+            let confirmApi = FCApi_Password_ResetConfirm(verificationId: self?.verificationId ?? "", verificationCode: self?.verificationCode ?? "", password: validPwd)
             
             confirmApi.startWithCompletionBlock(success: { [weak self] (response) in
               let responseData = response.responseObject as? [String : AnyObject]
@@ -83,9 +86,10 @@ class FCPasswordResetController: UIViewController {
               self?.view.makeToast(response.responseMessage, position: .center)
             }
      })
+        
     }
     
-    /// 申请修改邮箱
+    /// 验证码申请
     func userResetApply(verificationIdBlock: @escaping  (_ verificationId : String) -> Void) {
         
         let channelType = self.loginType == .phone ? "Phone" : "Email"

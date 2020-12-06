@@ -109,7 +109,7 @@
         [_refreshBtn addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventTouchUpInside];
         [_refreshBtn setTitle:@"刷新页面" forState:UIControlStateNormal];
         [_refreshBtn setTitleColor:COLOR_HexColor(0x32A8EF) forState:UIControlStateNormal];
-        [_refreshBtn setTitleColor:COLOR_White forState:UIControlStateHighlighted];
+        [_refreshBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         _refreshBtn.titleLabel.font = [UIFont systemFontOfSize:18];
         _refreshBtn.frame = CGRectMake((kSCREENWIDTH-200)/2.0, CGRectGetMaxY(self.hintL.frame) + 30, 200, 44.0f);
 

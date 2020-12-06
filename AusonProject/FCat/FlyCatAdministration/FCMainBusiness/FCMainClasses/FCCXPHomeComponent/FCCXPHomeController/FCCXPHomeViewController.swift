@@ -19,6 +19,8 @@ class FCCXPHomeViewController: UIViewController {
     var navimaskView:UIView?
     let disposeBag = DisposeBag()
     var homeSubscription: Disposable?
+    var sortComponent: FCSortComponent!
+    
     private lazy var homeApi:FCApi_homedata = {
        
        let homeApi = FCApi_homedata()
@@ -27,40 +29,59 @@ class FCCXPHomeViewController: UIViewController {
     private lazy var menuHeaderView:UIView = {
         
         let menuHeaderView = UIView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 90))
-        menuHeaderView.backgroundColor = COLOR_CellBgColor
+        menuHeaderView.backgroundColor = COLOR_BGColor
         
-        let titleL = UILabel.init(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH-30, height: 50))
-        titleL.text = "数字货币"
-        titleL.font = UIFont.systemFont(ofSize: 16)
+        let titleL = UILabel.init(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH-30, height: 45))
+        titleL.text = "热门产品"
+        titleL.font = UIFont(_customTypeSize: 18)
         titleL.textColor = .white
         menuHeaderView.addSubview(titleL)
         
+        let lineView = UIView.init(frame: CGRect(x: 0, y: 50, width: kSCREENWIDTH, height: 0.5))
+        lineView.backgroundColor = COLOR_LineColor
+        menuHeaderView.addSubview(lineView)
+        
+        /*
         let tradeCategoryL = UILabel.init(frame: CGRect(x: 15, y: 50, width: 60, height: 40))
         tradeCategoryL.text = "交易品种"
-        tradeCategoryL.font = UIFont.systemFont(ofSize: 14)
-        tradeCategoryL.textColor = COLOR_FooterTextColor
+        tradeCategoryL.font = UIFont(_customTypeSize: 14)
+        tradeCategoryL.textColor = COLOR_CellTitleColor
         menuHeaderView.addSubview(tradeCategoryL)
         
         let newestL = UILabel.init(frame: CGRect(x: 15, y: 50, width: 60, height: 40))
         newestL.center = CGPoint(x: titleL.center.x, y: newestL.center.y)
         newestL.text = "最新价"
-        newestL.font = UIFont.systemFont(ofSize: 14)
-        newestL.textColor = COLOR_FooterTextColor
+        newestL.font = UIFont(_customTypeSize: 14)
+        newestL.textColor = COLOR_CellTitleColor
         menuHeaderView.addSubview(newestL)
         
         let priceLimitL = UILabel.init(frame: CGRect(x: kSCREENWIDTH - 75, y: 50, width: 60, height: 40))
         priceLimitL.textAlignment = .right
         priceLimitL.text = "涨跌幅"
-        priceLimitL.font = UIFont.systemFont(ofSize: 14)
-        priceLimitL.textColor = COLOR_FooterTextColor
+        priceLimitL.font = UIFont(_customTypeSize: 14)
+        priceLimitL.textColor = COLOR_CellTitleColor
         menuHeaderView.addSubview(priceLimitL)
+        */
         
-        let lineView = UIView.init(frame: CGRect(x: 0, y: 89, width: kSCREENWIDTH, height: 0.5))
-        lineView.backgroundColor = COLOR_LineColor
-        menuHeaderView.addSubview(lineView)
+        self.sortComponent = FCSortComponent.init(frame: .zero)
+        self.sortComponent.backgroundColor = COLOR_CellBgColor
+        menuHeaderView.addSubview(self.sortComponent)
+        
+        self.sortComponent.orderBtnClick { [weak self] (sortType: FCMarketSortType, orderType: FCMarketOrderType) in
+            
+            print("排序")
+        }
+        
+        self.sortComponent.snp.makeConstraints { (make) in
+            make.top.equalTo(51)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.equalTo(40)
+        }
         
         return menuHeaderView
     }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshSybolData()
@@ -71,6 +92,7 @@ class FCCXPHomeViewController: UIViewController {
         
     }
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.view.backgroundColor = COLOR_BGColor
         // Do any additional setup after loading the view.
@@ -101,31 +123,33 @@ class FCCXPHomeViewController: UIViewController {
         
         self.navimaskView = UIView()
         self.navimaskView?.backgroundColor = COLOR_BGColor
-        self.navimaskView?.alpha = 0.0
+        self.navimaskView?.alpha = 1.0
         navigationView.addSubview(self.navimaskView!)
         self.navimaskView?.snp.makeConstraints({ (make) in
             make.edges.equalToSuperview()
         })
         
-        let logoBtn = fc_buttonInit(imgName: "home_logo")
+        let logoBtn = fc_buttonInit(imgName: "hi", title: "Hi, Welcome to Auson!", fontSize: 17, titleColor: UIColor.white, bgColor: .clear)
+        logoBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
         logoBtn.contentHorizontalAlignment = .left
         logoBtn.addTarget(self, action: #selector(clickHomeLogoAction), for: .touchUpInside)
         navigationView.addSubview(logoBtn)
         
         let remindBtn = fc_buttonInit(imgName: "home_remind")
         remindBtn.addTarget(self, action: #selector(clickHomeRemindAciton), for: .touchUpInside)
+        //remindBtn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         remindBtn.contentHorizontalAlignment = .right
         navigationView.addSubview(remindBtn)
         
         logoBtn.snp.makeConstraints { (make) in
             make.left.equalTo(15)
-            make.width.height.equalTo(44)
-            make.bottom.equalTo(0)
+            //make.width.height.equalTo(44)
+            make.bottom.equalTo(-10)
         }
         remindBtn.snp.makeConstraints { (make) in
             make.right.equalTo(-15)
-            make.width.height.equalTo(44)
-            make.bottom.equalTo(0)
+            //make.width.height.equalTo(44)
+            make.bottom.equalTo(-10)
         }
         
         /// 界面数据刷新
@@ -139,7 +163,7 @@ class FCCXPHomeViewController: UIViewController {
         compositeView?.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: compositeView?.columnHeight ?? 0)
         self.homeTableView.tableHeaderView = compositeView
     }
-    
+
     lazy var homeTableView = { () -> UITableView in
         let homeTableView = UITableView.init(frame: .zero, style: .plain)
         //homeTableView.contentInset = UIEdgeInsetsMake(kNAVIGATIONHEIGHT, 0, 0, 0)
@@ -233,13 +257,11 @@ extension FCCXPHomeViewController {
     
     @objc func clickHomeLogoAction() {
         
-        print("logo 被点击")
         PCCustomAlert.showAppInConstructionAlert()
     }
     
     @objc func clickHomeRemindAciton() {
         
-        print("logo 消息提醒被点击")
         PCCustomAlert.showAppInConstructionAlert()
     }
 }
@@ -267,7 +289,7 @@ extension FCCXPHomeViewController:UITableViewDataSource, UITableViewDelegate
                 cell.symbolModel = symbolModel
             }
             //cell.textLabel?.textColor = COLOR_MinorTextColor
-            //cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
+            //cell.textLabel?.font = UIFont(_customTypeSize: 14)
             
             return cell
         }
@@ -284,7 +306,7 @@ extension FCCXPHomeViewController:UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -321,7 +343,7 @@ extension FCCXPHomeViewController:UITableViewDataSource, UITableViewDelegate
             alpha = Double((offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset));
         }
         
-        self.navimaskView?.alpha = CGFloat(alpha)
+        //self.navimaskView?.alpha = CGFloat(alpha)
     }
 }
 

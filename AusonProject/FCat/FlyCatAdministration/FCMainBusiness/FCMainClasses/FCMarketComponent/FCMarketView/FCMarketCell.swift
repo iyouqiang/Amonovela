@@ -11,6 +11,7 @@ import UIKit
 class FCMarketCell: UITableViewCell {
 
     @IBOutlet weak var marketBgView: UIView!
+    
     @IBOutlet weak var exchangeL: UILabel!
     
     @IBOutlet weak var titleL: UILabel!
@@ -55,7 +56,8 @@ class FCMarketCell: UITableViewCell {
         }
         
         self.turnoverL.text = "24H 量 \(model.volume)"
-        self.priceL.text = model.latestPrice
+        self.priceL.text = "$ \(model.latestPrice)"
+        self.priceL.setAttributeColor(COLOR_HexColor(0x848D9B), range: NSMakeRange(0, 1))
         self.CNYL.text = model.estimatedValue
         //self.changepercentL.text = "\(model.changePercent)%"
         let percentValue = Double(model.changePercent) ?? 0.0
@@ -73,12 +75,6 @@ class FCMarketCell: UITableViewCell {
             self.changepercentL.backgroundColor = COLOR_BGRiseColor
             self.changepercentL.textColor = COLOR_RiseColor
         }
-        
-        #if BS_TARGETCXP
-      
-        self.changepercentL.textColor = .white
-        
-        #endif
     }
     
     @objc func longPressAction(longPress: UILongPressGestureRecognizer) {
@@ -105,7 +101,14 @@ class FCMarketCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.marketBgView.backgroundColor = COLOR_CellBgColor
+        self.marketBgView.backgroundColor = COLOR_HexColor(0x1D2439)
+        self.marketBgView.layer.cornerRadius = 8
+        self.exchangeL.font = UIFont(_customTypeSize: 13)
+        self.titleL.font = UIFont(_customTypeSize: 16)
+        self.turnoverL.font = UIFont(_customTypeSize: 13)
+        self.priceL.font = UIFont(_customTypeSize: 15)
+        self.CNYL.font = UIFont(_customTypeSize: 13)
+        self.changepercentL.font = UIFont(_customTypeSize: 14)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -113,59 +116,5 @@ class FCMarketCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    /**
-     -(void)layoutSubviews {
-     [super layoutSubviews];
-     for (UIView *subView in self.subviews) {
-     if([subView isKindOfClass:NSClassFromString(@"UITableViewCellDeleteConfirmationView")]) {
-     //这里修改盛放按钮的view的背景颜色(这里一般设置为和你的底色相同的颜色用于遮盖掉原来的大红色)
-     subView.backgroundColor = [UIColor hexColorStr:commonBGcolor];
-     //这里修改按钮的frame 及 颜色(这里是你要设置成的按钮颜色)
-     UIView *confirmView=(UIView *)[subView.subviews firstObject];
-     CGRect confFrame = confirmView.frame;
-     confFrame.size.height = 77;
-     confFrame.origin.y = 5;
-     confirmView.frame = confFrame;
-     confirmView.layer.backgroundColor = [UIColor hexColorStr:WX_ZSB_StyleColor].CGColor;
-     confirmView.layer.cornerRadius = 5;
-     //这里修改字的大小、颜色,这个方法可以修改文字样式
-     for(UIView *sub in confirmView.subviews) {
-     if ([sub isKindOfClass:NSClassFromString(@"UIButtonLabel")]) {
-     UILabel *deleteLabel=(UILabel *)sub;
-     //改删除按钮的字体大小
-     deleteLabel.font=[UIFont boldSystemFontOfSize:20];
-     //改删除按钮的文字
-     aliyunzixun@xxx.com"删除";
-     }
-     }
-     break;
-     }
-     */
-    
-//    override func layoutSubviews() {
-//
-//        for subview in self.subviews {
-//
-//           if String(describing: subview).range(of: "UITableViewCellDeleteConfirmationView") != nil {
-//
-//            subview.backgroundColor = COLOR_InputColor
-//
-//            for sub in subview.subviews {
-//
-//                 if String(describing: sub).range(of: "_UITableViewCellActionButton") != nil {
-//
-//                    if let button = sub as? UIButton {
-//                        button.titleLabel?.textColor = COLOR_PrimeTextColor
-//                        button.backgroundColor = COLOR_InputColor
-//                        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-    
 }
 

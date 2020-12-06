@@ -13,6 +13,7 @@
 #import "FCAPPConstructionView.h"
 #import "FCShareItemView.h"
 #import "PCMacroDefinition.h"
+
 @implementation PCCustomAction
 
 @end
@@ -42,7 +43,7 @@
         alert.tag = 198;
     }
     
-    alert.backgroundColor = [UIColor whiteColor];
+    alert.backgroundColor = COLOR_PartColor;
     alert.message = message;
     alert.inputTextField.placeholder = message;
     alert.title   = title;
@@ -66,6 +67,7 @@
     [kAPPDELEGATE.window addSubview:alert];
     
     if (customView) {
+        [customView setUserInteractionEnabled:YES];
         customView.layer.cornerRadius = 10;
         customView.clipsToBounds = YES;
         customView.frame = CGRectMake(0, kSCREENHEIGHT, kSCREENWIDTH, CGRectGetHeight(customView.frame));
@@ -97,6 +99,48 @@
     }
     
     return alert;
+}
+
+/** 警告弹窗 */
++ (void)showWarningAlertMessage:(NSString *_Nullable)message
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        UIView *alertView = [kAPPDELEGATE.window viewWithTag:2020];
+        
+        if (!alertView) {
+            
+            alertView = [[UIView alloc] initWithFrame:CGRectMake(0, -kNAVIGATIONHEIGHT, kSCREENWIDTH, kNAVIGATIONHEIGHT)];
+            alertView.tag = 2020;
+            alertView.backgroundColor = COLOR_WarningColor;
+            [kAPPDELEGATE.window addSubview:alertView];
+        }
+        
+        UILabel *alertMessageL = [alertView viewWithTag:2021];
+        
+        if (!alertMessageL) {
+            
+            alertMessageL = [[UILabel alloc] initWithFrame:CGRectMake(0, kNAVIGATIONHEIGHT - 44, kSCREENWIDTH, 44)];
+            alertMessageL.font = [UIFont systemFontOfSize:18];
+            alertMessageL.textColor = [UIColor whiteColor];
+            alertMessageL.textAlignment = NSTextAlignmentCenter;
+            alertMessageL.tag = 2021;
+            [alertView addSubview:alertMessageL];
+        }
+        
+        alertMessageL.text = message;
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            
+            alertView.frame = CGRectMake(0, 0, kSCREENWIDTH, kNAVIGATIONHEIGHT);
+        }];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+            [alertView removeFromSuperview];
+        });
+
+    });
 }
 
 + (instancetype _Nullable )alertShareCustomView:(UIView *_Nullable)customView
@@ -218,8 +262,8 @@
     
     if (_title.length > 0 && _title) {
         
-        titleL.font = [UIFont font_customTypeSize:17];
-        titleL.textColor = COLOR_HexColor(0x1a1a1a);
+        titleL.font = [UIFont font_customTypeSize:18];
+        titleL.textColor = COLOR_CellTitleColor;
         titleL.textAlignment = NSTextAlignmentCenter;
         titleL.text = _title;
         
@@ -259,9 +303,14 @@
             /** 计算富文本大小 */
             NSString *tempMessage = [self.message stringByReplacingOccurrencesOfString:@" " withString:@"k"];
         
+            if (self.title.length == 0) {
+                self.messageL.font = [UIFont systemFontOfSize:17];
+            }
+            
             CGSize messageSize = [tempMessage boundingRectWithSize:CGSizeMake(kSCREENWIDTH-140, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:self.messageL.font} context:nil].size;
             
             self.messageL.text = self.message;
+            
             
             if (messageSize.height/_messageL.font.lineHeight > 1) {
                 
@@ -274,7 +323,7 @@
             CGFloat addHeight = 0;
             CGFloat titleSpace = 15;
             if (self.title.length == 0) {
-                self.messageL.font = [UIFont systemFontOfSize:17];
+                //self.messageL.font = [UIFont systemFontOfSize:17];
                 addHeight = 25.5;
                 titleSpace = 20;
             }
@@ -301,10 +350,10 @@
     
     /** 配置底部按钮 是取最后两个按钮 */
     if (self.eventActions.count == 1) {
-     
+        
         PCCustomAction *alertEventAction = [self.eventActions firstObject];
         UIView *underLine = [[UIView alloc] init];
-        underLine.backgroundColor = COLOR_HexColor(0xF3F5F9);
+        underLine.backgroundColor = COLOR_HexColor(0x394155);
         [self addSubview:underLine];
         [underLine mas_makeConstraints:^(MASConstraintMaker *make) {
            
@@ -319,6 +368,13 @@
             make.height.mas_equalTo(0.5);
         }];
         
+        if (_title.length != 0) {
+            [underLine setHidden:YES];
+            //_messageL.textAlignment = NSTextAlignmentLeft;
+        }else {
+            [underLine setHidden:false];
+            _messageL.textAlignment = NSTextAlignmentCenter;
+        }
         UIButton *actionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         
         /**********************/
@@ -326,33 +382,45 @@
         /**********************/
         if (alertEventAction.preferredStyle == PCCustomAction_highlight) {
             
-            [actionBtn setBackgroundImage:[UIImage at_imageWithColor:COLOR_HexColor(0xffad17) withSize:CGSizeMake(5, 5)] forState:UIControlStateNormal];
-            [actionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            //[actionBtn setBackgroundImage:[UIImage at_imageWithColor:COLOR_HexColor(0xffad17) withSize:CGSizeMake(5, 5)] forState:UIControlStateNormal];
+            [actionBtn setTitleColor:COLOR_MainThemeColor forState:UIControlStateNormal];
         }else {
             
-             [actionBtn setTitleColor:COLOR_HexColor(0x696A6D) forState:UIControlStateNormal];
+             [actionBtn setTitleColor:COLOR_HexColor(0x848D9B) forState:UIControlStateNormal];
         }
         /** 点击颜色 */
-
         //[actionBtn setTitleColor:COLOR_BackgroundColor forState:UIControlStateHighlighted];
         
         [actionBtn setTitle:alertEventAction.btnTitle forState:UIControlStateNormal];
-        actionBtn.titleLabel.font = [UIFont font_customTypeSize:17];
+        actionBtn.titleLabel.font = [UIFont font_customTypeSize:16];
         [actionBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         actionBtn.tag = 144;
         [self addSubview:actionBtn];
         
-        [actionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(underLine.mas_bottom);
-            make.left.right.equalTo(self);
-            make.height.mas_equalTo(43);
-        }];
+        if (_title.length != 0) {
+            
+            [actionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(underLine.mas_bottom);
+                //make.left.right.equalTo(self);
+                make.right.mas_equalTo(-15);
+                make.width.mas_equalTo(60);
+                make.height.mas_equalTo(50);
+            }];
+        }else {
+            
+            [actionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(underLine.mas_bottom);
+                make.left.right.equalTo(self);
+                make.height.mas_equalTo(50);
+            }];
+        }
         
     }else {
         
         UIView *underLine = [[UIView alloc] init];
-        underLine.backgroundColor = COLOR_HexColor(0xF3F5F9);
+        underLine.backgroundColor = COLOR_HexColor(0x394155);
         [self addSubview:underLine];
+        [underLine setHidden:YES];
         [underLine mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.top.mas_offset(alertHeight);
@@ -360,10 +428,14 @@
             make.height.mas_equalTo(0.5);
         }];
         
+        /**
         CGFloat btnWidth = (kSCREENWIDTH-100)/2.0;
         if (PCiPhone5SE) {
             btnWidth = (kSCREENWIDTH-60)/2.0;;
         }
+         */
+        
+        CGFloat btnWidth = 60;
         
         for (int i = 0; i < 2; i ++) {
             
@@ -375,17 +447,18 @@
             // alertAction.preferredStyle 根据不同的样式配置不同的按钮
             
             if (alertAction.preferredStyle == PCCustomAction_highlight) {
-                [actionBtn setBackgroundImage:[UIImage at_imageWithColor:COLOR_HexColor(0xffad17) withSize:CGSizeMake(5, 5)] forState:UIControlStateNormal];
-                [actionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                //[actionBtn setBackgroundImage:[UIImage at_imageWithColor:COLOR_HexColor(0xffad17) withSize:CGSizeMake(5, 5)] forState:UIControlStateNormal];
+                //[actionBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [actionBtn setTitleColor:COLOR_MainThemeColor forState:UIControlStateNormal];
             }else {
                 
-                [actionBtn setTitleColor:COLOR_HexColor(0x696A6D) forState:UIControlStateNormal];
+                [actionBtn setTitleColor:COLOR_HexColor(0x848D9B) forState:UIControlStateNormal];
             }
             /**********************/
             
             /** 点击颜色 */
-            [actionBtn setBackgroundImage:[UIImage at_imageWithColor:COLOR_BtnTouchDownColor withSize:CGSizeMake(5, 5)] forState:UIControlStateHighlighted];
-            [actionBtn setTitleColor:COLOR_BackgroundColor forState:UIControlStateHighlighted];
+            //[actionBtn setBackgroundImage:[UIImage at_imageWithColor:COLOR_BtnTouchDownColor withSize:CGSizeMake(5, 5)] forState:UIControlStateHighlighted];
+            //[actionBtn setTitleColor:COLOR_BackgroundColor forState:UIControlStateHighlighted];
             
             [actionBtn setTitle:alertAction.btnTitle forState:UIControlStateNormal];
             
@@ -397,26 +470,27 @@
             [actionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                
                 make.top.equalTo(underLine.mas_bottom);
-                make.left.mas_equalTo(i*btnWidth);
+                make.right.mas_equalTo(-i*btnWidth - 15);
                 make.width.mas_equalTo(btnWidth);
-                make.height.mas_equalTo(43);
+                make.height.mas_equalTo(50);
             }];
         }
         
         UIView *centerLine = [[UIView alloc] init];
-        centerLine.backgroundColor = COLOR_HexColor(0xF3F5F9);
+        centerLine.backgroundColor = COLOR_HexColor(0x394155);
         [self addSubview:centerLine];
+        [centerLine setHidden:YES];
         
         [centerLine mas_makeConstraints:^(MASConstraintMaker *make) {
             
             make.top.equalTo(underLine.mas_bottom);
             make.left.mas_equalTo(btnWidth-0.25);
             make.width.mas_equalTo(0.5);
-            make.height.mas_equalTo(43);
+            make.height.mas_equalTo(50);
         }];
     }
     
-    alertHeight = alertHeight + 43;
+    alertHeight = alertHeight + 50;
     
     _totlaheight = alertHeight;
 }
@@ -606,7 +680,7 @@
         
         _messageL = [[UILabel alloc] init];
         _messageL.font = [UIFont font_customTypeSize:14];
-        _messageL.textColor = COLOR_HexColor(0x696A6D);
+        _messageL.textColor = [UIColor whiteColor];
         _messageL.textAlignment = NSTextAlignmentLeft;
         _messageL.numberOfLines = 0;
     }

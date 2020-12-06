@@ -27,7 +27,7 @@ class FCTriggerEntrustViewController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -91,7 +91,7 @@ class FCTriggerEntrustViewController: UIViewController {
         triggerTableView.delegate = self
         triggerTableView.dataSource = self
         triggerTableView.register(UINib(nibName: "FCContractProfitLossCell", bundle: Bundle.main), forCellReuseIdentifier: FCContractProfitLossCellIdentifier)
-        triggerTableView.separatorColor = COLOR_SeperateColor
+        triggerTableView.separatorColor = COLOR_LineColor
         triggerTableView.tableFooterView = UIView()
     }
     
@@ -111,6 +111,7 @@ class FCTriggerEntrustViewController: UIViewController {
         }
         
         let timestampStr = NSString.timestampTo()
+        
         let startDate = currentDateToWantDate(year: 0, month: -6, day: 0)
         
         let startTimestamp = NSString.dateTotimestamp(startDate)

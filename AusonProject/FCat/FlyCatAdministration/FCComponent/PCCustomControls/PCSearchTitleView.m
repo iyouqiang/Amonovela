@@ -46,7 +46,7 @@
         searchTextField.textColor = [UIColor whiteColor];
         searchTextField.tintColor = COLOR_BtnTouchDownColor;
         searchTextField.placeholder = @"搜索币种";
-        [searchTextField setValue:COLOR_TitleSectionColor forKeyPath:@"_placeholderLabel.textColor"];
+        [searchTextField setValue:COLOR_HexColor(0x666666) forKeyPath:@"_placeholderLabel.textColor"];
         //[textField setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
         //[textField setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
 

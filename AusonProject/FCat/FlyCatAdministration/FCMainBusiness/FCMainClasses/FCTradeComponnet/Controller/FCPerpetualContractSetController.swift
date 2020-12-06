@@ -20,7 +20,7 @@ class FCPerpetualContractSetController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -30,7 +30,7 @@ class FCPerpetualContractSetController: UIViewController {
     private lazy var switchableDesView: UIView? = {
         
         let sctionView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 50))
-        let titleL = fc_labelInit(text: "", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 13), bgColor: .clear)
+        let titleL = fc_labelInit(text: "", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 13), bgColor: .clear)
         //titleL.text = "每一张合约代表0.01 BTC≈115.96个USDT"
         titleL.frame = CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 10/**50*/)
         sctionView.addSubview(titleL)

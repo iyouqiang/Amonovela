@@ -44,7 +44,7 @@ class FCPasswordModifiedController: UIViewController {
         self.view.backgroundColor = COLOR_BGColor
         
         let statusImgView = fc_imageViewInit(imageName: "modifySuccess")
-        let statusLab = fc_labelInit(text: "密码修改成功", textColor: COLOR_White, textFont: 15, bgColor: COLOR_Clear)
+        let statusLab = fc_labelInit(text: "密码修改成功", textColor: UIColor.white, textFont: 15, bgColor: UIColor.clear)
         let loginBtn = FCThemeButton.init(title: "马上登录", frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 50) , cornerRadius: 4)
         
         self.view.addSubview(statusImgView)

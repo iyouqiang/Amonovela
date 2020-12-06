@@ -15,17 +15,17 @@ class FCHomeCompositeView: UIView {
     var mainSymbolsView:FCMainSymbolsView!
     var agreeMentView:FCHomeAgreementView!
     var columnHeight: CGFloat = 0.0
+    var fastRechangeBtn: UIButton!
+    var fastBuyCoinsBtn: UIButton!
     weak var parentVC:UIViewController?
+
 
     var bannerView: FCBannerCarouselView = {
         
-        let width = UIScreen.main.bounds.size.width
-        let frame: CGRect = CGRect(x: 15, y: 15.0, width: width-30, height: (150.0/357.0) * kSCREENWIDTH)
+        let width = UIScreen.main.bounds.size.width * (2/3)
+        let frame: CGRect = CGRect(x: 15, y: 15.0, width: width, height: (502 * width)/553)
         return FCBannerCarouselView(frame: frame)
-        
     }()
-    
-    //var mainBannerView: i
     
     var homedataModel:FCHomeModel? {
         
@@ -78,7 +78,7 @@ class FCHomeCompositeView: UIView {
         self.bannerView.backgroundColor = .clear
         self.bannerView.layer.cornerRadius = 10
         self.bannerView.clipsToBounds = true
-        columnHeight = (150.0/357.0) * kSCREENWIDTH
+        columnHeight = bannerView.frame.height //(150.0/357.0) * kSCREENWIDTH
         
         bannerView.didSelectedItemBlock = {
            [weak self] index in
@@ -95,6 +95,42 @@ class FCHomeCompositeView: UIView {
             }
         }
         
+        /// 快捷买币 充币
+        self.fastBuyCoinsBtn = fc_buttonInit(imgName: "home_fastrechange", title: "快捷买币", fontSize: 16, titleColor: UIColor.white, bgColor: COLOR_HexColor(0x232A3F))
+        self.fastBuyCoinsBtn.addTarget(self, action: #selector(fastBuyCoinsAction), for: .touchUpInside)
+        self.fastBuyCoinsBtn.layer.cornerRadius = 8
+        self.fastBuyCoinsBtn.clipsToBounds = true
+        self.addSubview(self.fastBuyCoinsBtn)
+        let itemwidth = kSCREENWIDTH*(1/3.0) - 15*3
+        self.fastBuyCoinsBtn.frame = CGRect(x: 0, y: 0, width: itemwidth, height: bannerView.frame.height/2.0 - 8)
+        let imageSize:CGSize = fastBuyCoinsBtn.imageView!.frame.size
+        let titleSize:CGSize = fastBuyCoinsBtn.titleLabel!.frame.size
+        fastBuyCoinsBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left:-imageSize.width, bottom: -imageSize.height - 5, right: 0)
+        fastBuyCoinsBtn.imageEdgeInsets = UIEdgeInsets(top: -titleSize.height - 5, left: 0, bottom: 0, right: -titleSize.width - 10)
+        
+        self.fastRechangeBtn = fc_buttonInit(imgName: "home_fastrechange", title: "快速充币", fontSize: 16, titleColor: UIColor.white, bgColor: COLOR_HexColor(0x232A3F))
+        self.fastRechangeBtn.addTarget(self, action: #selector(fastRechangeAction), for: .touchUpInside)
+        self.fastRechangeBtn.layer.cornerRadius = 8
+        self.fastRechangeBtn.clipsToBounds = true
+        self.addSubview(self.fastRechangeBtn)
+        self.fastRechangeBtn.frame = CGRect(x: 0, y: 0, width: itemwidth, height: bannerView.frame.height/2.0 - 8)
+        fastRechangeBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left:-imageSize.width, bottom: -imageSize.height - 5, right: 0)
+        fastRechangeBtn.imageEdgeInsets = UIEdgeInsets(top: -titleSize.height - 5, left: 0, bottom: 0, right: -titleSize.width - 10)
+        
+        self.fastRechangeBtn.snp_makeConstraints { (make) in
+            make.left.equalTo(self.bannerView.snp_right).offset(15)
+            make.top.equalTo(self.bannerView.snp_top)
+            make.right.equalTo(-15)
+            make.height.equalTo((self.bannerView.frame.height/2.0 - 8))
+        }
+        
+        self.fastBuyCoinsBtn.snp_makeConstraints { (make) in
+            make.left.equalTo(self.bannerView.snp_right).offset(15)
+            make.top.equalTo(self.fastRechangeBtn.snp_bottom).offset(15)
+            make.right.equalTo(-15)
+            make.height.equalTo(self.fastRechangeBtn.snp_height)
+        }
+        
         /// 跑马灯
         noticeView = FCNoticeView()
         noticeView?.backgroundColor = COLOR_CellBgColor
@@ -109,15 +145,15 @@ class FCHomeCompositeView: UIView {
         
         /// 分割线
         let line1View = UIView()
-        line1View.backgroundColor = COLOR_TabBarBgColor
+        line1View.backgroundColor = COLOR_HexColor(0x13151A)
         addSubview(line1View)
         line1View.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
             make.top.equalTo(self.noticeView!.snp.bottom)
-            make.height.equalTo(15)
+            make.height.equalTo(8)
         }
         
-        columnHeight += 15
+        columnHeight += 8
         
         /// 快捷导航
         var items: [FCAlertItemModel] = []
@@ -166,18 +202,19 @@ class FCHomeCompositeView: UIView {
             make.height.equalTo(110)
         }
         
-        columnHeight += 110
+        self.quickNavView.isHidden = true
+        //columnHeight += 110
         
         let line2View = UIView()
         line2View.backgroundColor = COLOR_TabBarBgColor
         addSubview(line2View)
         line2View.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.top.equalTo(self.quickNavView.snp.bottom)
-            make.height.equalTo(15)
+            make.top.equalTo(noticeView!.snp.bottom)
+            make.height.equalTo(8)
         }
-        
-        columnHeight += 15
+        line2View.isHidden = true
+        //columnHeight += 8
         
         /// 主流货币
         mainSymbolsView = Bundle.main.loadNibNamed("FCMainSymbolsView", owner: nil, options:     nil)?.first as? FCMainSymbolsView
@@ -186,10 +223,10 @@ class FCHomeCompositeView: UIView {
         mainSymbolsView.snp.makeConstraints { (make) in
             
             make.left.right.equalToSuperview()
-            make.top.equalTo(line2View.snp.bottom)
+            make.top.equalTo(line1View.snp.bottom)
             make.height.equalTo(120)
         }
-        
+        mainSymbolsView.isHidden = true
         mainSymbolsView.clickColumnItem = {
             (index, symbolModel) in
             
@@ -211,16 +248,18 @@ class FCHomeCompositeView: UIView {
             self.parentVC?.navigationController?.pushViewController(klineVC, animated: true)
         }
         
-        columnHeight += 120
+        //columnHeight += 120
+        
         /// 合约
         let agreeMentViewline = UIView()
-        agreeMentViewline.backgroundColor = COLOR_TabBarBgColor
+        agreeMentViewline.backgroundColor = COLOR_HexColor(0x13151A)
         addSubview(agreeMentViewline)
         agreeMentViewline.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.top.equalTo(self.mainSymbolsView.snp.bottom)
-            make.height.equalTo(15)
+            make.top.equalTo(mainSymbolsView.snp.bottom)
+            make.height.equalTo(8)
         }
+        agreeMentViewline.isHidden = true
         
         agreeMentView = Bundle.main.loadNibNamed("FCHomeAgreementView", owner: nil, options:     nil)?.first as? FCHomeAgreementView
         addSubview(agreeMentView)
@@ -228,22 +267,22 @@ class FCHomeCompositeView: UIView {
         agreeMentView.snp.makeConstraints { (make) in
             
             make.left.right.equalToSuperview()
-            make.top.equalTo(agreeMentViewline.snp.bottom)
+            make.top.equalTo(line1View.snp.bottom)
             make.height.equalTo(140)
         }
         
         columnHeight += 140
         
         let line3View = UIView()
-        line3View.backgroundColor = COLOR_TabBarBgColor
+        line3View.backgroundColor = COLOR_HexColor(0x13151A)
         addSubview(line3View)
         line3View.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
             make.top.equalTo(self.agreeMentView.snp.bottom)
-            make.height.equalTo(15)
+            make.height.equalTo(8)
         }
         
-        columnHeight += 15+20
+        columnHeight += 58
         
         configureAction()
     }
@@ -262,10 +301,29 @@ class FCHomeCompositeView: UIView {
         
         activeityVC.completionWithItemsHandler = {
             activityType, completed, returnedItems, activityError in
-            
-                
+              
         }
         
+    }
+    
+    @objc func fastRechangeAction()
+    {
+        FCUserInfoManager.sharedInstance.loginState { (model) in
+            let assetVC = FCCXPAssetOptionController()
+            assetVC.assetOptionType = .AssetOptionType_deposit
+            assetVC.hidesBottomBarWhenPushed = true
+            self.parentVC?.navigationController?.pushViewController(assetVC, animated: true)
+        }
+    }
+    
+    @objc func fastBuyCoinsAction() {
+
+        FCUserInfoManager.sharedInstance.loginState { (model) in
+            let assetVC = FCCXPAssetOptionController()
+            assetVC.assetOptionType = .AssetOptionType_deposit
+            assetVC.hidesBottomBarWhenPushed = true
+            self.parentVC?.navigationController?.pushViewController(assetVC, animated: true)
+        }
     }
     
     /*

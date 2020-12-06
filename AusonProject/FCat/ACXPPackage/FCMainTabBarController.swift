@@ -11,8 +11,24 @@ import UIKit
 class FCMainTabBarController: UITabBarController {
     
     let tradeVC = FCTradeController()
+    let itemWidth = kSCREENWIDTH/5.0
+    var lastTabItem: UITabBarItem?
+    
+    lazy var itemCapView: UIView = {
+        //UIFont.systemFont(ofSize: <#T##CGFloat#>)
+        //UIFont(_customTypeSize: <#T##CGFloat#>)
+        let view = UIView(frame: CGRect(x: (itemWidth - 60)/2.0, y: -15, width: 60, height: 60))
+        view.layer.cornerRadius = 30
+        view.clipsToBounds = true
+        view.backgroundColor = COLOR_TabBarBgColor
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBar.addSubview(self.itemCapView)
         
         self.tabBar.isTranslucent = false;
         self.delegate = self
@@ -52,6 +68,12 @@ class FCMainTabBarController: UITabBarController {
         let normalImage = UIImage.init(named: normalImg as String)?.withRenderingMode(.alwaysOriginal)
         let selectImage = UIImage.init(named: selectedImg as String)?.withRenderingMode(.alwaysOriginal)
         let tabItem = UITabBarItem.init(title: itemTitle as String, image: normalImage, selectedImage: selectImage)
+        
+        if itemTitle == "首页" {
+            self.lastTabItem = tabItem
+            tabItem.imageInsets = UIEdgeInsets(top: -5, left: 0, bottom: 5, right: 0)
+        }
+        
         itemViewController.tabBarItem = tabItem
         itemViewController.title = itemTitle as String
         self.addChild(tabNavigationcontroller)
@@ -91,7 +113,6 @@ class FCMainTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     /*
      // MARK: - Navigation
      
@@ -101,22 +122,39 @@ class FCMainTabBarController: UITabBarController {
      // Pass the selected object to the new view controller.
      }
      */
-    
-    
 }
 
 extension FCMainTabBarController: UITabBarControllerDelegate {
     
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+            UIView.animate(withDuration: 0.2) {
+
+            }
+        
+        self.lastTabItem?.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        let offsetX = CGFloat(self.selectedIndex) * self.itemWidth + (self.itemWidth - 60)/2.0
+        self.itemCapView.frame = CGRect(x: offsetX, y: -15, width: 60, height: 60)
+        
+        self.tabBar.selectedItem?.imageInsets = UIEdgeInsets(top: -8, left: 0, bottom: 8, right: 0)
+        self.lastTabItem = self.tabBar.selectedItem
+    }
+    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool
     {
-        print(viewController)
         let firstController = viewController.children.first
         if (firstController?.isKind(of:FCCXPAssetController.self))! {
             
             FCUserInfoManager.sharedInstance.loginState { (model) in
                 
                 //触发
+                self.lastTabItem?.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 self.selectedIndex = 3
+                let offsetX = CGFloat(self.selectedIndex) * self.itemWidth + (self.itemWidth - 60)/2.0
+                self.itemCapView.frame = CGRect(x: offsetX, y: -15, width: 60, height: 60)
+                self.lastTabItem = self.tabBar.items?[3]
+                self.lastTabItem?.imageInsets = UIEdgeInsets(top: -8, left: 0, bottom: 8, right: 0)
             }
             
             return false
@@ -127,7 +165,13 @@ extension FCMainTabBarController: UITabBarControllerDelegate {
             FCUserInfoManager.sharedInstance.loginState { (model) in
                 
                 //触发
+                self.lastTabItem?.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 self.selectedIndex = 2
+                let offsetX = CGFloat(self.selectedIndex) * self.itemWidth + (self.itemWidth - 60)/2.0
+                self.itemCapView.frame = CGRect(x: offsetX, y: -15, width: 60, height: 60)
+                self.lastTabItem = self.tabBar.items?[2]
+                self.lastTabItem?.imageInsets = UIEdgeInsets(top: -8, left: 0, bottom: 8, right: 0)
+                
             }
             return false
         }

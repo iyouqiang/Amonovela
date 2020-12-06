@@ -61,6 +61,7 @@ class FCAddEmailViewController: UIViewController {
     func setupView() {
         
         self.inputEmailTextField = FCEmailComponent.init(placeholder: "请输入邮箱账号", leftImg: "")
+        self.inputEmailTextField.isHighlight = true
         self.inputEmailTextField.textFieldDidBeginEditingBlock = {
             [weak self] in
             self?.bottomLab.isHidden = true
@@ -70,6 +71,8 @@ class FCAddEmailViewController: UIViewController {
         self.view.addSubview(self.inputEmailTextField)
         
         self.codeComponent = FCPasswordComponent.init(placeholder: "请输入6位验证码")
+        self.codeComponent.textFiled.isSecureTextEntry = false
+        self.codeComponent.isHighlight = true
         self.view.addSubview(self.codeComponent)
         self.codeComponent.textFieldDidBeginEditingBlock = {
             [weak self] in
@@ -84,6 +87,7 @@ class FCAddEmailViewController: UIViewController {
         self.codeComponent?.textFiled.rightViewMode = .always
         
          self.loginPwdcomponent = FCPasswordComponent.init(placeholder: "请输入登录密码", leftImg: "")
+        self.loginPwdcomponent.isHighlight = true
         self.view.addSubview(self.loginPwdcomponent)
         self.loginPwdcomponent.textFieldDidBeginEditingBlock = {
             [weak self] in
@@ -91,7 +95,7 @@ class FCAddEmailViewController: UIViewController {
             self?.bottomLab.textColor = COLOR_FooterTextColor
         }
         
-        self.bottomLab =  fc_labelInit(text: "6-16位含数字和字母组合，并与原密码不同", textColor: COLOR_FooterTextColor, textFont: 15, bgColor: COLOR_Clear)
+        self.bottomLab =  fc_labelInit(text: "6-16位含数字和字母组合，并与原密码不同", textColor: COLOR_FooterTextColor, textFont: 15, bgColor: UIColor.clear)
         self.bottomLab.isHidden = true
         self.view.addSubview(self.bottomLab)
         self.confirmBtn = FCThemeButton.init(title: "确定", frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 50) , cornerRadius: 4)

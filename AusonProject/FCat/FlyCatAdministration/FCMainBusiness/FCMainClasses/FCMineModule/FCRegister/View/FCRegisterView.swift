@@ -30,10 +30,12 @@ class FCRegisterView: UIView {
     var emailCodeComponent: FCTextFieldComponent?
     var phoneContentView: UIView?
     var emailContentView: UIView?
+    var privacyAgreementBtn: UIButton!
     
     var registerBtn: FCThemeButton?
     var loginBtn: UIButton?
-    
+    var registerTipL: UILabel!
+    var dismissBtn: UIButton!
     
     typealias registerBlock = (_ loginType: FCLoginType, _ countryCode: String?, _ phone: String?, _ email: String?,  _ password: String, _ inviteCode: String?) -> Void
     var callback: registerBlock?
@@ -60,34 +62,68 @@ class FCRegisterView: UIView {
     }
     
     private func loadSubviews() {
+        
+        self.dismissBtn = fc_buttonInit(imgName: "", title: "取消", fontSize: 15, titleColor: COLOR_MinorTextColor, bgColor: UIColor.clear)
+        self.dismissBtn.contentHorizontalAlignment = .left
+        self.dismissBtn.addTarget(self, action: #selector(dismissLoginViewClick), for: .touchUpInside)
+        self.addSubview(self.dismissBtn)
+        
+        self.dismissBtn.snp_makeConstraints { (make) in
+            make.left.equalTo(0)
+            make.top.equalTo(KSTATUSBARHEIGHT + 30)
+            make.width.height.equalTo(50)
+        }
+        
+        self.registerTipL = fc_labelInit(text: "手机注册", textColor: UIColor.white, textFont: UIFont(_customTypeSize: 28), bgColor: UIColor.clear)
+        self.addSubview(self.registerTipL)
+        
+        self.registerTipL.snp.makeConstraints { (make) in
+            
+            make.left.equalToSuperview()
+            make.top.equalTo(dismissBtn.snp_bottom).offset(20)
+        }
+        
         self.segmentControl = FCSegmentControl.init(frame: CGRect.zero)
-        segmentControl?.itemSpace = 13
-        segmentControl?.setTitles(titles: ["手机登录", "邮箱登录"], fontSize: 18, normalColor: COLOR_MinorTextColor, tintColor: COLOR_White, showUnderLine: false)
+        segmentControl?.itemSpace = 20
+        segmentControl?.setTitles(titles: ["手机", "邮箱"], fontSize: 15, normalColor: COLOR_MinorTextColor, tintColor: UIColor.white, showUnderLine: true)
         self.addSubview(self.segmentControl!)
         
         loadPhoneContentView()
         loadEmailContentView()
         
-        self.registerBtn = FCThemeButton.init(title: "注册", frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 50) , cornerRadius: 4)
+        self.registerBtn = FCThemeButton.init(title: "注册", frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 44) , cornerRadius: 4)
         
-        let tipsLab = fc_labelInit(text: "已有账号？", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: COLOR_Clear)
-        self.loginBtn = fc_buttonInit(imgName: nil, title: "立即登录", fontSize: 15, titleColor: COLOR_BtnTitleColor, bgColor: COLOR_Clear)
+        let tipsLab = fc_labelInit(text: "已有账号？", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: UIColor.clear)
+        self.loginBtn = fc_buttonInit(imgName: nil, title: "立即登录", fontSize: 15, titleColor: COLOR_BtnTitleColor, bgColor: UIColor.clear)
         let bottomView = UIView.init(frame: .zero)
         bottomView.addSubview(tipsLab)
         bottomView.addSubview(self.loginBtn!)
         
-        let bottomLab = fc_labelInit(text: "更专业 更稳定 更高效", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: COLOR_Clear)
+        let bottomLab = fc_labelInit(text: "更专业 更稳定 更高效", textColor: COLOR_MinorTextColor, textFont: 15, bgColor: UIColor.clear)
         self.addSubview(bottomLab)
         
         self.addSubview(self.registerBtn!)
         self.addSubview(bottomView)
         
+        let privacyAgreementL = fc_labelInit(text: "我同意AUSON使用条款和隐私声明并确认我的国籍和住所不受AUSON限制", textColor: COLOR_MinorTextColor, textFont: 13, bgColor: .clear)
+        self.addSubview(privacyAgreementL)
+        privacyAgreementL.numberOfLines = 0
+        
+        privacyAgreementL.setAttributeColor(COLOR_MainThemeColor, range: NSRange(location: 8, length: 4))
+        privacyAgreementL.setAttributeColor(COLOR_MainThemeColor, range: NSRange(location: 13, length: 4))
+        
+        self.privacyAgreementBtn = fc_buttonInit(imgName: "checkoutBox_sel", title: "", fontSize: 13, titleColor: COLOR_MinorTextColor, bgColor: UIColor.clear)
+        self.privacyAgreementBtn.titleLabel?.numberOfLines = 0
+        self.privacyAgreementBtn.contentVerticalAlignment = .top
+        self.privacyAgreementBtn.imageEdgeInsets = UIEdgeInsets(top: 3, left: 0, bottom: 0, right: 0)
+        self.privacyAgreementBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        self.addSubview(self.privacyAgreementBtn)
+        
         self.segmentControl?.snp.makeConstraints({ (make) in
-            make.top.equalToSuperview().offset(50 + 64)
+            make.top.equalTo(self.registerTipL.snp_bottom).offset(30.0)
             make.left.equalToSuperview()
             make.height.equalTo(25)
         })
-        
         
         reloadSubview(loginType: self.loginType)
         
@@ -104,25 +140,51 @@ class FCRegisterView: UIView {
             make.bottom.equalToSuperview()
         })
         
+        self.privacyAgreementBtn.snp.makeConstraints { (make) in
+            make.top.equalTo(self.phoneCodeComponent!.snp_bottom).offset(15)
+            make.left.equalTo(self.registerBtn!.snp_left)
+            make.width.height.equalTo(30)
+            //make.height.equalTo(40)
+        }
+        
+        privacyAgreementL.snp.makeConstraints { (make) in
+            make.left.equalTo(self.privacyAgreementBtn.snp_right).offset(3)
+            make.top.equalTo(self.privacyAgreementBtn.snp_top)
+            make.right.equalTo(self.registerBtn!.snp_right)
+        }
+        
         bottomView.snp.makeConstraints { (make) in
+            
             make.centerX.equalToSuperview()
             make.top.equalTo(self.registerBtn!.snp.bottom).offset(20)
             make.left.greaterThanOrEqualToSuperview()
             make.right.lessThanOrEqualToSuperview()
+             
+            //make.bottom.equalToSuperview().offset(-kTABBARHEIGHT)
+            //make.centerX.equalToSuperview()
         }
         
+        /**
         bottomLab.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-30)
             make.centerX.equalToSuperview()
         }
+         */
+    }
+    
+    @objc func dismissLoginViewClick() {
+        self.loginCallback?()
     }
     
     private func loadPhoneContentView () {
+        
         self.phoneContentView = UIView.init(frame: .zero)
         self.phoneComponent = FCPhoneComponent.init(frame: .zero)
-        self.phonePwdComponent = FCPasswordComponent.init(placeholder: "请输入登录密码", leftImg: "mine_phonePwd")
-        self.phoneCodeComponent = FCTextFieldComponent.init(placeholder: "邀请码", leftImg: "invite_man")
-        self.phoneCodeComponent?.regularExpression = "[0-9A-Za-z]{0,16}$"
+        //mine_phonePwd
+        self.phonePwdComponent = FCPasswordComponent.init(placeholder: "请输入登录密码", leftImg: "")
+        //invite_man
+        self.phoneCodeComponent = FCTextFieldComponent.init(placeholder: "邀请码（选填）", leftImg: "")
+        //self.phoneCodeComponent?.regularExpression = "[0-9A-Za-z]{0,16}$"
         
         self.phoneContentView?.addSubview(self.phoneComponent!)
         self.phoneContentView?.addSubview(self.phonePwdComponent!)
@@ -159,10 +221,10 @@ class FCRegisterView: UIView {
     
     private func loadEmailContentView () {
         self.emailContentView = UIView.init(frame: .zero)
-        self.emailComponent = FCEmailComponent.init(placeholder: "请输入邮箱", leftImg: "mine_email")
-        self.emailPwdComponnet = FCPasswordComponent.init(placeholder: "请输入登录密码", leftImg: "mine_emailPwd")
-        self.emailCodeComponent = FCTextFieldComponent.init(placeholder: "邀请码", leftImg: "invite_man")
-        self.emailCodeComponent?.regularExpression = "[0-9A-Za-z]{0,16}$"
+        self.emailComponent = FCEmailComponent.init(placeholder: "请输入邮箱", leftImg: "")
+        self.emailPwdComponnet = FCPasswordComponent.init(placeholder: "密码", leftImg: "")
+        self.emailCodeComponent = FCTextFieldComponent.init(placeholder: "邀请码（选填）", leftImg: "")
+        //self.emailCodeComponent?.regularExpression = "[0-9A-Za-z]{0,16}$"
         
         self.emailContentView?.addSubview(self.emailComponent!)
         self.emailContentView?.addSubview(self.emailPwdComponnet!)
@@ -197,7 +259,6 @@ class FCRegisterView: UIView {
         })
     }
     
-    
     private func reloadSubview(loginType: FCLoginType) {
         
         let refView: UIView?
@@ -207,19 +268,19 @@ class FCRegisterView: UIView {
             self.emailContentView?.isHidden = true
             
         } else {
+            
             refView = self.emailContentView
             self.phoneContentView?.isHidden = true
             self.emailContentView?.isHidden = false
         }
         
         self.registerBtn?.snp.remakeConstraints({ (make) in
-            make.top.equalTo(refView!.snp.bottom).offset(30)
+            make.top.equalTo(privacyAgreementBtn.snp.bottom).offset(30)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.height.equalTo(50)
+            make.height.equalTo(44)
         })
     }
-    
     
     private func  handleRxSignals () {
         self.loginBtn?.rx.tap.subscribe({ [weak self] (event) in
@@ -237,7 +298,6 @@ class FCRegisterView: UIView {
         
     }
     
-    
     func registerBtnClick () {
         if self.isParamsLegal() == false { return }
         
@@ -247,8 +307,6 @@ class FCRegisterView: UIView {
             
             self.callback?(self.loginType, "", "", self.emailComponent?.textFiled.text ?? "", self.emailPwdComponnet?.textFiled.text ?? "", self.emailCodeComponent?.textFiled.text ?? "")
         }
-        
-        
     }
     
     func registerAction (callback: @escaping registerBlock) {
@@ -263,7 +321,7 @@ class FCRegisterView: UIView {
         
         var toastStr: String = ""
         var isLegal = false
-        if self.loginType == .phone && self.phoneComponent?.phoneTxd.text?.count ?? 0 < 6 {
+        if self.loginType == .phone && self.phoneComponent?.phoneTxd.text?.count ?? 0 < 10 {
             toastStr = "手机号有误"
         } else if self.loginType == .phone && self.phonePwdComponent?.textFiled.text?.count ?? 0 < 6 {
             toastStr = "密码有误"
@@ -280,9 +338,10 @@ class FCRegisterView: UIView {
             isLegal = true
         }
         
-        if !isLegal { self.makeToast(toastStr, position: .top)}
+        //if !isLegal { self.makeToast(toastStr, position: .top)}
+        
+        if !isLegal { PCCustomAlert.showWarningAlertMessage(toastStr) }
+        
         return isLegal
     }
-    
-    
 }

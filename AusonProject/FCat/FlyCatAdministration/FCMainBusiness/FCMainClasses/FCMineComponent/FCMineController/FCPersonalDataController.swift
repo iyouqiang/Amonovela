@@ -36,7 +36,7 @@ class FCPersonalDataController: UIViewController {
         self.loginOutBtn = UIButton(type: .custom)
         self.loginOutBtn.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         self.loginOutBtn.setTitleColor(COLOR_HighlightColor, for: .normal)
-        self.loginOutBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        self.loginOutBtn.titleLabel?.font = UIFont(_customTypeSize: 18)
         self.loginOutBtn.setTitle("退  出", for: .normal)
         self.loginOutBtn.backgroundColor = UIColor.white
         self.loginOutBtn.addTarget(self, action: #selector(userLoginoutClick), for: .touchUpInside)
@@ -124,8 +124,8 @@ extension FCPersonalDataController : UITableViewDataSource, UITableViewDelegate 
             cell = UITableViewCell.init(style: .value1, reuseIdentifier: cellIdentify)
             cell?.textLabel?.textColor = COLOR_PrimeTextColor
             cell?.detailTextLabel?.textColor = COLOR_PrimeTextColor
-            cell?.textLabel?.font = UIFont.systemFont(ofSize: 18)
-            cell?.detailTextLabel?.font = UIFont.systemFont(ofSize: 18)
+            cell?.textLabel?.font = UIFont(_customTypeSize: 18)
+            cell?.detailTextLabel?.font = UIFont(_customTypeSize: 18)
         }
         
         cell?.textLabel?.text = "UID"

@@ -40,8 +40,8 @@ class FCCXPMentionCoinSubView: UIView {
         
         //mentionAddressTextfield.setValue(COLOR_YELLOWColor, forKey: "_placeholderLabel.textColor")
         
-        mentionAddressTextfield.attributedPlaceholder = NSAttributedString.init(string: "输入或长按张贴地址", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14),NSAttributedString.Key.foregroundColor:COLOR_HexColor(0x6A6A6E)])
-        mentionNumTextfield.attributedPlaceholder = NSAttributedString.init(string: "最小提币数量2", attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14),NSAttributedString.Key.foregroundColor:COLOR_HexColor(0x6A6A6E)])
+        mentionAddressTextfield.attributedPlaceholder = NSAttributedString.init(string: "输入或长按张贴地址", attributes: [NSAttributedString.Key.font:UIFont(_customTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_HexColor(0x6A6A6E)])
+        mentionNumTextfield.attributedPlaceholder = NSAttributedString.init(string: "最小提币数量2", attributes: [NSAttributedString.Key.font:UIFont(_customTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_HexColor(0x6A6A6E)])
         mentionNumTextfield.delegate = self
         
         self.availableBalanceL.text = "可用 0.00 USDT"

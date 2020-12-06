@@ -83,7 +83,7 @@ class FCCXPAssetOptionController: UIViewController {
         
         let symbolTitleL = UILabel()
         //symbolTitleL.text = "USDT"
-        symbolTitleL.font = UIFont.systemFont(ofSize: 16)
+        symbolTitleL.font = UIFont(_customTypeSize: 16)
         symbolTitleL.textColor = COLOR_ChartAxisColor
         selectCurrencyView.addSubview(symbolTitleL)
         self.symbolTitleL = symbolTitleL
@@ -97,7 +97,7 @@ class FCCXPAssetOptionController: UIViewController {
         let selectedL = UILabel()
         selectedL.text = "选择币种"
         selectedL.textAlignment = .right
-        selectedL.font = UIFont.systemFont(ofSize: 16)
+        selectedL.font = UIFont(_customTypeSize: 16)
         selectedL.textColor = COLOR_RichBtnTitleColor
         selectCurrencyView.addSubview(selectedL)
         

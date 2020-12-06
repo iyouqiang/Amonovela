@@ -78,10 +78,10 @@ class FCCustomTableViewCell: UITableViewCell {
         if (leftIcon != nil) {
             leftIconView = UIImageView.init(image: UIImage.init(named: leftIcon ?? ""))
         }
-        let titleLab = fc_labelInit(text: title, textColor: COLOR_CellTitleColor, textFont: 16, bgColor: COLOR_Clear)
+        let titleLab = fc_labelInit(text: title, textColor: UIColor.white, textFont: 14, bgColor: UIColor.clear)
         var messageLab: UILabel?
         let arrowImageView = UIImageView.init(image: UIImage.init(named: "cell_arrow_right"))
-        
+        arrowImageView.contentMode = .center
         if (leftIconView != nil) {
             self.contentView.addSubview(leftIconView!)
         }
@@ -114,20 +114,20 @@ class FCCustomTableViewCell: UITableViewCell {
         }
         
         if let validMsg = message {
-            messageLab = fc_labelInit(text: validMsg, textColor: COLOR_CellMessageColor, textFont: 16, bgColor: COLOR_Clear)
+            messageLab = fc_labelInit(text: validMsg, textColor: COLOR_CellMessageColor, textFont: 16, bgColor: UIColor.clear)
             self.contentView.addSubview(messageLab!)
         }
 
         leftIconView?.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(kMarginScreenLR)
-            make.size.equalTo(CGSize(width: 18, height: 18))
+            make.size.equalTo(CGSize(width: 36, height: 36))
         }
         
         titleLab.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             if (leftIconView != nil) {
-                make.left.equalTo(leftIconView!.snp.right).offset(10)
+                make.left.equalTo(leftIconView!.snp.right).offset(15)
             } else {
                 make.left.equalToSuperview().offset(kMarginScreenLR)
             }

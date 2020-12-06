@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import JXSegmentedView
 
 class FCMarketListController: UIViewController {
     
@@ -28,10 +29,12 @@ class FCMarketListController: UIViewController {
     var reloadArray = [IndexPath]()
     var isFirstRequest = false
     var shuffling = [String]()
+    var marketTypesItem: FCMarketTypesItem?
+    var filterArray = [FCMarketModel]()
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -41,6 +44,31 @@ class FCMarketListController: UIViewController {
     var marketType: String = "Spot"
     var sortType: FCMarketSortType = .Default
     var orderType: FCMarketOrderType = .Default
+    
+    var searchStr : String? {
+        
+        didSet {
+            
+            guard let filter = searchStr else {
+                return
+            }
+
+            self.filterArray.removeAll()
+            if filter.count == 0 {
+                self.filterArray.append(contentsOf: marketArray)
+                self.marketTableView.reloadData()
+                return
+            }
+            for model in self.marketArray {
+                let symbolStr = (model.symbol ?? "").uppercased()
+                let nameStr = model.name.uppercased()
+                if symbolStr.contains(filter.uppercased()) || nameStr.contains(filter.uppercased()) {
+                    self.filterArray.append(model)
+                }
+                self.marketTableView.reloadData()
+            }
+        }
+    }
     
     deinit {
         
@@ -59,6 +87,7 @@ class FCMarketListController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         let now = NSDate()
@@ -66,6 +95,10 @@ class FCMarketListController: UIViewController {
         self.lastTimeInterval = now.timeIntervalSince1970
         
         self.loadMarketView()
+        
+        self.marketType = marketTypesItem?.type ?? "Spot"
+        self.isOptional = marketTypesItem?.type == "Optional"
+        marketTypesItem?.type == "Optional" ? self.configureOptionalView() :  self.configureAllView()
         
         // 登录成功通知
         NotificationCenter.default.addObserver(self, selector: #selector(marketLogin), name: NSNotification.Name(rawValue: kNotificationUserLogin), object: nil)
@@ -130,14 +163,27 @@ class FCMarketListController: UIViewController {
         
             if response.responseCode == 0 {
                 self.marketArray.removeAll()
+                self.filterArray.removeAll()
                 let data = (response.responseObject as AnyObject)["data"] as! [String: AnyObject]
                 let list = data["tickers"] as! [Any]
                 
                 for marketDic in list {
                     if let marketDic = marketDic as?  [String: AnyObject] {
-                        //                        let model = FCMarketModel.init(dict: marketDic)
+                        // let model = FCMarketModel.init(dict: marketDic)
                         let model = FCMarketModel.stringToObject(jsonData: marketDic)
                         self.marketArray.append(model)
+                        
+                        if (self.searchStr?.count ?? 0) != 0 {
+                           
+                            let symbolStr = (model.symbol ?? "").uppercased()
+                            let nameStr = model.name.uppercased()
+                            if (symbolStr.contains((self.searchStr ?? "").uppercased()) || nameStr.contains((self.searchStr ?? "").uppercased())) {
+                                self.filterArray.append(model)
+                            }
+                        }else {
+                            
+                            self.filterArray.append(model)
+                        }
                     }
                 }
                 
@@ -179,6 +225,7 @@ class FCMarketListController: UIViewController {
             self.marketTableView.isScrollEnabled = false
             self.marketArray.removeAll()
             self.sortArray.removeAll()
+            self.filterArray.removeAll()
             self.marketTableView.backgroundView = self.loginoutView
             self.marketTableView.tableHeaderView = nil
             self.marketTableView.reloadData()
@@ -220,8 +267,8 @@ class FCMarketListController: UIViewController {
     func loadMarketView()  {
         
         self.marketTableView = UITableView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: kSCREENHEIGHT-kTABBARHEIGHT - 100 - KSTATUSBARHEIGHT), style: .plain)
-        self.marketTableView.estimatedRowHeight = 64
-        //self.marketTableView.separatorStyle = .none
+        self.marketTableView.estimatedRowHeight = 100
+        self.marketTableView.separatorStyle = .none
         self.marketTableView.delegate = self
         self.marketTableView.dataSource = self
         self.marketTableView.showsVerticalScrollIndicator = false
@@ -230,7 +277,6 @@ class FCMarketListController: UIViewController {
         self.view.addSubview(self.marketTableView)
         
         self.loadloginoutView()
-        
     }
     
     func loadloginoutView () {
@@ -323,7 +369,7 @@ extension FCMarketListController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let klineVC = FCKLineController()
-        let marketModel = self.marketArray[indexPath.row]
+        let marketModel = self.filterArray[indexPath.row]
         
         klineVC.marketModel = marketModel
         klineVC.hidesBottomBarWhenPushed = true
@@ -331,12 +377,12 @@ extension FCMarketListController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 100
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.marketArray.count
+        return self.filterArray.count
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -360,9 +406,15 @@ extension FCMarketListController : UITableViewDataSource, UITableViewDelegate {
         }
         
         cell?.indexPath = indexPath as NSIndexPath;
-        cell?.configureCell(self.marketArray[indexPath.row], isOptional: self.isOptional)
+        cell?.configureCell(self.filterArray[indexPath.row], isOptional: self.isOptional)
         
         return cell!
+    }
+}
+
+extension FCMarketListController : JXSegmentedListContainerViewListDelegate {
+    func listView() -> UIView {
+        return view
     }
 }
 

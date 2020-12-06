@@ -92,7 +92,6 @@
 		01B305B624BE434F001FF01A /* FCKLineRestingHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B305B524BE434F001FF01A /* FCKLineRestingHeader.xib */; };
 		01B305B824BE4367001FF01A /* FCKLineDealHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B305B724BE4367001FF01A /* FCKLineDealHeader.xib */; };
 		01B305BE24BE6203001FF01A /* FCApi_ticker_trade.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B305BD24BE6203001FF01A /* FCApi_ticker_trade.m */; };
-		01B80FD524B6C6F2009080CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B80FD424B6C6F2009080CD /* Main.storyboard */; };
 		01B80FDA24B81DCF009080CD /* FCMarketTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B80FD924B81DCF009080CD /* FCMarketTypesModel.swift */; };
 		01B80FE024B854B8009080CD /* FCKLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B80FDF24B854B8009080CD /* FCKLineController.swift */; };
 		01B80FE324B87B57009080CD /* FCApi_delete_optional.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B80FE224B87B57009080CD /* FCApi_delete_optional.m */; };
@@ -229,360 +228,13 @@
 		D274892C213F82540062765B /* PCCustomRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D274892B213F82540062765B /* PCCustomRefreshHeader.m */; };
 		D701A5E3250B16E8002B8577 /* FCContractSyntheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D701A5E2250B16E8002B8577 /* FCContractSyntheController.swift */; };
 		D711ECEC24E17AB1005B4666 /* FCCXPAssetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D711ECEB24E17AB1005B4666 /* FCCXPAssetController.swift */; };
-		D7125869254921CB009736E2 /* FCMainSymbolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7125867254921CB009736E2 /* FCMainSymbolsView.swift */; };
-		D712586A254921CB009736E2 /* FCMainSymbolsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7125868254921CB009736E2 /* FCMainSymbolsView.xib */; };
 		D71258A82549667B009736E2 /* FCShareItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D71258A72549667B009736E2 /* FCShareItemView.m */; };
-		D71258A92549667B009736E2 /* FCShareItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D71258A72549667B009736E2 /* FCShareItemView.m */; };
 		D71258AD25496712009736E2 /* FCShareItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71258AC25496712009736E2 /* FCShareItemView.xib */; };
-		D71258AE25496712009736E2 /* FCShareItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71258AC25496712009736E2 /* FCShareItemView.xib */; };
 		D71259462549997B009736E2 /* FCToast.m in Sources */ = {isa = PBXBuildFile; fileRef = D71259452549997B009736E2 /* FCToast.m */; };
-		D71259472549997B009736E2 /* FCToast.m in Sources */ = {isa = PBXBuildFile; fileRef = D71259452549997B009736E2 /* FCToast.m */; };
-		D715EF3A2531BAC700885837 /* APIOrder_place.m in Sources */ = {isa = PBXBuildFile; fileRef = 015C7759215371EA00F4C8FA /* APIOrder_place.m */; };
-		D715EF3D2531BAC700885837 /* FCContractSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24EC124F62C400057C0B6 /* FCContractSettingCell.swift */; };
-		D715EF422531BAC700885837 /* FCTradeHistoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188704524F33CC0003659C2 /* FCTradeHistoryListCell.swift */; };
-		D715EF432531BAC700885837 /* FCApi_account_register.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF50FC249E26EB00A36D37 /* FCApi_account_register.m */; };
-		D715EF462531BAC700885837 /* FCTradeHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F07FC24E02F59009B1780 /* FCTradeHistoryController.swift */; };
-		D715EF472531BAC700885837 /* PCAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748856213E296F0062765B /* PCAlertManager.m */; };
-		D715EF482531BAC700885837 /* FCApi_Account_positions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769659124FA32C50010FFD4 /* FCApi_Account_positions.swift */; };
-		D715EF4D2531BAC700885837 /* APIOrder_get_history_order.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748618213E290D0062765B /* APIOrder_get_history_order.m */; };
-		D715EF4E2531BAC700885837 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76AEAE624EBCC840064A879 /* Toast.swift */; };
-		D715EF512531BAC700885837 /* FCContractListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7714673250E098C008660F7 /* FCContractListController.swift */; };
-		D715EF532531BAC700885837 /* FCApi_support_transfer_assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958BF251D98CF00681280 /* FCApi_support_transfer_assets.swift */; };
-		D715EF572531BAC700885837 /* APICommon_report_deviceinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748623213E290D0062765B /* APICommon_report_deviceinfo.m */; };
-		D715EF592531BAC700885837 /* FCCommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E36F9214763AD0049CD04 /* FCCommonCell.swift */; };
-		D715EF5B2531BAC700885837 /* FCNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737D80724E00209000DC48A /* FCNoticeView.swift */; };
-		D715EF5E2531BAC700885837 /* FCCXPAssetHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C44224E4DCE400D739D1 /* FCCXPAssetHistoryController.swift */; };
-		D715EF5F2531BAC700885837 /* FCCCXPAssetHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45024E52D8000D739D1 /* FCCCXPAssetHistoryCell.swift */; };
-		D715EF612531BAC700885837 /* FCApi_Account_info.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769659324FA3B890010FFD4 /* FCApi_Account_info.swift */; };
-		D715EF632531BAC700885837 /* APIFavorite_handle.m in Sources */ = {isa = PBXBuildFile; fileRef = D27485F9213E290D0062765B /* APIFavorite_handle.m */; };
-		D715EF652531BAC700885837 /* PCH5ErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D274890A213E68D00062765B /* PCH5ErrorView.m */; };
-		D715EF662531BAC700885837 /* FCKLineDealingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305A324BE412E001FF01A /* FCKLineDealingView.swift */; };
-		D715EF672531BAC700885837 /* APIAccount_verify_sms.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748629213E290D0062765B /* APIAccount_verify_sms.m */; };
-		D715EF6A2531BAC700885837 /* FCAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F080224E0BF04009B1780 /* FCAssetModel.swift */; };
-		D715EF6C2531BAC700885837 /* FCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C60AE724A7702F000281CB /* FCResponse.swift */; };
-		D715EF722531BAC700885837 /* FCImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010EE40F24DF95BD00E884D4 /* FCImage + Extension.swift */; };
-		D715EF732531BAC700885837 /* FCPersonalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591FD3214F907E0068C23B /* FCPersonalDataController.swift */; };
-		D715EF742531BAC700885837 /* FCMarketTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B80FD924B81DCF009080CD /* FCMarketTypesModel.swift */; };
-		D715EF752531BAC700885837 /* APIAccount_two_fa.m in Sources */ = {isa = PBXBuildFile; fileRef = D274862A213E290D0062765B /* APIAccount_two_fa.m */; };
-		D715EF782531BAC700885837 /* FCApi_trade_cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169FC8324F7EEF700FC3488 /* FCApi_trade_cancel.swift */; };
-		D715EF7A2531BAC700885837 /* FCKLineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B80FE724B8A611009080CD /* FCKLineHeaderView.swift */; };
-		D715EF7C2531BAC700885837 /* FCQuoteTypesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010EE40B24DEBC0400E884D4 /* FCQuoteTypesModel.swift */; };
-		D715EF7D2531BAC700885837 /* FCForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187164224961C28003380C3 /* FCForgetPasswordController.swift */; };
-		D715EF7F2531BAC700885837 /* UIViewController+PCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748867213E29780062765B /* UIViewController+PCNavigationBar.m */; };
-		D715EF852531BAC700885837 /* FCQRCodeScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591F90214F5B0C0068C23B /* FCQRCodeScannerVC.swift */; };
-		D715EF872531BAC700885837 /* FCContractAccountTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24EC724F67D1E0057C0B6 /* FCContractAccountTypeController.swift */; };
-		D715EF882531BAC700885837 /* FCEmailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187162F2494DC14003380C3 /* FCEmailComponent.swift */; };
-		D715EF8A2531BAC700885837 /* FCApi_swap_detele_optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BBB2515F1E500EA88E6 /* FCApi_swap_detele_optional.swift */; };
-		D715EF8C2531BAC700885837 /* FCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDDE24856A9A00714DE9 /* FCLoginViewController.swift */; };
-		D715EF8D2531BAC700885837 /* FCApi_swap_latest_ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BB72515ED7700EA88E6 /* FCApi_swap_latest_ticker.swift */; };
-		D715EF8F2531BAC700885837 /* UITableView+PCRefreshExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748927213F822D0062765B /* UITableView+PCRefreshExtension.m */; };
-		D715EF912531BAC700885837 /* FCApi_kline_latest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BAF2515AF9300EA88E6 /* FCApi_kline_latest.swift */; };
-		D715EF972531BAC700885837 /* FCHistoryDetialHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7162A4325060C32002095FA /* FCHistoryDetialHeaderView.swift */; };
-		D715EF992531BAC700885837 /* FCApi_entrust_perpetual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D29E612505BE7800BAFB24 /* FCApi_entrust_perpetual.swift */; };
-		D715EF9B2531BAC700885837 /* APIKline_history.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748620213E290D0062765B /* APIKline_history.m */; };
-		D715EF9D2531BAC700885837 /* FCTradeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F4A3ED24DC482300C288E1 /* FCTradeController.swift */; };
-		D715EF9F2531BAC700885837 /* FCCXPAssetChargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45624E5348100D739D1 /* FCCXPAssetChargeView.swift */; };
-		D715EFA62531BAC700885837 /* FCSymbolsDrawerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010EE41124DF9B8600E884D4 /* FCSymbolsDrawerCell.swift */; };
-		D715EFA82531BAC700885837 /* FCTotalAssetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3E324E90DFF003E9BCF /* FCTotalAssetsView.swift */; };
-		D715EFAA2531BAC700885837 /* FCApi_password_modify.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76996F324EFBCAE0068F262 /* FCApi_password_modify.swift */; };
-		D715EFAB2531BAC700885837 /* FCContractLeverageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24EC924F6801A0057C0B6 /* FCContractLeverageController.swift */; };
-		D715EFAF2531BAC700885837 /* FCQRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591F8F214F5B0C0068C23B /* FCQRCodeScannerView.swift */; };
-		D715EFB12531BAC700885837 /* FCSegmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDE3248CDE1F00714DE9 /* FCSegmentComponent.swift */; };
-		D715EFB42531BAC700885837 /* FCApi_transfer_accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76FDFD824FE8169006AB263 /* FCApi_transfer_accounts.swift */; };
-		D715EFB62531BAC700885837 /* PCCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01384DC4214B9AF000A0F694 /* PCCookieManager.m */; };
-		D715EFB82531BAC700885837 /* FCContractPositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767FC9124F754A9009C135D /* FCContractPositionCell.swift */; };
-		D715EFB92531BAC700885837 /* FCCXPAssetOptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45A24E535BD00D739D1 /* FCCXPAssetOptionController.swift */; };
-		D715EFBA2531BAC700885837 /* FCCXPMentionInstruView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3DD24E8CBCF003E9BCF /* FCCXPMentionInstruView.swift */; };
-		D715EFBD2531BAC700885837 /* FCCountDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01871647249628B3003380C3 /* FCCountDownButton.swift */; };
-		D715EFBF2531BAC700885837 /* FCMarketListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591FD1214F5F7E0068C23B /* FCMarketListController.swift */; };
-		D715EFC02531BAC700885837 /* FCTradeDepthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F080624E7BC89009B1780 /* FCTradeDepthCell.swift */; };
-		D715EFC22531BAC700885837 /* FCRegisterConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018716532496A23C003380C3 /* FCRegisterConfirmController.swift */; };
-		D715EFC32531BAC700885837 /* FCApi_history_order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120FFD624EC17E400032DF7 /* FCApi_history_order.swift */; };
-		D715EFC52531BAC700885837 /* APIAccount_change_password.m in Sources */ = {isa = PBXBuildFile; fileRef = D27485FB213E290D0062765B /* APIAccount_change_password.m */; };
-		D715EFC72531BAC700885837 /* FCApi_account_overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C43A24E4105500D739D1 /* FCApi_account_overview.swift */; };
-		D715EFCC2531BAC700885837 /* FCAPI_Account_logout.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E262D214BBEED00E52B8D /* FCAPI_Account_logout.m */; };
-		D715EFCD2531BAC700885837 /* FCImageViewConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E26032147DD3700E52B8D /* FCImageViewConvenience.swift */; };
-		D715EFD12531BAC700885837 /* FCKLineDealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305AD24BE42BF001FF01A /* FCKLineDealCell.swift */; };
-		D715EFD52531BAC700885837 /* FCApi_add_optional.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B80FE524B87B77009080CD /* FCApi_add_optional.m */; };
-		D715EFD62531BAC700885837 /* FCSymbolsDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF5E6724CC0B7C00F5135F /* FCSymbolsDrawerController.swift */; };
-		D715EFD72531BAC700885837 /* FCPerpetualModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140B22C25065B190042B56A /* FCPerpetualModifyView.swift */; };
-		D715EFD92531BAC700885837 /* PCDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = D23B079A215B331500EEEFC6 /* PCDropDownListView.m */; };
-		D715EFDC2531BAC700885837 /* FCCXPAssetQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C44424E4ED2100D739D1 /* FCCXPAssetQRCodeView.swift */; };
-		D715EFDF2531BAC700885837 /* ExampleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748614213E290D0062765B /* ExampleAPI.m */; };
-		D715EFE12531BAC700885837 /* FCApi_swap_ticker_trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BB52515E32200EA88E6 /* FCApi_swap_ticker_trade.swift */; };
-		D715EFE22531BAC700885837 /* UITextField+PCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D274883B213E295A0062765B /* UITextField+PCExtension.m */; };
-		D715EFE82531BAC700885837 /* FCPasswordModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FC2A5249724280070F554 /* FCPasswordModifyView.swift */; };
-		D715EFEA2531BAC700885837 /* FCCXPGlobalContractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F2C65424E2C32500B5BBFE /* FCCXPGlobalContractCell.swift */; };
-		D715EFEC2531BAC700885837 /* FCKLineRestingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305A524BE416D001FF01A /* FCKLineRestingModel.swift */; };
-		D715EFED2531BAC700885837 /* PCUnderLineTextFileld.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748809213E29490062765B /* PCUnderLineTextFileld.m */; };
-		D715EFEE2531BAC700885837 /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45C24E5705400D739D1 /* UIImage+Gradient.m */; };
-		D715EFF22531BAC700885837 /* FCViewConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E26022147DD3700E52B8D /* FCViewConvenience.swift */; };
-		D715EFF52531BAC700885837 /* FCApi_trade_order_place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA45B024FAA98500350A17 /* FCApi_trade_order_place.swift */; };
-		D715EFF82531BAC700885837 /* FCMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D737D80824E00209000DC48A /* FCMarqueeView.m */; };
-		D715EFFF2531BAC700885837 /* FCContractPositionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767FC8D24F751AF009C135D /* FCContractPositionController.swift */; };
-		D715F0002531BAC700885837 /* FCRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187164024961C08003380C3 /* FCRegisterController.swift */; };
-		D715F0032531BAC700885837 /* PCRequesthelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 01384DC8214B9AF000A0F694 /* PCRequesthelper.m */; };
-		D715F0062531BAC700885837 /* NSString+PCExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748825213E295A0062765B /* NSString+PCExtend.m */; };
-		D715F0072531BAC700885837 /* FCLabelConvenience .swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E26052147DD3700E52B8D /* FCLabelConvenience .swift */; };
-		D715F0082531BAC700885837 /* FCPasswordResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187164B24966AC1003380C3 /* FCPasswordResetController.swift */; };
-		D715F0092531BAC700885837 /* APICurrency_assets.m in Sources */ = {isa = PBXBuildFile; fileRef = D274862F213E290D0062765B /* APICurrency_assets.m */; };
-		D715F00C2531BAC700885837 /* UIColor+PCHex.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748835213E295A0062765B /* UIColor+PCHex.m */; };
-		D715F00D2531BAC700885837 /* FCApi_phone_modify_confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F5424F1F43500ABF0C5 /* FCApi_phone_modify_confirm.swift */; };
-		D715F0142531BAC700885837 /* FCContractHistroyDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7162A4125060C1D002095FA /* FCContractHistroyDetailVC.swift */; };
-		D715F0152531BAC700885837 /* FCRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187163A249529ED003380C3 /* FCRegularExpression.swift */; };
-		D715F0182531BAC700885837 /* FCApi_swap_add_optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BB92515F1BE00EA88E6 /* FCApi_swap_add_optional.swift */; };
-		D715F0192531BAC700885837 /* FCCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E26072147DD3800E52B8D /* FCCrypto.swift */; };
-		D715F01A2531BAC700885837 /* FCPasswordComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018716322494DC20003380C3 /* FCPasswordComponent.swift */; };
-		D715F01B2531BAC700885837 /* FCApi_quote_market_groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7803D6525174B2B000BB5C5 /* FCApi_quote_market_groups.swift */; };
-		D715F01E2531BAC700885837 /* FCountryCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDF9249474EF00714DE9 /* FCountryCodeModel.swift */; };
-		D715F0212531BAC700885837 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591F7F214F59760068C23B /* SwiftyJSON.swift */; };
-		D715F0232531BAC700885837 /* PCPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F834C214215CF002DAA19 /* PCPlaceholderView.m */; };
-		D715F0272531BAC700885837 /* NSObject+PCRequestExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D23B07AC215F25C300EEEFC6 /* NSObject+PCRequestExtension.m */; };
-		D715F02A2531BAC700885837 /* FCApi_homedata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737D81824E002C0000DC48A /* FCApi_homedata.swift */; };
-		D715F02C2531BAC700885837 /* FCContractSyntheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D701A5E2250B16E8002B8577 /* FCContractSyntheController.swift */; };
-		D715F02F2531BAC700885837 /* FCTimeShareChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F080024E03562009B1780 /* FCTimeShareChart.swift */; };
-		D715F0302531BAC700885837 /* FCRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018716512496A1C5003380C3 /* FCRegisterView.swift */; };
-		D715F0312531BAC700885837 /* FCKLineRestingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305A924BE4297001FF01A /* FCKLineRestingCell.swift */; };
-		D715F0372531BAC700885837 /* FCButtonConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E26042147DD3700E52B8D /* FCButtonConvenience.swift */; };
-		D715F0392531BAC700885837 /* FCChangePhoneNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76996F524EFF16A0068F262 /* FCChangePhoneNumberController.swift */; };
-		D715F03B2531BAC700885837 /* FCApi_group_contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BBD2515F79000EA88E6 /* FCApi_group_contracts.swift */; };
-		D715F03C2531BAC700885837 /* FCClosePositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767FC9724F7A851009C135D /* FCClosePositionView.swift */; };
-		D715F03F2531BAC700885837 /* PCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748861213E29780062765B /* PCNavigationController.m */; };
-		D715F0412531BAC700885837 /* FCContractOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0138E4BB24FD2BB500A07709 /* FCContractOrderView.swift */; };
-		D715F0432531BAC700885837 /* UIView+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748838213E295A0062765B /* UIView+Blur.m */; };
-		D715F0442531BAC700885837 /* FCContractInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76678A524F8D6E200B990C9 /* FCContractInputView.swift */; };
-		D715F0452531BAC700885837 /* FCApi_quote_one_contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7714675250E2A18008660F7 /* FCApi_quote_one_contract.swift */; };
-		D715F04A2531BAC700885837 /* APICommon_config.m in Sources */ = {isa = PBXBuildFile; fileRef = D274861E213E290D0062765B /* APICommon_config.m */; };
-		D715F04B2531BAC700885837 /* FCModifyPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187164F24969F6B003380C3 /* FCModifyPasswordController.swift */; };
-		D715F04C2531BAC700885837 /* FCMarketSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01384DB9214B99DE00A0F694 /* FCMarketSearchCell.swift */; };
-		D715F04D2531BAC700885837 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748885213E29BD0062765B /* SSKeychain.m */; };
-		D715F04E2531BAC700885837 /* FCApi_single_asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3DB24E7E3F2003E9BCF /* FCApi_single_asset.swift */; };
-		D715F0542531BAC700885837 /* FCSingleAssetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3E724E90F11003E9BCF /* FCSingleAssetsCell.swift */; };
-		D715F0552531BAC700885837 /* PC3DTouchHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D274883E213E295A0062765B /* PC3DTouchHelper.m */; };
-		D715F0572531BAC700885837 /* FCOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F07FA24E02A08009B1780 /* FCOrderController.swift */; };
-		D715F0582531BAC700885837 /* YTKChainRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = D274863B213E290D0062765B /* YTKChainRequest+AnimatingAccessory.m */; };
-		D715F0592531BAC700885837 /* FCTextFieldConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014B599D214F408C00D3D82C /* FCTextFieldConvenience.swift */; };
-		D715F05B2531BAC700885837 /* PCMonitoringEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748823213E295A0062765B /* PCMonitoringEvent.m */; };
-		D715F05C2531BAC700885837 /* FCMarketTopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F901B215F82A2006FC4BE /* FCMarketTopicModel.swift */; };
-		D715F05D2531BAC700885837 /* FCContractHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7450C9F2505325A005E9415 /* FCContractHistoryModel.swift */; };
-		D715F05F2531BAC700885837 /* FCAccountAssetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3E124E9086B003E9BCF /* FCAccountAssetController.swift */; };
-		D715F0612531BAC700885837 /* FCApi_captcha_verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF5102249E29D200A36D37 /* FCApi_captcha_verify.m */; };
-		D715F0672531BAC700885837 /* FCSortComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C60B0024A90D89000281CB /* FCSortComponent.swift */; };
-		D715F0682531BAC700885837 /* FCApi_captcha_send.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF50FF249E29B600A36D37 /* FCApi_captcha_send.m */; };
-		D715F0692531BAC700885837 /* PopTip+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A8DF624FF4BCD00F89F41 /* PopTip+Transitions.swift */; };
-		D715F06A2531BAC700885837 /* FCBtnSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76678A724F8D6F900B990C9 /* FCBtnSelectedView.swift */; };
-		D715F0702531BAC700885837 /* FCDictionaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDEC248CE02D00714DE9 /* FCDictionaryService.swift */; };
-		D715F0712531BAC700885837 /* UIView+Fillet.m in Sources */ = {isa = PBXBuildFile; fileRef = D274882D213E295A0062765B /* UIView+Fillet.m */; };
-		D715F0732531BAC700885837 /* APIOrder_allcurrentorders.m in Sources */ = {isa = PBXBuildFile; fileRef = 015C7750215371DB00F4C8FA /* APIOrder_allcurrentorders.m */; };
-		D715F0742531BAC700885837 /* FCPerpetualEntrustController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0138E4BF2501CB1000A07709 /* FCPerpetualEntrustController.swift */; };
-		D715F0752531BAC700885837 /* UIButton+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45E24E5705400D739D1 /* UIButton+Gradient.m */; };
-		D715F0762531BAC700885837 /* FCKLineRestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305A124BE4101001FF01A /* FCKLineRestingView.swift */; };
-		D715F0772531BAC700885837 /* FCLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDF6248E7A1E00714DE9 /* FCLoginView.swift */; };
-		D715F0782531BAC700885837 /* FCPerpetualEntrustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D29E632505C31D00BAFB24 /* FCPerpetualEntrustModel.swift */; };
-		D715F07A2531BAC700885837 /* FCMarketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22F82EE21412E02002DAA19 /* FCMarketCell.swift */; };
-		D715F07B2531BAC700885837 /* FCTreatyOrderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0138E4B924FD272500A07709 /* FCTreatyOrderController.swift */; };
-		D715F07E2531BAC700885837 /* FCBillContractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183724FD371B0001056E /* FCBillContractController.swift */; };
-		D715F07F2531BAC700885837 /* FCApi_tickers_latest.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B3059C24BE0B6F001FF01A /* FCApi_tickers_latest.m */; };
-		D715F0802531BAC700885837 /* FCApi_swap_kline_latest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BB32515AFF700EA88E6 /* FCApi_swap_kline_latest.swift */; };
-		D715F0822531BAC700885837 /* PCUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748829213E295A0062765B /* PCUtility.m */; };
-		D715F0832531BAC700885837 /* PCSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D22F835121421690002DAA19 /* PCSlider.m */; };
-		D715F08A2531BAC700885837 /* YTKAnimatingRequestAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748639213E290D0062765B /* YTKAnimatingRequestAccessory.m */; };
-		D715F08B2531BAC700885837 /* PCLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748857213E296F0062765B /* PCLoadingView.m */; };
-		D715F08C2531BAC700885837 /* FCTradeSettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA45B224FB0D1000350A17 /* FCTradeSettingModel.swift */; };
-		D715F0912531BAC700885837 /* FCKLineDealHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305B324BE430B001FF01A /* FCKLineDealHeader.swift */; };
-		D715F0932531BAC700885837 /* FCEXAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A64712154CCDA00817772 /* FCEXAccountManager.swift */; };
-		D715F0942531BAC700885837 /* APIOrder_historyorders.m in Sources */ = {isa = PBXBuildFile; fileRef = 015C775C215371EB00F4C8FA /* APIOrder_historyorders.m */; };
-		D715F0972531BAC700885837 /* FCApi_Contract_asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01957D7D250EE2A300A65DEF /* FCApi_Contract_asset.swift */; };
-		D715F09A2531BAC700885837 /* FCApi_deposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7701EF224E6C155007D4E6E /* FCApi_deposit.swift */; };
-		D715F09D2531BAC700885837 /* FCTextFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018716352494DC28003380C3 /* FCTextFieldComponent.swift */; };
-		D715F0A22531BAC700885837 /* PCCustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748855213E296F0062765B /* PCCustomAlert.m */; };
-		D715F0A62531BAC700885837 /* FCCXPAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C43C24E41FD300D739D1 /* FCCXPAssetModel.swift */; };
-		D715F0A82531BAC700885837 /* FCApi_CountryCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDF1248D2F6800714DE9 /* FCApi_CountryCode.m */; };
-		D715F0A92531BAC700885837 /* FCApi_all_symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AF5E6524CC03BE00F5135F /* FCApi_all_symbol.swift */; };
-		D715F0AC2531BAC700885837 /* FCBillContractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76FDFC824FE2B1B006AB263 /* FCBillContractCell.swift */; };
-		D715F0AE2531BAC700885837 /* PCRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01384DC3214B9AF000A0F694 /* PCRequestManager.m */; };
-		D715F0B02531BAC700885837 /* FCApi_login.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C60AED24A7A849000281CB /* FCApi_login.m */; };
-		D715F0B52531BAC700885837 /* FCPhoneComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDE1248CDE0100714DE9 /* FCPhoneComponent.swift */; };
-		D715F0B62531BAC700885837 /* FCApi_swap_kline_history.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BB12515AFD800EA88E6 /* FCApi_swap_kline_history.swift */; };
-		D715F0B72531BAC700885837 /* FCUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E36F7214763350049CD04 /* FCUserInfoModel.swift */; };
-		D715F0B92531BAC700885837 /* AdvancedExampleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D274862B213E290D0062765B /* AdvancedExampleAPI.m */; };
-		D715F0BA2531BAC700885837 /* FCCXPAssetTransferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76FDFD424FE6920006AB263 /* FCCXPAssetTransferController.swift */; };
-		D715F0BB2531BAC700885837 /* FCTradeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0174C01B24DFEBAF0010CC52 /* FCTradeUtil.swift */; };
-		D715F0BC2531BAC700885837 /* FCApi_Contract_cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01957D7F250F051700A65DEF /* FCApi_Contract_cancel.swift */; };
-		D715F0BD2531BAC700885837 /* YTKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = D274863C213E290D0062765B /* YTKBaseRequest+AnimatingAccessory.m */; };
-		D715F0BE2531BAC700885837 /* PCCMethod.c in Sources */ = {isa = PBXBuildFile; fileRef = D2748828213E295A0062765B /* PCCMethod.c */; };
-		D715F0BF2531BAC700885837 /* FCPerpetualEntrustListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0138E4C12501CD5100A07709 /* FCPerpetualEntrustListCell.swift */; };
-		D715F0C42531BAC700885837 /* FCApi_email_moify_confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F5024F1F3EC00ABF0C5 /* FCApi_email_moify_confirm.swift */; };
-		D715F0C52531BAC700885837 /* FCMarketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591FDC2150D23F0068C23B /* FCMarketModel.swift */; };
-		D715F0C72531BAC700885837 /* FCSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01459D1D214A1EE700B440E5 /* FCSegmentControl.swift */; };
-		D715F0C82531BAC700885837 /* FCEntrustListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169FC7524F7D2D900FC3488 /* FCEntrustListController.swift */; };
-		D715F0C92531BAC700885837 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2724D19213E1E1A002E43CD /* ViewController.swift */; };
-		D715F0CB2531BAC700885837 /* APIOrder_currentorders.m in Sources */ = {isa = PBXBuildFile; fileRef = 015C7753215371DB00F4C8FA /* APIOrder_currentorders.m */; };
-		D715F0D12531BAC700885837 /* APIAccount_verify_password.m in Sources */ = {isa = PBXBuildFile; fileRef = D274860D213E290D0062765B /* APIAccount_verify_password.m */; };
-		D715F0D52531BAC700885837 /* FCApi_trade_order_perpetual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0138E4BD24FFD08100A07709 /* FCApi_trade_order_perpetual.swift */; };
-		D715F0D62531BAC700885837 /* FCBannerCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = D771689E251CBBED007D6CA7 /* FCBannerCarouselView.m */; };
-		D715F0D72531BAC700885837 /* FCGesturePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76AEA6B24EBC19F0064A879 /* FCGesturePasswordController.swift */; };
-		D715F0DE2531BAC700885837 /* FCCXPChargeInstruView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C97CD25285F81008A947B /* FCCXPChargeInstruView.swift */; };
-		D715F0DF2531BAC700885837 /* FCUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591F79214F43BE0068C23B /* FCUserDefaults.swift */; };
-		D715F0E22531BAC700885837 /* FCKLineDealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305A724BE4185001FF01A /* FCKLineDealModel.swift */; };
-		D715F0E42531BAC700885837 /* PopTip+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A8DF524FF4BCD00F89F41 /* PopTip+Draw.swift */; };
-		D715F0E52531BAC700885837 /* FCSpotOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F07FE24E03529009B1780 /* FCSpotOrderView.swift */; };
-		D715F0E62531BAC700885837 /* APIAccount_reset_password.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748616213E290D0062765B /* APIAccount_reset_password.m */; };
-		D715F0E72531BAC700885837 /* FCApi_wallet_all_asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7782468251B64A200FFFDFA /* FCApi_wallet_all_asset.swift */; };
-		D715F0EC2531BAC700885837 /* FCApi_fund_transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76FDFD224FE680D006AB263 /* FCApi_fund_transfer.swift */; };
-		D715F0F02531BAC700885837 /* APIAccount_send_sms.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748604213E290D0062765B /* APIAccount_send_sms.m */; };
-		D715F0F82531BAC700885837 /* FCPerpetualContractSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24EBD24F60D9B0057C0B6 /* FCPerpetualContractSetController.swift */; };
-		D715F0F92531BAC700885837 /* FCApi_place_order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120FFD424EC104200032DF7 /* FCApi_place_order.swift */; };
-		D715F0FB2531BAC700885837 /* FCCXPAssetMentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45824E5349400D739D1 /* FCCXPAssetMentionView.swift */; };
-		D715F0FC2531BAC700885837 /* FCApi_transfer_config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958C3251DBBCE00681280 /* FCApi_transfer_config.swift */; };
-		D715F0FE2531BAC700885837 /* PCWebSocketNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748632213E290D0062765B /* PCWebSocketNetwork.m */; };
-		D715F1002531BAC700885837 /* FCEntrustListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169FC7724F7D30A00FC3488 /* FCEntrustListCell.swift */; };
-		D715F1022531BAC700885837 /* FCCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF50F124992D2200A36D37 /* FCCustomTableViewCell.swift */; };
-		D715F1032531BAC700885837 /* FCTradeEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011F080424E7BC6C009B1780 /* FCTradeEmptyCell.swift */; };
-		D715F1042531BAC700885837 /* FCSpotSyntheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D772E95C250A0A9E007007D2 /* FCSpotSyntheController.swift */; };
-		D715F1052531BAC700885837 /* FCApi_ticker_trade.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B305BD24BE6203001FF01A /* FCApi_ticker_trade.m */; };
-		D715F1062531BAC700885837 /* FCApi_quote_tickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010EE40624DEA3FA00E884D4 /* FCApi_quote_tickers.swift */; };
-		D715F1082531BAC700885837 /* FCPasswordModifiedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FC2A7249724460070F554 /* FCPasswordModifiedView.swift */; };
-		D715F1092531BAC700885837 /* FCAdjustmentMarginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76678A924F8F33C00B990C9 /* FCAdjustmentMarginController.swift */; };
-		D715F10A2531BAC700885837 /* FCKLineRestingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B305B124BE42F0001FF01A /* FCKLineRestingHeader.swift */; };
-		D715F10E2531BAC700885837 /* FCAPPConstructionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D76D31B924F298C20081B885 /* FCAPPConstructionView.m */; };
-		D715F1112531BAC700885837 /* FCApi_MarketTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDF4248D41B100714DE9 /* FCApi_MarketTypes.m */; };
-		D715F1122531BAC700885837 /* FCThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018716382494DC31003380C3 /* FCThemeButton.swift */; };
-		D715F1162531BAC700885837 /* FCContractDepthAlertVeiw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76DE29F2511F8DA00D6A389 /* FCContractDepthAlertVeiw.swift */; };
-		D715F1172531BAC700885837 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2724D17213E1E1A002E43CD /* AppDelegate.swift */; };
-		D715F1182531BAC700885837 /* APIOrder_cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = 015C7751215371DB00F4C8FA /* APIOrder_cancel.m */; };
-		D715F1192531BAC700885837 /* FCApi_transfer_records.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958C1251DBA5400681280 /* FCApi_transfer_records.swift */; };
-		D715F11A2531BAC700885837 /* APIAccount_check_phone.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748609213E290D0062765B /* APIAccount_check_phone.m */; };
-		D715F11B2531BAC700885837 /* FCPositionInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D769658F24FA31000010FFD4 /* FCPositionInfoModel.swift */; };
-		D715F11C2531BAC700885837 /* FCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C60AF124A812C6000281CB /* FCConstant.swift */; };
-		D715F11E2531BAC700885837 /* FCApi_position_margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73713E024FBEBBB0054674D /* FCApi_position_margin.swift */; };
-		D715F11F2531BAC700885837 /* FCPasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187164D24966B15003380C3 /* FCPasswordResetView.swift */; };
-		D715F1212531BAC700885837 /* FCMinorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2BDE9248CDF2D00714DE9 /* FCMinorButton.swift */; };
-		D715F1242531BAC700885837 /* FCTradeHistroyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188704924F342F4003659C2 /* FCTradeHistroyListModel.swift */; };
-		D715F1262531BAC700885837 /* FCAccountAssetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3DF24E90729003E9BCF /* FCAccountAssetInfoView.swift */; };
-		D715F1282531BAC700885837 /* FCHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737D7F924E00209000DC48A /* FCHomeModel.swift */; };
-		D715F12C2531BAC700885837 /* PCUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748608213E290D0062765B /* PCUrlArgumentsFilter.m */; };
-		D715F12F2531BAC700885837 /* FCRegisterConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018716552496A278003380C3 /* FCRegisterConfirmView.swift */; };
-		D715F1322531BAC700885837 /* FCAddEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76996F724EFF1900068F262 /* FCAddEmailViewController.swift */; };
-		D715F1342531BAC700885837 /* FCTradeSettingconfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA45B424FB138700350A17 /* FCTradeSettingconfig.swift */; };
-		D715F1352531BAC700885837 /* APIAccount_get_userinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748610213E290D0062765B /* APIAccount_get_userinfo.m */; };
-		D715F1372531BAC700885837 /* FCApi_quote_types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010EE40424DEA3D200E884D4 /* FCApi_quote_types.swift */; };
-		D715F1392531BAC700885837 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748886213E29BD0062765B /* SSKeychainQuery.m */; };
-		D715F13A2531BAC700885837 /* FCApi_trade_history_orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7450C9D25052DDD005E9415 /* FCApi_trade_history_orders.swift */; };
-		D715F13B2531BAC700885837 /* FCApi_symbol_asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0120FFD224EB63CC00032DF7 /* FCApi_symbol_asset.swift */; };
-		D715F13D2531BAC700885837 /* UINavigationBar+CustomStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748864213E29780062765B /* UINavigationBar+CustomStyle.m */; };
-		D715F13F2531BAC700885837 /* FCApi_logout.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C60AFD24A8D763000281CB /* FCApi_logout.m */; };
-		D715F1412531BAC700885837 /* APIAccount_regist.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748602213E290D0062765B /* APIAccount_regist.m */; };
-		D715F1422531BAC700885837 /* FCCXPMentionCoinSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C44A24E5139E00D739D1 /* FCCXPMentionCoinSubView.swift */; };
-		D715F1432531BAC700885837 /* FCUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7701EF024E6BAE1007D4E6E /* FCUrlArgumentsFilter.m */; };
-		D715F1452531BAC700885837 /* FCApi_phone_modify_apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F5224F1F41500ABF0C5 /* FCApi_phone_modify_apply.swift */; };
-		D715F1462531BAC700885837 /* KLineHTTPTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B3059724BCA620001FF01A /* KLineHTTPTool.swift */; };
-		D715F1472531BAC700885837 /* FCApi_market_tickers.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C60B0524A95008000281CB /* FCApi_market_tickers.m */; };
-		D715F1492531BAC700885837 /* FCApi_withdrawal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7701EF424E6C207007D4E6E /* FCApi_withdrawal.swift */; };
-		D715F14B2531BAC700885837 /* UILabel+PCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748826213E295A0062765B /* UILabel+PCExtension.m */; };
-		D715F14E2531BAC700885837 /* String+FCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A646E21549EDF00817772 /* String+FCExtension.swift */; };
-		D715F14F2531BAC700885837 /* FCApi_account_all_assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7675F9D24EA8CB800FFF36D /* FCApi_account_all_assets.swift */; };
-		D715F1522531BAC700885837 /* FCApi_wallet_config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D209550824E791FF00A7A2E6 /* FCApi_wallet_config.swift */; };
-		D715F1552531BAC700885837 /* FCApi_email_modify_apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F4E24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift */; };
-		D715F1562531BAC700885837 /* FCContractHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7450C9725051C02005E9415 /* FCContractHistoryController.swift */; };
-		D715F1572531BAC700885837 /* APIOrder_preplace.m in Sources */ = {isa = PBXBuildFile; fileRef = 015C775A215371EA00F4C8FA /* APIOrder_preplace.m */; };
-		D715F1582531BAC700885837 /* FCContractsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7714671250E05F7008660F7 /* FCContractsModel.swift */; };
-		D715F15A2531BAC700885837 /* FCHomeAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737D80324E00209000DC48A /* FCHomeAgreementView.swift */; };
-		D715F15C2531BAC700885837 /* FCApi_delete_optional.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B80FE224B87B57009080CD /* FCApi_delete_optional.m */; };
-		D715F15D2531BAC700885837 /* YTKBatchRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = D274863A213E290D0062765B /* YTKBatchRequest+AnimatingAccessory.m */; };
-		D715F1602531BAC700885837 /* FCUserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591F7B214F44030068C23B /* FCUserInfoManager.swift */; };
-		D715F1612531BAC700885837 /* FCNetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010EE40924DEACE800E884D4 /* FCNetworkUtils.swift */; };
-		D715F1622531BAC700885837 /* APIAccount_logout.m in Sources */ = {isa = PBXBuildFile; fileRef = D274860C213E290D0062765B /* APIAccount_logout.m */; };
-		D715F1642531BAC700885837 /* FCSelectForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF50F424992DB200A36D37 /* FCSelectForm.swift */; };
-		D715F1652531BAC700885837 /* FCTradeEntrustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169FC7B24F7DBAD00FC3488 /* FCTradeEntrustModel.swift */; };
-		D715F1662531BAC700885837 /* FCBillContractModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76FDFCE24FE416C006AB263 /* FCBillContractModel.swift */; };
-		D715F1682531BAC700885837 /* NSDictionary+PreventNull.m in Sources */ = {isa = PBXBuildFile; fileRef = D274882F213E295A0062765B /* NSDictionary+PreventNull.m */; };
-		D715F1692531BAC700885837 /* FCApi_trading_strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183324FCD7360001056E /* FCApi_trading_strategy.swift */; };
-		D715F16A2531BAC700885837 /* FCChangePhoneInvoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76996F924EFF2000068F262 /* FCChangePhoneInvoController.swift */; };
-		D715F16E2531BAC700885837 /* FCApi_trade_order_fills.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7717EFB25067E7A0060AA72 /* FCApi_trade_order_fills.swift */; };
-		D715F1712531BAC700885837 /* FCUserSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C60AF724A8CFFD000281CB /* FCUserSettingController.swift */; };
-		D715F1722531BAC700885837 /* FCTradingHistoryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7717EFD250700FA0060AA72 /* FCTradingHistoryDetailCell.swift */; };
-		D715F1742531BAC700885837 /* FCContractHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7450C99250520AB005E9415 /* FCContractHistoryCell.swift */; };
-		D715F1752531BAC700885837 /* APPdelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27488E3213E31C60062765B /* APPdelegateExtension.swift */; };
-		D715F17A2531BAC700885837 /* FCApi_trade_entrust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169FC7D24F7DC8700FC3488 /* FCApi_trade_entrust.swift */; };
-		D715F17C2531BAC700885837 /* PCCustomRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D274892B213F82540062765B /* PCCustomRefreshHeader.m */; };
-		D715F17D2531BAC700885837 /* FCPositionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767FC8F24F7546F009C135D /* FCPositionHeaderView.swift */; };
-		D715F17F2531BAC700885837 /* FCQuickNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737D80924E00209000DC48A /* FCQuickNavView.swift */; };
-		D715F1802531BAC700885837 /* FCApi_auto_login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F5624F21BC200ABF0C5 /* FCApi_auto_login.swift */; };
-		D715F1812531BAC700885837 /* FCQRCodeScanerEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2591F91214F5B0C0068C23B /* FCQRCodeScanerEngine.swift */; };
-		D715F1822531BAC700885837 /* JSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748871213E29840062765B /* JSBridge.m */; };
-		D715F1842531BAC700885837 /* FCForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187164924963479003380C3 /* FCForgetPasswordView.swift */; };
-		D715F1852531BAC700885837 /* FCTradingUnitSwitchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B24EC524F652C10057C0B6 /* FCTradingUnitSwitchController.swift */; };
-		D715F1882531BAC700885837 /* FCApi_quote_market_feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D09F32510A35400497460 /* FCApi_quote_market_feed.swift */; };
-		D715F1892531BAC700885837 /* PCDeallocRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = D23B07A6215F21C200EEEFC6 /* PCDeallocRequests.m */; };
-		D715F18A2531BAC700885837 /* FCPasswordModifiedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010FC2A3249723FD0070F554 /* FCPasswordModifiedController.swift */; };
-		D715F18F2531BAC700885837 /* UIButton+PCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748821213E295A0062765B /* UIButton+PCExtension.m */; };
-		D715F1912531BAC700885837 /* FCHotSymbolsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737D80024E00209000DC48A /* FCHotSymbolsCell.swift */; };
-		D715F1952531BAC700885837 /* FCQRCodeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76AC5E924E746F700BB9448 /* FCQRCodeTool.swift */; };
-		D715F1982531BAC700885837 /* UILabel+FJAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = D274883F213E295A0062765B /* UILabel+FJAttribute.m */; };
-		D715F1992531BAC700885837 /* UIFont+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748836213E295A0062765B /* UIFont+Extension.m */; };
-		D715F19E2531BAC700885837 /* FCApi_records_search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76FDFCC24FE33DD006AB263 /* FCApi_records_search.swift */; };
-		D715F19F2531BAC700885837 /* PCSearchTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D274880B213E29490062765B /* PCSearchTitleView.m */; };
-		D715F1A22531BAC700885837 /* FCKLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B80FDF24B854B8009080CD /* FCKLineController.swift */; };
-		D715F1A32531BAC700885837 /* FCApi_wallet_records.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7701EF624E6C24B007D4E6E /* FCApi_wallet_records.swift */; };
-		D715F1A42531BAC700885837 /* FCApi_all_contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D771466F250DFA0E008660F7 /* FCApi_all_contracts.swift */; };
-		D715F1A82531BAC700885837 /* FCApi_trading_strategy_set.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183524FCD75B0001056E /* FCApi_trading_strategy_set.swift */; };
-		D715F1AA2531BAC700885837 /* FCApi_market_kline_history.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BAD2515AF6700EA88E6 /* FCApi_market_kline_history.swift */; };
-		D715F1AB2531BAC700885837 /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BC414E24BB7EC100167693 /* Popover.swift */; };
-		D715F1AF2531BAC700885837 /* PCWKWebHybridController.m in Sources */ = {isa = PBXBuildFile; fileRef = D274886F213E29840062765B /* PCWKWebHybridController.m */; };
-		D715F1B42531BAC700885837 /* FCApi_captcha_resend.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C60AEA24A7A01C000281CB /* FCApi_captcha_resend.m */; };
-		D715F1B52531BAC700885837 /* PopTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A8DF424FF4BCD00F89F41 /* PopTip.swift */; };
-		D715F1B72531BAC700885837 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C8FE824B9B50200DDAF96 /* UIColor+RGB.swift */; };
-		D715F1C52531BAC700885837 /* UIImage+PCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D274882E213E295A0062765B /* UIImage+PCExtension.m */; };
-		D715F1C92531BAC700885837 /* APIAccount_login.m in Sources */ = {isa = PBXBuildFile; fileRef = D274861B213E290D0062765B /* APIAccount_login.m */; };
-		D715F1CB2531BAC700885837 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D274890E213E692C0062765B /* libz.tbd */; };
-		D715F1CC2531BAC700885837 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D274890C213E69160062765B /* libsqlite3.tbd */; };
-		D715F1CE2531BAC700885837 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27488AA213E2BAE0062765B /* AdSupport.framework */; };
-		D715F1CF2531BAC700885837 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27488A8213E2BA70062765B /* CFNetwork.framework */; };
-		D715F1D12531BAC700885837 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27488A6213E2B9F0062765B /* CoreMotion.framework */; };
-		D715F1D22531BAC700885837 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27488A4213E2B980062765B /* CoreLocation.framework */; };
-		D715F1D42531BAC700885837 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27488A2213E2B900062765B /* SystemConfiguration.framework */; };
-		D715F1D52531BAC700885837 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27488A0213E2B870062765B /* CoreTelephony.framework */; };
-		D715F1D62531BAC700885837 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D274889E213E2B6B0062765B /* CoreFoundation.framework */; };
-		D715F1D72531BAC700885837 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D274889C213E2B5D0062765B /* CoreGraphics.framework */; };
-		D715F1D82531BAC700885837 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D274889A213E2B550062765B /* WebKit.framework */; };
-		D715F1D92531BAC700885837 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2748898213E2B4D0062765B /* JavaScriptCore.framework */; };
-		D715F1DD2531BAC700885837 /* FCCXPMentionCoinSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F9C44C24E513AB00D739D1 /* FCCXPMentionCoinSubView.xib */; };
-		D715F1DE2531BAC700885837 /* FCBillContractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76FDFC924FE2B1B006AB263 /* FCBillContractCell.xib */; };
-		D715F1E02531BAC700885837 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2748881213E29BD0062765B /* SSKeychain.strings */; };
-		D715F1E12531BAC700885837 /* FCCXPAssetTransferController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76FDFD524FE6920006AB263 /* FCCXPAssetTransferController.xib */; };
-		D715F1E52531BAC700885837 /* FCDepositStatementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B24EBF24F611700057C0B6 /* FCDepositStatementView.xib */; };
-		D715F1E62531BAC700885837 /* FCKLineDealHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B305B724BE4367001FF01A /* FCKLineDealHeader.xib */; };
-		D715F1E72531BAC700885837 /* yw_1222_0335.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D274888D213E29BD0062765B /* yw_1222_0335.jpg */; };
-		D715F1E82531BAC700885837 /* FCEntrustListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0169FC7824F7D30A00FC3488 /* FCEntrustListCell.xib */; };
-		D715F1E92531BAC700885837 /* FCAPPConstructionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79F7F5824F2630D00ABF0C5 /* FCAPPConstructionView.xib */; };
-		D715F1EB2531BAC700885837 /* FCTradeHistoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188704624F33CC1003659C2 /* FCTradeHistoryListCell.xib */; };
-		D715F1EE2531BAC700885837 /* FCCXPAssetQRCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F9C44624E4ED2B00D739D1 /* FCCXPAssetQRCodeView.xib */; };
-		D715F1EF2531BAC700885837 /* FCTotalAssetsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D72FE3E524E90E07003E9BCF /* FCTotalAssetsView.xib */; };
-		D715F1F42531BAC700885837 /* FCCXPGlobalContractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F2C65524E2C32500B5BBFE /* FCCXPGlobalContractCell.xib */; };
-		D715F1F52531BAC700885837 /* FCHotSymbolsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737D80624E00209000DC48A /* FCHotSymbolsCell.xib */; };
-		D715F1F82531BAC700885837 /* FCCCXPAssetHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F9C45124E52D8000D739D1 /* FCCCXPAssetHistoryCell.xib */; };
-		D715F1FA2531BAC700885837 /* FCPerpetualEntrustListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0138E4C22501CD5100A07709 /* FCPerpetualEntrustListCell.xib */; };
-		D715F1FB2531BAC700885837 /* FCMarketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D22F82EF21412E02002DAA19 /* FCMarketCell.xib */; };
-		D715F1FC2531BAC700885837 /* FCKLineRestingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B305AA24BE4297001FF01A /* FCKLineRestingCell.xib */; };
-		D715F1FD2531BAC700885837 /* FCKLineDealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B305AE24BE42BF001FF01A /* FCKLineDealCell.xib */; };
-		D715F1FE2531BAC700885837 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B80FD424B6C6F2009080CD /* Main.storyboard */; };
-		D715F2002531BAC700885837 /* FCContractPositionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D767FC9224F754A9009C135D /* FCContractPositionCell.xib */; };
-		D715F2022531BAC700885837 /* FCPositionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D767FC9524F7566B009C135D /* FCPositionHeaderView.xib */; };
-		D715F2032531BAC700885837 /* FCCXPMentionInstruView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F9C44E24E513C800D739D1 /* FCCXPMentionInstruView.xib */; };
-		D715F2042531BAC700885837 /* FCCXPChargeInstruView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F9C44824E4ED6200D739D1 /* FCCXPChargeInstruView.xib */; };
-		D715F2062531BAC700885837 /* FCHomeAgreementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737D7FD24E00209000DC48A /* FCHomeAgreementView.xib */; };
-		D715F2072531BAC700885837 /* FCContractHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7450C9A250520AB005E9415 /* FCContractHistoryCell.xib */; };
-		D715F2082531BAC700885837 /* FCKLineRestingHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01B305B524BE434F001FF01A /* FCKLineRestingHeader.xib */; };
-		D715F20A2531BAC700885837 /* FCTradingHistoryDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7717EFE250700FA0060AA72 /* FCTradingHistoryDetailCell.xib */; };
-		D715F20D2531BAC700885837 /* FCCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D21E36FA214763AD0049CD04 /* FCCommonCell.xib */; };
-		D715F20E2531BAC700885837 /* FCHistoryDetialHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7162A4425060C32002095FA /* FCHistoryDetialHeaderView.xib */; };
-		D715F20F2531BAC700885837 /* FCSingleAssetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D72FE3E824E90F11003E9BCF /* FCSingleAssetsCell.xib */; };
 		D7162A4225060C1D002095FA /* FCContractHistroyDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7162A4125060C1D002095FA /* FCContractHistroyDetailVC.swift */; };
 		D7162A4525060C32002095FA /* FCHistoryDetialHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7162A4325060C32002095FA /* FCHistoryDetialHeaderView.swift */; };
 		D7162A4625060C32002095FA /* FCHistoryDetialHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7162A4425060C32002095FA /* FCHistoryDetialHeaderView.xib */; };
 		D726692A2542C3F800DED2DA /* FCShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D72669292542C3F800DED2DA /* FCShareTool.m */; };
-		D726692B2542C3F800DED2DA /* FCShareTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D72669292542C3F800DED2DA /* FCShareTool.m */; };
 		D72FE3DC24E7E3F2003E9BCF /* FCApi_single_asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3DB24E7E3F2003E9BCF /* FCApi_single_asset.swift */; };
 		D72FE3DE24E8CBCF003E9BCF /* FCCXPMentionInstruView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3DD24E8CBCF003E9BCF /* FCCXPMentionInstruView.swift */; };
 		D72FE3E024E90729003E9BCF /* FCAccountAssetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3DF24E90729003E9BCF /* FCAccountAssetInfoView.swift */; };
@@ -592,11 +244,8 @@
 		D72FE3E924E90F11003E9BCF /* FCSingleAssetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72FE3E724E90F11003E9BCF /* FCSingleAssetsCell.swift */; };
 		D72FE3EA24E90F11003E9BCF /* FCSingleAssetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D72FE3E824E90F11003E9BCF /* FCSingleAssetsCell.xib */; };
 		D73422BB2538363C0057E3BC /* FCProfitLossSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73422BA2538363B0057E3BC /* FCProfitLossSettingView.swift */; };
-		D73422BC2538363C0057E3BC /* FCProfitLossSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73422BA2538363B0057E3BC /* FCProfitLossSettingView.swift */; };
 		D73422C0253838B60057E3BC /* FCAddSubtractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73422BF253838B60057E3BC /* FCAddSubtractView.swift */; };
-		D73422C1253838B60057E3BC /* FCAddSubtractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73422BF253838B60057E3BC /* FCAddSubtractView.swift */; };
 		D73422C52538533E0057E3BC /* FCApi_trigger_close_set.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73422C42538533E0057E3BC /* FCApi_trigger_close_set.swift */; };
-		D73422C62538533E0057E3BC /* FCApi_trigger_close_set.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73422C42538533E0057E3BC /* FCApi_trigger_close_set.swift */; };
 		D73713E124FBEBBB0054674D /* FCApi_position_margin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73713E024FBEBBB0054674D /* FCApi_position_margin.swift */; };
 		D737D80A24E00209000DC48A /* FCHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737D7F924E00209000DC48A /* FCHomeModel.swift */; };
 		D737D80C24E00209000DC48A /* FCHomeAgreementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737D7FD24E00209000DC48A /* FCHomeAgreementView.xib */; };
@@ -618,8 +267,6 @@
 		D745183424FCD7360001056E /* FCApi_trading_strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183324FCD7360001056E /* FCApi_trading_strategy.swift */; };
 		D745183624FCD75B0001056E /* FCApi_trading_strategy_set.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183524FCD75B0001056E /* FCApi_trading_strategy_set.swift */; };
 		D745183824FD371B0001056E /* FCBillContractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183724FD371B0001056E /* FCBillContractController.swift */; };
-		D750D2A325592797005EC29B /* KLineXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D750D29E25592776005EC29B /* KLineXP.framework */; };
-		D750D2A4255927A1005EC29B /* KLineBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D750D2A025592776005EC29B /* KLineBundle.bundle */; };
 		D750D2E625592C32005EC29B /* KLineXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D750D29E25592776005EC29B /* KLineXP.framework */; };
 		D750D2E725592C39005EC29B /* KLineBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D750D2A025592776005EC29B /* KLineBundle.bundle */; };
 		D75A8DF724FF4BCD00F89F41 /* PopTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A8DF424FF4BCD00F89F41 /* PopTip.swift */; };
@@ -656,22 +303,9 @@
 		D76C3BBE2515F79000EA88E6 /* FCApi_group_contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BBD2515F79000EA88E6 /* FCApi_group_contracts.swift */; };
 		D76D09F42510A35400497460 /* FCApi_quote_market_feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D09F32510A35400497460 /* FCApi_quote_market_feed.swift */; };
 		D76D31BA24F298C20081B885 /* FCAPPConstructionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D76D31B924F298C20081B885 /* FCAPPConstructionView.m */; };
-		D76D50672532F7A700E84038 /* cxpLaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B80FD724B6C932009080CD /* cxpLaunchScreen.png */; };
 		D76D50682532F7AB00E84038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2724D1E213E1E1C002E43CD /* Assets.xcassets */; };
-		D76D506E2532F80900E84038 /* FCMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D506B2532F80900E84038 /* FCMainTabBarController.swift */; };
-		D76D50702532F80900E84038 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76D506D2532F80900E84038 /* Launch Screen.storyboard */; };
-		D76D50732532F81300E84038 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B80FD224B6C156009080CD /* Launch Screen.storyboard */; };
-		D76D50842532F94700E84038 /* FCConstantDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D50832532F94700E84038 /* FCConstantDefinition.swift */; };
-		D76D508F2532FB3500E84038 /* FCHomeCompositeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D508E2532FB3500E84038 /* FCHomeCompositeView.swift */; };
-		D76D50952532FBBC00E84038 /* FCCXPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D50942532FBBC00E84038 /* FCCXPHomeViewController.swift */; };
 		D76D509A2532FBC800E84038 /* FCCXPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737D7FB24E00209000DC48A /* FCCXPHomeViewController.swift */; };
-		D76D50A02532FD4500E84038 /* FCMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D509F2532FD4500E84038 /* FCMineViewController.swift */; };
 		D76D50AB2532FDB000E84038 /* FCMIneTabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF50F6249BB7E400A36D37 /* FCMIneTabHeaderView.swift */; };
-		D76D50B72532FF9500E84038 /* FCCXPAssetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D50B62532FF9500E84038 /* FCCXPAssetController.swift */; };
-		D76D50C02532FFF600E84038 /* FCCXPCommonAssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76D50BC2532FFF500E84038 /* FCCXPCommonAssetCell.xib */; };
-		D76D50C12532FFF600E84038 /* FCCXPSustainableContractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D50BD2532FFF500E84038 /* FCCXPSustainableContractCell.swift */; };
-		D76D50C22532FFF600E84038 /* FCCXPSustainableContractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76D50BE2532FFF600E84038 /* FCCXPSustainableContractCell.xib */; };
-		D76D50C32532FFF600E84038 /* FCCXPCommonAssetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D50BF2532FFF600E84038 /* FCCXPCommonAssetCell.swift */; };
 		D76DE2A02511F8DA00D6A389 /* FCContractDepthAlertVeiw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76DE29F2511F8DA00D6A389 /* FCContractDepthAlertVeiw.swift */; };
 		D76FDFCA24FE2B1B006AB263 /* FCBillContractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76FDFC824FE2B1B006AB263 /* FCBillContractCell.swift */; };
 		D76FDFCB24FE2B1B006AB263 /* FCBillContractCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76FDFC924FE2B1B006AB263 /* FCBillContractCell.xib */; };
@@ -686,27 +320,16 @@
 		D7701EF524E6C207007D4E6E /* FCApi_withdrawal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7701EF424E6C207007D4E6E /* FCApi_withdrawal.swift */; };
 		D7701EF724E6C24B007D4E6E /* FCApi_wallet_records.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7701EF624E6C24B007D4E6E /* FCApi_wallet_records.swift */; };
 		D77063C0253FCA1200ECD9B6 /* FCApi_spot_market_depth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77063BF253FCA1200ECD9B6 /* FCApi_spot_market_depth.swift */; };
-		D77063C1253FCA1200ECD9B6 /* FCApi_spot_market_depth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77063BF253FCA1200ECD9B6 /* FCApi_spot_market_depth.swift */; };
 		D7706469253FDBDC00ECD9B6 /* YTKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706454253FDBDC00ECD9B6 /* YTKNetworkConfig.m */; };
-		D770646A253FDBDC00ECD9B6 /* YTKNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706454253FDBDC00ECD9B6 /* YTKNetworkConfig.m */; };
 		D770646B253FDBDC00ECD9B6 /* YTKRequestEventAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706456253FDBDC00ECD9B6 /* YTKRequestEventAccessory.m */; };
-		D770646C253FDBDC00ECD9B6 /* YTKRequestEventAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706456253FDBDC00ECD9B6 /* YTKRequestEventAccessory.m */; };
 		D770646D253FDBDC00ECD9B6 /* YTKChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706457253FDBDC00ECD9B6 /* YTKChainRequest.m */; };
-		D770646E253FDBDC00ECD9B6 /* YTKChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706457253FDBDC00ECD9B6 /* YTKChainRequest.m */; };
 		D770646F253FDBDC00ECD9B6 /* YTKNetworkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = D770645B253FDBDC00ECD9B6 /* YTKNetworkPrivate.m */; };
-		D7706470253FDBDC00ECD9B6 /* YTKNetworkPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = D770645B253FDBDC00ECD9B6 /* YTKNetworkPrivate.m */; };
 		D7706471253FDBDD00ECD9B6 /* YTKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D770645F253FDBDC00ECD9B6 /* YTKBaseRequest.m */; };
-		D7706472253FDBDD00ECD9B6 /* YTKBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D770645F253FDBDC00ECD9B6 /* YTKBaseRequest.m */; };
 		D7706473253FDBDD00ECD9B6 /* YTKBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706463253FDBDC00ECD9B6 /* YTKBatchRequest.m */; };
-		D7706474253FDBDD00ECD9B6 /* YTKBatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706463253FDBDC00ECD9B6 /* YTKBatchRequest.m */; };
 		D7706475253FDBDD00ECD9B6 /* YTKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706464253FDBDC00ECD9B6 /* YTKNetworkAgent.m */; };
-		D7706476253FDBDD00ECD9B6 /* YTKNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706464253FDBDC00ECD9B6 /* YTKNetworkAgent.m */; };
 		D7706477253FDBDD00ECD9B6 /* YTKChainRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706465253FDBDC00ECD9B6 /* YTKChainRequestAgent.m */; };
-		D7706478253FDBDD00ECD9B6 /* YTKChainRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706465253FDBDC00ECD9B6 /* YTKChainRequestAgent.m */; };
 		D7706479253FDBDD00ECD9B6 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706466253FDBDC00ECD9B6 /* YTKBatchRequestAgent.m */; };
-		D770647A253FDBDD00ECD9B6 /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706466253FDBDC00ECD9B6 /* YTKBatchRequestAgent.m */; };
 		D770647B253FDBDD00ECD9B6 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706468253FDBDC00ECD9B6 /* YTKRequest.m */; };
-		D770647C253FDBDD00ECD9B6 /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D7706468253FDBDC00ECD9B6 /* YTKRequest.m */; };
 		D7714670250DFA0E008660F7 /* FCApi_all_contracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D771466F250DFA0E008660F7 /* FCApi_all_contracts.swift */; };
 		D7714672250E05F7008660F7 /* FCContractsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7714671250E05F7008660F7 /* FCContractsModel.swift */; };
 		D7714674250E098C008660F7 /* FCContractListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7714673250E098C008660F7 /* FCContractListController.swift */; };
@@ -715,58 +338,40 @@
 		D7717EFC25067E7A0060AA72 /* FCApi_trade_order_fills.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7717EFB25067E7A0060AA72 /* FCApi_trade_order_fills.swift */; };
 		D7717EFF250700FA0060AA72 /* FCTradingHistoryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7717EFD250700FA0060AA72 /* FCTradingHistoryDetailCell.swift */; };
 		D7717F00250700FA0060AA72 /* FCTradingHistoryDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7717EFE250700FA0060AA72 /* FCTradingHistoryDetailCell.xib */; };
-		D771F1452532F75800699452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D771F1432532F75800699452 /* Assets.xcassets */; };
-		D771F1462532F75800699452 /* ChaLaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = D771F1442532F75800699452 /* ChaLaunchScreen.png */; };
 		D772E95D250A0A9E007007D2 /* FCSpotSyntheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D772E95C250A0A9E007007D2 /* FCSpotSyntheController.swift */; };
 		D7782469251B64A200FFFDFA /* FCApi_wallet_all_asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7782468251B64A200FFFDFA /* FCApi_wallet_all_asset.swift */; };
 		D77B4D8825368EBB002AAF51 /* FCApi_trigger_order_place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4D8725368EBB002AAF51 /* FCApi_trigger_order_place.swift */; };
-		D77B4D8925368EBB002AAF51 /* FCApi_trigger_order_place.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4D8725368EBB002AAF51 /* FCApi_trigger_order_place.swift */; };
 		D77B4DF02536ED12002AAF51 /* FCApi_trigger_pending_orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DEF2536ED12002AAF51 /* FCApi_trigger_pending_orders.swift */; };
-		D77B4DF12536ED12002AAF51 /* FCApi_trigger_pending_orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DEF2536ED12002AAF51 /* FCApi_trigger_pending_orders.swift */; };
 		D77B4DF52536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DF42536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift */; };
-		D77B4DF62536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DF42536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift */; };
 		D77B4DFA2536F02F002AAF51 /* FCApi_trigger_history_orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DF92536F02F002AAF51 /* FCApi_trigger_history_orders.swift */; };
-		D77B4DFB2536F02F002AAF51 /* FCApi_trigger_history_orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DF92536F02F002AAF51 /* FCApi_trigger_history_orders.swift */; };
-		D77BF9242564C7D000C9EB2C /* UtilsXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7331FFA255A222000E215C4 /* UtilsXP.framework */; };
 		D77C6E3525375BE0003F0DA8 /* FCTriggerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C6E3425375BE0003F0DA8 /* FCTriggerModel.swift */; };
-		D77C6E3625375BE0003F0DA8 /* FCTriggerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C6E3425375BE0003F0DA8 /* FCTriggerModel.swift */; };
 		D77C97CE25285F81008A947B /* FCCXPChargeInstruView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C97CD25285F81008A947B /* FCCXPChargeInstruView.swift */; };
 		D77F51822539372500E8D62A /* FCContractsEntrustMultiListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */; };
-		D77F51832539372500E8D62A /* FCContractsEntrustMultiListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */; };
 		D77F518A25393F3A00E8D62A /* FCContractsEntrustListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */; };
-		D77F518B25393F3A00E8D62A /* FCContractsEntrustListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */; };
 		D77F51C52539A2F900E8D62A /* FCApi_trigger_history.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */; };
-		D77F51C62539A2F900E8D62A /* FCApi_trigger_history.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */; };
 		D7803D6625174B2B000BB5C5 /* FCApi_quote_market_groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7803D6525174B2B000BB5C5 /* FCApi_quote_market_groups.swift */; };
+		D782045A256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7820459256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m */; };
 		D78243712537DDE100497103 /* FCContractProfitLossCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782436F2537DDE100497103 /* FCContractProfitLossCell.swift */; };
-		D78243722537DDE100497103 /* FCContractProfitLossCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782436F2537DDE100497103 /* FCContractProfitLossCell.swift */; };
 		D78243732537DDE100497103 /* FCContractProfitLossCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78243702537DDE100497103 /* FCContractProfitLossCell.xib */; };
-		D78243742537DDE100497103 /* FCContractProfitLossCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78243702537DDE100497103 /* FCContractProfitLossCell.xib */; };
 		D7837D982541155B006ADE6C /* FCApi_Password_ResetApply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837D972541155B006ADE6C /* FCApi_Password_ResetApply.swift */; };
-		D7837D992541155B006ADE6C /* FCApi_Password_ResetApply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837D972541155B006ADE6C /* FCApi_Password_ResetApply.swift */; };
 		D7837D9D2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837D9C2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift */; };
-		D7837D9E2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837D9C2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift */; };
 		D7837DA42541277C006ADE6C /* FCApi_Get_UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837DA32541277C006ADE6C /* FCApi_Get_UserInfo.swift */; };
-		D7837DA52541277C006ADE6C /* FCApi_Get_UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837DA32541277C006ADE6C /* FCApi_Get_UserInfo.swift */; };
 		D78391A1255EA6DA00D4A6C0 /* UtilsXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7331FFA255A222000E215C4 /* UtilsXP.framework */; };
 		D78391A7255EA6E100D4A6C0 /* UtilsXPBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7332056255A402900E215C4 /* UtilsXPBundle.bundle */; };
 		D78856B825456268001F8787 /* FCProfitLossShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78856B725456268001F8787 /* FCProfitLossShareView.swift */; };
-		D78856B925456268001F8787 /* FCProfitLossShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78856B725456268001F8787 /* FCProfitLossShareView.swift */; };
 		D78856BD25456281001F8787 /* FCProfitLossShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78856BC25456281001F8787 /* FCProfitLossShareView.xib */; };
-		D78856BE25456281001F8787 /* FCProfitLossShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78856BC25456281001F8787 /* FCProfitLossShareView.xib */; };
 		D78934AB25359B3E00B3858F /* FCProfitLossInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78934AA25359B3D00B3858F /* FCProfitLossInputView.swift */; };
-		D78934AC25359B3E00B3858F /* FCProfitLossInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78934AA25359B3D00B3858F /* FCProfitLossInputView.swift */; };
 		D78958C0251D98CF00681280 /* FCApi_support_transfer_assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958BF251D98CF00681280 /* FCApi_support_transfer_assets.swift */; };
 		D78958C2251DBA5400681280 /* FCApi_transfer_records.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958C1251DBA5400681280 /* FCApi_transfer_records.swift */; };
 		D78958C4251DBBCE00681280 /* FCApi_transfer_config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958C3251DBBCE00681280 /* FCApi_transfer_config.swift */; };
 		D78CE5FF253438D700A4E1E6 /* FCContractProfitLossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE5FE253438D700A4E1E6 /* FCContractProfitLossView.swift */; };
-		D78CE600253438D700A4E1E6 /* FCContractProfitLossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE5FE253438D700A4E1E6 /* FCContractProfitLossView.swift */; };
 		D78CE60425343FB300A4E1E6 /* FCTriggerEntrustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE60325343FB300A4E1E6 /* FCTriggerEntrustViewController.swift */; };
-		D78CE60525343FB300A4E1E6 /* FCTriggerEntrustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE60325343FB300A4E1E6 /* FCTriggerEntrustViewController.swift */; };
 		D78CE60925343FEE00A4E1E6 /* FCContractProfitLossController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE60825343FEE00A4E1E6 /* FCContractProfitLossController.swift */; };
-		D78CE60A25343FEE00A4E1E6 /* FCContractProfitLossController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE60825343FEE00A4E1E6 /* FCContractProfitLossController.swift */; };
 		D78CE616253449FC00A4E1E6 /* FCConstantDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D274891F213EA6920062765B /* FCConstantDefinition.swift */; };
-		D79EBC5A254155E8004A852B /* FCMarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79EBC59254155E8004A852B /* FCMarketViewController.swift */; };
+		D797FE39256BD95800E18D20 /* FCVerificationCodeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D797FE38256BD95800E18D20 /* FCVerificationCodeAlertView.swift */; };
+		D79BFE6A257347E00094AE06 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = D79BFE69257347E00094AE06 /* LaunchScreen.png */; };
+		D79BFEC825734BBF0094AE06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79BFEC725734BBE0094AE06 /* Main.storyboard */; };
+		D79BFECA2573713B0094AE06 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79BFEC92573713B0094AE06 /* Launch Screen.storyboard */; };
 		D79F7F4F24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F4E24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift */; };
 		D79F7F5124F1F3EC00ABF0C5 /* FCApi_email_moify_confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F5024F1F3EC00ABF0C5 /* FCApi_email_moify_confirm.swift */; };
 		D79F7F5324F1F41500ABF0C5 /* FCApi_phone_modify_apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F5224F1F41500ABF0C5 /* FCApi_phone_modify_apply.swift */; };
@@ -804,8 +409,6 @@
 		D7F9C45B24E535BD00D739D1 /* FCCXPAssetOptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45A24E535BD00D739D1 /* FCCXPAssetOptionController.swift */; };
 		D7F9C46024E5705500D739D1 /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45C24E5705400D739D1 /* UIImage+Gradient.m */; };
 		D7F9C46124E5705500D739D1 /* UIButton+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F9C45E24E5705400D739D1 /* UIButton+Gradient.m */; };
-		D7FA1F88254153CF007CA636 /* FCMIneTabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FA1F87254153CE007CA636 /* FCMIneTabHeaderView.swift */; };
-		FB59CD3CD2875972285E4DDF /* Pods_Champagne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C17E9D644AA65F391280F5 /* Pods_Champagne.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -970,9 +573,6 @@
 		01B305B724BE4367001FF01A /* FCKLineDealHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCKLineDealHeader.xib; sourceTree = "<group>"; };
 		01B305BC24BE6203001FF01A /* FCApi_ticker_trade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCApi_ticker_trade.h; sourceTree = "<group>"; };
 		01B305BD24BE6203001FF01A /* FCApi_ticker_trade.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCApi_ticker_trade.m; sourceTree = "<group>"; };
-		01B80FD224B6C156009080CD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		01B80FD424B6C6F2009080CD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		01B80FD724B6C932009080CD /* cxpLaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cxpLaunchScreen.png; sourceTree = "<group>"; };
 		01B80FD924B81DCF009080CD /* FCMarketTypesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMarketTypesModel.swift; sourceTree = "<group>"; };
 		01B80FDF24B854B8009080CD /* FCKLineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCKLineController.swift; sourceTree = "<group>"; };
 		01B80FE124B87B57009080CD /* FCApi_delete_optional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCApi_delete_optional.h; sourceTree = "<group>"; };
@@ -1198,14 +798,11 @@
 		D2EF83E921703EA7001A9FE1 /* FlyCatAdministration.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlyCatAdministration.entitlements; sourceTree = "<group>"; };
 		D701A5E2250B16E8002B8577 /* FCContractSyntheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractSyntheController.swift; sourceTree = "<group>"; };
 		D711ECEB24E17AB1005B4666 /* FCCXPAssetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCXPAssetController.swift; sourceTree = "<group>"; };
-		D7125867254921CB009736E2 /* FCMainSymbolsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCMainSymbolsView.swift; sourceTree = "<group>"; };
-		D7125868254921CB009736E2 /* FCMainSymbolsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCMainSymbolsView.xib; sourceTree = "<group>"; };
 		D71258A62549667B009736E2 /* FCShareItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCShareItemView.h; sourceTree = "<group>"; };
 		D71258A72549667B009736E2 /* FCShareItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCShareItemView.m; sourceTree = "<group>"; };
 		D71258AC25496712009736E2 /* FCShareItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCShareItemView.xib; sourceTree = "<group>"; };
 		D71259442549997B009736E2 /* FCToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCToast.h; sourceTree = "<group>"; };
 		D71259452549997B009736E2 /* FCToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCToast.m; sourceTree = "<group>"; };
-		D715F2162531BAC700885837 /* CHEX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHEX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7162A4125060C1D002095FA /* FCContractHistroyDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCContractHistroyDetailVC.swift; sourceTree = "<group>"; };
 		D7162A4325060C32002095FA /* FCHistoryDetialHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCHistoryDetialHeaderView.swift; sourceTree = "<group>"; };
 		D7162A4425060C32002095FA /* FCHistoryDetialHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCHistoryDetialHeaderView.xib; sourceTree = "<group>"; };
@@ -1283,17 +880,6 @@
 		D76D09F32510A35400497460 /* FCApi_quote_market_feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_quote_market_feed.swift; sourceTree = "<group>"; };
 		D76D31B824F298C20081B885 /* FCAPPConstructionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCAPPConstructionView.h; sourceTree = "<group>"; };
 		D76D31B924F298C20081B885 /* FCAPPConstructionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCAPPConstructionView.m; sourceTree = "<group>"; };
-		D76D506B2532F80900E84038 /* FCMainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCMainTabBarController.swift; sourceTree = "<group>"; };
-		D76D506D2532F80900E84038 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		D76D50832532F94700E84038 /* FCConstantDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCConstantDefinition.swift; sourceTree = "<group>"; };
-		D76D508E2532FB3500E84038 /* FCHomeCompositeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCHomeCompositeView.swift; sourceTree = "<group>"; };
-		D76D50942532FBBC00E84038 /* FCCXPHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCCXPHomeViewController.swift; sourceTree = "<group>"; };
-		D76D509F2532FD4500E84038 /* FCMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCMineViewController.swift; sourceTree = "<group>"; };
-		D76D50B62532FF9500E84038 /* FCCXPAssetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCCXPAssetController.swift; sourceTree = "<group>"; };
-		D76D50BC2532FFF500E84038 /* FCCXPCommonAssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCCXPCommonAssetCell.xib; sourceTree = "<group>"; };
-		D76D50BD2532FFF500E84038 /* FCCXPSustainableContractCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCCXPSustainableContractCell.swift; sourceTree = "<group>"; };
-		D76D50BE2532FFF600E84038 /* FCCXPSustainableContractCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCCXPSustainableContractCell.xib; sourceTree = "<group>"; };
-		D76D50BF2532FFF600E84038 /* FCCXPCommonAssetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCCXPCommonAssetCell.swift; sourceTree = "<group>"; };
 		D76DE29F2511F8DA00D6A389 /* FCContractDepthAlertVeiw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractDepthAlertVeiw.swift; sourceTree = "<group>"; };
 		D76FDFC824FE2B1B006AB263 /* FCBillContractCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCBillContractCell.swift; sourceTree = "<group>"; };
 		D76FDFC924FE2B1B006AB263 /* FCBillContractCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCBillContractCell.xib; sourceTree = "<group>"; };
@@ -1339,8 +925,6 @@
 		D7717EFB25067E7A0060AA72 /* FCApi_trade_order_fills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trade_order_fills.swift; sourceTree = "<group>"; };
 		D7717EFD250700FA0060AA72 /* FCTradingHistoryDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCTradingHistoryDetailCell.swift; sourceTree = "<group>"; };
 		D7717EFE250700FA0060AA72 /* FCTradingHistoryDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCTradingHistoryDetailCell.xib; sourceTree = "<group>"; };
-		D771F1432532F75800699452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D771F1442532F75800699452 /* ChaLaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChaLaunchScreen.png; sourceTree = "<group>"; };
 		D772E95C250A0A9E007007D2 /* FCSpotSyntheController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCSpotSyntheController.swift; sourceTree = "<group>"; };
 		D7782468251B64A200FFFDFA /* FCApi_wallet_all_asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_wallet_all_asset.swift; sourceTree = "<group>"; };
 		D77B4D8725368EBB002AAF51 /* FCApi_trigger_order_place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trigger_order_place.swift; sourceTree = "<group>"; };
@@ -1353,6 +937,8 @@
 		D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractsEntrustListController.swift; sourceTree = "<group>"; };
 		D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trigger_history.swift; sourceTree = "<group>"; };
 		D7803D6525174B2B000BB5C5 /* FCApi_quote_market_groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_quote_market_groups.swift; sourceTree = "<group>"; };
+		D7820458256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCInputBoxTextFieldView.h; sourceTree = "<group>"; };
+		D7820459256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCInputBoxTextFieldView.m; sourceTree = "<group>"; };
 		D782436F2537DDE100497103 /* FCContractProfitLossCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractProfitLossCell.swift; sourceTree = "<group>"; };
 		D78243702537DDE100497103 /* FCContractProfitLossCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCContractProfitLossCell.xib; sourceTree = "<group>"; };
 		D7837D972541155B006ADE6C /* FCApi_Password_ResetApply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_Password_ResetApply.swift; sourceTree = "<group>"; };
@@ -1364,11 +950,13 @@
 		D78958BF251D98CF00681280 /* FCApi_support_transfer_assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_support_transfer_assets.swift; sourceTree = "<group>"; };
 		D78958C1251DBA5400681280 /* FCApi_transfer_records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_transfer_records.swift; sourceTree = "<group>"; };
 		D78958C3251DBBCE00681280 /* FCApi_transfer_config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_transfer_config.swift; sourceTree = "<group>"; };
-		D78CE5BA2533E4BE00A4E1E6 /* champagneInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = champagneInfo.plist; sourceTree = "<group>"; };
 		D78CE5FE253438D700A4E1E6 /* FCContractProfitLossView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractProfitLossView.swift; sourceTree = "<group>"; };
 		D78CE60325343FB300A4E1E6 /* FCTriggerEntrustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCTriggerEntrustViewController.swift; sourceTree = "<group>"; };
 		D78CE60825343FEE00A4E1E6 /* FCContractProfitLossController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractProfitLossController.swift; sourceTree = "<group>"; };
-		D79EBC59254155E8004A852B /* FCMarketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCMarketViewController.swift; sourceTree = "<group>"; };
+		D797FE38256BD95800E18D20 /* FCVerificationCodeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCVerificationCodeAlertView.swift; sourceTree = "<group>"; };
+		D79BFE69257347E00094AE06 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
+		D79BFEC725734BBE0094AE06 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D79BFEC92573713B0094AE06 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D79F7F4E24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_email_modify_apply.swift; sourceTree = "<group>"; };
 		D79F7F5024F1F3EC00ABF0C5 /* FCApi_email_moify_confirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_email_moify_confirm.swift; sourceTree = "<group>"; };
 		D79F7F5224F1F41500ABF0C5 /* FCApi_phone_modify_apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_phone_modify_apply.swift; sourceTree = "<group>"; };
@@ -1408,7 +996,6 @@
 		D7F9C45D24E5705400D739D1 /* UIImage+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gradient.h"; sourceTree = "<group>"; };
 		D7F9C45E24E5705400D739D1 /* UIButton+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Gradient.m"; sourceTree = "<group>"; };
 		D7F9C45F24E5705400D739D1 /* UIButton+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Gradient.h"; sourceTree = "<group>"; };
-		D7FA1F87254153CE007CA636 /* FCMIneTabHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCMIneTabHeaderView.swift; sourceTree = "<group>"; };
 		E152B1A3F8D65A7E8FFBD8B2 /* Pods_CXP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C17E9D644AA65F391280F5 /* Pods_Champagne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Champagne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83CF5353547BE44BA303B08 /* Pods-champagne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-champagne.debug.xcconfig"; path = "Pods/Target Support Files/Pods-champagne/Pods-champagne.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1434,28 +1021,6 @@
 				D274889B213E2B550062765B /* WebKit.framework in Frameworks */,
 				D2748899213E2B4D0062765B /* JavaScriptCore.framework in Frameworks */,
 				C7E4A7682D977DD0A1E44F1E /* Pods_CXP.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D715F1CA2531BAC700885837 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D77BF9242564C7D000C9EB2C /* UtilsXP.framework in Frameworks */,
-				D750D2A325592797005EC29B /* KLineXP.framework in Frameworks */,
-				D715F1CB2531BAC700885837 /* libz.tbd in Frameworks */,
-				D715F1CC2531BAC700885837 /* libsqlite3.tbd in Frameworks */,
-				D715F1CE2531BAC700885837 /* AdSupport.framework in Frameworks */,
-				D715F1CF2531BAC700885837 /* CFNetwork.framework in Frameworks */,
-				D715F1D12531BAC700885837 /* CoreMotion.framework in Frameworks */,
-				D715F1D22531BAC700885837 /* CoreLocation.framework in Frameworks */,
-				D715F1D42531BAC700885837 /* SystemConfiguration.framework in Frameworks */,
-				D715F1D52531BAC700885837 /* CoreTelephony.framework in Frameworks */,
-				D715F1D62531BAC700885837 /* CoreFoundation.framework in Frameworks */,
-				D715F1D72531BAC700885837 /* CoreGraphics.framework in Frameworks */,
-				D715F1D82531BAC700885837 /* WebKit.framework in Frameworks */,
-				D715F1D92531BAC700885837 /* JavaScriptCore.framework in Frameworks */,
-				FB59CD3CD2875972285E4DDF /* Pods_Champagne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1589,6 +1154,7 @@
 			children = (
 				018716512496A1C5003380C3 /* FCRegisterView.swift */,
 				018716552496A278003380C3 /* FCRegisterConfirmView.swift */,
+				D797FE38256BD95800E18D20 /* FCVerificationCodeAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2210,7 +1776,6 @@
 				D7331FF5255A222000E215C4 /* UtilsXP.xcodeproj */,
 				D7331FE2255A1F2500E215C4 /* EncryptionTool.xcodeproj */,
 				D750D29825592776005EC29B /* KlineXP.xcodeproj */,
-				D77C2A47252D3AF600A6D65D /* ACHEXPackage */,
 				D77C2A46252D3AC600A6D65D /* ACXPPackage */,
 				D2724D16213E1E1A002E43CD /* FlyCatAdministration */,
 				D2724D15213E1E1A002E43CD /* Products */,
@@ -2223,7 +1788,6 @@
 			isa = PBXGroup;
 			children = (
 				D2724D14213E1E1A002E43CD /* CXP.app */,
-				D715F2162531BAC700885837 /* CHEX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2238,7 +1802,7 @@
 				D27488EB213E337A0062765B /* BridgingHeader */,
 				D2724D17213E1E1A002E43CD /* AppDelegate.swift */,
 				D2724D19213E1E1A002E43CD /* ViewController.swift */,
-				01B80FD424B6C6F2009080CD /* Main.storyboard */,
+				D79BFEC725734BBE0094AE06 /* Main.storyboard */,
 				D2724D23213E1E1C002E43CD /* Info.plist */,
 				D27488E3213E31C60062765B /* APPdelegateExtension.swift */,
 			);
@@ -2360,7 +1924,6 @@
 			children = (
 				D2748801213E292D0062765B /* PCMacroDefinition.h */,
 				D2748802213E292D0062765B /* PCPublicClassDefinition.h */,
-				D2748804213E292D0062765B /* PCStyleDefinition.h */,
 				D2748805213E292D0062765B /* PCStaticStrConstants.h */,
 			);
 			path = PCHeaderDeclaration;
@@ -2424,6 +1987,8 @@
 				D771689E251CBBED007D6CA7 /* FCBannerCarouselView.m */,
 				D72669282542C3F800DED2DA /* FCShareTool.h */,
 				D72669292542C3F800DED2DA /* FCShareTool.m */,
+				D7820458256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.h */,
+				D7820459256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m */,
 			);
 			path = PCUtility;
 			sourceTree = "<group>";
@@ -2431,11 +1996,11 @@
 		D2748854213E296F0062765B /* PCAlterView */ = {
 			isa = PBXGroup;
 			children = (
+				D2748858213E296F0062765B /* PCCustomAlert.h */,
 				D2748855213E296F0062765B /* PCCustomAlert.m */,
+				D2748859213E296F0062765B /* PCAlertManager.h */,
 				D2748856213E296F0062765B /* PCAlertManager.m */,
 				D2748857213E296F0062765B /* PCLoadingView.m */,
-				D2748858213E296F0062765B /* PCCustomAlert.h */,
-				D2748859213E296F0062765B /* PCAlertManager.h */,
 				D274885A213E296F0062765B /* PCLoadingView.h */,
 				D23B0799215B331500EEEFC6 /* PCDropDownListView.h */,
 				D23B079A215B331500EEEFC6 /* PCDropDownListView.m */,
@@ -2737,53 +2302,6 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
-		D76D50872532FA1D00E84038 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				D7125867254921CB009736E2 /* FCMainSymbolsView.swift */,
-				D7125868254921CB009736E2 /* FCMainSymbolsView.xib */,
-				D76D50942532FBBC00E84038 /* FCCXPHomeViewController.swift */,
-				D76D508E2532FB3500E84038 /* FCHomeCompositeView.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		D76D50882532FA2700E84038 /* Market */ = {
-			isa = PBXGroup;
-			children = (
-				D79EBC59254155E8004A852B /* FCMarketViewController.swift */,
-			);
-			path = Market;
-			sourceTree = "<group>";
-		};
-		D76D50892532FA3000E84038 /* Trading */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Trading;
-			sourceTree = "<group>";
-		};
-		D76D508A2532FA3900E84038 /* Asset */ = {
-			isa = PBXGroup;
-			children = (
-				D76D50BF2532FFF600E84038 /* FCCXPCommonAssetCell.swift */,
-				D76D50BC2532FFF500E84038 /* FCCXPCommonAssetCell.xib */,
-				D76D50BD2532FFF500E84038 /* FCCXPSustainableContractCell.swift */,
-				D76D50BE2532FFF600E84038 /* FCCXPSustainableContractCell.xib */,
-				D76D50B62532FF9500E84038 /* FCCXPAssetController.swift */,
-			);
-			path = Asset;
-			sourceTree = "<group>";
-		};
-		D76D508B2532FA4100E84038 /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-				D7FA1F87254153CE007CA636 /* FCMIneTabHeaderView.swift */,
-				D76D509F2532FD4500E84038 /* FCMineViewController.swift */,
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
 		D7706453253FDBDC00ECD9B6 /* YTKNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -2816,24 +2334,14 @@
 			isa = PBXGroup;
 			children = (
 				D77C2A54252D5BE300A6D65D /* Classes */,
-				01B80FD224B6C156009080CD /* Launch Screen.storyboard */,
+				D79BFE69257347E00094AE06 /* LaunchScreen.png */,
+				D79BFEC92573713B0094AE06 /* Launch Screen.storyboard */,
 				D274891F213EA6920062765B /* FCConstantDefinition.swift */,
 				D2748914213E76070062765B /* FCMainTabBarController.swift */,
+				D2748804213E292D0062765B /* PCStyleDefinition.h */,
 				D2724D1E213E1E1C002E43CD /* Assets.xcassets */,
-				01B80FD724B6C932009080CD /* cxpLaunchScreen.png */,
 			);
 			path = ACXPPackage;
-			sourceTree = "<group>";
-		};
-		D77C2A47252D3AF600A6D65D /* ACHEXPackage */ = {
-			isa = PBXGroup;
-			children = (
-				D78CE5BA2533E4BE00A4E1E6 /* champagneInfo.plist */,
-				D771F1432532F75800699452 /* Assets.xcassets */,
-				D771F1442532F75800699452 /* ChaLaunchScreen.png */,
-				D77C2A55252D5BEF00A6D65D /* Classes */,
-			);
-			path = ACHEXPackage;
 			sourceTree = "<group>";
 		};
 		D77C2A54252D5BE300A6D65D /* Classes */ = {
@@ -2843,27 +2351,12 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		D77C2A55252D5BEF00A6D65D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				D76D508B2532FA4100E84038 /* Mine */,
-				D76D508A2532FA3900E84038 /* Asset */,
-				D76D50892532FA3000E84038 /* Trading */,
-				D76D50882532FA2700E84038 /* Market */,
-				D76D50872532FA1D00E84038 /* Home */,
-				D76D50832532F94700E84038 /* FCConstantDefinition.swift */,
-				D76D506B2532F80900E84038 /* FCMainTabBarController.swift */,
-				D76D506D2532F80900E84038 /* Launch Screen.storyboard */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D2724D13213E1E1A002E43CD /* CXP */ = {
+		D2724D13213E1E1A002E43CD /* Auson */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D2724D3C213E1E1C002E43CD /* Build configuration list for PBXNativeTarget "CXP" */;
+			buildConfigurationList = D2724D3C213E1E1C002E43CD /* Build configuration list for PBXNativeTarget "Auson" */;
 			buildPhases = (
 				8E19613EF2C8430EB1E82C24 /* [CP] Check Pods Manifest.lock */,
 				D2724D10213E1E1A002E43CD /* Sources */,
@@ -2876,28 +2369,9 @@
 			);
 			dependencies = (
 			);
-			name = CXP;
+			name = Auson;
 			productName = FlyCatAdministration;
 			productReference = D2724D14213E1E1A002E43CD /* CXP.app */;
-			productType = "com.apple.product-type.application";
-		};
-		D715EF372531BAC700885837 /* CHEX */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D715F2132531BAC700885837 /* Build configuration list for PBXNativeTarget "CHEX" */;
-			buildPhases = (
-				D715EF382531BAC700885837 /* [CP] Check Pods Manifest.lock */,
-				D715EF392531BAC700885837 /* Sources */,
-				D715F1CA2531BAC700885837 /* Frameworks */,
-				D715F1DC2531BAC700885837 /* Resources */,
-				D715F2122531BAC700885837 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CHEX;
-			productName = FlyCatAdministration;
-			productReference = D715F2162531BAC700885837 /* CHEX.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2947,8 +2421,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				D2724D13213E1E1A002E43CD /* CXP */,
-				D715EF372531BAC700885837 /* CHEX */,
+				D2724D13213E1E1A002E43CD /* Auson */,
 			);
 		};
 /* End PBXProject section */
@@ -3016,10 +2489,10 @@
 				D78243732537DDE100497103 /* FCContractProfitLossCell.xib in Resources */,
 				D76FDFCB24FE2B1B006AB263 /* FCBillContractCell.xib in Resources */,
 				D2748891213E29BD0062765B /* SSKeychain.strings in Resources */,
+				D79BFECA2573713B0094AE06 /* Launch Screen.storyboard in Resources */,
 				D76FDFD724FE6920006AB263 /* FCCXPAssetTransferController.xib in Resources */,
 				D737D81324E00209000DC48A /* FCMainSymbolsView.xib in Resources */,
 				D78856BD25456281001F8787 /* FCProfitLossShareView.xib in Resources */,
-				D76D50672532F7A700E84038 /* cxpLaunchScreen.png in Resources */,
 				D7B24EC024F611700057C0B6 /* FCDepositStatementView.xib in Resources */,
 				01B305B824BE4367001FF01A /* FCKLineDealHeader.xib in Resources */,
 				D2748895213E29BD0062765B /* yw_1222_0335.jpg in Resources */,
@@ -3029,16 +2502,16 @@
 				D7F9C44724E4ED2B00D739D1 /* FCCXPAssetQRCodeView.xib in Resources */,
 				D72FE3E624E90E07003E9BCF /* FCTotalAssetsView.xib in Resources */,
 				D7F2C65724E2C32500B5BBFE /* FCCXPGlobalContractCell.xib in Resources */,
+				D79BFE6A257347E00094AE06 /* LaunchScreen.png in Resources */,
 				D737D81424E00209000DC48A /* FCHotSymbolsCell.xib in Resources */,
 				D7F9C45324E52D8000D739D1 /* FCCCXPAssetHistoryCell.xib in Resources */,
+				D79BFEC825734BBF0094AE06 /* Main.storyboard in Resources */,
 				D7F2C64F24E2C2A100B5BBFE /* FCCXPCommonAssetCell.xib in Resources */,
 				0138E4C42501CD5100A07709 /* FCPerpetualEntrustListCell.xib in Resources */,
 				D22F82F121412E02002DAA19 /* FCMarketCell.xib in Resources */,
 				D76D50682532F7AB00E84038 /* Assets.xcassets in Resources */,
-				D76D50732532F81300E84038 /* Launch Screen.storyboard in Resources */,
 				01B305AC24BE4297001FF01A /* FCKLineRestingCell.xib in Resources */,
 				01B305B024BE42BF001FF01A /* FCKLineDealCell.xib in Resources */,
-				01B80FD524B6C6F2009080CD /* Main.storyboard in Resources */,
 				D767FC9424F754A9009C135D /* FCContractPositionCell.xib in Resources */,
 				D767FC9624F7566B009C135D /* FCPositionHeaderView.xib in Resources */,
 				D71258AD25496712009736E2 /* FCShareItemView.xib in Resources */,
@@ -3052,54 +2525,6 @@
 				D21E36FC214763AD0049CD04 /* FCCommonCell.xib in Resources */,
 				D7162A4625060C32002095FA /* FCHistoryDetialHeaderView.xib in Resources */,
 				D72FE3EA24E90F11003E9BCF /* FCSingleAssetsCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D715F1DC2531BAC700885837 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D750D2A4255927A1005EC29B /* KLineBundle.bundle in Resources */,
-				D71258AE25496712009736E2 /* FCShareItemView.xib in Resources */,
-				D78243742537DDE100497103 /* FCContractProfitLossCell.xib in Resources */,
-				D76D50C02532FFF600E84038 /* FCCXPCommonAssetCell.xib in Resources */,
-				D715F1DD2531BAC700885837 /* FCCXPMentionCoinSubView.xib in Resources */,
-				D715F1DE2531BAC700885837 /* FCBillContractCell.xib in Resources */,
-				D715F1E02531BAC700885837 /* SSKeychain.strings in Resources */,
-				D715F1E12531BAC700885837 /* FCCXPAssetTransferController.xib in Resources */,
-				D715F1E52531BAC700885837 /* FCDepositStatementView.xib in Resources */,
-				D715F1E62531BAC700885837 /* FCKLineDealHeader.xib in Resources */,
-				D715F1E72531BAC700885837 /* yw_1222_0335.jpg in Resources */,
-				D715F1E82531BAC700885837 /* FCEntrustListCell.xib in Resources */,
-				D715F1E92531BAC700885837 /* FCAPPConstructionView.xib in Resources */,
-				D715F1EB2531BAC700885837 /* FCTradeHistoryListCell.xib in Resources */,
-				D715F1EE2531BAC700885837 /* FCCXPAssetQRCodeView.xib in Resources */,
-				D715F1EF2531BAC700885837 /* FCTotalAssetsView.xib in Resources */,
-				D78856BE25456281001F8787 /* FCProfitLossShareView.xib in Resources */,
-				D715F1F42531BAC700885837 /* FCCXPGlobalContractCell.xib in Resources */,
-				D715F1F52531BAC700885837 /* FCHotSymbolsCell.xib in Resources */,
-				D712586A254921CB009736E2 /* FCMainSymbolsView.xib in Resources */,
-				D715F1F82531BAC700885837 /* FCCCXPAssetHistoryCell.xib in Resources */,
-				D715F1FA2531BAC700885837 /* FCPerpetualEntrustListCell.xib in Resources */,
-				D76D50702532F80900E84038 /* Launch Screen.storyboard in Resources */,
-				D76D50C22532FFF600E84038 /* FCCXPSustainableContractCell.xib in Resources */,
-				D715F1FB2531BAC700885837 /* FCMarketCell.xib in Resources */,
-				D715F1FC2531BAC700885837 /* FCKLineRestingCell.xib in Resources */,
-				D715F1FD2531BAC700885837 /* FCKLineDealCell.xib in Resources */,
-				D715F1FE2531BAC700885837 /* Main.storyboard in Resources */,
-				D715F2002531BAC700885837 /* FCContractPositionCell.xib in Resources */,
-				D715F2022531BAC700885837 /* FCPositionHeaderView.xib in Resources */,
-				D715F2032531BAC700885837 /* FCCXPMentionInstruView.xib in Resources */,
-				D715F2042531BAC700885837 /* FCCXPChargeInstruView.xib in Resources */,
-				D715F2062531BAC700885837 /* FCHomeAgreementView.xib in Resources */,
-				D715F2072531BAC700885837 /* FCContractHistoryCell.xib in Resources */,
-				D715F2082531BAC700885837 /* FCKLineRestingHeader.xib in Resources */,
-				D715F20A2531BAC700885837 /* FCTradingHistoryDetailCell.xib in Resources */,
-				D771F1462532F75800699452 /* ChaLaunchScreen.png in Resources */,
-				D715F20D2531BAC700885837 /* FCCommonCell.xib in Resources */,
-				D715F20E2531BAC700885837 /* FCHistoryDetialHeaderView.xib in Resources */,
-				D715F20F2531BAC700885837 /* FCSingleAssetsCell.xib in Resources */,
-				D771F1452532F75800699452 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3139,41 +2564,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D715EF382531BAC700885837 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Champagne-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D715F2122531BAC700885837 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Champagne/Pods-Champagne-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Champagne/Pods-Champagne-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Champagne/Pods-Champagne-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3257,6 +2647,7 @@
 				D23E2632214BBEEE00E52B8D /* FCAPI_Account_logout.m in Sources */,
 				D23E26092147DD3800E52B8D /* FCImageViewConvenience.swift in Sources */,
 				01B305AF24BE42BF001FF01A /* FCKLineDealCell.swift in Sources */,
+				D797FE39256BD95800E18D20 /* FCVerificationCodeAlertView.swift in Sources */,
 				01B80FE624B87B77009080CD /* FCApi_add_optional.m in Sources */,
 				D77F51C52539A2F900E8D62A /* FCApi_trigger_history.swift in Sources */,
 				01AF5E6824CC0B7C00F5135F /* FCSymbolsDrawerController.swift in Sources */,
@@ -3285,6 +2676,7 @@
 				D274866D213E290D0062765B /* APICurrency_assets.m in Sources */,
 				D711ECEC24E17AB1005B4666 /* FCCXPAssetController.swift in Sources */,
 				D274884C213E295A0062765B /* UIColor+PCHex.m in Sources */,
+				D782045A256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m in Sources */,
 				D79F7F5524F1F43500ABF0C5 /* FCApi_phone_modify_confirm.swift in Sources */,
 				D7162A4225060C1D002095FA /* FCContractHistroyDetailVC.swift in Sources */,
 				0187163B249529ED003380C3 /* FCRegularExpression.swift in Sources */,
@@ -3529,356 +2921,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D715EF392531BAC700885837 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D715EF3A2531BAC700885837 /* APIOrder_place.m in Sources */,
-				D715EF3D2531BAC700885837 /* FCContractSettingCell.swift in Sources */,
-				D715EF422531BAC700885837 /* FCTradeHistoryListCell.swift in Sources */,
-				D715EF432531BAC700885837 /* FCApi_account_register.m in Sources */,
-				D715EF462531BAC700885837 /* FCTradeHistoryController.swift in Sources */,
-				D715EF472531BAC700885837 /* PCAlertManager.m in Sources */,
-				D715EF482531BAC700885837 /* FCApi_Account_positions.swift in Sources */,
-				D76D50842532F94700E84038 /* FCConstantDefinition.swift in Sources */,
-				D715EF4D2531BAC700885837 /* APIOrder_get_history_order.m in Sources */,
-				D715EF4E2531BAC700885837 /* Toast.swift in Sources */,
-				D715EF512531BAC700885837 /* FCContractListController.swift in Sources */,
-				D715EF532531BAC700885837 /* FCApi_support_transfer_assets.swift in Sources */,
-				D715EF572531BAC700885837 /* APICommon_report_deviceinfo.m in Sources */,
-				D715EF592531BAC700885837 /* FCCommonCell.swift in Sources */,
-				D715EF5B2531BAC700885837 /* FCNoticeView.swift in Sources */,
-				D715EF5E2531BAC700885837 /* FCCXPAssetHistoryController.swift in Sources */,
-				D715EF5F2531BAC700885837 /* FCCCXPAssetHistoryCell.swift in Sources */,
-				D715EF612531BAC700885837 /* FCApi_Account_info.swift in Sources */,
-				D715EF632531BAC700885837 /* APIFavorite_handle.m in Sources */,
-				D715EF652531BAC700885837 /* PCH5ErrorView.m in Sources */,
-				D715EF662531BAC700885837 /* FCKLineDealingView.swift in Sources */,
-				D715EF672531BAC700885837 /* APIAccount_verify_sms.m in Sources */,
-				D7706478253FDBDD00ECD9B6 /* YTKChainRequestAgent.m in Sources */,
-				D715EF6A2531BAC700885837 /* FCAssetModel.swift in Sources */,
-				D715EF6C2531BAC700885837 /* FCResponse.swift in Sources */,
-				D715EF722531BAC700885837 /* FCImage + Extension.swift in Sources */,
-				D715EF732531BAC700885837 /* FCPersonalDataController.swift in Sources */,
-				D715EF742531BAC700885837 /* FCMarketTypesModel.swift in Sources */,
-				D715EF752531BAC700885837 /* APIAccount_two_fa.m in Sources */,
-				D715EF782531BAC700885837 /* FCApi_trade_cancel.swift in Sources */,
-				D715EF7A2531BAC700885837 /* FCKLineHeaderView.swift in Sources */,
-				D77B4DFB2536F02F002AAF51 /* FCApi_trigger_history_orders.swift in Sources */,
-				D715EF7C2531BAC700885837 /* FCQuoteTypesModel.swift in Sources */,
-				D715EF7D2531BAC700885837 /* FCForgetPasswordController.swift in Sources */,
-				D715EF7F2531BAC700885837 /* UIViewController+PCNavigationBar.m in Sources */,
-				D7706472253FDBDD00ECD9B6 /* YTKBaseRequest.m in Sources */,
-				D715EF852531BAC700885837 /* FCQRCodeScannerVC.swift in Sources */,
-				D715EF872531BAC700885837 /* FCContractAccountTypeController.swift in Sources */,
-				D715EF882531BAC700885837 /* FCEmailComponent.swift in Sources */,
-				D715EF8A2531BAC700885837 /* FCApi_swap_detele_optional.swift in Sources */,
-				D715EF8C2531BAC700885837 /* FCLoginViewController.swift in Sources */,
-				D715EF8D2531BAC700885837 /* FCApi_swap_latest_ticker.swift in Sources */,
-				D76D50C12532FFF600E84038 /* FCCXPSustainableContractCell.swift in Sources */,
-				D7706470253FDBDC00ECD9B6 /* YTKNetworkPrivate.m in Sources */,
-				D715EF8F2531BAC700885837 /* UITableView+PCRefreshExtension.m in Sources */,
-				D715EF912531BAC700885837 /* FCApi_kline_latest.swift in Sources */,
-				D715EF972531BAC700885837 /* FCHistoryDetialHeaderView.swift in Sources */,
-				D715EF992531BAC700885837 /* FCApi_entrust_perpetual.swift in Sources */,
-				D715EF9B2531BAC700885837 /* APIKline_history.m in Sources */,
-				D715EF9D2531BAC700885837 /* FCTradeController.swift in Sources */,
-				D715EF9F2531BAC700885837 /* FCCXPAssetChargeView.swift in Sources */,
-				D78CE60525343FB300A4E1E6 /* FCTriggerEntrustViewController.swift in Sources */,
-				D715EFA62531BAC700885837 /* FCSymbolsDrawerCell.swift in Sources */,
-				D715EFA82531BAC700885837 /* FCTotalAssetsView.swift in Sources */,
-				D715EFAA2531BAC700885837 /* FCApi_password_modify.swift in Sources */,
-				D715EFAB2531BAC700885837 /* FCContractLeverageController.swift in Sources */,
-				D715EFAF2531BAC700885837 /* FCQRCodeScannerView.swift in Sources */,
-				D715EFB12531BAC700885837 /* FCSegmentComponent.swift in Sources */,
-				D715EFB42531BAC700885837 /* FCApi_transfer_accounts.swift in Sources */,
-				D715EFB62531BAC700885837 /* PCCookieManager.m in Sources */,
-				D715EFB82531BAC700885837 /* FCContractPositionCell.swift in Sources */,
-				D715EFB92531BAC700885837 /* FCCXPAssetOptionController.swift in Sources */,
-				D770647A253FDBDD00ECD9B6 /* YTKBatchRequestAgent.m in Sources */,
-				D715EFBA2531BAC700885837 /* FCCXPMentionInstruView.swift in Sources */,
-				D715EFBD2531BAC700885837 /* FCCountDownButton.swift in Sources */,
-				D715EFBF2531BAC700885837 /* FCMarketListController.swift in Sources */,
-				D76D50C32532FFF600E84038 /* FCCXPCommonAssetCell.swift in Sources */,
-				D715EFC02531BAC700885837 /* FCTradeDepthCell.swift in Sources */,
-				D715EFC22531BAC700885837 /* FCRegisterConfirmController.swift in Sources */,
-				D715EFC32531BAC700885837 /* FCApi_history_order.swift in Sources */,
-				D715EFC52531BAC700885837 /* APIAccount_change_password.m in Sources */,
-				D770646C253FDBDC00ECD9B6 /* YTKRequestEventAccessory.m in Sources */,
-				D715EFC72531BAC700885837 /* FCApi_account_overview.swift in Sources */,
-				D715EFCC2531BAC700885837 /* FCAPI_Account_logout.m in Sources */,
-				D715EFCD2531BAC700885837 /* FCImageViewConvenience.swift in Sources */,
-				D715EFD12531BAC700885837 /* FCKLineDealCell.swift in Sources */,
-				D77F51C62539A2F900E8D62A /* FCApi_trigger_history.swift in Sources */,
-				D715EFD52531BAC700885837 /* FCApi_add_optional.m in Sources */,
-				D715EFD62531BAC700885837 /* FCSymbolsDrawerController.swift in Sources */,
-				D715EFD72531BAC700885837 /* FCPerpetualModifyView.swift in Sources */,
-				D715EFD92531BAC700885837 /* PCDropDownListView.m in Sources */,
-				D715EFDC2531BAC700885837 /* FCCXPAssetQRCodeView.swift in Sources */,
-				D7706474253FDBDD00ECD9B6 /* YTKBatchRequest.m in Sources */,
-				D715EFDF2531BAC700885837 /* ExampleAPI.m in Sources */,
-				D715EFE12531BAC700885837 /* FCApi_swap_ticker_trade.swift in Sources */,
-				D715EFE22531BAC700885837 /* UITextField+PCExtension.m in Sources */,
-				D715EFE82531BAC700885837 /* FCPasswordModifyView.swift in Sources */,
-				D715EFEA2531BAC700885837 /* FCCXPGlobalContractCell.swift in Sources */,
-				D715EFEC2531BAC700885837 /* FCKLineRestingModel.swift in Sources */,
-				D715EFED2531BAC700885837 /* PCUnderLineTextFileld.m in Sources */,
-				D715EFEE2531BAC700885837 /* UIImage+Gradient.m in Sources */,
-				D715EFF22531BAC700885837 /* FCViewConvenience.swift in Sources */,
-				D715EFF52531BAC700885837 /* FCApi_trade_order_place.swift in Sources */,
-				D77063C1253FCA1200ECD9B6 /* FCApi_spot_market_depth.swift in Sources */,
-				D715EFF82531BAC700885837 /* FCMarqueeView.m in Sources */,
-				D715EFFF2531BAC700885837 /* FCContractPositionController.swift in Sources */,
-				D715F0002531BAC700885837 /* FCRegisterController.swift in Sources */,
-				D715F0032531BAC700885837 /* PCRequesthelper.m in Sources */,
-				D715F0062531BAC700885837 /* NSString+PCExtend.m in Sources */,
-				D715F0072531BAC700885837 /* FCLabelConvenience .swift in Sources */,
-				D715F0082531BAC700885837 /* FCPasswordResetController.swift in Sources */,
-				D715F0092531BAC700885837 /* APICurrency_assets.m in Sources */,
-				D715F00C2531BAC700885837 /* UIColor+PCHex.m in Sources */,
-				D715F00D2531BAC700885837 /* FCApi_phone_modify_confirm.swift in Sources */,
-				D715F0142531BAC700885837 /* FCContractHistroyDetailVC.swift in Sources */,
-				D715F0152531BAC700885837 /* FCRegularExpression.swift in Sources */,
-				D715F0182531BAC700885837 /* FCApi_swap_add_optional.swift in Sources */,
-				D715F0192531BAC700885837 /* FCCrypto.swift in Sources */,
-				D715F01A2531BAC700885837 /* FCPasswordComponent.swift in Sources */,
-				D715F01B2531BAC700885837 /* FCApi_quote_market_groups.swift in Sources */,
-				D715F01E2531BAC700885837 /* FCountryCodeModel.swift in Sources */,
-				D715F0212531BAC700885837 /* SwiftyJSON.swift in Sources */,
-				D715F0232531BAC700885837 /* PCPlaceholderView.m in Sources */,
-				D7125869254921CB009736E2 /* FCMainSymbolsView.swift in Sources */,
-				D715F0272531BAC700885837 /* NSObject+PCRequestExtension.m in Sources */,
-				D715F02A2531BAC700885837 /* FCApi_homedata.swift in Sources */,
-				D715F02C2531BAC700885837 /* FCContractSyntheController.swift in Sources */,
-				D77C6E3625375BE0003F0DA8 /* FCTriggerModel.swift in Sources */,
-				D715F02F2531BAC700885837 /* FCTimeShareChart.swift in Sources */,
-				D715F0302531BAC700885837 /* FCRegisterView.swift in Sources */,
-				D715F0312531BAC700885837 /* FCKLineRestingCell.swift in Sources */,
-				D715F0372531BAC700885837 /* FCButtonConvenience.swift in Sources */,
-				D715F0392531BAC700885837 /* FCChangePhoneNumberController.swift in Sources */,
-				D715F03B2531BAC700885837 /* FCApi_group_contracts.swift in Sources */,
-				D715F03C2531BAC700885837 /* FCClosePositionView.swift in Sources */,
-				D715F03F2531BAC700885837 /* PCNavigationController.m in Sources */,
-				D715F0412531BAC700885837 /* FCContractOrderView.swift in Sources */,
-				D715F0432531BAC700885837 /* UIView+Blur.m in Sources */,
-				D715F0442531BAC700885837 /* FCContractInputView.swift in Sources */,
-				D715F0452531BAC700885837 /* FCApi_quote_one_contract.swift in Sources */,
-				D715F04A2531BAC700885837 /* APICommon_config.m in Sources */,
-				D715F04B2531BAC700885837 /* FCModifyPasswordController.swift in Sources */,
-				D715F04C2531BAC700885837 /* FCMarketSearchCell.swift in Sources */,
-				D715F04D2531BAC700885837 /* SSKeychain.m in Sources */,
-				D71258A92549667B009736E2 /* FCShareItemView.m in Sources */,
-				D715F04E2531BAC700885837 /* FCApi_single_asset.swift in Sources */,
-				D715F0542531BAC700885837 /* FCSingleAssetsCell.swift in Sources */,
-				D715F0552531BAC700885837 /* PC3DTouchHelper.m in Sources */,
-				D715F0572531BAC700885837 /* FCOrderController.swift in Sources */,
-				D715F0582531BAC700885837 /* YTKChainRequest+AnimatingAccessory.m in Sources */,
-				D715F0592531BAC700885837 /* FCTextFieldConvenience.swift in Sources */,
-				D715F05B2531BAC700885837 /* PCMonitoringEvent.m in Sources */,
-				D715F05C2531BAC700885837 /* FCMarketTopicModel.swift in Sources */,
-				D715F05D2531BAC700885837 /* FCContractHistoryModel.swift in Sources */,
-				D715F05F2531BAC700885837 /* FCAccountAssetController.swift in Sources */,
-				D78243722537DDE100497103 /* FCContractProfitLossCell.swift in Sources */,
-				D715F0612531BAC700885837 /* FCApi_captcha_verify.m in Sources */,
-				D715F0672531BAC700885837 /* FCSortComponent.swift in Sources */,
-				D715F0682531BAC700885837 /* FCApi_captcha_send.m in Sources */,
-				D715F0692531BAC700885837 /* PopTip+Transitions.swift in Sources */,
-				D715F06A2531BAC700885837 /* FCBtnSelectedView.swift in Sources */,
-				D715F0702531BAC700885837 /* FCDictionaryService.swift in Sources */,
-				D715F0712531BAC700885837 /* UIView+Fillet.m in Sources */,
-				D715F0732531BAC700885837 /* APIOrder_allcurrentorders.m in Sources */,
-				D77B4D8925368EBB002AAF51 /* FCApi_trigger_order_place.swift in Sources */,
-				D715F0742531BAC700885837 /* FCPerpetualEntrustController.swift in Sources */,
-				D78856B925456268001F8787 /* FCProfitLossShareView.swift in Sources */,
-				D715F0752531BAC700885837 /* UIButton+Gradient.m in Sources */,
-				D715F0762531BAC700885837 /* FCKLineRestingView.swift in Sources */,
-				D715F0772531BAC700885837 /* FCLoginView.swift in Sources */,
-				D715F0782531BAC700885837 /* FCPerpetualEntrustModel.swift in Sources */,
-				D77B4DF62536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift in Sources */,
-				D715F07A2531BAC700885837 /* FCMarketCell.swift in Sources */,
-				D715F07B2531BAC700885837 /* FCTreatyOrderController.swift in Sources */,
-				D715F07E2531BAC700885837 /* FCBillContractController.swift in Sources */,
-				D715F07F2531BAC700885837 /* FCApi_tickers_latest.m in Sources */,
-				D715F0802531BAC700885837 /* FCApi_swap_kline_latest.swift in Sources */,
-				D7837DA52541277C006ADE6C /* FCApi_Get_UserInfo.swift in Sources */,
-				D715F0822531BAC700885837 /* PCUtility.m in Sources */,
-				D715F0832531BAC700885837 /* PCSlider.m in Sources */,
-				D715F08A2531BAC700885837 /* YTKAnimatingRequestAccessory.m in Sources */,
-				D715F08B2531BAC700885837 /* PCLoadingView.m in Sources */,
-				D715F08C2531BAC700885837 /* FCTradeSettingModel.swift in Sources */,
-				D715F0912531BAC700885837 /* FCKLineDealHeader.swift in Sources */,
-				D770646E253FDBDC00ECD9B6 /* YTKChainRequest.m in Sources */,
-				D715F0932531BAC700885837 /* FCEXAccountManager.swift in Sources */,
-				D715F0942531BAC700885837 /* APIOrder_historyorders.m in Sources */,
-				D715F0972531BAC700885837 /* FCApi_Contract_asset.swift in Sources */,
-				D77F51832539372500E8D62A /* FCContractsEntrustMultiListController.swift in Sources */,
-				D715F09A2531BAC700885837 /* FCApi_deposit.swift in Sources */,
-				D715F09D2531BAC700885837 /* FCTextFieldComponent.swift in Sources */,
-				D715F0A22531BAC700885837 /* PCCustomAlert.m in Sources */,
-				D715F0A62531BAC700885837 /* FCCXPAssetModel.swift in Sources */,
-				D715F0A82531BAC700885837 /* FCApi_CountryCode.m in Sources */,
-				D715F0A92531BAC700885837 /* FCApi_all_symbol.swift in Sources */,
-				D715F0AC2531BAC700885837 /* FCBillContractCell.swift in Sources */,
-				D715F0AE2531BAC700885837 /* PCRequestManager.m in Sources */,
-				D715F0B02531BAC700885837 /* FCApi_login.m in Sources */,
-				D770647C253FDBDD00ECD9B6 /* YTKRequest.m in Sources */,
-				D715F0B52531BAC700885837 /* FCPhoneComponent.swift in Sources */,
-				D715F0B62531BAC700885837 /* FCApi_swap_kline_history.swift in Sources */,
-				D715F0B72531BAC700885837 /* FCUserInfoModel.swift in Sources */,
-				D715F0B92531BAC700885837 /* AdvancedExampleAPI.m in Sources */,
-				D715F0BA2531BAC700885837 /* FCCXPAssetTransferController.swift in Sources */,
-				D715F0BB2531BAC700885837 /* FCTradeUtil.swift in Sources */,
-				D715F0BC2531BAC700885837 /* FCApi_Contract_cancel.swift in Sources */,
-				D715F0BD2531BAC700885837 /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
-				D715F0BE2531BAC700885837 /* PCCMethod.c in Sources */,
-				D7FA1F88254153CF007CA636 /* FCMIneTabHeaderView.swift in Sources */,
-				D715F0BF2531BAC700885837 /* FCPerpetualEntrustListCell.swift in Sources */,
-				D715F0C42531BAC700885837 /* FCApi_email_moify_confirm.swift in Sources */,
-				D715F0C52531BAC700885837 /* FCMarketModel.swift in Sources */,
-				D715F0C72531BAC700885837 /* FCSegmentControl.swift in Sources */,
-				D715F0C82531BAC700885837 /* FCEntrustListController.swift in Sources */,
-				D715F0C92531BAC700885837 /* ViewController.swift in Sources */,
-				D715F0CB2531BAC700885837 /* APIOrder_currentorders.m in Sources */,
-				D715F0D12531BAC700885837 /* APIAccount_verify_password.m in Sources */,
-				D76D50B72532FF9500E84038 /* FCCXPAssetController.swift in Sources */,
-				D78CE600253438D700A4E1E6 /* FCContractProfitLossView.swift in Sources */,
-				D715F0D52531BAC700885837 /* FCApi_trade_order_perpetual.swift in Sources */,
-				D715F0D62531BAC700885837 /* FCBannerCarouselView.m in Sources */,
-				D715F0D72531BAC700885837 /* FCGesturePasswordController.swift in Sources */,
-				D79EBC5A254155E8004A852B /* FCMarketViewController.swift in Sources */,
-				D77F518B25393F3A00E8D62A /* FCContractsEntrustListController.swift in Sources */,
-				D715F0DE2531BAC700885837 /* FCCXPChargeInstruView.swift in Sources */,
-				D715F0DF2531BAC700885837 /* FCUserDefaults.swift in Sources */,
-				D7837D9E2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift in Sources */,
-				D715F0E22531BAC700885837 /* FCKLineDealModel.swift in Sources */,
-				D715F0E42531BAC700885837 /* PopTip+Draw.swift in Sources */,
-				D715F0E52531BAC700885837 /* FCSpotOrderView.swift in Sources */,
-				D715F0E62531BAC700885837 /* APIAccount_reset_password.m in Sources */,
-				D715F0E72531BAC700885837 /* FCApi_wallet_all_asset.swift in Sources */,
-				D715F0EC2531BAC700885837 /* FCApi_fund_transfer.swift in Sources */,
-				D715F0F02531BAC700885837 /* APIAccount_send_sms.m in Sources */,
-				D715F0F82531BAC700885837 /* FCPerpetualContractSetController.swift in Sources */,
-				D715F0F92531BAC700885837 /* FCApi_place_order.swift in Sources */,
-				D715F0FB2531BAC700885837 /* FCCXPAssetMentionView.swift in Sources */,
-				D715F0FC2531BAC700885837 /* FCApi_transfer_config.swift in Sources */,
-				D715F0FE2531BAC700885837 /* PCWebSocketNetwork.m in Sources */,
-				D715F1002531BAC700885837 /* FCEntrustListCell.swift in Sources */,
-				D715F1022531BAC700885837 /* FCCustomTableViewCell.swift in Sources */,
-				D715F1032531BAC700885837 /* FCTradeEmptyCell.swift in Sources */,
-				D715F1042531BAC700885837 /* FCSpotSyntheController.swift in Sources */,
-				D715F1052531BAC700885837 /* FCApi_ticker_trade.m in Sources */,
-				D715F1062531BAC700885837 /* FCApi_quote_tickers.swift in Sources */,
-				D715F1082531BAC700885837 /* FCPasswordModifiedView.swift in Sources */,
-				D715F1092531BAC700885837 /* FCAdjustmentMarginController.swift in Sources */,
-				D715F10A2531BAC700885837 /* FCKLineRestingHeader.swift in Sources */,
-				D715F10E2531BAC700885837 /* FCAPPConstructionView.m in Sources */,
-				D715F1112531BAC700885837 /* FCApi_MarketTypes.m in Sources */,
-				D715F1122531BAC700885837 /* FCThemeButton.swift in Sources */,
-				D715F1162531BAC700885837 /* FCContractDepthAlertVeiw.swift in Sources */,
-				D715F1172531BAC700885837 /* AppDelegate.swift in Sources */,
-				D715F1182531BAC700885837 /* APIOrder_cancel.m in Sources */,
-				D715F1192531BAC700885837 /* FCApi_transfer_records.swift in Sources */,
-				D715F11A2531BAC700885837 /* APIAccount_check_phone.m in Sources */,
-				D715F11B2531BAC700885837 /* FCPositionInfoModel.swift in Sources */,
-				D715F11C2531BAC700885837 /* FCConstant.swift in Sources */,
-				D715F11E2531BAC700885837 /* FCApi_position_margin.swift in Sources */,
-				D770646A253FDBDC00ECD9B6 /* YTKNetworkConfig.m in Sources */,
-				D715F11F2531BAC700885837 /* FCPasswordResetView.swift in Sources */,
-				D715F1212531BAC700885837 /* FCMinorButton.swift in Sources */,
-				D715F1242531BAC700885837 /* FCTradeHistroyListModel.swift in Sources */,
-				D715F1262531BAC700885837 /* FCAccountAssetInfoView.swift in Sources */,
-				D715F1282531BAC700885837 /* FCHomeModel.swift in Sources */,
-				D76D50A02532FD4500E84038 /* FCMineViewController.swift in Sources */,
-				D715F12C2531BAC700885837 /* PCUrlArgumentsFilter.m in Sources */,
-				D73422C62538533E0057E3BC /* FCApi_trigger_close_set.swift in Sources */,
-				D715F12F2531BAC700885837 /* FCRegisterConfirmView.swift in Sources */,
-				D715F1322531BAC700885837 /* FCAddEmailViewController.swift in Sources */,
-				D715F1342531BAC700885837 /* FCTradeSettingconfig.swift in Sources */,
-				D715F1352531BAC700885837 /* APIAccount_get_userinfo.m in Sources */,
-				D715F1372531BAC700885837 /* FCApi_quote_types.swift in Sources */,
-				D715F1392531BAC700885837 /* SSKeychainQuery.m in Sources */,
-				D715F13A2531BAC700885837 /* FCApi_trade_history_orders.swift in Sources */,
-				D715F13B2531BAC700885837 /* FCApi_symbol_asset.swift in Sources */,
-				D715F13D2531BAC700885837 /* UINavigationBar+CustomStyle.m in Sources */,
-				D715F13F2531BAC700885837 /* FCApi_logout.m in Sources */,
-				D726692B2542C3F800DED2DA /* FCShareTool.m in Sources */,
-				D715F1412531BAC700885837 /* APIAccount_regist.m in Sources */,
-				D715F1422531BAC700885837 /* FCCXPMentionCoinSubView.swift in Sources */,
-				D71259472549997B009736E2 /* FCToast.m in Sources */,
-				D715F1432531BAC700885837 /* FCUrlArgumentsFilter.m in Sources */,
-				D715F1452531BAC700885837 /* FCApi_phone_modify_apply.swift in Sources */,
-				D715F1462531BAC700885837 /* KLineHTTPTool.swift in Sources */,
-				D715F1472531BAC700885837 /* FCApi_market_tickers.m in Sources */,
-				D715F1492531BAC700885837 /* FCApi_withdrawal.swift in Sources */,
-				D715F14B2531BAC700885837 /* UILabel+PCExtension.m in Sources */,
-				D715F14E2531BAC700885837 /* String+FCExtension.swift in Sources */,
-				D715F14F2531BAC700885837 /* FCApi_account_all_assets.swift in Sources */,
-				D715F1522531BAC700885837 /* FCApi_wallet_config.swift in Sources */,
-				D76D506E2532F80900E84038 /* FCMainTabBarController.swift in Sources */,
-				D73422C1253838B60057E3BC /* FCAddSubtractView.swift in Sources */,
-				D715F1552531BAC700885837 /* FCApi_email_modify_apply.swift in Sources */,
-				D715F1562531BAC700885837 /* FCContractHistoryController.swift in Sources */,
-				D715F1572531BAC700885837 /* APIOrder_preplace.m in Sources */,
-				D715F1582531BAC700885837 /* FCContractsModel.swift in Sources */,
-				D715F15A2531BAC700885837 /* FCHomeAgreementView.swift in Sources */,
-				D715F15C2531BAC700885837 /* FCApi_delete_optional.m in Sources */,
-				D715F15D2531BAC700885837 /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
-				D715F1602531BAC700885837 /* FCUserInfoManager.swift in Sources */,
-				D715F1612531BAC700885837 /* FCNetworkUtils.swift in Sources */,
-				D715F1622531BAC700885837 /* APIAccount_logout.m in Sources */,
-				D715F1642531BAC700885837 /* FCSelectForm.swift in Sources */,
-				D715F1652531BAC700885837 /* FCTradeEntrustModel.swift in Sources */,
-				D715F1662531BAC700885837 /* FCBillContractModel.swift in Sources */,
-				D715F1682531BAC700885837 /* NSDictionary+PreventNull.m in Sources */,
-				D715F1692531BAC700885837 /* FCApi_trading_strategy.swift in Sources */,
-				D715F16A2531BAC700885837 /* FCChangePhoneInvoController.swift in Sources */,
-				D715F16E2531BAC700885837 /* FCApi_trade_order_fills.swift in Sources */,
-				D715F1712531BAC700885837 /* FCUserSettingController.swift in Sources */,
-				D715F1722531BAC700885837 /* FCTradingHistoryDetailCell.swift in Sources */,
-				D715F1742531BAC700885837 /* FCContractHistoryCell.swift in Sources */,
-				D715F1752531BAC700885837 /* APPdelegateExtension.swift in Sources */,
-				D715F17A2531BAC700885837 /* FCApi_trade_entrust.swift in Sources */,
-				D73422BC2538363C0057E3BC /* FCProfitLossSettingView.swift in Sources */,
-				D715F17C2531BAC700885837 /* PCCustomRefreshHeader.m in Sources */,
-				D715F17D2531BAC700885837 /* FCPositionHeaderView.swift in Sources */,
-				D715F17F2531BAC700885837 /* FCQuickNavView.swift in Sources */,
-				D715F1802531BAC700885837 /* FCApi_auto_login.swift in Sources */,
-				D715F1812531BAC700885837 /* FCQRCodeScanerEngine.swift in Sources */,
-				D715F1822531BAC700885837 /* JSBridge.m in Sources */,
-				D715F1842531BAC700885837 /* FCForgetPasswordView.swift in Sources */,
-				D715F1852531BAC700885837 /* FCTradingUnitSwitchController.swift in Sources */,
-				D715F1882531BAC700885837 /* FCApi_quote_market_feed.swift in Sources */,
-				D715F1892531BAC700885837 /* PCDeallocRequests.m in Sources */,
-				D78CE60A25343FEE00A4E1E6 /* FCContractProfitLossController.swift in Sources */,
-				D715F18A2531BAC700885837 /* FCPasswordModifiedController.swift in Sources */,
-				D715F18F2531BAC700885837 /* UIButton+PCExtension.m in Sources */,
-				D7706476253FDBDD00ECD9B6 /* YTKNetworkAgent.m in Sources */,
-				D76D50952532FBBC00E84038 /* FCCXPHomeViewController.swift in Sources */,
-				D715F1912531BAC700885837 /* FCHotSymbolsCell.swift in Sources */,
-				D715F1952531BAC700885837 /* FCQRCodeTool.swift in Sources */,
-				D715F1982531BAC700885837 /* UILabel+FJAttribute.m in Sources */,
-				D76D508F2532FB3500E84038 /* FCHomeCompositeView.swift in Sources */,
-				D715F1992531BAC700885837 /* UIFont+Extension.m in Sources */,
-				D715F19E2531BAC700885837 /* FCApi_records_search.swift in Sources */,
-				D715F19F2531BAC700885837 /* PCSearchTitleView.m in Sources */,
-				D715F1A22531BAC700885837 /* FCKLineController.swift in Sources */,
-				D715F1A32531BAC700885837 /* FCApi_wallet_records.swift in Sources */,
-				D715F1A42531BAC700885837 /* FCApi_all_contracts.swift in Sources */,
-				D715F1A82531BAC700885837 /* FCApi_trading_strategy_set.swift in Sources */,
-				D715F1AA2531BAC700885837 /* FCApi_market_kline_history.swift in Sources */,
-				D7837D992541155B006ADE6C /* FCApi_Password_ResetApply.swift in Sources */,
-				D715F1AB2531BAC700885837 /* Popover.swift in Sources */,
-				D715F1AF2531BAC700885837 /* PCWKWebHybridController.m in Sources */,
-				D715F1B42531BAC700885837 /* FCApi_captcha_resend.m in Sources */,
-				D715F1B52531BAC700885837 /* PopTip.swift in Sources */,
-				D715F1B72531BAC700885837 /* UIColor+RGB.swift in Sources */,
-				D77B4DF12536ED12002AAF51 /* FCApi_trigger_pending_orders.swift in Sources */,
-				D715F1C52531BAC700885837 /* UIImage+PCExtension.m in Sources */,
-				D715F1C92531BAC700885837 /* APIAccount_login.m in Sources */,
-				D78934AC25359B3E00B3858F /* FCProfitLossInputView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -4115,114 +3157,6 @@
 			};
 			name = Release;
 		};
-		D715F2142531BAC700885837 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E46CA0854CA1E1A98C94875 /* Pods-Champagne.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FlyCatAdministration/FlyCatAdministration.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VC3YA7LTUS;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FlyCatAdministration/purcowComponent/PCThirdpartyTools/GEETEST",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCProjectConfiguration/PKRSharePay/SharePaySDK/TencentOpenAPI",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCMainBusiness/FCBasicsClasses/JXSegmentView",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCProjectConfiguration/ZendeskSDK/5.1",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					TARGET_VERSION_CPE,
-				);
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/FlyCatAdministration/purcowComponent/PCHeaderDeclaration\"",
-					"\"$(SRCROOT)/FlyCatAdministration/BridgingHeader/FlyCatAdministration-Brigding-Header.h\"",
-				);
-				INFOPLIST_FILE = ACHEXPackage/champagneInfo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FlyCatAdministration/purcowComponent/PCThirdpartyTools/WeChatSDK",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCProjectConfiguration/PKRSharePay/SharePaySDK/OpenSDK1.8.3",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCProjectConfiguration/PKRSharePay/SharePaySDK/libWeiboSDK",
-				);
-				MARKETING_VERSION = 1.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -DBS_TARGETCPE";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cryptocurrency.champagne;
-				PRODUCT_MODULE_NAME = FlyCatAdministration;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = cpeDevelopment;
-				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/FlyCatAdministration/BridgingHeader/FlyCatAdministration-Brigding-Header.h";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
-			};
-			name = Debug;
-		};
-		D715F2152531BAC700885837 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B6B3895F32AE2640CF5033A /* Pods-Champagne.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FlyCatAdministration/FlyCatAdministration.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VC3YA7LTUS;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FlyCatAdministration/purcowComponent/PCThirdpartyTools/GEETEST",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCProjectConfiguration/PKRSharePay/SharePaySDK/TencentOpenAPI",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCMainBusiness/FCBasicsClasses/JXSegmentView",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCProjectConfiguration/ZendeskSDK/5.1",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					TARGET_VERSION_CPE,
-				);
-				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/FlyCatAdministration/purcowComponent/PCHeaderDeclaration\"",
-					"\"$(SRCROOT)/FlyCatAdministration/BridgingHeader/FlyCatAdministration-Brigding-Header.h\"",
-				);
-				INFOPLIST_FILE = ACHEXPackage/champagneInfo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/FlyCatAdministration/purcowComponent/PCThirdpartyTools/WeChatSDK",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCProjectConfiguration/PKRSharePay/SharePaySDK/OpenSDK1.8.3",
-					"$(PROJECT_DIR)/FlyCatAdministration/FCProjectConfiguration/PKRSharePay/SharePaySDK/libWeiboSDK",
-				);
-				MARKETING_VERSION = 1.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -DBS_TARGETCPE";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cryptocurrency.champagne;
-				PRODUCT_MODULE_NAME = FlyCatAdministration;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = cpeDis;
-				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/FlyCatAdministration/BridgingHeader/FlyCatAdministration-Brigding-Header.h";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4235,20 +3169,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D2724D3C213E1E1C002E43CD /* Build configuration list for PBXNativeTarget "CXP" */ = {
+		D2724D3C213E1E1C002E43CD /* Build configuration list for PBXNativeTarget "Auson" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D2724D3D213E1E1C002E43CD /* Debug */,
 				D2724D3E213E1E1C002E43CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D715F2132531BAC700885837 /* Build configuration list for PBXNativeTarget "CHEX" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D715F2142531BAC700885837 /* Debug */,
-				D715F2152531BAC700885837 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -127,7 +127,7 @@ class FCCXPAssetMentionView: UIView {
         // 到账数据
         let accountL = UILabel.init()
         accountL.text = "到账数量"
-        accountL.font = UIFont.systemFont(ofSize: 14)
+        accountL.font = UIFont(_customTypeSize: 14)
         accountL.textColor = COLOR_HexColor(0x6A6A6E)
         accountL.textAlignment = .left
         addSubview(accountL)
@@ -142,7 +142,7 @@ class FCCXPAssetMentionView: UIView {
         
         // 提币
         let accountNumL = UILabel.init()
-        accountNumL.font = UIFont.systemFont(ofSize: 14)
+        accountNumL.font = UIFont(_customTypeSize: 14)
         accountNumL.textAlignment = .right
         accountNumL.textColor = COLOR_HexColor(0x6A6A6E)
         accountNumL.text = "0.000000 USDT"
@@ -165,7 +165,7 @@ class FCCXPAssetMentionView: UIView {
         configurBtn.layer.cornerRadius = 5
         configurBtn.clipsToBounds = true
         configurBtn.setTitle("提币", for: .normal)
-        configurBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        configurBtn.titleLabel?.font = UIFont(_customTypeSize: 16)
         configurBtn.addTarget(self, action: #selector(mentionCoinAffirmAction), for: .touchUpInside)
         configurBtn.setTitleColor(COLOR_HexColor(0x141419), for: .normal)
         addSubview(configurBtn)

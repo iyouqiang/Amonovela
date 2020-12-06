@@ -30,7 +30,7 @@ class FCSelectForm: UIView {
         self.backgroundColor = COLOR_CellBgColor
 
         let leftIconView = UIImageView.init(image: UIImage.init(named: leftIcon ?? ""))
-        let titleLab = fc_labelInit(text: title, textColor: COLOR_BGColor, textFont: 16, bgColor: COLOR_Clear)
+        let titleLab = fc_labelInit(text: title, textColor: COLOR_BGColor, textFont: 16, bgColor: UIColor.clear)
         titleLab.numberOfLines = 1
         var messageLab: UILabel?
         let arrowImageView = UIImageView.init(image: UIImage.init(named: "cell_arrow_right"))
@@ -40,7 +40,7 @@ class FCSelectForm: UIView {
         self.addSubview(arrowImageView)
         
         if let validMsg = message {
-            messageLab = fc_labelInit(text: validMsg, textColor: COLOR_BGColor, textFont: 16, bgColor: COLOR_Clear)
+            messageLab = fc_labelInit(text: validMsg, textColor: COLOR_BGColor, textFont: 16, bgColor: UIColor.clear)
             self.addSubview(messageLab!)
             messageLab?.numberOfLines = 1
         }

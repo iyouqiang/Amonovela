@@ -19,7 +19,7 @@ func clamp<T : Comparable>(value: T,min: T, max: T) -> T {
 }
 
 func calculateTextRect(text: String, fontSize: CGFloat) -> CGRect {
-     let rect = text.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)], context: nil)
+    let rect = text.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)], context: nil)
     return rect
 }
 

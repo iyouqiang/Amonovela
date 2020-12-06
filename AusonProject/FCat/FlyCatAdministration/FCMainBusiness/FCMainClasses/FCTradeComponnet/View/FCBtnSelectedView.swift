@@ -44,7 +44,7 @@ class FCBtnSelectedView: UIView {
                 
                 let btn = UIButton(type: .custom)
                 btn.layer.cornerRadius = btnHeight/2.0
-                btn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+                btn.titleLabel?.font = UIFont(_customTypeSize: 13)
                 btn.clipsToBounds = true
                 addSubview(btn)
                 btn.tag = 1000 + index

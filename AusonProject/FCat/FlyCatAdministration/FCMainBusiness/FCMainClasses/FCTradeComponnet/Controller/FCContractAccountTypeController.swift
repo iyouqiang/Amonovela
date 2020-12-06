@@ -138,7 +138,7 @@ extension FCContractAccountTypeController:UITableViewDelegate, UITableViewDataSo
             if let cell = cell {
                 
                 cell.textLabel?.textColor = COLOR_InputText
-                cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+                cell.textLabel?.font = UIFont(_customTypeSize: 16)
                 cell.selectionStyle = .none
                 let str = dataSource?[indexPath.row]
                 cell.textLabel?.text = str

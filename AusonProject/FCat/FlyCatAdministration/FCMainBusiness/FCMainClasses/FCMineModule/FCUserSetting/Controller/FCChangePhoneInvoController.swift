@@ -52,7 +52,8 @@ class FCChangePhoneInvoController: UIViewController {
     func setupView() {
         
         phoneComponent = FCPhoneComponent.init(frame: .zero)
-        phoneComponent.phoneTxd.leftView = nil;
+        phoneComponent.isHighlight = true
+        //phoneComponent.phoneTxd.leftView = nil;
         self.view.addSubview(phoneComponent)
         phoneComponent.textFieldDidBeginEditingBlock = {
             [weak self] in
@@ -62,11 +63,13 @@ class FCChangePhoneInvoController: UIViewController {
         phoneComponent.snp.makeConstraints { (make) in
             make.left.equalTo(15)
             make.right.equalTo(-15)
-            make.top.equalTo(kNAVIGATIONHEIGHT + 30)
+            make.top.equalTo(kNAVIGATIONHEIGHT + 60)
             make.height.equalTo(44)
         }
         
         self.codeComponent = FCPasswordComponent.init(placeholder: "请输入6位验证码")
+        self.codeComponent.textFiled.isSecureTextEntry = false
+        self.codeComponent.isHighlight = true
         self.view.addSubview(self.codeComponent)
         self.codeComponent.textFieldDidBeginEditingBlock = {
             [weak self] in
@@ -81,10 +84,11 @@ class FCChangePhoneInvoController: UIViewController {
         self.codeComponent?.textFiled.rightViewMode = .always
         
          self.loginPwdcomponent = FCPasswordComponent.init(placeholder: "请输入手机密码", leftImg: "")
+        self.loginPwdcomponent.isHighlight = true
         self.view.addSubview(self.loginPwdcomponent)
         
         /// 底部提示语
-        self.bottomLab =  fc_labelInit(text: "6-16位含数字和字母组合，并与原密码不同", textColor: COLOR_FooterTextColor, textFont: 15, bgColor: COLOR_Clear)
+        self.bottomLab =  fc_labelInit(text: "6-16位含数字和字母组合，并与原密码不同", textColor: COLOR_FooterTextColor, textFont: 15, bgColor: UIColor.clear)
         self.bottomLab.isHidden = true
         self.view.addSubview(self.bottomLab)
         

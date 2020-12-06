@@ -27,7 +27,7 @@ class FCEmailComponent: FCTextFieldComponent {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(placeholder: String? = "", holderColor: UIColor? = COLOR_MinorTextColor, textColor: UIColor? = COLOR_White, fontSize: CGFloat? = 15, leftImg: String?, keyboardType: UIKeyboardType? = .emailAddress) {
+    override init(placeholder: String? = "", holderColor: UIColor? = COLOR_MinorTextColor, textColor: UIColor? = UIColor.white, fontSize: CGFloat? = 15, leftImg: String?, keyboardType: UIKeyboardType? = .emailAddress) {
         super.init(placeholder: placeholder!, leftImg: leftImg!)
         
         //设置正则

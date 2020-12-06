@@ -38,11 +38,11 @@ class FCSymbolsDrawerCell: UITableViewCell {
     func loadSubviews () {
         self.selectionStyle = .none
         self.contentView.backgroundColor = COLOR_HexColor(0x202128)
-        self.tradeSymbolLab = fc_labelInit(text: "--", textColor: COLOR_White, textFont: 16, bgColor: COLOR_Clear)
-        let seperateLab = fc_labelInit(text: "/", textColor: COLOR_MinorTextColor, textFont: 16, bgColor: COLOR_Clear)
+        self.tradeSymbolLab = fc_labelInit(text: "--", textColor: UIColor.white, textFont: 16, bgColor: UIColor.clear)
+        let seperateLab = fc_labelInit(text: "/", textColor: COLOR_MinorTextColor, textFont: 16, bgColor: UIColor.clear)
         seperateLab.isHidden = true
-        self.baseSymbolLab = fc_labelInit(text: "--", textColor: COLOR_MinorTextColor, textFont: 12, bgColor: COLOR_Clear)
-        self.priceLab = fc_labelInit(text: "-.--", textColor: COLOR_RiseColor, textFont: 14, bgColor: COLOR_Clear)
+        self.baseSymbolLab = fc_labelInit(text: "--", textColor: COLOR_MinorTextColor, textFont: 12, bgColor: UIColor.clear)
+        self.priceLab = fc_labelInit(text: "-.--", textColor: COLOR_RiseColor, textFont: 14, bgColor: UIColor.clear)
         self.contentView.addSubview(self.tradeSymbolLab!)
         self.contentView.addSubview(seperateLab)
         self.contentView.addSubview(self.baseSymbolLab!)

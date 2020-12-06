@@ -49,10 +49,10 @@ class FCContractOrderView: UIView {
     var marginModeBtn = fc_buttonInit(imgName: "", title: "全仓模式", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
     
     var leverageBtn = fc_buttonInit(imgName: "trade_downtriangle", title: "50X", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
-    var fundsRateNameL = fc_labelInit(text: "资金费率", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
-    var endTimeNameL = fc_labelInit(text: "结束时间", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
-    var fundsRateL = fc_labelInit(text: "0.00%", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 13), bgColor: .clear)
-    var endTimeL = fc_labelInit(text: "00:00:00", textColor: COLOR_RichBtnTitleColor, textFont: UIFont.systemFont(ofSize: 13), bgColor: .clear)
+    var fundsRateNameL = fc_labelInit(text: "资金费率", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+    var endTimeNameL = fc_labelInit(text: "结束时间", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+    var fundsRateL = fc_labelInit(text: "0.00%", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 13), bgColor: .clear)
+    var endTimeL = fc_labelInit(text: "00:00:00", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 13), bgColor: .clear)
     
     lazy var strategyInfoView: UIView = {
         
@@ -221,13 +221,13 @@ class FCContractOrderView: UIView {
         
         let indexPriceView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH/2.0, height: 25))
         
-        let indexPriceNameL = fc_labelInit(text: "指数价", textColor: COLOR_InputColor, textFont: UIFont.systemFont(ofSize: 12), bgColor: .clear)
+        let indexPriceNameL = fc_labelInit(text: "指数价", textColor: COLOR_InputColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
         indexPriceView.addSubview(indexPriceNameL)
         indexPriceNameL.snp.makeConstraints { (make) in
             make.left.top.equalToSuperview()
         }
         
-        indexPriceL = fc_labelInit(text: "0.00", textColor: COLOR_InputColor, textFont: UIFont.systemFont(ofSize: 12), bgColor: .clear)
+        indexPriceL = fc_labelInit(text: "0.00", textColor: COLOR_InputColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
         indexPriceL.textAlignment = .right
         indexPriceView.addSubview(indexPriceL)
         indexPriceL.snp.makeConstraints { (make) in
@@ -295,12 +295,12 @@ class FCContractOrderView: UIView {
     
     //Header
     lazy var symbolBtn: UIButton = {
-        let button = fc_buttonInit(imgName: "kline_drawer", title: "--/--", fontSize: 17, titleColor: COLOR_White, bgColor: COLOR_BGColor)
+        let button = fc_buttonInit(imgName: "kline_drawer", title: "--/--", fontSize: 17, titleColor: UIColor.white, bgColor: COLOR_BGColor)
         return button
     }()
     
     lazy var changeLab: UILabel = {
-        let lab = fc_labelInit(text: "0.00%", textColor: COLOR_RiseColor, textFont: 13, bgColor: COLOR_Clear)
+        let lab = fc_labelInit(text: "0.00%", textColor: COLOR_RiseColor, textFont: 13, bgColor: UIColor.clear)
         return lab
     }()
     
@@ -313,43 +313,43 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var klineBtn: UIButton = {
-        let button = fc_buttonInit(imgName: "trade_kline", title: "", fontSize: 17, titleColor: COLOR_White, bgColor: COLOR_BGColor)
+        let button = fc_buttonInit(imgName: "trade_kline", title: "", fontSize: 17, titleColor: UIColor.white, bgColor: COLOR_BGColor)
         return button
     }()
     
     lazy var ktradeSettingBtn: UIButton = {
-        let button = fc_buttonInit(imgName: "tradingMore", title: "", fontSize: 17, titleColor: COLOR_White, bgColor: COLOR_BGColor)
+        let button = fc_buttonInit(imgName: "tradingMore", title: "", fontSize: 17, titleColor: UIColor.white, bgColor: COLOR_BGColor)
         return button
     }()
     
     //Left
     let leftView: UIView = UIView.init(frame: .zero)
     lazy var bidBtn: UIButton = {
-        let bidBtn = fc_buttonInit(imgName: "", title: "开多", fontSize: 16, titleColor: COLOR_White, bgColor: COLOR_Clear)
+        let bidBtn = fc_buttonInit(imgName: "", title: "开多", fontSize: 16, titleColor: UIColor.white, bgColor: UIColor.clear)
         let tintImage = UIImage(named: "kline_buyBtnBg")
         let selectImg = tintImage?.imageWithTintColor(color: COLOR_RiseColor)
         let normalImg = tintImage?.imageWithTintColor(color: COLOR_HexColor(0x3E4046))
         bidBtn.setTitleColor(COLOR_CharTipsColor, for: .normal)
-        bidBtn.setTitleColor(COLOR_White, for: .selected)
+        bidBtn.setTitleColor(UIColor.white, for: .selected)
         bidBtn.isSelected = true
         bidBtn.setBackgroundImage(normalImg, for: .normal)
         bidBtn.setBackgroundImage(selectImg, for: .selected)
         return bidBtn
     }()
     lazy var askBtn: UIButton = {
-        let askBtn = fc_buttonInit(imgName: "", title: "开空", fontSize: 16, titleColor: COLOR_White, bgColor: COLOR_Clear)
+        let askBtn = fc_buttonInit(imgName: "", title: "开空", fontSize: 16, titleColor: UIColor.white, bgColor: UIColor.clear)
         let tintImage = UIImage(named: "kline_sellBtnBg")
         let selectImg = tintImage?.imageWithTintColor(color: COLOR_FailColor)
         let normalImg = tintImage?.imageWithTintColor(color: COLOR_HexColor(0x3E4046))
         askBtn.setTitleColor(COLOR_CharTipsColor, for: .normal)
-        askBtn.setTitleColor(COLOR_White, for: .selected)
+        askBtn.setTitleColor(UIColor.white, for: .selected)
         askBtn.setBackgroundImage(normalImg, for: .normal)
         askBtn.setBackgroundImage(selectImg, for: .selected)
         return askBtn
     }()
     
     lazy var typeLab: UILabel = {
-        let typeLab = fc_labelInit(text: "限价委托", textColor: COLOR_White, textFont: 16, bgColor: COLOR_BGColor)
+        let typeLab = fc_labelInit(text: "限价委托", textColor: UIColor.white, textFont: 16, bgColor: COLOR_BGColor)
         return typeLab
     }()
     
@@ -361,7 +361,7 @@ class FCContractOrderView: UIView {
     
     lazy var typeBtn: UIButton = {
         let typeBtn = UIButton.init(type: .custom)
-        typeBtn.backgroundColor = COLOR_Clear
+        typeBtn.backgroundColor = UIColor.clear
         return typeBtn
     }()
     
@@ -530,7 +530,6 @@ class FCContractOrderView: UIView {
         
         return dropDown
     }()
-    
 
     /// 价格输入框
     lazy var priceTxd: UITextField = {
@@ -546,7 +545,7 @@ class FCContractOrderView: UIView {
         priceTxd.delegate = self
         
         /// 市价委托显示提示
-        marketOrderTitleL = fc_labelInit(text: "最优市场价格", textColor: COLOR_CharTipsColor, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        marketOrderTitleL = fc_labelInit(text: "最优市场价格", textColor: COLOR_CharTipsColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         marketOrderTitleL.textAlignment = .left
         marketOrderTitleL.backgroundColor = COLOR_BGColor
         //marketOrderTitleL.layer.borderWidth = 0.5
@@ -593,7 +592,7 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var convertLab: UILabel = {
-        let convertLab = fc_labelInit(text: "≈-.--", textColor: COLOR_InputText, textFont: 12, bgColor: COLOR_Clear)
+        let convertLab = fc_labelInit(text: "≈-.--", textColor: COLOR_InputText, textFont: 12, bgColor: UIColor.clear)
         return convertLab
     }()
     
@@ -633,7 +632,7 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var orderBtn: UIButton = {
-        let orderBtn = fc_buttonInit(imgName: nil, title: "买入开多", fontSize: 16, titleColor: COLOR_White, bgColor: COLOR_RiseColor)
+        let orderBtn = fc_buttonInit(imgName: nil, title: "买入开多", fontSize: 16, titleColor: UIColor.white, bgColor: COLOR_RiseColor)
         orderBtn.addTarget(self, action: #selector(placeAnorderAction), for: .touchUpInside)
         orderBtn.layer.cornerRadius = 2
         orderBtn.layer.masksToBounds = true
@@ -644,7 +643,7 @@ class FCContractOrderView: UIView {
     var profitArrowIcon: UIImageView = UIImageView(image: UIImage(named: "trade_downtriangle"))
    
     lazy var profitLossBtn: UIButton = {
-        let profitLossBtn = fc_buttonInit(imgName: nil, title: "止盈止损", fontSize: 16, titleColor: COLOR_White, bgColor: .clear)
+        let profitLossBtn = fc_buttonInit(imgName: nil, title: "止盈止损", fontSize: 16, titleColor: UIColor.white, bgColor: .clear)
         profitLossBtn.addTarget(self, action: #selector(showProfitLossViewAction), for: .touchUpInside)
         profitLossBtn.addSubview(self.profitArrowIcon)
         profitArrowIcon.snp.makeConstraints { (make) in
@@ -683,9 +682,9 @@ class FCContractOrderView: UIView {
     
     lazy var dethHeader: UIView = {
         let dethHeader = UIView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 25))
-        let priceTitle = fc_labelInit(text: "价格", textColor: COLOR_CharTipsColor, textFont: 12, bgColor: COLOR_Clear)
+        let priceTitle = fc_labelInit(text: "价格", textColor: COLOR_CharTipsColor, textFont: 12, bgColor: UIColor.clear)
         
-        let amountTitle = fc_labelInit(text: "数量", textColor: COLOR_CharTipsColor, textFont: 12, bgColor: COLOR_Clear)
+        let amountTitle = fc_labelInit(text: "数量", textColor: COLOR_CharTipsColor, textFont: 12, bgColor: UIColor.clear)
         
         dethHeader.addSubview(priceTitle)
         dethHeader.addSubview(amountTitle)
@@ -720,12 +719,12 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var dethPriceLab: UILabel = {
-        let dethPriceLab = fc_labelInit(text: "-.--", textColor: COLOR_RiseColor, textFont: 16, bgColor: COLOR_Clear)
+        let dethPriceLab = fc_labelInit(text: "-.--", textColor: COLOR_RiseColor, textFont: 16, bgColor: UIColor.clear)
         return dethPriceLab
     }()
     
     lazy var priceEstimateLab: UILabel = {
-        let priceEstimateLab = fc_labelInit(text: "≈-.--", textColor: COLOR_MinorTextColor, textFont: 12, bgColor: COLOR_Clear)
+        let priceEstimateLab = fc_labelInit(text: "≈-.--", textColor: COLOR_MinorTextColor, textFont: 12, bgColor: UIColor.clear)
         return priceEstimateLab
     }()
     
@@ -1315,11 +1314,11 @@ class FCContractOrderView: UIView {
         self.changeLab.text = "\(depthModel?.latestTrade?.changePercentage ?? "0.00")%"
         if (((depthModel?.latestTrade?.changePercentage ?? "0.00") as NSString).floatValue >= 0) {
             
-            changeView.backgroundColor = COLOR_HexColorAlpha(0x2AB462, alpha: 0.2)
+            changeView.backgroundColor = COLOR_HexColorAlpha(0x2CB362, alpha: 0.2)
             self.changeLab.textColor = COLOR_RiseColor
         }else {
             self.changeLab.textColor = COLOR_FailColor
-            changeView.backgroundColor = COLOR_HexColorAlpha(0xFB4B50, alpha: 0.2)
+            changeView.backgroundColor = COLOR_HexColorAlpha(0xE0274A, alpha: 0.2)
         }
         
         self.priceEstimateLab.text = "\(depthModel?.latestTrade?.estimatedValue ?? "") \(depthModel?.latestTrade?.estimatedCurrency ?? "")"

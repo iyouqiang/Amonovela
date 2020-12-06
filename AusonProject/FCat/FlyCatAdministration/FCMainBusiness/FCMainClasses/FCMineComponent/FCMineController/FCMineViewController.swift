@@ -19,11 +19,12 @@ class FCMineViewController: UIViewController {
     typealias Callbcak = () -> Void
     let cellDataSoure: [Int: [FCCustomCellModel]] = [
         0 : [
+            FCCustomCellModel.init(leftIcon: "mine_identity", title: "身份认证"),
+            FCCustomCellModel.init(leftIcon: "mine_safeCenter", title: "安全中心"),
             FCCustomCellModel.init(leftIcon: "mine_service", title: "在线客服"),
-            FCCustomCellModel.init(leftIcon: "mine_help", title: "帮助中心"),
         ],
         1 :  [
-            FCCustomCellModel.init(leftIcon: "mine_invite", title: "邀请好友"),
+            FCCustomCellModel.init(leftIcon: "mine_help", title: "帮助中心"),
             FCCustomCellModel.init(leftIcon: "mine_setting", title: "设置"),
             FCCustomCellModel.init(leftIcon: "mine_about", title: "关于我们")
             //FCCustomCellModel.init(leftIcon: "mine_version", title: "检查版本", message: "1.0.0"),
@@ -32,7 +33,7 @@ class FCMineViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-  //self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.navigationController?.setNavigationBarHidden(true, animated: false)
         if FCUserInfoManager.sharedInstance.isLogin {
             
             getuserInfo()
@@ -48,7 +49,9 @@ class FCMineViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = COLOR_BGColor
         self.navigationItem.title = nil
-        //self.adjuestInsets()
+        
+        self.navigationController?.delegate = self
+        
         self.loadSubviews()
         
         //登入登出通知
@@ -71,24 +74,26 @@ class FCMineViewController: UIViewController {
     
     
     private func loadSubviews () {
+        
         if FCUserInfoManager.sharedInstance.isLogin {
             
             let userInfo = FCUserInfoManager.sharedInstance.getUserInfo()
             self.userInfoModel = userInfo;
         }
         
-        self.userTableView = UITableView.init(frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: self.view.frame.height), style: .plain)
+        self.userTableView = UITableView.init(frame:CGRect(x: 0, y: -kSTATUSHEIGHT, width: kSCREENWIDTH, height: self.view.frame.height - kSTATUSHEIGHT), style: .plain)
+        self.userTableView.showsVerticalScrollIndicator = false
         self.userTableView.bounces    = false
         self.userTableView.delegate   = self
         self.userTableView.dataSource = self
         self.userTableView.separatorColor  = COLOR_LineColor
         self.userTableView.backgroundColor = COLOR_CellBgColor
         self.userTableView.separatorInset = UIEdgeInsets(top: 0, left: CGFloat(kMarginScreenLR + 18 + 10), bottom: 0, right: 0)
-        self.userTableView.separatorColor = COLOR_SeperateColor
+        self.userTableView.separatorColor = COLOR_LineColor
         self.userTableView.bounces = true
         self.view.addSubview(self.userTableView)
         
-        self.tabHeaderView = FCMIneTabHeaderView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 224))
+        self.tabHeaderView = FCMIneTabHeaderView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 250))
         self.userTableView.tableHeaderView = self.tabHeaderView
         
         // 处理headerview的交互事件
@@ -128,7 +133,6 @@ class FCMineViewController: UIViewController {
         } failure: { (response) in
             
         }
-
     }
     
     private func handleHeaderViewActions () {
@@ -138,27 +142,27 @@ class FCMineViewController: UIViewController {
            
             self?.checkLoginStatus(callback: {
 
+                //let settingVC = FCUserSettingController.init()
+                //settingVC.hidesBottomBarWhenPushed = true
+                //self?.navigationController?.pushViewController(settingVC, animated: true)
             })
             
         }).disposed(by: self.disposeBag)
-        
-        //点击了安全中心
-        self.tabHeaderView.safeCenterBtn?.rx.tap.subscribe({ [weak self] (event) in
-            
-            DispatchQueue.main.async {
                 
-                self?.checkLoginStatus(callback: {
-
-                    let settingVC = FCUserSettingController.init()
-                    settingVC.hidesBottomBarWhenPushed = true
-                    self?.navigationController?.pushViewController(settingVC, animated: true)
-                })
-            }
+        // 邀请
+        self.tabHeaderView.inviteBtn?.rx.tap.subscribe({ [weak self] (event) in
             
+            FCUserInfoManager.sharedInstance.loginState { (model) in
+                
+                let webVC = PCWKWebHybridController.init(url: URL(string: HOSTURL_INVITE))!
+                webVC.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(webVC, animated: true)
+            }
+
         }).disposed(by: self.disposeBag)
         
-        //点击了身份认证
-        self.tabHeaderView.identityBtn?.rx.tap.subscribe({ [weak self] (event) in
+        /// 认证
+        self.tabHeaderView.verifyBtn?.rx.tap.subscribe({ [weak self] (event) in
             
             FCUserInfoManager.sharedInstance.loginState { (model) in
                 
@@ -166,7 +170,21 @@ class FCMineViewController: UIViewController {
                 webVC.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(webVC, animated: true)
             }
+            
         }).disposed(by: self.disposeBag)
+        
+        /// 登录
+        self.tabHeaderView.loginBtn?.rx.tap.subscribe({ [weak self] (event) in
+           
+            self?.checkLoginStatus(callback: {
+
+                //let settingVC = FCUserSettingController.init()
+                //settingVC.hidesBottomBarWhenPushed = true
+                //self?.navigationController?.pushViewController(settingVC, animated: true)
+            })
+            
+        }).disposed(by: self.disposeBag)
+        
     }
     
     func getuserInfo() {
@@ -218,20 +236,33 @@ extension FCMineViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 选中事件
         if indexPath.section == 0 {
-            //self.view.makeToast("敬请期待", duration: 0.5, position: .center)
-            PCCustomAlert.showAppInConstructionAlert()
+            
+            if indexPath.row == 0 {
+                FCUserInfoManager.sharedInstance.loginState { (model) in
+                    
+                    let webVC = PCWKWebHybridController.init(url: URL(string: HOSTURL_KYC))!
+                    webVC.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(webVC, animated: true)
+                }
+            }else if (indexPath.row == 1) {
+                
+                self.checkLoginStatus(callback: {
+
+                    let settingVC = FCUserSettingController.init()
+                    settingVC.hidesBottomBarWhenPushed = true
+                    self.navigationController?.pushViewController(settingVC, animated: true)
+                })
+                
+            }else {
+                
+                PCCustomAlert.showAppInConstructionAlert()
+            }
             
         } else if indexPath.section == 1 {
             
             if indexPath.row == 0 {
                 
-                FCUserInfoManager.sharedInstance.loginState { (model) in
-                    
-                    let webVC = PCWKWebHybridController.init(url: URL(string: HOSTURL_INVITE))!
-                    webVC.hidesBottomBarWhenPushed = true
-                    self.navigationController?.pushViewController(webVC, animated: true)
-                }
-                
+                PCCustomAlert.showAppInConstructionAlert()
             }else if indexPath.row == 1 {
             
             // self.view.makeToast("打开设置", duration: 0.5, position: .center)
@@ -239,8 +270,11 @@ extension FCMineViewController : UITableViewDataSource, UITableViewDelegate {
                 let settingVC = FCUserSettingController.init()
                 settingVC.hidesBottomBarWhenPushed = true
                 self?.navigationController?.pushViewController(settingVC, animated: true)
-            }
+                }
+                    
+            }else {
                 
+                PCCustomAlert.showAppInConstructionAlert()
             }
             
         } else {
@@ -250,7 +284,7 @@ extension FCMineViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 60
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -259,6 +293,16 @@ extension FCMineViewController : UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return cellDataSoure.count;
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let viewHeader = UIView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 10))
+        viewHeader.backgroundColor = COLOR_CellBgColor
+        return viewHeader
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -278,68 +322,20 @@ extension FCMineViewController : UITableViewDataSource, UITableViewDelegate {
     }
     /// 
     func handleCell(_ cell: FCCommonCell, indexPath: NSIndexPath)  {
-        
-        //        if indexPath.section == 0 && indexPath.row == 0 {
-        //
-        //            cell.leftIconWidthConstraint.constant = 54
-        //        }else {
-        //
-        //            cell.leftIconWidthConstraint.constant = 20
-        //        }
-        //
-        //        if indexPath.section == 1 {
-        //            cell.switchBtn.isHidden  = false
-        //            cell.arrowsIcon.isHidden = true
-        //        }else {
-        //            cell.switchBtn.isHidden  = true
-        //            cell.arrowsIcon.isHidden = false
-        //        }
-        //
-        //        var imageStr = ""
-        //        var titleStr = ""
-        //
-        //        if indexPath.section == 0 {
-        //
-        //            if FCUserInfoManager.sharedInstance.isLogin {
-        //
-        //                let userInfo = FCUserInfoManager.sharedInstance.getUserInfo()
-        //                self.userInfoModel = userInfo;
-        //                titleStr = (self.userInfoModel?.phone)!
-        //
-        //            }else {
-        //
-        //                titleStr = "请先登录"
-        //            }
-        //
-        //            imageStr = self.imageArray[0] as! String
-        //
-        //        }else if (indexPath.section == 1) {
-        //
-        //            imageStr = self.imageArray[1] as! String
-        //            titleStr = self.titleArray[0] as! String
-        //            cell.switchBtn.isOn = FCUserDefaults.boolForKey(kSMALLASSETS)
-        //
-        //        }else if (indexPath.section == 2) {
-        //
-        //            if indexPath.row == 0 {
-        //
-        //                imageStr = self.imageArray[2] as! String
-        //                titleStr = self.titleArray[1] as! String
-        //                cell.describeL.text = "fcatcom"
-        //            }else {
-        //
-        //                imageStr = self.imageArray[3] as! String
-        //                titleStr = self.titleArray[2] as! String
-        //                cell.describeL.text = HREF_Telegram
-        //            }
-        //
-        //        }else {
-        //
-        //        }
-        //
-        //        cell.leftIcon.image = UIImage(named: imageStr)
-        //        cell.titleL.text = titleStr
+    
     }
 }
+
+
+extension FCMineViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+
+        let isSelf = viewController.isKind(of: FCMineViewController.self)
+
+        self.navigationController?.setNavigationBarHidden(isSelf, animated: animated)
+    }
+}
+
 
 

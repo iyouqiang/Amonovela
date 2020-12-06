@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,13 +26,13 @@
                                 </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="McN-Ld-xNA">
-                                <rect key="frame" x="15" y="31.5" width="20" height="20"/>
+                                <rect key="frame" x="15" y="23.5" width="36" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="1Pm-u9-Gc4"/>
+                                    <constraint firstAttribute="width" constant="36" id="1Pm-u9-Gc4"/>
                                     <constraint firstAttribute="width" secondItem="McN-Ld-xNA" secondAttribute="height" multiplier="1:1" id="eGY-UD-cwf"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comm_cellenterarrow" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-Em-Qlr">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-Em-Qlr">
                                 <rect key="frame" x="281" y="29.5" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="YnI-hh-UvI"/>
@@ -40,7 +40,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kK-4W-Fq4">
-                                <rect key="frame" x="45" y="33" width="35.5" height="17"/>
+                                <rect key="frame" x="61" y="33" width="35.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -87,6 +87,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="comm_cellenterarrow" width="24" height="24"/>
+        <image name="cell_arrow_right" width="6" height="10.5"/>
     </resources>
 </document>

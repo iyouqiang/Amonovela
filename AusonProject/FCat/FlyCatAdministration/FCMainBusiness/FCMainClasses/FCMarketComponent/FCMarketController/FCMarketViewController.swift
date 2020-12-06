@@ -10,7 +10,7 @@ import UIKit
 //import Toast_Swift
 import RxSwift
 import RxCocoa
-
+import JXSegmentedView
 
 class FCMarketViewController: UIViewController {
     
@@ -22,6 +22,16 @@ class FCMarketViewController: UIViewController {
     var marketTypes: [String]?
     var marketList: [FCMarketListController]?
     var webSocket: PCWebSocketNetwork?
+    var searchTextField: UITextField!
+    var navimaskView: UIView!
+    var cancelBtn: UIButton!
+
+    /// 头部选择标签
+    var segmentedDataSource = JXSegmentedTitleDataSource()
+    let segmentedView = JXSegmentedView()
+    lazy var listContainerView: JXSegmentedListContainerView! = {
+        return JXSegmentedListContainerView(dataSource: self)
+    }()
     
     deinit {
         
@@ -35,19 +45,30 @@ class FCMarketViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        listContainerView.frame = CGRect(x: 0, y: 120 + 40 + 45 + 24, width: kSCREENWIDTH, height: kSCREENHEIGHT - 217 - kTABBARHEIGHT)
+    }
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         self.title = "行情"
-        self.view.backgroundColor = COLOR_SectionFooterBgColor
-        //self.adjuestInsets()
+        self.view.backgroundColor = COLOR_BGColor
+        self.navigationController?.delegate = self
+        
+        loadNavigationSearchView()
         
         //登入登出通知
         _ = NotificationCenter.default.rx.notification(NSNotification.Name(rawValue: kNotificationUserLogin))
             .takeUntil(self.rx.deallocated)
             .subscribe { [weak self] _ in
                 DispatchQueue.main.async {
-                    self?.segmentControl.setSelected(0)
-                    self?.marketScroller.setContentOffset(CGPoint(x: 0, y: 0) , animated: true)
+                    self?.segmentedView.selectItemAt(index: 0)
+                    //self?.segmentControl.setSelected(0)
+                    //self?.marketScroller.setContentOffset(CGPoint(x: 0, y: 0) , animated: true)
                 }
         }
         
@@ -59,8 +80,9 @@ class FCMarketViewController: UIViewController {
                     if self?.segmentControl == nil {
                         return
                     }
-                    self?.segmentControl.setSelected(1)
-                    self?.marketScroller.setContentOffset(CGPoint(x: kSCREENWIDTH, y: 0) , animated: true)
+                    self?.segmentedView.selectItemAt(index: 1)
+                    //self?.segmentControl.setSelected(1)
+                    //self?.marketScroller.setContentOffset(CGPoint(x: kSCREENWIDTH, y: 0) , animated: true)
                 }
         }
         
@@ -68,10 +90,79 @@ class FCMarketViewController: UIViewController {
         fetchMarketTypes()
     }
     
+    func loadNavigationSearchView() {
+        
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 45, height: 45))
+        leftView.backgroundColor = .clear
+        
+        let imagView = UIImageView(frame: CGRect(x: 0, y: 0, width: 21, height: 21))
+        imagView.image = UIImage(named: "market_search")
+        imagView.center = leftView.center
+        leftView.addSubview(imagView)
+        
+        let searchView = UITextField(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH - 30, height: 38))
+        searchView.delegate = self
+        searchView.layer.cornerRadius = 5
+        searchView.leftView = leftView
+        //searchView.placeholder = "搜索"
+        searchView.font = UIFont(_customTypeSize: 14)
+        searchView.textColor = COLOR_MinorTextColor
+        searchView.backgroundColor = COLOR_HexColor(0x22283A)
+        searchView.borderStyle = .none
+        searchView.returnKeyType = .search
+        searchView.leftViewMode = .always
+        searchView.textAlignment = .left
+        searchView.attributedPlaceholder = NSAttributedString.init(string:"搜索", attributes: [NSAttributedString.Key.foregroundColor:COLOR_HexColor(0x6E7E97)])
+        self.searchTextField = searchView
+        searchView.addTarget(self, action: #selector(textFieldChange), for: .editingChanged)
+        
+        let navigationView = UIView()
+        navigationView.backgroundColor = .clear
+        self.view.addSubview(navigationView)
+        navigationView.snp.makeConstraints { (make) in
+            make.left.top.equalTo(0)
+            make.width.equalTo(kSCREENWIDTH)
+            make.height.equalTo(120)
+        }
+        
+        self.navimaskView = UIView()
+        self.navimaskView?.backgroundColor = COLOR_HexColor(0x131829)
+        self.navimaskView?.alpha = 1.0
+        navigationView.addSubview(self.navimaskView!)
+        self.navimaskView?.snp.makeConstraints({ (make) in
+            make.edges.equalToSuperview()
+        })
+        
+        /// 搜索视图
+        navigationView.addSubview(searchView)
+        searchView.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.right.equalTo(-70)
+            make.bottom.equalTo(-16)
+            make.height.equalTo(38)
+        }
+        
+        cancelBtn = UIButton(type: .custom)
+        cancelBtn.setTitle("取消", for: .normal)
+        cancelBtn.setTitleColor(COLOR_MinorTextColor, for: .disabled)
+        cancelBtn.addTarget(self, action: #selector(cancelSearchAction), for: .touchUpInside)
+        cancelBtn.contentHorizontalAlignment = .right
+        cancelBtn.titleLabel?.font = UIFont(_customTypeSize: 14)
+        cancelBtn.isEnabled = false
+        cancelBtn.setTitleColor(UIColor.white, for: .normal)
+        navigationView.addSubview(cancelBtn)
+        cancelBtn.snp.makeConstraints { (make) in
+            make.right.equalTo(-15)
+            make.centerY.equalTo(searchView.snp_centerY)
+            make.width.equalTo(55)
+        }
+    }
+    
     func loadSubViews () {
+        
         loadSegmentControl()
         loadSortComponnet()
-        loadMarketListView()
+        //loadMarketListView()
     }
     
     func loadSegmentControl () {
@@ -82,36 +173,47 @@ class FCMarketViewController: UIViewController {
             self.marketTypes?.append(typeItem.name ?? "")
         }
         
-        self.segmentContainer = UIView.init(frame: .zero)
-        self.segmentContainer.backgroundColor = COLOR_CellBgColor
-        self.segmentControl = FCSegmentControl.init(frame: CGRect.zero)
-        segmentControl?.itemSpace = 25
-        segmentControl?.setTitles(titles: self.marketTypes ?? [], fontSize: 16, normalColor: COLOR_MinorTextColor, tintColor: COLOR_ThemeBtnEndColor, showUnderLine: true)
-        segmentControl.backgroundColor = COLOR_navBgColor
-        self.segmentContainer.addSubview(self.segmentControl!)
-        self.view.addSubview(self.segmentContainer)
+        self.marketList = NSMutableArray.init() as? [FCMarketListController]
         
-        self.segmentControl.didSelectedItem { [weak self] (index: Int) in
-            self?.marketScroller.setContentOffset(CGPoint(x: kSCREENWIDTH * CGFloat(index), y: 0) , animated: false)
-            let marketlistVC = self?.marketList?[index]
-            marketlistVC?.requestlistData()
-        }
+        //let totalItemWidth = 100 * (self.marketTypes?.count ?? 0)
+        let titles = self.marketTypes
+        let titleDataSource = JXSegmentedTitleDataSource()
+        titleDataSource.itemWidth = 100
+        titleDataSource.titles = titles!
+        titleDataSource.isTitleMaskEnabled = true
+        titleDataSource.titleNormalColor = COLOR_HexColor(0x71819A)
+        titleDataSource.titleSelectedColor = .white
+        titleDataSource.titleSelectedFont = UIFont(_customTypeSize: 15)
+        titleDataSource.titleNormalFont = UIFont(_customTypeSize: 14)
+        titleDataSource.itemSpacing = 0
+        segmentedDataSource = titleDataSource
+        segmentedView.dataSource = titleDataSource
+        segmentedView.frame = CGRect(x: 15, y: 132, width: kSCREENWIDTH - 30, height: 45)
+        segmentedView.backgroundColor = COLOR_HexColor(0x22283A)
+        segmentedView.layer.masksToBounds = true
+        segmentedView.layer.cornerRadius = 5
+        segmentedView.layer.borderColor = COLOR_HexColorAlpha(0x000000, alpha: 0.2).cgColor//COLOR_HexColor(0x3E4046).cgColor
+        segmentedView.layer.borderWidth = 1
+        segmentedView.delegate = self
         
-        self.segmentContainer.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
-            make.height.equalTo(50)
-        }
+        //UIScreen.main.scale
+        //navigationItem.titleView = segmentedView
+
+        let indicator = JXSegmentedIndicatorBackgroundView()
+        indicator.indicatorHeight = 40
+        indicator.indicatorWidth = 95
+        indicator.indicatorCornerRadius = 5
+        indicator.indicatorWidthIncrement = 0
+        indicator.indicatorColor = COLOR_HexColor(0x323B4F)
+        segmentedView.indicators = [indicator]
+        segmentedView.listContainer = listContainerView
         
-        self.segmentControl.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.left.equalToSuperview().offset(kMarginScreenLR)
-            make.height.equalToSuperview()
-        }
+        view.addSubview(listContainerView)
+        view.addSubview(segmentedView)
     }
     
     func loadSortComponnet () {
+        
         self.sortComponent = FCSortComponent.init(frame: .zero)
         self.sortComponent.backgroundColor = COLOR_CellBgColor
         self.view.addSubview(self.sortComponent)
@@ -123,41 +225,12 @@ class FCMarketViewController: UIViewController {
         }
         
         self.sortComponent.snp.makeConstraints { (make) in
-            make.top.equalTo(self.segmentContainer.snp.bottom).offset(10)
+            make.top.equalTo(self.segmentedView.snp.bottom).offset(12)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalTo(40)
         }
     }
-    
-    func loadMarketListView() {
-        
-        let marketScroller: UIScrollView = UIScrollView.init(frame: CGRect(x: 0, y: 50 + 10 + 40, width: kSCREENWIDTH, height: (kSCREENHEIGHT-kNAVIGATIONHEIGHT-kTABBARHEIGHT - 100)))
-        marketScroller.delegate = self
-        marketScroller.isPagingEnabled = true
-        marketScroller.showsVerticalScrollIndicator = false
-        marketScroller.showsHorizontalScrollIndicator = false
-        marketScroller.contentSize = CGSize(width: 3*kSCREENWIDTH, height: marketScroller.frame.height)
-        marketScroller.contentOffset = CGPoint(x: kSCREENWIDTH, y: 0)
-        self.view.addSubview(marketScroller)
-        self.marketScroller = marketScroller
-        
-        self.marketList = NSMutableArray.init() as? [FCMarketListController]
-        for index in 0..<(self.typeModel?.marketTypes ?? []).count {
-            let typeItem = self.typeModel?.marketTypes?[index]
-            let marketVC = FCMarketListController()
-            marketVC.marketType = typeItem?.type ?? "Spot"
-            marketVC.view.frame = CGRect(x: kSCREENWIDTH * CGFloat(index), y: 0, width: kSCREENWIDTH, height: marketScroller.frame.height)
-            marketVC.isOptional = typeItem?.type == "Optional"
-            self.marketScroller.addSubview(marketVC.view)
-            typeItem?.type == "Optional" ? marketVC.configureOptionalView() :  marketVC.configureAllView()
-            marketVC.marketType = typeItem?.type ?? ""
-            marketVC.parentController = self
-            self.marketList?.append(marketVC)
-        }
-        marketScroller.contentSize = CGSize(width: CGFloat((self.marketList?.count ?? 1))*kSCREENWIDTH, height: marketScroller.frame.height)
-    }
-    
     
     func fetchMarketTypes () {
         let typeApi = FCApi_MarketTypes.init()
@@ -180,7 +253,29 @@ class FCMarketViewController: UIViewController {
         }
     }
     
+    @objc func cancelSearchAction() {
+        
+        self.searchTextField.text = ""
+        self.searchTextField.resignFirstResponder()
+        self.cancelBtn.isEnabled = false
+        if let marketList = self.marketList {
+            for marketVC in marketList {
+                marketVC.searchStr = ""
+            }
+        }
+    }
     
+    @objc private func textFieldChange(textField: UITextField) {
+        
+        if textField.text?.count ?? 0 > 0 {
+            
+            self.cancelBtn.isEnabled = true
+        }else {
+            
+            self.cancelBtn.isEnabled = false
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -197,12 +292,59 @@ class FCMarketViewController: UIViewController {
      */
 }
 
-extension FCMarketViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset.x
-        self.segmentControl.setSelected(Int(offset/kSCREENWIDTH))
+extension FCMarketViewController: UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if let marketList = self.marketList {
+            
+            for marketVC in marketList {
+                
+                marketVC.searchStr = textField.text
+            }
+        }
+        
+        textField.resignFirstResponder()
+        
+        return true
     }
-    
 }
 
+extension FCMarketViewController: JXSegmentedListContainerViewDataSource{
+    
+    func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
+        if let titleDataSource = segmentedView.dataSource as? JXSegmentedBaseDataSource {
+            return titleDataSource.dataSource.count
+        }
+        return 0
+    }
+    
+    func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
+    
+        let typeItem = self.typeModel?.marketTypes?[index]
+        let marketVC = FCMarketListController()
+        marketVC.parentController = self
+        marketVC.marketTypesItem = typeItem
+        self.marketList?.append(marketVC)
+        
+        return marketVC
+    }
+}
+
+extension FCMarketViewController: JXSegmentedViewDelegate {
+    
+    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int)
+    {
+        
+    }
+}
+
+extension FCMarketViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+
+        let isSelf = viewController.isKind(of: FCMarketViewController.self)
+
+        self.navigationController?.setNavigationBarHidden(isSelf, animated: animated)
+    }
+}

@@ -19,7 +19,7 @@ func fc_textfiledInit(placeholder: String!, holderColor: UIColor!, textColor: UI
     textFiled.borderStyle = borderStyle
     
     //占位符设置
-    let placeholserAttributes = [NSAttributedString.Key.foregroundColor : holderColor, NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)] as [NSAttributedString.Key : Any]
+    let placeholserAttributes = [NSAttributedString.Key.foregroundColor : holderColor, NSAttributedString.Key.font : UIFont(_customTypeSize: fontSize)] as [NSAttributedString.Key : Any]
     textFiled.attributedPlaceholder = NSAttributedString(string: placeholder,attributes: placeholserAttributes)
     
     return textFiled

@@ -46,7 +46,7 @@ static void *kNAVIGATiON_LEFTBLOCKEVENTKEY = &kNAVIGATiON_LEFTBLOCKEVENTKEY;
 {
     [self adjuestInsets];
     
-    [self.navigationController.navigationBar at_setBackgroundColor:COLOR_BarNormalColor]; 
+    [self.navigationController.navigationBar at_setBackgroundColor:COLOR_navBgColor]; 
     [self.navigationController.navigationBar at_setBottomLineColor:COLOR_HexColor(0x1A1A21)];
     [self.navigationController.navigationBar at_setNavigationtitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     //self.navigationController.navigationBar.translucent = NO;

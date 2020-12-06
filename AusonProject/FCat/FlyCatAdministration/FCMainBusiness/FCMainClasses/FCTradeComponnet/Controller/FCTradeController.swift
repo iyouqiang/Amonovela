@@ -98,14 +98,14 @@ class FCTradeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addrightNavigationItemImgNameStr("", title: "账单", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14)) { [weak self] in
+        self.addrightNavigationItemImgNameStr("", title: "账单", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14)) { [weak self] in
              
             let billContractVC = FCBillContractController()
             billContractVC.hidesBottomBarWhenPushed = true
             self?.navigationController?.pushViewController(billContractVC, animated: true)
         }
         
-        self.addrightNavigationItemImgNameStr("", title: "持币", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14)) { [weak self] in
+        self.addrightNavigationItemImgNameStr("", title: "持币", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14)) { [weak self] in
         
             let assetContractVC = FCAccountAssetController()
             assetContractVC.hidesBottomBarWhenPushed = true

@@ -217,4 +217,10 @@
     }];
 }
 
+/** 警告弹窗 */
++ (void)showWarningAlertMessage:(NSString *)message
+{
+    
+}
+
 @end

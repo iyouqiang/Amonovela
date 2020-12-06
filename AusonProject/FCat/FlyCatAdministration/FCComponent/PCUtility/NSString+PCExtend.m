@@ -481,7 +481,9 @@
     
     //NSString * regex = @"(?![0-9A-Z]+$)(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,20}$";
     
-    NSString *regex = @"^(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*).{8,20}$";
+    //NSString *regex = @"^(?=.*[0-9].*)(?=.*[A-Za-z].*)(?=.*[a-zA-Z].*).{8,20}$";
+    
+    NSString *regex = @"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,20}$";
     
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     

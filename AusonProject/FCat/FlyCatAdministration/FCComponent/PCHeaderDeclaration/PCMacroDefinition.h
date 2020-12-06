@@ -39,7 +39,6 @@
 
 #define iPhonePlusPRO (UIScreen.mainScreen.bounds.size.height > 667 ? YES : NO)
 
-
 /** 随机 rgb 16进制颜色 */
 #define COLOR_RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 \
 green:arc4random_uniform(256)/255.0 \

@@ -36,6 +36,7 @@ class FCLoginViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
@@ -46,10 +47,11 @@ class FCLoginViewController: UIViewController {
         self.edgesForExtendedLayout = .all
         
         //self.navigationController?.delegate = self
+        //[self.navigationController.navigationBar at_setBackgroundColor:COLOR_navBgColor];
     }
     
     func setupSubviews () {
-        //        self.title = "登录/注册"
+        // self.title = "登录/注册"
         self.view.backgroundColor = COLOR_BGColor
         //self.adjuestInsets()
         self.setupNavbar()
@@ -58,9 +60,13 @@ class FCLoginViewController: UIViewController {
         self.loginView = loginView
         self.view.addSubview(loginView)
         
+        self.loginView?.dismissLoginViewBlock = {
+            self.dismiss(animated: true, completion: nil)
+            self.view.endEditing(true)
+        }
+        
         loginView.snp.makeConstraints { (make) in
-            //make.top.equalToSuperview()
-            make.top.equalTo(50)
+            make.top.equalTo(kNAVIGATIONHEIGHT)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -79,22 +85,25 @@ class FCLoginViewController: UIViewController {
             let registerVC = FCRegisterController.init()
             self.navigationController?.pushViewController(registerVC, animated: true)
         }
-        
     }
     
     func setupNavbar () {
+        
+        /**
         weak var weakSelf = self
-        self.addleftNavigationItemImgNameStr("navbar_back", title: nil, textColor: nil, textFont: nil) {
+        self.addleftNavigationItemImgNameStr(nil, title: "取消", textColor: COLOR_MinorTextColor, textFont: UIFont(name: "PingFangSC-Semibold", size: 16)) {
             weakSelf?.dismiss(animated: true, completion: nil)
             weakSelf?.view.endEditing(true)
         }
+         */
         
-        
-        self.addrightNavigationItemImgNameStr(nil, title: "登录", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 17), clickCallBack: {
+        /**
+        self.addrightNavigationItemImgNameStr(nil, title: "登录", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 16), clickCallBack: {
             // weakSelf?.loginView?.loginBtnClick()
             //            let modifyVC = FCModifyPasswordController.init()
             //            weakSelf?.navigationController?.pushViewController(modifyVC, animated: true)
         })
+         */
     }
     
     func signIn (loginType: FCLoginType, coutryCode: String?, phone: String?, phonePwd: String?, email: String?, emailPwd: String?) {
@@ -154,7 +163,6 @@ class FCLoginViewController: UIViewController {
             
             let navVC = PCNavigationController.init(rootViewController: loginController)
             navVC.modalPresentationStyle = .fullScreen
-            // navVC.navigationBar.backgroundColor = .red
             kAPPDELEGATE?.topViewController?.present(navVC, animated: true, completion: {
                 
             })

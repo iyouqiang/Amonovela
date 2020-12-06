@@ -24,7 +24,6 @@ static NSString * const kUUIDIDENTIFY      = @"kUUIDIDENTIFY";
 
 static NSString * const kAPPFIRSTLAUNCH    = @"kAPPFIRSTLAUNCH";
 
-
 /** 是否开启指纹解锁 */
 static NSString * const kUNLOCKFINGERPRINT = @"kUNLOCKFINGERPRINT";
 

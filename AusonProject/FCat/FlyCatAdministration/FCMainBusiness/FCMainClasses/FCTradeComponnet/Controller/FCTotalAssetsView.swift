@@ -25,7 +25,7 @@ class FCTotalAssetsView: UIView {
         super.awakeFromNib()
         
         assetAcountL.text = "0.00≈0.00 CNY"
-        self.assetAcountL.setAttributeFont(UIFont.systemFont(ofSize: 27), range: NSRange(location: 0, length: 4))
+        self.assetAcountL.setAttributeFont(UIFont(_customTypeSize: 27), range: NSRange(location: 0, length: 4))
         self.assetAcountL.setAttributeColor(COLOR_TabBarTintColor, range: NSRange(location: 0, length: 4))
     }
     
@@ -41,7 +41,7 @@ class FCTotalAssetsView: UIView {
             
             let estimatedValueStr = assetSummaryModel.estimatedValue
             
-            self.assetAcountL.setAttributeFont(UIFont.systemFont(ofSize: 27), range: NSRange(location: 0, length: estimatedValueStr?.count ?? 0))
+            self.assetAcountL.setAttributeFont(UIFont(_customTypeSize: 27), range: NSRange(location: 0, length: estimatedValueStr?.count ?? 0))
             self.assetAcountL.setAttributeColor(COLOR_TabBarTintColor, range: NSRange(location: 0, length: estimatedValueStr?.count ?? 0))
         }
     }

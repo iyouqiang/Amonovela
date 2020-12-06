@@ -19,7 +19,7 @@ class FCCXPAssetHistoryController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无历史记录", textColor: COLOR_InputText, textFont: UIFont.systemFont(ofSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无历史记录", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -30,7 +30,7 @@ class FCCXPAssetHistoryController: UIViewController {
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44))
         sectionHeaderView.backgroundColor = COLOR_BGColor
         
-        let titleL = fc_labelInit(text: "", textColor: COLOR_HexColor(0xDADADE), textFont: UIFont.systemFont(ofSize: 21), bgColor: COLOR_BGColor)
+        let titleL = fc_labelInit(text: "", textColor: COLOR_HexColor(0xDADADE), textFont: UIFont(_customTypeSize: 21), bgColor: COLOR_BGColor)
         titleL.frame = CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 36)
         sectionHeaderView.addSubview(titleL)
         sectionTitleL = titleL

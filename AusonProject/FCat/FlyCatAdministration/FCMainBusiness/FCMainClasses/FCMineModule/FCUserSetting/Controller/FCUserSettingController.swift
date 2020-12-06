@@ -71,7 +71,7 @@ class FCUserSettingController: UIViewController {
         self.userTableView.separatorColor  = COLOR_LineColor
         self.userTableView.backgroundColor = COLOR_CellBgColor
         self.userTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        self.userTableView.separatorColor = COLOR_SeperateColor
+        self.userTableView.separatorColor = COLOR_LineColor
         self.userTableView.bounces = true
         self.view.addSubview(self.userTableView)
     }
@@ -198,7 +198,7 @@ extension FCUserSettingController : UITableViewDataSource, UITableViewDelegate {
             
             desTextL = UILabel(frame: CGRect(x: kSCREENWIDTH - 290, y: 0, width: 250, height: 50))
             desTextL?.textColor = COLOR_HexColor(0xB0B1B3)
-            desTextL?.font = UIFont.systemFont(ofSize: 15)
+            desTextL?.font = UIFont(_customTypeSize: 15)
             desTextL?.adjustsFontSizeToFitWidth = true
             desTextL?.tag = 999
             desTextL?.textAlignment = .right

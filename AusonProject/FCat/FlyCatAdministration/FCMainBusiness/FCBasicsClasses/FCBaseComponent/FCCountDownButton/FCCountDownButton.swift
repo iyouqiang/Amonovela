@@ -37,7 +37,7 @@ class FCCountDownButton: UIButton {
         self.countdownTitle = countdownTitle ?? "后重试"
         self.durantion = duration ?? 60
         
-        self.fc_buttonConfig(imgName: "", title: self.normalTitle, fontSize: 15, titleColor: COLOR_BtnTitleColor, bgColor: COLOR_Clear)
+        self.fc_buttonConfig(imgName: "", title: self.normalTitle, fontSize: 15, titleColor: COLOR_BtnTitleColor, bgColor: UIColor.clear)
     }
     
     

@@ -48,7 +48,7 @@
     self.title = self.title.length > 0?self.title : defaultTitle;
     
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:self.imgName]];
-    UILabel *lable = [UILabel labelWithText:self.title textColor:COLOR_HexColor(0xCCCCCC) fontSize:12 bgColor:COLOR_Clear];
+    UILabel *lable = [UILabel labelWithText:self.title textColor:COLOR_HexColor(0xCCCCCC) fontSize:12 bgColor:[UIColor clearColor]];
     [self addSubview:imgView];
     [self addSubview:lable];
     

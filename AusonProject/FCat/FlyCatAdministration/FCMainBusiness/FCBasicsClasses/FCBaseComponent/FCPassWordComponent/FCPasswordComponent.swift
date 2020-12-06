@@ -21,7 +21,7 @@ let disposeBag = DisposeBag()
     }
     */
   
-    override init(placeholder: String? = "", holderColor: UIColor? = COLOR_MinorTextColor, textColor: UIColor? = COLOR_White, fontSize: CGFloat? = 15, leftImg: String? = "", keyboardType: UIKeyboardType? = .alphabet) {
+    override init(placeholder: String? = "", holderColor: UIColor? = COLOR_MinorTextColor, textColor: UIColor? = UIColor.white, fontSize: CGFloat? = 15, leftImg: String? = "", keyboardType: UIKeyboardType? = .alphabet) {
         super.init(placeholder: placeholder!, leftImg: leftImg!, keyboardType: keyboardType!)
         self.regularExpression = "[0-9A-Za-z]{0,16}$"
         let rightBtn: UIButton = fc_buttonInit(imgName: "mine_securePwd")

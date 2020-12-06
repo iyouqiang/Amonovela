@@ -183,7 +183,7 @@ class FCKLineController: UIViewController {
             drawerTitle = "  " + (self.marketModel?.name ?? "")
         }
         
-        self.addmutableleftNavigationItemImgNameStr("kline_drawer", title: drawerTitle, textColor:.white, textFont: UIFont.systemFont(ofSize: 17)) {[weak self] in
+        self.addmutableleftNavigationItemImgNameStr("kline_drawer", title: drawerTitle, textColor:.white, textFont: UIFont(_customTypeSize: 17)) {[weak self] in
             
             if self?.accountType == .tradingAccountType_spot {
                
@@ -669,7 +669,7 @@ class FCKLineController: UIViewController {
     }()
     
     lazy var buyBtn: UIButton = {
-        let button = fc_buttonInit(imgName: nil, title: "买入", fontSize: 17, titleColor: .white, bgColor: COLOR_Clear)
+        let button = fc_buttonInit(imgName: nil, title: "买入", fontSize: 17, titleColor: .white, bgColor: UIColor.clear)
         let tintImage = UIImage(named: "kline_buyBtnBg")
         let selectImg = tintImage?.imageWithTintColor(color: COLOR_RiseColor)
         
@@ -679,7 +679,7 @@ class FCKLineController: UIViewController {
     }()
     
     lazy var sellBtn: UIButton = {
-        let button = fc_buttonInit(imgName: nil, title: "卖出", fontSize: 17, titleColor: .white, bgColor: COLOR_Clear)
+        let button = fc_buttonInit(imgName: nil, title: "卖出", fontSize: 17, titleColor: .white, bgColor: UIColor.clear)
         let tintImage = UIImage(named: "kline_sellBtnBg")
         let selectImg = tintImage?.imageWithTintColor(color: COLOR_FailColor)
         button.setBackgroundImage(selectImg, for: .normal)

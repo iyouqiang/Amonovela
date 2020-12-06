@@ -8,6 +8,7 @@
 
 #import "FCMarqueeView.h"
 #import "PCStyleDefinition.h"
+#import "UIFont+Extension.h"
 
 @interface FCMarqueeView()
 @property(nonatomic,strong)UILabel *customL1;
@@ -26,9 +27,9 @@
         _customL1 = [[UILabel alloc]init];
         _customL1.text = @"热烈庆祝CXP隆重上线";
         [self addSubview:_customL1];
-        _customL1.textColor = COLOR_HexColor(0xB0B1B4);
+        _customL1.textColor = [UIColor whiteColor];
         _customL1.numberOfLines = 2;
-        _customL1.font = [UIFont systemFontOfSize:13];
+        _customL1.font = [UIFont font_mediumTypeSize:14];
         _customL1.enabled = YES;
         _customL1.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClick)];
@@ -40,9 +41,9 @@
     if (!_customL2) {
         _customL2 = [[UILabel alloc]init];
         [self addSubview:_customL2];
-        _customL2.textColor = COLOR_HexColor(0xB0B1B4);
+        _customL2.textColor = [UIColor whiteColor];
         _customL2.numberOfLines = 2;
-        _customL2.font = [UIFont systemFontOfSize:13];
+        _customL2.font = [UIFont font_mediumTypeSize:14];
         _customL2.enabled = YES;
         _customL2.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onClick)];
