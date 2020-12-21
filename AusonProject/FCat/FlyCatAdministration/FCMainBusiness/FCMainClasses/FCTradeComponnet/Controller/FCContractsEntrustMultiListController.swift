@@ -29,6 +29,8 @@ class FCContractsEntrustMultiListController: UIViewController {
         let titles = ["当前委托", "历史委托"]
         //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
         segmentedDataSource.itemWidth = totalItemWidth/CGFloat(titles.count)
+        segmentedDataSource.titleNormalFont = UIFont(_PingFangSCTypeSize: 14)
+        segmentedDataSource.titleSelectedFont = UIFont(_PingFangSCTypeSize: 14)
         segmentedDataSource.titles = titles
         segmentedDataSource.titleNormalColor = .white
         segmentedDataSource.titleSelectedColor = COLOR_TabBarTintColor

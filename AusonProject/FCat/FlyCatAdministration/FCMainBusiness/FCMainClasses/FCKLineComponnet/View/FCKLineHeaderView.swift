@@ -29,6 +29,8 @@ class FCKLineHeaderView: UIView {
     func loadLastMarketData(model: FCMarketModel?) {
         if model == nil { return }
         
+        print("model?.latestPrice : ", model?.latestPrice ?? "")
+        
         self.priceLab?.text = model?.latestPrice
         self.CNYLab?.text = "≈\(model?.estimatedValue ?? "")\(model?.estimatedCurrency ?? "")"
         
@@ -53,15 +55,15 @@ class FCKLineHeaderView: UIView {
 
     func loadSubviews () {
         self.priceLab = fc_labelInit(text: "-.--", textColor: COLOR_FailColor, textFont: UIFont.boldSystemFont(ofSize: 27), bgColor: COLOR_BGColor)
-        self.CNYLab = fc_labelInit(text: "=-.--CNY", textColor: COLOR_CharTipsColor, textFont: UIFont(_customTypeSize: 12), bgColor: COLOR_BGColor)
-        self.percentLab = fc_labelInit(text: "-.--%", textColor: COLOR_FailColor, textFont: UIFont(_customTypeSize: 12), bgColor: COLOR_BGColor)
-        self.highLab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_customTypeSize: 12), bgColor: COLOR_BGColor)
-        self.lowLab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_customTypeSize: 12), bgColor: COLOR_BGColor)
-        self.volumelab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_customTypeSize: 12), bgColor: COLOR_BGColor)
+        self.CNYLab = fc_labelInit(text: "=-.--CNY", textColor: COLOR_CharTipsColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        self.percentLab = fc_labelInit(text: "-.--%", textColor: COLOR_FailColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        self.highLab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        self.lowLab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        self.volumelab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
         
-        let highLeftLab = fc_labelInit(text: "高", textColor: COLOR_CharTipsColor, textFont: UIFont(_customTypeSize: 12), bgColor: COLOR_BGColor)
-        let lowLeftLab = fc_labelInit(text: "低", textColor: COLOR_CharTipsColor, textFont: UIFont(_customTypeSize: 12), bgColor: COLOR_BGColor)
-        let volumeLeftLab = fc_labelInit(text: "24H", textColor: COLOR_CharTipsColor, textFont: UIFont(_customTypeSize: 12), bgColor: COLOR_BGColor)
+        let highLeftLab = fc_labelInit(text: "高", textColor: COLOR_CharTipsColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        let lowLeftLab = fc_labelInit(text: "低", textColor: COLOR_CharTipsColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        let volumeLeftLab = fc_labelInit(text: "24H", textColor: COLOR_CharTipsColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
         
         self.addSubview(self.priceLab!)
         self.addSubview(self.CNYLab!)

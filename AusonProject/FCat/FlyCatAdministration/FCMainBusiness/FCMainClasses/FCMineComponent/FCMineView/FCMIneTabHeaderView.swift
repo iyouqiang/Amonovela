@@ -53,8 +53,8 @@ class FCMIneTabHeaderView: UIView {
             self.accountLab?.text = self.userData?.userName
             self.uidLab?.text =  "UID: \(self.userData?.userId ?? "---")"
             
-            guard let state = Int(FCUserInfoManager.sharedInstance.userInfo?.state ?? "0") else { return  }
-            
+            guard let state = Int(FCUserInfoManager.sharedInstance.userInfo?.kycLevel ?? "0") else { return  }
+        
             if state > 0 {
                
                 //.verifyBtn?.setImage(UIImage(named: "mine_verified"), for: .normal)

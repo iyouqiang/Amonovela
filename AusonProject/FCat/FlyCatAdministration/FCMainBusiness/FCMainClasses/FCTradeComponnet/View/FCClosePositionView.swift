@@ -38,6 +38,9 @@ class FCClosePositionView: UIView {
     var availableNum: Double = 0.0
     var tradeType = "Limit"
     var percentageStr = "0.0"
+    var titleLineView: UIView!
+    var positionTitleL: UILabel!
+    var btnContentView: UIView!
     
     var positionModel: FCPositionInfoModel? {
         
@@ -90,7 +93,7 @@ class FCClosePositionView: UIView {
                 //self.availableVolumeL.text = (positionModel.availableVolume ?? "") + " 张"
             }
             
-            self.availableVolumeL.text = (positionModel.availableVolume ?? "") + sheetStr
+            self.availableVolumeL.text = "可平量 " + ((positionModel.availableVolume ?? "") + sheetStr)
         }
     }
     
@@ -99,7 +102,7 @@ class FCClosePositionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // 平仓界面
-        self.backgroundColor = .white
+        self.backgroundColor = COLOR_BGColor
         self.setupView()
         self.layoutPositionSubView()
         self.loadClickEvnet()
@@ -110,34 +113,54 @@ class FCClosePositionView: UIView {
     }
     
     func setupView() {
-         
+        
+        positionTitleL = fc_labelInit(text: "平仓", textColor: COLOR_MainThemeColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        addSubview(positionTitleL)
+        
         /// 第一栏 平仓永续 多头
-        symbolTitleL = fc_labelInit(text: "平仓BTCUSDT永续", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        symbolTitleL = fc_labelInit(text: "平仓BTCUSDT永续", textColor: .white, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        symbolTitleL.textAlignment = .right
         addSubview(symbolTitleL)
         
-        leverageL = fc_labelInit(text: "多头100.00X", textColor: COLOR_RiseColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        leverageL = fc_labelInit(text: "多头100.00X", textColor: COLOR_RiseColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        leverageL.textAlignment = .right
         addSubview(leverageL)
         
         //trade_close
         closeBtn = fc_buttonInit(imgName: "trade_close", title: "", fontSize: 16, titleColor: .clear, bgColor: .clear)
         addSubview(closeBtn)
+        closeBtn.isHidden = true
+        
+        btnContentView = UIView(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 40))
+        btnContentView.clipsToBounds = true
+        btnContentView.layer.cornerRadius = 8
+        btnContentView.backgroundColor = COLOR_HexColor(0x22283A)
+        addSubview(btnContentView)
+        
+        /// 选择按钮
+        selectedView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 2))
+        selectedView.backgroundColor = COLOR_HexColor(0x323B4F)
+        selectedView.layer.cornerRadius = 13
+        selectedView.clipsToBounds = true
+        addSubview(selectedView)
         
         /// 限价平仓按钮
-        limitPriceBtn = fc_buttonInit(imgName: "", title: "限价平仓", fontSize: 16, titleColor: .clear, bgColor: .clear)
+        limitPriceBtn = fc_buttonInit(imgName: "", title: "限价平仓", fontSize: 16, titleColor: .white, bgColor: .clear)
         addSubview(limitPriceBtn)
         
         /// 市价平仓按钮
         marketPriceBtn = fc_buttonInit(imgName: "", title: "市价平仓", fontSize: 16, titleColor: COLOR_RichBtnTitleColor, bgColor: .clear)
         addSubview(marketPriceBtn)
         
-        /// 选择按钮
-        selectedView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 2))
-        selectedView.backgroundColor = COLOR_TabBarTintColor
-        addSubview(selectedView)
         
         bottomLine = UIView(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 0.8))
         bottomLine.backgroundColor = COLOR_HexColorAlpha(0xdadadd, alpha: 0.2)
         addSubview(bottomLine)
+        bottomLine.isHidden = true
+        
+        titleLineView = UIView(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 0.8))
+        titleLineView.backgroundColor = COLOR_HexColor(0x213249)
+        addSubview(titleLineView)
         
         /// 限价输入框
         limitInputView = FCContractInputView(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 44))
@@ -159,8 +182,10 @@ class FCClosePositionView: UIView {
         addSubview(numberInputView)
         
         /// 比例按钮
-        ratioView = FCBtnSelectedView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH - 30, height: 30))
-        ratioView.layer.cornerRadius = 15
+        ratioView = FCBtnSelectedView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH - 30, height: 40))
+        ratioView.cornerRadius = 5
+        ratioView.titleColor = COLOR_tabbarNormalColor
+        ratioView.borderColor = COLOR_LineColor
         ratioView.clipsToBounds = true
         ratioView.titleArray = ["10%", "20%", "50%", "100%"]
         //ratioView.backgroundColor = COLOR_TabBarTintColor
@@ -188,20 +213,19 @@ class FCClosePositionView: UIView {
         }
         
         /// 可平量
-        availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
+        availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_tabbarNormalColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: .clear)
         addSubview(availableVolumeL)
         
         /// 市价平仓 平仓去人按钮
-        marketConfirBtn = fc_buttonInit(imgName: "", title: "市价平仓", fontSize: 16, titleColor: COLOR_TabBarTintColor, bgColor: .clear)
-        marketConfirBtn.layer.cornerRadius = 25
+        marketConfirBtn = fc_buttonInit(imgName: "", title: "市价平仓", fontSize: 16, titleColor: .white, bgColor: .clear)
+        marketConfirBtn.layer.cornerRadius = 8
         marketConfirBtn.clipsToBounds = true
-        marketConfirBtn.layer.borderWidth = 1
-        marketConfirBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
+        marketConfirBtn.layer.borderWidth = 0.7
+        marketConfirBtn.layer.borderColor = COLOR_LineColor.cgColor
         addSubview(marketConfirBtn)
         
-        
         /// 平仓
-        limitConfirBtn = FCThemeButton(title: "平仓", titleColor: COLOR_TabBarBgColor, fontSize: 16, frame: CGRect(x: 0, y: 0, width: (kSCREENWIDTH - 50)/2.0, height: 50), cornerRadius: 25)
+        limitConfirBtn = FCThemeButton(title: "平仓", titleColor: .black, fontSize: 16, frame: CGRect(x: 0, y: 0, width: (kSCREENWIDTH - 50)/2.0, height: 50), cornerRadius: 8)
         addSubview(limitConfirBtn)
     }
     
@@ -209,30 +233,48 @@ class FCClosePositionView: UIView {
     {
             /// 界面布局
             let symbolWidth = symbolTitleL.labelWidthMaxHeight(30)
-            symbolTitleL.snp.makeConstraints { (make) in
-                
-                make.left.equalTo(15)
-                make.top.equalTo(20)
-                make.width.equalTo(symbolWidth + 10)
-                make.height.equalTo(30)
-            }
+        
+        positionTitleL.snp.makeConstraints { (make) in
             
-            leverageL.snp.makeConstraints { (make) in
-                make.left.equalTo(symbolTitleL.snp_right)
-                make.bottom.equalTo(symbolTitleL.snp_bottom)
-                make.right.equalTo(closeBtn.snp_left)
-                make.height.equalTo(30)
-            }
-            
-            closeBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.top.equalTo(20)
+            //make.width.equalTo(symbolWidth + 10)
+            make.height.equalTo(30)
+        }
+        
+        symbolTitleL.snp.makeConstraints { (make) in
                 
-                make.right.equalTo(-15)
-                make.centerY.equalTo(leverageL.snp_centerY)
-                make.height.width.equalTo(30)
-            }
+            //make.left.equalTo(15)
+            make.right.equalTo(leverageL.snp_left).offset(-10)
+            make.top.equalTo(20)
+            make.width.equalTo(symbolWidth + 10)
+            make.height.equalTo(30)
+        }
+        
+        titleLineView.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
+            make.height.equalTo(0.5)
+            make.top.equalTo(symbolTitleL.snp_bottom).offset(13)
+        }
+            
+        leverageL.snp.makeConstraints { (make) in
+            //make.left.equalTo(symbolTitleL.snp_right)
+            make.bottom.equalTo(symbolTitleL.snp_bottom)
+            //make.right.equalTo(closeBtn.snp_left)
+            make.right.equalTo(-15)
+            make.height.equalTo(30)
+        }
+            
+        closeBtn.snp.makeConstraints { (make) in
+                
+            make.right.equalTo(-15)
+            make.centerY.equalTo(leverageL.snp_centerY)
+            make.height.width.equalTo(30)
+        }
             
             ///
-            let btnWidth = limitPriceBtn.titleLabel?.labelWidthMaxHeight(30) ?? 0
+        let btnWidth = (kSCREENWIDTH - 30)/2.0//limitPriceBtn.titleLabel?.labelWidthMaxHeight(30) ?? 0
             
             marketPriceBtn.snp.makeConstraints { (make) in
                 make.left.equalTo(15)
@@ -242,13 +284,18 @@ class FCClosePositionView: UIView {
             }
             
             limitPriceBtn.snp.makeConstraints { (make) in
-                make.left.equalTo(marketPriceBtn.snp_right).offset(30)
+                make.left.equalTo(marketPriceBtn.snp_right)
                 make.width.equalTo(btnWidth)
                 make.height.equalTo(30)
                 make.top.equalTo(marketPriceBtn.snp_top)
             }
-            
-            limitPriceBtn.setTitleColor(COLOR_TabBarTintColor, for: .normal)
+        
+        btnContentView.snp_makeConstraints { (make) in
+            make.top.equalTo(marketPriceBtn.snp_top)
+            make.left.equalTo(marketPriceBtn.snp_left)
+            make.right.equalTo(limitPriceBtn.snp_right)
+            make.height.equalTo(30)
+        }
             
             bottomLine.snp.makeConstraints { (make) in
                 make.left.equalTo(15)
@@ -259,12 +306,12 @@ class FCClosePositionView: UIView {
             
             selectedView.snp.makeConstraints { (make) in
                 
-                make.left.equalTo(marketPriceBtn.snp_right).offset(30)
-                make.top.equalTo(bottomLine.snp_top).offset(-1.2)
+                make.left.equalTo(marketPriceBtn.snp_right)
+                make.top.equalTo(marketPriceBtn.snp_top).offset(2)
                 make.width.equalTo(limitPriceBtn.snp.width)
-                make.height.equalTo(2)
+                make.height.equalTo(26)
             }
-        
+
             
             ///
             limitInputView.snp.makeConstraints { (make) in
@@ -278,24 +325,23 @@ class FCClosePositionView: UIView {
             numberInputView.snp.makeConstraints { (make) in
                 
                 make.left.equalTo(15)
-                make.top.equalTo(bottomLine.snp_bottom).offset(90)
+                make.top.equalTo(bottomLine.snp_bottom).offset(85)
                 make.right.equalTo(-15)
                 make.height.equalTo(50)
             }
             
             ratioView.snp.makeConstraints { (make) in
                 
-                make.top.equalTo(numberInputView.snp_bottom).offset(10)
+                make.top.equalTo(numberInputView.snp_bottom).offset(15)
                 make.left.equalTo(15)
                 make.right.equalTo(-15)
-                make.height.equalTo(30)
+                make.height.equalTo(40)
             }
-            
             
             availableVolumeL.snp.makeConstraints { (make) in
                 
                 make.left.equalTo(15)
-                make.top.equalTo(ratioView.snp_bottom).offset(10)
+                make.top.equalTo(ratioView.snp_bottom).offset(8)
                 make.right.equalTo(-15)
                 make.height.equalTo(30)
             }
@@ -427,6 +473,7 @@ class FCClosePositionView: UIView {
                 if let closeAlertBlock = self?.closeAlertBlock {
                     
                     closeAlertBlock()
+                    self?.makeToast("委托成功")
                 }
                 
             }else {
@@ -447,8 +494,8 @@ class FCClosePositionView: UIView {
         if isLimit {
             
             self.tradeType = "Limit"
-            self.marketPriceBtn.setTitleColor(COLOR_RichBtnTitleColor, for: .normal)
-            self.limitPriceBtn.setTitleColor(COLOR_TabBarTintColor, for: .normal)
+            self.marketPriceBtn.setTitleColor(COLOR_HexColor(0x848D9B), for: .normal)
+            self.limitPriceBtn.setTitleColor(.white, for: .normal)
             
             UIView.animate(withDuration: 0.3) {
               
@@ -457,7 +504,7 @@ class FCClosePositionView: UIView {
                 self.numberInputView.snp.remakeConstraints { (make) in
                     
                     make.left.equalTo(15)
-                    make.top.equalTo(self.bottomLine.snp_bottom).offset(90)
+                    make.top.equalTo(self.bottomLine.snp_bottom).offset(85)
                     make.right.equalTo(-15)
                     make.height.equalTo(50)
                 }
@@ -469,20 +516,20 @@ class FCClosePositionView: UIView {
               
                 self.selectedView.snp.remakeConstraints { (make) in
                                
-                    make.left.equalTo(self.marketPriceBtn.snp_right).offset(30)
-                    make.top.equalTo(self.bottomLine.snp_top).offset(-1.2)
+                    make.left.equalTo(self.marketPriceBtn.snp_right)
+                    make.top.equalTo(self.marketPriceBtn.snp_top).offset(2)
                     make.width.equalTo(self.limitPriceBtn.snp.width)
-                    make.height.equalTo(2)
+                    make.height.equalTo(26)
                 }
                 self.layoutIfNeeded()
                 self.limitInputView.isHidden = false
             }
-            
+            //
         }else {
 
             self.tradeType = "Market"
-            self.marketPriceBtn.setTitleColor(COLOR_TabBarTintColor, for: .normal)
-            self.limitPriceBtn.setTitleColor(COLOR_RichBtnTitleColor, for: .normal)
+            self.marketPriceBtn.setTitleColor(.white, for: .normal)
+            self.limitPriceBtn.setTitleColor(COLOR_HexColor(0x848D9B), for: .normal)
             
             UIView.animate(withDuration: 0.3) {
               
@@ -490,10 +537,13 @@ class FCClosePositionView: UIView {
                 
                 self.selectedView.snp.remakeConstraints { (make) in
                                        
-                    make.left.equalTo(15)
-                    make.top.equalTo(self.bottomLine.snp_top).offset(-1.2)
-                    make.width.equalTo(self.limitPriceBtn.snp.width)
-                    make.height.equalTo(2)
+                    self.selectedView.snp.remakeConstraints { (make) in
+                                   
+                        make.left.equalTo(15)
+                        make.top.equalTo(self.marketPriceBtn.snp_top).offset(2)
+                        make.width.equalTo(self.limitPriceBtn.snp.width)
+                        make.height.equalTo(26)
+                    }
                 }
                 self.layoutIfNeeded()
             }
@@ -503,7 +553,7 @@ class FCClosePositionView: UIView {
                 self.numberInputView.snp_remakeConstraints { (make) in
                     
                     make.left.equalTo(15)
-                    make.top.equalTo(self.bottomLine.snp_bottom).offset(20)
+                    make.top.equalTo(self.bottomLine.snp_bottom).offset(15)
                     make.right.equalTo(-15)
                     make.height.equalTo(50)
                 }

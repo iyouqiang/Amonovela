@@ -10,7 +10,17 @@
 
 @implementation UIFont (Extension)
 
-+ (UIFont *)font_customTypeSize:(CGFloat)size
++ (UIFont *)font_DINProBoldTypeSize:(CGFloat)size
+{
+    if (@available(iOS 9.0, *)) {
+
+        return [UIFont fontWithName:@"DINPro-Bold" size:size];
+    }else {
+        return [UIFont systemFontOfSize:size];
+    }
+}
+
++ (UIFont *)font_PingFangSCTypeSize:(CGFloat)size
 {
     if (@available(iOS 9.0, *)) {
      
@@ -19,6 +29,7 @@
         return [UIFont systemFontOfSize:size];
     }
 }
+
 
 + (UIFont *)font_mediumTypeSize:(CGFloat)size
 {

@@ -112,8 +112,8 @@ class FCKLineController: UIViewController {
             
             let leftSideMenuManager = SideMenuManager.default
             leftSideMenuManager.menuPresentMode = .menuSlideIn
-            leftSideMenuManager.menuAnimationFadeStrength = 0.5
-            leftSideMenuManager.menuAnimationBackgroundColor = COLOR_BGColor
+            leftSideMenuManager.menuAnimationFadeStrength = 0.7
+            leftSideMenuManager.menuAnimationBackgroundColor = COLOR_HexColor(0x131829)
             
             leftVC.didSelectItem { [weak self] (model) in
                 self?.marketModel = model
@@ -131,8 +131,8 @@ class FCKLineController: UIViewController {
         leftSideMenuManager.menuBlurEffectStyle = .dark
         leftSideMenuManager.menuAnimationUsingSpringWithDamping = 0.8
         leftSideMenuManager.menuAnimationInitialSpringVelocity = 0.05
-        leftSideMenuManager.menuAnimationFadeStrength = 0.5
-        leftSideMenuManager.menuAnimationBackgroundColor = COLOR_BGColor
+        leftSideMenuManager.menuAnimationFadeStrength = 0.7
+        leftSideMenuManager.menuAnimationBackgroundColor = COLOR_HexColor(0x131829)
         leftSideMenuManager.menuShadowOpacity = 0.8
         leftSideMenuManager.menuFadeStatusBar = false
         //leftSideMenuManager.menuWidth = 280
@@ -183,7 +183,7 @@ class FCKLineController: UIViewController {
             drawerTitle = "  " + (self.marketModel?.name ?? "")
         }
         
-        self.addmutableleftNavigationItemImgNameStr("kline_drawer", title: drawerTitle, textColor:.white, textFont: UIFont(_customTypeSize: 17)) {[weak self] in
+        self.addmutableleftNavigationItemImgNameStr("kline_drawer", title: drawerTitle, textColor:.white, textFont: UIFont(_PingFangSCTypeSize: 17)) {[weak self] in
             
             if self?.accountType == .tradingAccountType_spot {
                
@@ -204,6 +204,7 @@ class FCKLineController: UIViewController {
         //var imgBtn = UIImage(named: "fav_normal")
         //imgBtn = imgBtn?.imageWithTintColor(color: COLOR_HexColor(0x58595C))
         self.optionalBtn = UIButton(type: .custom)
+        self.optionalBtn?.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         self.optionalBtn?.setImage(UIImage(named: "fav_normal"), for: .normal)
         self.optionalBtn?.setImage(UIImage(named: "fav_selected"), for: .selected)
         self.optionalBtn?.isSelected = self.marketModel?.isOptional ?? false
@@ -295,15 +296,15 @@ class FCKLineController: UIViewController {
         
         self.buyBtn.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(kMarginScreenLR)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
             make.bottom.equalToSuperview().offset(-kMarginScreenLR)
-            make.right.equalTo(self.sellBtn.snp.left)
+            make.right.equalTo(self.sellBtn.snp.left).offset(10)
             make.width.equalTo(self.sellBtn)
         }
         
         self.sellBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-kMarginScreenLR)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
             make.bottom.equalToSuperview().offset(-kMarginScreenLR)
         }
         

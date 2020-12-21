@@ -30,7 +30,7 @@ class FCSymbolsDrawerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = COLOR_BGColor
+        self.view.backgroundColor = COLOR_HexColor(0x131829)
         //self.adjuestInsets()
         self.loadLeftNavItem()
         
@@ -42,14 +42,15 @@ class FCSymbolsDrawerController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.backgroundColor = COLOR_BGColor
+        self.navigationController?.navigationBar.backgroundColor = COLOR_HexColor(0x131829)
         
         //self.fetchQuoteTypes()
     }
     
     func loadLeftNavItem () {
-        let lab = fc_labelInit(text: "币币", textColor: COLOR_ThemeBtnEndColor, textFont: 18, bgColor: UIColor.clear)
-        lab.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        //let lab = fc_labelInit(text: "币币", textColor: COLOR_ThemeBtnEndColor, textFont: 18, bgColor: UIColor.clear)
+        let lab = fc_labelInit(text: "币币", textColor: .white, textFont: UIFont(_PingFangSCTypeSize: 23), bgColor: .clear)
+        lab.frame = CGRect(x: 0, y: 0, width: 80, height: 40)
         let item = UIBarButtonItem.init(customView: lab)
         self.navigationItem.leftBarButtonItem = item
     }
@@ -58,12 +59,12 @@ class FCSymbolsDrawerController: UIViewController {
         
         self.loadDataSource()
         let indicator = JXSegmentedIndicatorLineView()
-        indicator.backgroundColor = COLOR_BGColor
+        //indicator.backgroundColor = COLOR_HexColor(0x131829)
         indicator.indicatorColor = COLOR_ThemeBtnEndColor
         segmentedView.indicators = [indicator]
         segmentedView.delegate = self
         
-        segmentedView.backgroundColor = COLOR_BGColor
+        segmentedView.backgroundColor = COLOR_HexColor(0x131829)
         self.view.addSubview(segmentedView)
         segmentedView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -85,30 +86,38 @@ class FCSymbolsDrawerController: UIViewController {
         //配置数据源相关配置属性
         segmentedDataSource?.titles = titles
         segmentedDataSource?.isTitleColorGradientEnabled = true
-        segmentedDataSource?.titleNormalFont = UIFont.init(_customTypeSize: 14)
+        segmentedDataSource?.titleNormalFont = UIFont.init(_PingFangSCTypeSize: 14)
         segmentedDataSource?.itemSpacing = 25
         
-        segmentedDataSource?.titleNormalColor = UIColor.white
-        segmentedDataSource?.titleSelectedColor = COLOR_ThemeBtnEndColor
+        segmentedDataSource?.titleNormalColor = COLOR_CellTitleColor
+        segmentedDataSource?.titleSelectedColor = .white
         segmentedView.dataSource = self.segmentedDataSource
     }
     
     func loadSearchbar () {
+        
         self.searchbar = UISearchBar.init()
-        self.searchbar?.placeholder = "搜索币种"
-        self.searchbar?.barTintColor = COLOR_BGColor
-        self.searchbar?.backgroundColor = COLOR_BGColor
-        self.searchbar?.searchBarStyle = .minimal
-        self.searchbar?.barStyle = .black
+        
         if #available(iOS 13.0, *) {
-            self.searchbar?.searchTextField.backgroundColor = COLOR_HexColor(0x25262F)
+            
+            self.searchbar?.searchTextField.textColor = .white
+            self.searchbar?.searchTextField.attributedPlaceholder = NSAttributedString.init(string: "搜索币种", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
+            self.searchbar?.searchTextField.leftView = UIImageView(image: UIImage(named: "searchIcon"))
+            self.searchbar?.searchTextField.backgroundColor = COLOR_HexColor(0x131829)
         } else {
+            
+            self.searchbar?.placeholder = "搜索币种"
+            self.searchbar?.barTintColor = COLOR_HexColor(0x131829)
             // Fallback on earlier versions
         }
-        self.searchbar?.tintColor = COLOR_ThemeBtnEndColor
+
+        self.searchbar?.backgroundColor = COLOR_HexColor(0x131829)
+        self.searchbar?.searchBarStyle = .minimal
+        self.searchbar?.barStyle = .black
+        self.searchbar?.tintColor = .white
         
         let lineView = UIView()
-        lineView.backgroundColor = COLOR_BGColor
+        lineView.backgroundColor = COLOR_HexColor(0x131829)
         self.view.addSubview(lineView)
         
         lineView.snp.makeConstraints({ (make) in
@@ -132,14 +141,18 @@ class FCSymbolsDrawerController: UIViewController {
     func loadTableView () {
         
         self.tableView = UITableView.init()
-        self.tableView?.backgroundColor = COLOR_BGColor
-        self.tableView?.separatorStyle = .none
+        tableView?.tableFooterView = UIView()
+        self.tableView?.backgroundColor = COLOR_HexColor(0x131829)
+        //self.tableView?.separatorStyle = .none
+        self.tableView?.separatorColor = COLOR_HexColor(0x394155)
+        self.tableView?.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
         self.view.addSubview(self.tableView!)
         
+        /*
         let lineView = UIView()
-        lineView.backgroundColor = COLOR_BGColor
+        lineView.backgroundColor = COLOR_HexColor(0x131829)
         self.view.addSubview(lineView)
         
         lineView.snp.makeConstraints({ (make) in
@@ -148,9 +161,10 @@ class FCSymbolsDrawerController: UIViewController {
             make.right.equalToSuperview()
             make.height.equalTo(10)
         })
+         */
         
         self.tableView?.snp.makeConstraints({ (make) in
-            make.top.equalTo(lineView.snp.bottom)
+            make.top.equalTo(self.searchbar!.snp.bottom)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -210,7 +224,9 @@ class FCSymbolsDrawerController: UIViewController {
         self.searchResult = []
         
         if self.searchbar?.text?.isEmpty ?? false {
+            
             self.searchResult = item.tickers
+            
         } else {
             for model: FCMarketModel in item.tickers ?? [] {
                 if model.symbol?.uppercased().contains(self.searchbar?.text?.uppercased() ?? "") ?? false {
@@ -243,7 +259,7 @@ extension FCSymbolsDrawerController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 75
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

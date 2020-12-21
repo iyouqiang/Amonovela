@@ -32,7 +32,6 @@ class FCContractProfitLossCell: UITableViewCell {
     @IBOutlet weak var cancelBtn: UIButton!
     
     var modifyAction: (() -> Void)?
-    
     var cancelAction: (() -> Void)?
     
     override func awakeFromNib() {
@@ -40,21 +39,46 @@ class FCContractProfitLossCell: UITableViewCell {
         // Initialization code
         
         contentBgView.backgroundColor = COLOR_CellBgColor
-        changeBtn.layer.cornerRadius = 5
-        changeBtn.clipsToBounds = true
-        changeBtn.backgroundColor = .clear
-        changeBtn.layer.borderWidth = 0.8
-        changeBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
         
-        cancelBtn.layer.cornerRadius = 15
-        cancelBtn.clipsToBounds = true
-        cancelBtn.backgroundColor = .clear
-        cancelBtn.layer.borderWidth = 0.7
-        cancelBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
+        self.cancelBtn.layer.cornerRadius = 2
+        cancelBtn.layer.shadowColor = UIColor.black.cgColor
+        cancelBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cancelBtn.layer.shadowRadius = 5;
+        cancelBtn.layer.shadowOpacity = 0.5;
+        
+        var imageIcon = UIImage(named: "revokeOrder")
+        imageIcon = imageIcon?.stretchableImage(withLeftCapWidth: 20, topCapHeight: 15)
+        cancelBtn.setBackgroundImage(imageIcon, for: .normal)
+        
+        self.changeBtn.layer.cornerRadius = 2
+        changeBtn.layer.shadowColor = UIColor.black.cgColor
+        changeBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        changeBtn.layer.shadowRadius = 2;
+        changeBtn.layer.shadowOpacity = 0.3;
+        
+        //var imageIcon = UIImage(named: "revokeOrder")
+        imageIcon = imageIcon?.stretchableImage(withLeftCapWidth: 20, topCapHeight: 15)
+        changeBtn.setBackgroundImage(imageIcon, for: .normal)
         
         tradeTypeL.layer.cornerRadius = 5
         tradeTypeL.clipsToBounds = true
         self.triggerStateL.adjustsFontSizeToFitWidth = true
+        
+        tradeTypeL.font = UIFont(_PingFangSCTypeSize: 12)
+        symboleTitleL.font = UIFont(_DINProBoldTypeSize: 15)
+        entrustVolumeL.font = UIFont(_DINProBoldTypeSize: 13)
+        entrustVolumeTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        entrustPriceTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        entrustPriceL.font = UIFont(_DINProBoldTypeSize: 13)
+        triggerStateTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        triggerStateL.font = UIFont(_PingFangSCTypeSize: 13)
+        orderStatusL.font = UIFont(_PingFangSCTypeSize: 13)
+        orderTypeTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        orderTypeL.font = UIFont(_PingFangSCTypeSize: 13)
+        stopProfitTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        stopProfitL.font = UIFont(_DINProBoldTypeSize: 13)
+        stopLossTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        stopLossL.font = UIFont(_DINProBoldTypeSize: 13)
     }
     
     @IBAction func changeEntrustAction(_ sender: Any) {
@@ -77,7 +101,7 @@ class FCContractProfitLossCell: UITableViewCell {
             unitStr = "张"
         }
 
-        entrustVolumeTitleL.text = "委托量(\(unitStr))"
+        entrustVolumeTitleL.text = "委托总量" // (\(unitStr))
         // 止损价格
         stopLossL.text = model.stopLossPrice?.count == 0 ? "未设置" : model.stopLossPrice ?? ""
         // 止盈价格

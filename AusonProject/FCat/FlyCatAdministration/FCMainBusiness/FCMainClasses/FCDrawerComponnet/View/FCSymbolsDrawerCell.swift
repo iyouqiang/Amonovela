@@ -11,9 +11,11 @@
 import UIKit
 
 class FCSymbolsDrawerCell: UITableViewCell {
+    
     var tradeSymbolLab : UILabel?
     var baseSymbolLab : UILabel?
     var priceLab: UILabel?
+    var iconImgView: UIImageView?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,13 +38,20 @@ class FCSymbolsDrawerCell: UITableViewCell {
     }
     
     func loadSubviews () {
+        
         self.selectionStyle = .none
-        self.contentView.backgroundColor = COLOR_HexColor(0x202128)
+        self.contentView.backgroundColor = COLOR_HexColor(0x131829)
         self.tradeSymbolLab = fc_labelInit(text: "--", textColor: UIColor.white, textFont: 16, bgColor: UIColor.clear)
+        self.tradeSymbolLab?.font = UIFont(_DINProBoldTypeSize: 16)
         let seperateLab = fc_labelInit(text: "/", textColor: COLOR_MinorTextColor, textFont: 16, bgColor: UIColor.clear)
+        seperateLab.font = UIFont(_DINProBoldTypeSize: 16)
         seperateLab.isHidden = true
         self.baseSymbolLab = fc_labelInit(text: "--", textColor: COLOR_MinorTextColor, textFont: 12, bgColor: UIColor.clear)
+        self.baseSymbolLab?.font = UIFont(_DINProBoldTypeSize: 12)
         self.priceLab = fc_labelInit(text: "-.--", textColor: COLOR_RiseColor, textFont: 14, bgColor: UIColor.clear)
+        self.priceLab?.font = UIFont(_DINProBoldTypeSize: 14)
+        self.iconImgView = UIImageView(image: UIImage(named: "btc"))
+        self.contentView.addSubview(self.iconImgView!)
         self.contentView.addSubview(self.tradeSymbolLab!)
         self.contentView.addSubview(seperateLab)
         self.contentView.addSubview(self.baseSymbolLab!)
@@ -50,7 +59,13 @@ class FCSymbolsDrawerCell: UITableViewCell {
         
         self.tradeSymbolLab?.snp.makeConstraints({ (make) in
             make.centerY.equalToSuperview()
+            make.left.equalTo(self.iconImgView!.snp_right).offset(5)
+        })
+        
+        self.iconImgView?.snp.makeConstraints({ (make) in
+            make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(12)
+            make.width.height.equalTo(38)
         })
         
         seperateLab.snp.makeConstraints { (make) in
@@ -72,12 +87,16 @@ class FCSymbolsDrawerCell: UITableViewCell {
     }
     
     func loadData(model: FCMarketModel?) {
+        
+        
         if model == nil { return }
+        
+        self.iconImgView?.sd_setImage(with: URL(string: (model?.iconUrl ?? "")), placeholderImage: UIImage(named: "btc"), options: .retryFailed, completed: nil)
+        
         let arrayStrings: [String] = model?.symbol?.split(separator: "-").compactMap { "\($0)" } ?? []
         self.tradeSymbolLab?.text = arrayStrings.first
         self.baseSymbolLab?.text = arrayStrings.last ?? ""
         self.priceLab?.text = model?.latestPrice
-        
         
         let percentValue = Double(model?.changePercent ?? "0") ?? 0.0
         if percentValue == 0.0 {
@@ -96,6 +115,7 @@ class FCSymbolsDrawerCell: UITableViewCell {
                 return
             }
             
+            self.iconImgView?.sd_setImage(with: URL(string: (contractModel.iconUrl ?? "")), placeholderImage: UIImage(named: "btc"), options: .retryFailed, completed: nil)
             //self.tradeSymbolLab?.text = contractModel.asset
             self.tradeSymbolLab?.text = contractModel.name
             //self.baseSymbolLab?.text = contractModel.currency

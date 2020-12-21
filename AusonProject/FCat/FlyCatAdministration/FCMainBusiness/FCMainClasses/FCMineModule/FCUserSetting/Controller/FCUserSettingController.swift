@@ -54,7 +54,7 @@ class FCUserSettingController: UIViewController {
     
     func setupNavbar () {
         //        weak var weakSelf = self
-        self.addrightNavigationItemImgNameStr(nil, title: "设置", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 17), clickCallBack: {
+        self.addrightNavigationItemImgNameStr(nil, title: "设置", textColor: COLOR_MinorTextColor, textFont: UIFont(_PingFangSCTypeSize: 17), clickCallBack: {
             // weakSelf?.registerView?.registerBtnClick()
         })
     }
@@ -198,7 +198,7 @@ extension FCUserSettingController : UITableViewDataSource, UITableViewDelegate {
             
             desTextL = UILabel(frame: CGRect(x: kSCREENWIDTH - 290, y: 0, width: 250, height: 50))
             desTextL?.textColor = COLOR_HexColor(0xB0B1B3)
-            desTextL?.font = UIFont(_customTypeSize: 15)
+            desTextL?.font = UIFont(_PingFangSCTypeSize: 15)
             desTextL?.adjustsFontSizeToFitWidth = true
             desTextL?.tag = 999
             desTextL?.textAlignment = .right

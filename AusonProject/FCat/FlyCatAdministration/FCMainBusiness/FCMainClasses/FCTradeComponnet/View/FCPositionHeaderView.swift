@@ -22,15 +22,18 @@ class FCPositionHeaderView: UIView {
     
     @IBOutlet weak var unrealisedPNLL: UILabel!
     
+    @IBOutlet weak var realisedPNLNameL: UILabel!
+    @IBOutlet weak var unrealisedPNLNameL: UILabel!
     @IBOutlet weak var marginModeBtn: UIButton!
     
     @IBOutlet weak var holdMarginRatioL: UILabel!
     
+    @IBOutlet weak var marginRationNameL: UILabel!
     var marginModeBlock: (() -> Void)?
     
     override func awakeFromNib() {
         
-        self.IntegratedAssetL.adjustsFontSizeToFitWidth = true
+        //self.IntegratedAssetL.adjustsFontSizeToFitWidth = true
         
         if onlyCross == true {
             
@@ -81,13 +84,23 @@ class FCPositionHeaderView: UIView {
             let usedMargin = accountInfoModel.account?.usedMargin ?? "0.00"
             let availableMargin = accountInfoModel.account?.availableMargin ?? "0.00"
             let freezedMarginStr = accountInfoModel.account?.freezedMargin ?? "0.00"
-            
+            self.currencyL.font = UIFont(_DINProBoldTypeSize: 27)
             self.IntegratedAssetL.text = "=已用\(usedMargin) + 可用\(availableMargin) + 冻结\(freezedMarginStr)"
             
-            self.IntegratedAssetL.setAttributeColor(COLOR_MinorTextColor, range: NSRange(location: 0, length: 3))
-            self.IntegratedAssetL.setAttributeColor(COLOR_MinorTextColor, range: NSRange(location: 3+usedMargin.count, length: 5))
+            holdMarginRatioL.font = UIFont(_DINProBoldTypeSize: 14)
+            realisedPNLL.font = UIFont(_DINProBoldTypeSize: 14)
+            unrealisedPNLL.font = UIFont(_DINProBoldTypeSize: 14)
+            unrealisedPNLNameL.font = UIFont(_PingFangSCTypeSize: 13)
+            marginRationNameL.font = UIFont(_PingFangSCTypeSize: 13)
+            marginRatioL.font = UIFont(_DINProBoldTypeSize: 14)
             
-            self.IntegratedAssetL.setAttributeColor(COLOR_MinorTextColor, range: NSRange(location: 3+usedMargin.count + 5 + availableMargin.count, length: 5))
+            self.IntegratedAssetL.setAttributeFont(UIFont(_DINProBoldTypeSize: 13), range: NSRange(location: 0, length: (self.IntegratedAssetL.text?.count ?? 0)))
+            
+            self.IntegratedAssetL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 3))
+            
+            self.IntegratedAssetL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 3+usedMargin.count, length: 5))
+            
+            self.IntegratedAssetL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 3+usedMargin.count + 5 + availableMargin.count, length: 5))
             
             self.marginRatioL.text = (accountInfoModel.account?.marginRatio ?? "0.00") + "%"
             
@@ -118,7 +131,7 @@ class FCPositionHeaderView: UIView {
             
             let holdMarginRatio = ((accountInfoModel.account?.holdMarginRatio! ?? "0") as NSString).floatValue
             self.holdMarginRatioL.text = "* 保证金率达到\(holdMarginRatio)%时发生强平"
-            self.holdMarginRatioL.setAttributeColor(COLOR_TabBarTintColor, range: NSRange(location: 0, length: 1))
+            self.holdMarginRatioL.setAttributeColor(COLOR_MainThemeColor, range: NSRange(location: 0, length: 1))
         }
     }
     /*

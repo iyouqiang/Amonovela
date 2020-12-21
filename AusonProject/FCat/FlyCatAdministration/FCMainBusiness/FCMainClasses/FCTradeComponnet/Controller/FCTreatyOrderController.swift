@@ -449,8 +449,8 @@ class FCTreatyOrderController: UIViewController {
         leftSideMenuManager.menuBlurEffectStyle = .dark
         leftSideMenuManager.menuAnimationUsingSpringWithDamping = 0.8
         leftSideMenuManager.menuAnimationInitialSpringVelocity = 0.05
-        leftSideMenuManager.menuAnimationFadeStrength = 0.5
-        leftSideMenuManager.menuAnimationBackgroundColor = COLOR_BGColor
+        leftSideMenuManager.menuAnimationFadeStrength = 0.7
+        leftSideMenuManager.menuAnimationBackgroundColor = COLOR_HexColor(0x131829)
         leftSideMenuManager.menuShadowOpacity = 0.8
         leftSideMenuManager.menuFadeStatusBar = false
         //leftSideMenuManager.menuWidth = 280
@@ -475,18 +475,6 @@ class FCTreatyOrderController: UIViewController {
             self?.didSelectItem?(self?.marketModel ?? FCMarketModel())
             FCTradeSettingconfig.sharedInstance.symbol = model.symbol
         }
-        
-        /**
-         SideMenuManager.default.menuLeftNavigationController = UISideMenuNavigationController.init(rootViewController: self.leftVC)
-         SideMenuManager.default.menuWidth = 280
-         leftVC.didSelectItem { [weak self] (model) in
-         self?.marketModel = model
-         self?.leftVC.dismiss(animated: true, completion: nil)
-         self?.updateSymbol(model: model)
-         self?.didSelectItem?(model)
-         FCTradeSettingconfig.sharedInstance.symbol = model.symbol
-         }
-         */
         
         self.orderView?.symbolBtn.rx.tap.subscribe({[weak self] (event) in
             
@@ -527,13 +515,13 @@ class FCTreatyOrderController: UIViewController {
             make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.bottom.equalToSuperview()
+            //make.bottom.equalToSuperview()
         })
     }
     
     func getSectionHeader () -> UIView{
         let header = UIView.init(frame: CGRect.zero)
-        header.backgroundColor = COLOR_SectionFooterBgColor
+        header.backgroundColor = COLOR_navBgColor
         return header
     }
 }

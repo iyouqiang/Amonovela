@@ -42,8 +42,8 @@ class ChartColors {
     static let ma5Color   = COLOR_KLineColor(0xC9B885)
     static let ma10Color  = COLOR_KLineColor(0x6CB0A6)
     static let ma30Color  = COLOR_KLineColor(0x9979C6)
-    static let upColor    = COLOR_KLineColor(0x2CB362)
-    static let dnColor    = COLOR_KLineColor(0xE0274A)
+    static let upColor    = COLOR_KLineColor(0x2AB462)
+    static let dnColor    = COLOR_KLineColor(0xFB4B50)
     static let volColor   = COLOR_KLineColor(0x4729AE)
     
     static let macdColor = COLOR_KLineColor(0x4729AE)

@@ -13,6 +13,7 @@ class FCHotSymbolsCell: UITableViewCell {
     @IBOutlet weak var hotBgView: UIView!
     @IBOutlet weak var tradeSymbolL:UILabel!
     @IBOutlet weak var tradeNumL: UILabel!
+    @IBOutlet weak var symbolIconImgView: UIImageView!
     @IBOutlet weak var tradeLatesPriceL: UILabel!
     @IBOutlet weak var trademeasureL: UILabel!
     @IBOutlet weak var tradeBtn: UIButton!
@@ -20,10 +21,10 @@ class FCHotSymbolsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         tradeBtn.layer.cornerRadius = 5.0
-        tradeNumL.font = UIFont(_customTypeSize: 13)
-        tradeLatesPriceL.font = UIFont(_customTypeSize: 15)
-        trademeasureL.font = UIFont(_customTypeSize: 13)
-        tradeBtn.titleLabel?.font = UIFont(_customTypeSize: 14)
+        tradeNumL.font = UIFont(_DINProBoldTypeSize: 13)
+        tradeLatesPriceL.font = UIFont(_DINProBoldTypeSize: 15)
+        trademeasureL.font = UIFont(_DINProBoldTypeSize: 13)
+        tradeBtn.titleLabel?.font = UIFont(_DINProBoldTypeSize: 14)
         tradeNumL.adjustsFontSizeToFitWidth = true
         tradeLatesPriceL.adjustsFontSizeToFitWidth = true
         trademeasureL.adjustsFontSizeToFitWidth = true
@@ -32,6 +33,9 @@ class FCHotSymbolsCell: UITableViewCell {
         self.hotBgView.layer.cornerRadius = 8;
         self.hotBgView.clipsToBounds = true
         self.hotBgView.backgroundColor = COLOR_HexColor(0x1D2439)
+        self.symbolIconImgView.layer.cornerRadius = 17.5
+        self.symbolIconImgView.clipsToBounds = true
+        tradeSymbolL.adjustsFontSizeToFitWidth = true
     }
     
     var symbolModel:FCHomeSymbolsModel? {
@@ -58,32 +62,57 @@ class FCHotSymbolsCell: UITableViewCell {
              tradingAmount = "585.98";
              */
             
-            tradeSymbolL.text = symbolModel.name
+            self.symbolIconImgView.sd_setImage(with: URL(string: (symbolModel.iconUrl ?? "")), placeholderImage: UIImage(named: "trade_BTC"), options: .retryFailed, completed: nil)
+            tradeSymbolL.text = symbolModel.symbol?.replacingOccurrences(of: "-", with: "/") //symbolModel.name
             
             let array : Array = tradeSymbolL.text?.components(separatedBy: "/") ?? []
-            let symbolStr = array.first
+            var symbolStr = array.first
+            
+            if (symbolModel.name?.count ?? 0) > 0 {
+                
+                tradeSymbolL.text = symbolModel.name
+                symbolStr = symbolModel.name
+            }
             
             let attrStr = NSMutableAttributedString.init(string: tradeSymbolL.text ?? "")
     
             // 富文本修改位置大小
             attrStr.addAttribute(NSAttributedString.Key.foregroundColor, value:UIColor.white, range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
-            attrStr.addAttribute(NSAttributedString.Key.font, value:UIFont(_customTypeSize: 16), range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
+            attrStr.addAttribute(NSAttributedString.Key.font, value:UIFont(_DINProBoldTypeSize: 16), range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
+            
             tradeSymbolL.attributedText = attrStr
             
-            tradeNumL.text = "24H量 \(symbolModel.tradingAmount ?? "")"
+            tradeNumL.text = "24h量 \(symbolModel.tradingAmount ?? "")"
             tradeLatesPriceL.text = "$ \(symbolModel.latestPrice ?? "")"
             tradeLatesPriceL.setAttributeColor(COLOR_MinorTextColor, range: NSMakeRange(0, 1))
             trademeasureL.text = "\(symbolModel.fiatPrice ?? "")\(symbolModel.fiatCurrency ?? "")"
             
+            
+            if symbolModel.priceTrend == "Up" {
+                
+                tradeLatesPriceL.textColor = COLOR_RiseColor
+                
+            }else if symbolModel.priceTrend == "Down" {
+                
+                tradeLatesPriceL.textColor = COLOR_FailColor
+                
+            }else {
+                
+                tradeLatesPriceL.textColor = .white
+            }
+            
+            tradeLatesPriceL.setAttributeColor(COLOR_MinorTextColor, range: NSMakeRange(0, 1))
+             
             if (symbolModel.changePercent! as NSString).floatValue >= 0 {
                 tradeBtn.setTitle("+\(symbolModel.changePercent ?? "--")%", for: .normal)
-                tradeBtn.backgroundColor = COLOR_BGRiseColor
+                //tradeBtn.backgroundColor = COLOR_BGRiseColor
                 tradeBtn.setTitleColor(COLOR_RiseColor, for: .normal)
             }else {
                 tradeBtn.setTitle("\(symbolModel.changePercent ?? "--")%", for: .normal)
-                tradeBtn.backgroundColor = COLOR_BGFailColor
+                //tradeBtn.backgroundColor = COLOR_BGFailColor
                 tradeBtn.setTitleColor(COLOR_FailColor, for: .normal)
             }
+             
         }
     }
 

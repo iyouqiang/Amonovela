@@ -20,7 +20,6 @@ class FCUserInfoModel: NSObject, HandyJSON, Codable {
     
     // 登录接口 差异参数
     var sid:String?
-    
     // 隐藏小额资产
     enum Dribblet {
         case dribblet_hidden
@@ -65,6 +64,7 @@ class FCUserInfoModel: NSObject, HandyJSON, Codable {
     @objc var state: String?
     @objc var invite_code:String?
     @objc var token: String?
+    var kycLevel: String?
     
     static public func stringToObject(jsonData: [String : Any]?) -> FCUserInfoModel {
         return FCUserInfoModel.deserialize(from: jsonData) ?? FCUserInfoModel()

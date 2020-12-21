@@ -15,29 +15,18 @@ class FCPerpetualEntrustListCell: UITableViewCell {
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var modifyBtn: UIButton!
-    
+    @IBOutlet weak var entrustTimeL: UILabel!
     @IBOutlet weak var cancelBtn: UIButton!
-    
     @IBOutlet weak var sideLab: UILabel!
-    
     @IBOutlet weak var symbolLab: UILabel!
-    
     @IBOutlet weak var timeLab: UILabel!
-    
     @IBOutlet weak var entrustTitleLab: UILabel!
-    
     @IBOutlet weak var entrustVolumeLab: UILabel!
-    
     @IBOutlet weak var entrustPriceTitleLab: UILabel!
-    
     @IBOutlet weak var entrustPriceLab: UILabel!
-    
     @IBOutlet weak var fillVolumeTitleLab: UILabel!
-    
     @IBOutlet weak var filleVolumeLab: UILabel!
-    
     @IBOutlet weak var fillPriceTitleLab: UILabel!
-    
     @IBOutlet weak var fillPriceLab: UILabel!
     
     var modifyAction: (() -> Void)?
@@ -53,12 +42,6 @@ class FCPerpetualEntrustListCell: UITableViewCell {
         
         self.modifyBtn.isHidden = true
         
-        modifyBtn.layer.cornerRadius = 12
-        modifyBtn.layer.borderColor = COLOR_HighlightColor.cgColor
-        modifyBtn.layer.borderWidth = 0.5
-        cancelBtn.layer.cornerRadius = 12
-        cancelBtn.layer.borderColor = COLOR_HighlightColor.cgColor
-        cancelBtn.layer.borderWidth = 0.5
         self.sideLab.layer.cornerRadius = 3
         self.sideLab.layer.masksToBounds = true
         self.modifyBtn.setTitle("修改", for: .normal)
@@ -67,10 +50,43 @@ class FCPerpetualEntrustListCell: UITableViewCell {
         self.entrustPriceTitleLab.text = "委托价格"
         self.fillVolumeTitleLab.text = "已成交量"
         self.fillPriceTitleLab.text = "成交均价"
+        self.entrustTimeL.text = "委托时间"
+        
+        self.sideLab.font = UIFont(_PingFangSCTypeSize: 12)
+        self.modifyBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 13)
+        self.cancelBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 13)
+        
+        self.entrustTitleLab.font = UIFont(_PingFangSCTypeSize: 13)
+        self.entrustPriceLab.font = UIFont(_DINProBoldTypeSize: 13)
+        self.symbolLab.font = UIFont(_DINProBoldTypeSize: 15)
+        self.filleVolumeLab.font = UIFont(_DINProBoldTypeSize: 13)
+        self.fillPriceLab.font = UIFont(_DINProBoldTypeSize: 13)
+        self.entrustPriceLab.font = UIFont(_DINProBoldTypeSize: 13)
+        self.entrustVolumeLab.font = UIFont(_DINProBoldTypeSize: 13)
+        self.entrustPriceTitleLab.font = UIFont(_PingFangSCTypeSize: 13)
+        self.fillVolumeTitleLab.font = UIFont(_PingFangSCTypeSize: 13)
+        self.fillPriceTitleLab.font = UIFont(_PingFangSCTypeSize: 13)
+        self.entrustTimeL.font = UIFont(_PingFangSCTypeSize: 13)
+        
+        self.cancelBtn.layer.cornerRadius = 2
+        cancelBtn.layer.shadowColor = UIColor.black.cgColor
+        cancelBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cancelBtn.layer.shadowRadius = 2;
+        cancelBtn.layer.shadowOpacity = 0.3;
+        
+        var imageIcon = UIImage(named: "revokeOrder")
+        imageIcon = imageIcon?.stretchableImage(withLeftCapWidth: 20, topCapHeight: 15)
+        cancelBtn.setBackgroundImage(imageIcon, for: .normal)
+        
+        self.modifyBtn.layer.cornerRadius = 2
+        modifyBtn.layer.shadowColor = UIColor.black.cgColor
+        modifyBtn.layer.shadowOffset = CGSize(width: 3, height: 3) 
+        modifyBtn.layer.shadowRadius = 2;
+        modifyBtn.layer.shadowOpacity = 0.3;
+        modifyBtn.setBackgroundImage(imageIcon, for: .normal)
         
         self.modifyBtn.rx.tap.subscribe { (event) in
             // self.modifyAction?()
-            
             
              let positionView = FCPerpetualModifyView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 430))
             // positionView.positionModel = self.positionModel

@@ -89,7 +89,7 @@ class FCCXPAssetController: UIViewController {
         }
         
         menuView.frame = CGRect(x: 15, y: 0, width: kSCREENWIDTH-30, height: 110)
-        
+        menuView.containerView.backgroundColor = COLOR_HexColor(0x0C131B)
         return menuView
     }()
     
@@ -106,7 +106,7 @@ class FCCXPAssetController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = COLOR_BGColor
+        self.view.backgroundColor = COLOR_HexColor(0x0C131B)
         // Do any additional setup after loading the view.
         
         /// 刷新资产数据

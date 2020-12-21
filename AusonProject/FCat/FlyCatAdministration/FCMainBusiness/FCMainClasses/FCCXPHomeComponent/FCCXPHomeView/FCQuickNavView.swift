@@ -78,7 +78,7 @@ class FCQuickNavView: UIView {
 
             // 标题
             let titleLabel = UILabel()
-            titleLabel.font = UIFont(_customTypeSize: 15)
+            titleLabel.font = UIFont(_PingFangSCTypeSize: 15)
             titleLabel.text = item.title
             titleLabel.textAlignment = .center
             titleLabel.textColor = UIColor.white

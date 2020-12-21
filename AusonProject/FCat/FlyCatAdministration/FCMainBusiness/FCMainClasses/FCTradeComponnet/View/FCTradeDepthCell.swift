@@ -13,13 +13,15 @@ class FCTradeDepthCell: UITableViewCell {
     
     var isSell: Bool = true
     lazy var priceLab: UILabel = {
-        let priceLab = fc_labelInit(text: "-.--", textColor: UIColor.white, textFont: 12, bgColor: UIColor.clear)
+        //let priceLab = fc_labelInit(text: "-.--", textColor: UIColor.white, textFont: 12, bgColor: UIColor.clear)
+        let priceLab = fc_labelInit(text: "0.00", textColor: .white, textFont: UIFont(_DINProBoldTypeSize: 13), bgColor: .clear)
         priceLab.textAlignment = .left
         return priceLab
     }()
     
     lazy var amountLab: UILabel = {
-        let amountLab = fc_labelInit(text: "--", textColor: UIColor.white, textFont: 12, bgColor: UIColor.clear)
+        //let amountLab = fc_labelInit(text: "--", textColor: UIColor.white, textFont: 12, bgColor: UIColor.clear)
+        let amountLab = fc_labelInit(text: "0.00", textColor: .white, textFont: UIFont(_DINProBoldTypeSize: 13), bgColor: .clear)
         amountLab.textAlignment = .right
         return amountLab
     }()

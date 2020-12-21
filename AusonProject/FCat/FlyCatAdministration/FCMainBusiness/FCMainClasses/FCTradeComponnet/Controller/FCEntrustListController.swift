@@ -30,13 +30,13 @@ class FCEntrustListController: UIViewController {
     private lazy var sectionHeaderView: UIView = {
        
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44))
-        /// 当前委托
-        let entrustL = fc_labelInit(text: "当前委托", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
+        /// 当前委托 
+        let entrustL = fc_labelInit(text: "委托", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         headerView.addSubview(entrustL)
         entrustL.frame = CGRect(x: 15, y: 0, width: 150, height: 44)
         
         /// 历史记录
-        let historyL = fc_labelInit(text: "历史记录", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        let historyL = fc_labelInit(text: "历史记录", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         historyL.textAlignment = .right
         headerView.addSubview(historyL)
         historyL.frame = CGRect(x: kSCREENWIDTH - 145, y: 0, width: 130, height: 44)
@@ -50,7 +50,7 @@ class FCEntrustListController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -132,20 +132,24 @@ class FCEntrustListController: UIViewController {
                 }
                 
                 if self?.entrustModels.count == 0 {
-                    self?.tableView.tableFooterView = self?.footerHint
+                    //self?.tableView.tableFooterView = self?.footerHint
+                    self?.view.unAvailableDataSourceDefault()
                 }else {
-                    self?.tableView.tableFooterView = nil
+                    //self?.tableView.tableFooterView = nil
+                    self?.view.removePlaceholderView()
                 }
                 self?.tableView.reloadData()
                 
             }) { (errMsg) in
                 //self?.view.makeToast(errMsg, position: .center)
-                self?.footerHint.text = errMsg
-                self?.tableView.tableFooterView = self?.footerHint
+                //self?.footerHint.text = errMsg
+                //self?.tableView.tableFooterView = self?.footerHint
+                self?.view.unAvailableDataSource(errMsg ?? "", imgStr: "")
             }
         }) { [weak self](response) in
             //self.view.makeToast(response.error?.localizedDescription, position: .center)
-            self?.tableView.tableFooterView = self?.footerHint
+            //self?.tableView.tableFooterView = self?.footerHint
+            self?.view.unAvailableDataSourceDefault()
         }
     }
     

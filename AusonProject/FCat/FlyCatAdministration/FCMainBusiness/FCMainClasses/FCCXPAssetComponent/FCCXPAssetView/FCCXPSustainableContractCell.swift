@@ -26,8 +26,8 @@ class FCCXPSustainableContractCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.contentView.backgroundColor = COLOR_BGColor
-        self.assetAccountTitleL.font = UIFont(_customTypeSize: 16)
+        self.contentView.backgroundColor = COLOR_HexColor(0x0C131B)
+        self.assetAccountTitleL.font = UIFont(_PingFangSCTypeSize: 16)
         self.assetBgImgView.backgroundColor = COLOR_navBgColor
         self.assetBgImgView.layer.cornerRadius = 8
         self.assetBgImgView.clipsToBounds = true

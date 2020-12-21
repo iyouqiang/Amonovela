@@ -4,7 +4,7 @@
 //
 //  Created by Yochi on 2018/9/4.
 //  Copyright © 2018年 Yochi. All rights reserved.
-//
+// 
 
 import UIKit
 
@@ -16,7 +16,7 @@ class FCMainTabBarController: UITabBarController {
     
     lazy var itemCapView: UIView = {
         //UIFont.systemFont(ofSize: <#T##CGFloat#>)
-        //UIFont(_customTypeSize: <#T##CGFloat#>)
+        //UIFont(_PingFangSCTypeSize: <#T##CGFloat#>)
         let view = UIView(frame: CGRect(x: (itemWidth - 60)/2.0, y: -15, width: 60, height: 60))
         view.layer.cornerRadius = 30
         view.clipsToBounds = true

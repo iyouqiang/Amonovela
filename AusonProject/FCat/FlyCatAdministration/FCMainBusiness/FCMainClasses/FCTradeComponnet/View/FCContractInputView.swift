@@ -26,7 +26,8 @@ class FCContractInputView: UIView {
         super.init(frame: frame)
         
         self.setUp()
-        self.backgroundColor = COLOR_HexColorAlpha(0xD8D8D8, alpha: 0.2)
+        self.backgroundColor = COLOR_HexColor(0x293247)
+            //COLOR_HexColorAlpha(0xD8D8D8, alpha: 0.2)
     }
     
     required init?(coder: NSCoder) {
@@ -74,19 +75,19 @@ class FCContractInputView: UIView {
     
     func setUp() {
         
-        preTitleL = fc_labelInit(text: "", textColor: COLOR_CellTitleColor, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
+        preTitleL = fc_labelInit(text: "", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         addSubview(preTitleL)
         
         textField = UITextField()
-        textField.tintColor = COLOR_TabBarTintColor
+        textField.tintColor = .white//COLOR_TabBarTintColor
         textField.keyboardType = .decimalPad
-        textField.font = UIFont(_customTypeSize: 16)
-        textField.textColor = COLOR_RichBtnTitleColor
+        textField.font = UIFont(_PingFangSCTypeSize: 16)
+        textField.textColor = .white//COLOR_RichBtnTitleColor
         textField.borderStyle = .none
         textField.textAlignment = .right
         addSubview(textField)
         
-        suffixL = fc_labelInit(text: "", textColor: COLOR_CellTitleColor, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
+        suffixL = fc_labelInit(text: "", textColor: .white, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         suffixL.textAlignment = .right
         addSubview(suffixL)
         

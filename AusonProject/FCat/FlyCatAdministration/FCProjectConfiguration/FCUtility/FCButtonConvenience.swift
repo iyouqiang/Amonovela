@@ -23,7 +23,7 @@ func fc_buttonInit(imgName : String?, title : String? = "", fontSize : CGFloat? 
     button.setTitle(title, for: .normal)
     
     //button.titleLabel?.font = UIFont(name: "PingFangSC", size: fontSize!)
-    button.titleLabel?.font = UIFont.init(_customTypeSize: fontSize!)
+    button.titleLabel?.font = UIFont.init(_PingFangSCTypeSize: fontSize!)
     button.setTitleColor(titleColor, for: .normal)
     button.backgroundColor = bgColor
     
@@ -41,7 +41,7 @@ extension UIButton {
     
     func fc_buttonConfig(imgName : String?, title : String? = "", fontSize : CGFloat? = 12, titleColor : UIColor? = COLOR_ThemeBtnTextColor, bgColor : UIColor? = UIColor.clear) {
         self.setTitle(title, for: .normal)
-        self.titleLabel?.font = UIFont.init(_customTypeSize: fontSize!)
+        self.titleLabel?.font = UIFont.init(_PingFangSCTypeSize: fontSize!)
         self.setTitleColor(titleColor, for: .normal)
         self.backgroundColor = bgColor
         

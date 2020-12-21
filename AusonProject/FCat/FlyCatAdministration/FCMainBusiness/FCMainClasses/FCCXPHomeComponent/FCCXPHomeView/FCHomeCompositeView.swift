@@ -96,7 +96,7 @@ class FCHomeCompositeView: UIView {
         }
         
         /// 快捷买币 充币
-        self.fastBuyCoinsBtn = fc_buttonInit(imgName: "home_fastrechange", title: "快捷买币", fontSize: 16, titleColor: UIColor.white, bgColor: COLOR_HexColor(0x232A3F))
+        self.fastBuyCoinsBtn = fc_buttonInit(imgName: "home_fastpurchase", title: "快捷买币", fontSize: 16, titleColor: UIColor.white, bgColor: COLOR_HexColor(0x232A3F))
         self.fastBuyCoinsBtn.addTarget(self, action: #selector(fastBuyCoinsAction), for: .touchUpInside)
         self.fastBuyCoinsBtn.layer.cornerRadius = 8
         self.fastBuyCoinsBtn.clipsToBounds = true

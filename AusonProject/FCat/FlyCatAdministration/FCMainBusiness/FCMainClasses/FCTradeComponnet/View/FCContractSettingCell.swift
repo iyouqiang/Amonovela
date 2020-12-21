@@ -46,10 +46,10 @@ class FCContractSettingCell: UITableViewCell {
     
     func setupView() {
         
-        titleL = fc_labelInit(text: "", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
+        titleL = fc_labelInit(text: "", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         contentView.addSubview(titleL)
 
-        describeL = fc_labelInit(text: "", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
+        describeL = fc_labelInit(text: "", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         describeL.textAlignment = .right
         contentView.addSubview(describeL)
         
@@ -57,7 +57,7 @@ class FCContractSettingCell: UITableViewCell {
         contentView.addSubview(arrowImgView)
         
         let longLeverage = "\(FCTradeSettingconfig.sharedInstance.longLeverage ?? "0")X 多"
-        goingLongL = fc_labelInit(text: longLeverage, textColor: COLOR_tabbarNormalColor, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
+        goingLongL = fc_labelInit(text: longLeverage, textColor: COLOR_tabbarNormalColor, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         goingLongL.textAlignment = .center
         contentView.addSubview(goingLongL)
         goingLongL.layer.cornerRadius = 15
@@ -73,7 +73,7 @@ class FCContractSettingCell: UITableViewCell {
         }
         
         let shortLeverage = "\(FCTradeSettingconfig.sharedInstance.shortLeverage ?? "0")X 空"
-        shortSellingL = fc_labelInit(text: shortLeverage, textColor: COLOR_tabbarNormalColor, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
+        shortSellingL = fc_labelInit(text: shortLeverage, textColor: COLOR_tabbarNormalColor, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         shortSellingL.textAlignment = .center
         contentView.addSubview(shortSellingL)
         shortSellingL.layer.cornerRadius = 15

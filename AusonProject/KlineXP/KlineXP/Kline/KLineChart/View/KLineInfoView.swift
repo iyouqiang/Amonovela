@@ -61,7 +61,7 @@ class KLineInfoView: UIView {
     }
     
     static func lineInfoView() -> KLineInfoView {
-        let view = Bundle.main.loadNibNamed("KLineInfoView", owner: self, options: nil)?.last as! KLineInfoView
+        let view = KLineBundle?.loadNibNamed("KLineInfoView", owner: self, options: nil)?.last as! KLineInfoView
         view.frame = CGRect(x: 0, y: 0, width: 120, height: 145)
        return view
     }

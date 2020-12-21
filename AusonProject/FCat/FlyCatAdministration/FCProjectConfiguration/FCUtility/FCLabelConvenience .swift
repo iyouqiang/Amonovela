@@ -12,13 +12,15 @@ public func fc_labelInit(text: String?, textColor: UIColor?, textFont: CGFloat?,
     
     let label = UILabel()
     label.text = text ?? ""
-    label.font = UIFont.init(_customTypeSize: textFont ?? 15)
+    label.font = UIFont.init(_PingFangSCTypeSize: textFont ?? 15)
     label.textColor = textColor ?? UIColor.white
     label.backgroundColor = bgColor ?? UIColor.clear
     label.numberOfLines = 0
     
     return label
 }
+
+
 
 public func fc_labelInit(text: String, textColor: UIColor, textFont: UIFont, bgColor: UIColor) -> UILabel {
     

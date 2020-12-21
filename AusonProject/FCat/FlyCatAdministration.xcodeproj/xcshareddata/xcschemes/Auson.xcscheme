@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D2724D13213E1E1A002E43CD"
-               BuildableName = "CXP.app"
+               BuildableName = "Auson.app"
                BlueprintName = "Auson"
                ReferencedContainer = "container:FlyCatAdministration.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2724D13213E1E1A002E43CD"
-            BuildableName = "CXP.app"
+            BuildableName = "Auson.app"
             BlueprintName = "Auson"
             ReferencedContainer = "container:FlyCatAdministration.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2724D13213E1E1A002E43CD"
-            BuildableName = "CXP.app"
+            BuildableName = "Auson.app"
             BlueprintName = "Auson"
             ReferencedContainer = "container:FlyCatAdministration.xcodeproj">
          </BuildableReference>

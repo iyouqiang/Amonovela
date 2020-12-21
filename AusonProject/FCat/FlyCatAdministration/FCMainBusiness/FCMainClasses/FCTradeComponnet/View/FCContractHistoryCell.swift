@@ -38,6 +38,19 @@ class FCContractHistoryCell: UITableViewCell {
         lineView.backgroundColor = COLOR_BGColor
         
         self.shareItemBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        commissionedSourceL.font = UIFont(_DINProBoldTypeSize: 14)
+        profitRateL.font = UIFont(_DINProBoldTypeSize: 14)
+        symbolL.font = UIFont(_DINProBoldTypeSize: 13)
+        orderStatusL.font = UIFont(_PingFangSCTypeSize: 14)
+        profitL.font = UIFont(_DINProBoldTypeSize: 14)
+        avgFilledPriceL.font = UIFont(_DINProBoldTypeSize: 14)
+        tradeTypeL.font = UIFont(_PingFangSCTypeSize: 14)
+        cumFilledVolumeL.font = UIFont(_DINProBoldTypeSize: 14)
+        entrustTmL.font = UIFont(_DINProBoldTypeSize: 14)
+        entrustPriceL.font = UIFont(_DINProBoldTypeSize: 14)
+        entrustVolumeL.font = UIFont(_DINProBoldTypeSize: 14)
+        actionTypeL.font = UIFont(_DINProBoldTypeSize: 14)
     }
     
     @IBAction func shareItemAction(_ sender: Any) {
@@ -128,9 +141,9 @@ class FCContractHistoryCell: UITableViewCell {
             self.cumFilledVolumeL.text = "成交量 \(historyModel.cumFilledVolume ?? "")"
             
             self.entrustPriceL.text = "委托价格 ₮\(historyModel.entrustPrice ?? "")"
-            self.entrustPriceL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 4))
+            self.entrustPriceL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 4))
             self.entrustTmL.text = "委托时间 \(historyModel.entrustTm ?? "")"
-            self.entrustTmL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 4))
+            self.entrustTmL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 4))
             
             if (historyModel.tradeType == "Limit") {
                 
@@ -139,7 +152,7 @@ class FCContractHistoryCell: UITableViewCell {
                 self.tradeTypeL.text = "委托类型 市价委托"
             }
             
-             self.tradeTypeL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 4))
+             self.tradeTypeL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 4))
             
             if (historyModel.orderStatus == "Filled") {
                 
@@ -165,11 +178,11 @@ class FCContractHistoryCell: UITableViewCell {
             self.avgFilledPriceL.text = "成交价 ₮\(historyModel.avgFilledPrice ?? "")"
             
             /// 修改字体颜色
-            self.entrustVolumeL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 4))
-            self.cumFilledVolumeL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 3))
-            self.avgFilledPriceL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 3))
-            self.profitL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 2))
-            self.profitRateL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 3))
+            self.entrustVolumeL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 4))
+            self.cumFilledVolumeL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 3))
+            self.avgFilledPriceL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 3))
+            self.profitL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 2))
+            self.profitRateL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 3))
             
             /// 后新增问题来源
             var dessourceStr = ""
@@ -194,7 +207,7 @@ class FCContractHistoryCell: UITableViewCell {
             commissionedSourceL.text = dessourceStr
             
             if dessourceStr.count > 0 {
-                self.commissionedSourceL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 5))
+                self.commissionedSourceL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 5))
             }
             
             if shareModel?.symbolName?.count == 0 {
@@ -203,7 +216,7 @@ class FCContractHistoryCell: UITableViewCell {
                 self.profitRateL.isHidden = false
                 self.profitRateL.text = dessourceStr
                 if dessourceStr.count > 0 {
-                    self.profitRateL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 5))
+                    self.profitRateL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 5))
                 }
             }
         }

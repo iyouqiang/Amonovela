@@ -191,15 +191,16 @@ public let COLOR_InputText = COLOR_HexColor(0xDADADD)
 //public let COLOR_FailColor = COLOR_HexColor(0xFB4B50)
 
 public let COLOR_RiseColor = COLOR_HexColor(0x2CB362)
-public let COLOR_FailColor = COLOR_HexColor(0xE0274A)
+public let COLOR_FailColor = COLOR_HexColor(0xF24D5F)
 
 //public let COLOR_BGRiseColor = COLOR_HexColorAlpha(0x2AB462, alpha: 1.0)
 //COLOR_HexColor(0x2AB462)
-//public let COLOR_BGFailColor = COLOR_HexColorAlpha(0xFB4B50, alpha: 1.0)
+//public let COLOR_BGFailColor = COLOR_HexColorAlpha(0xFB4B50, alpha: 1.0) 
 
-public let COLOR_BGRiseColor = COLOR_HexColorAlpha(0x2CB362, alpha: 0.2)
-public let COLOR_BGFailColor = COLOR_HexColorAlpha(0xE0274A, alpha: 0.2)
+public let COLOR_BGRiseColor = COLOR_HexColorAlpha(0x2CB362 , alpha: 0.1)
+public let COLOR_BGFailColor = COLOR_HexColorAlpha(0xE0274A, alpha: 0.1)
 
+/*
 public let HOSTURL_SPOT = "http://spot.chainxp.io"
 public let HOSTURL_SWAP = "http://swap.chainxp.io"
 public let HOSTURL_API  = "http://api.chainxp.io"
@@ -208,13 +209,30 @@ public let HOSTURL_INVITE    = "http://chainxp.io/invite"
 public let HOSTURL_KYC       = "http://chainxp.io/account/full/kyc"
 public let HOSTURL_ASSETS    = "http://c2c.chainxp.io/thirdparty/assets"
 public let HOSTURL_TRADE     = "http://c2c.chainxp.io/thirdparty/trade"
-public let HOSTURL_MASSETS   = "http://c2c.chainxp.io/assets"
-public let HOSTURL_EASYTRADE = "http://c2c.chainxp.io/easy-trade"
+public let HOSTURL_MASSETS   = "http://c2c.chainxp.io/thirdparty/assets"
+public let HOSTURL_EASYTRADE = "http://c2c.chainxp.io/thirdparty/trade"
 public let HOSTURL_NEWGUIDE  = "https://supportchex.zendesk.com/hc/zh-cn/categories/900000201863-%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97"
 public let HOSTURL_CPEEXCHANGE = "https://supportchex.zendesk.com/hc/zh-cn/articles/900003238606-%E5%85%B3%E4%BA%8EChampagne-Exchange"
 public let HOSTURL_TRADESKILL = "https://supportchex.zendesk.com/hc/zh-cn/sections/900000476043-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%BC%95"
 public let HOSTURL_DOMAIN = "http://app-api.chainxp.io"
+*/
 
+
+public let HOSTURL_SPOT = "https://spot.ausonex.com"
+public let HOSTURL_SWAP = "https://swap.ausonex.com"
+public let HOSTURL_API  = "https://api.ausonex.com"
+
+public let HOSTURL_INVITE    = "https://www.ausonex.com/invite"
+public let HOSTURL_KYC       = "https://www.ausonex.com/account/kyc"
+public let HOSTURL_ASSETS    = "https://c2c.ausonex.com/thirdparty/assets"
+public let HOSTURL_TRADE     = "https://c2c.ausonex.com/thirdparty/trade"
+public let HOSTURL_MASSETS   = "https://c2c.ausonex.com/thirdparty/assets"
+public let HOSTURL_EASYTRADE = "https://c2c.ausonex.com/thirdparty/trade"
+public let HOSTURL_NEWGUIDE  = "https://supportchex.zendesk.com/hc/zh-cn/categories/900000201863-%E6%96%B0%E6%89%8B%E6%8C%87%E5%8D%97"
+public let HOSTURL_CPEEXCHANGE = "https://supportchex.zendesk.com/hc/zh-cn/articles/900003238606-%E5%85%B3%E4%BA%8EChampagne-Exchange"
+public let HOSTURL_TRADESKILL = "https://supportchex.zendesk.com/hc/zh-cn/sections/900000476043-%E6%93%8D%E4%BD%9C%E6%8C%87%E5%BC%95"
+public let HOSTURL_DOMAIN = "https://api.ausonex.com"
+ 
 /// 是否固定全仓 
 public let onlyCross = true
 
@@ -222,6 +240,6 @@ class FCConstantDefinition: NSObject {
     
     @objc static public func HOSTURL_OC_SPOT() -> String {
         
-        return "http://spot.chainxp.io"
+        return "https://spot.ausonex.com/"
     }
 }

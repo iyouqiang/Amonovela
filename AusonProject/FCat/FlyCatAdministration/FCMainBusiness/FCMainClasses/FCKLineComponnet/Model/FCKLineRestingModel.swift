@@ -45,6 +45,7 @@ class FCLatestTradeModel: NSObject, HandyJSON, Codable {
 class FCPrecisionsModel: NSObject, HandyJSON, Codable {
     
     var precision = ""
+    var step = ""
     var id = ""
     
     required public override init() {

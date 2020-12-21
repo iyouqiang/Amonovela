@@ -30,7 +30,7 @@ class FCContractPositionController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 20)
         return footerHint
@@ -154,7 +154,7 @@ class FCContractPositionController: UIViewController {
                     let positionNum = self?.dataSource?.count
                     
                     if let currentViewHeightBolcok = self?.currentViewHeightBolcok {
-                        let viewHeight = (270 * (positionNum ?? 0))
+                        let viewHeight = (280 * (positionNum ?? 0))
                         currentViewHeightBolcok(CGFloat(viewHeight) + 280, accountModel)
                     }
                 }
@@ -204,7 +204,7 @@ class FCContractPositionController: UIViewController {
                             
                             if let accountModel = self?.accountInfoModel {
                                 
-                                let viewHeight = (270 * (positionNum ?? 0))
+                                let viewHeight = (280 * (positionNum ?? 0))
                                 currentViewHeightBolcok(CGFloat(viewHeight) + 280, accountModel)
                             }
                         }
@@ -291,7 +291,7 @@ extension FCContractPositionController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 270
+        return 280
     }
 }
 

@@ -13,7 +13,7 @@ import RxCocoa
 
 enum FCMarketSortType: String {
     case Default = ""
-    case Name = "Name"
+    case Volume = "Volume"
     case Price = "Price"
     case Change = "Change"
 }
@@ -57,9 +57,10 @@ class FCSortComponent: UIView {
     
     private func loadSubviews () {
         self.nameBtn = fc_buttonInit(imgName: "sortNone", title: "交易对/成交量", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
+        self.nameBtn.contentHorizontalAlignment = .left
         self.priceBtn = fc_buttonInit(imgName: "sortNone", title: "最新价", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
         self.changeBtn = fc_buttonInit(imgName: "sortNone", title: "24h涨跌幅", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
-        
+        self.changeBtn.contentHorizontalAlignment = .right
         self.nameBtn.setTitleAndImageInset(insetType: .FCBtnInsetTypeImgRight, imgLabInset: 5, imgWidth: 10)
         self.priceBtn.setTitleAndImageInset(insetType: .FCBtnInsetTypeImgRight, imgLabInset: 5, imgWidth: 10)
         self.changeBtn.setTitleAndImageInset(insetType: .FCBtnInsetTypeImgRight, imgLabInset: 5, imgWidth: 10)
@@ -92,12 +93,12 @@ class FCSortComponent: UIView {
     
     private func handleBtnActions () {
         self.nameBtn.rx.tap.subscribe { (event) in
-            if (self.sortType == .Name && self.orderType == .Desc) {
+            if (self.sortType == .Volume && self.orderType == .Desc) {
                 self.configBtnsStyle(buttons: [self.nameBtn, self.priceBtn, self.changeBtn], allDefault: true, orderType: .Default)
-            } else if (self.sortType == .Name && self.orderType == .Asc) {
-                self.configBtnsStyle(buttons: [self.nameBtn, self.priceBtn, self.changeBtn], allDefault: false, orderType: .Desc, sortType: .Name)
+            } else if (self.sortType == .Volume && self.orderType == .Asc) {
+                self.configBtnsStyle(buttons: [self.nameBtn, self.priceBtn, self.changeBtn], allDefault: false, orderType: .Desc, sortType: .Volume)
             } else {
-                self.configBtnsStyle(buttons: [self.nameBtn, self.priceBtn, self.changeBtn], allDefault: false, orderType: .Asc, sortType: .Name)
+                self.configBtnsStyle(buttons: [self.nameBtn, self.priceBtn, self.changeBtn], allDefault: false, orderType: .Asc, sortType: .Volume)
             }
             
             
@@ -153,16 +154,25 @@ class FCSortComponent: UIView {
     }
     
     private func configDefaultStyle(button: UIButton) {
+        if button.isEnabled == false {
+            return
+        }
         button.setTitleColor(COLOR_MinorTextColor, for: .normal)
         button.setImage(UIImage(named: "sortNone"), for: .normal)
     }
     
     private func configAscStyle(button: UIButton) {
+        if button.isEnabled == false {
+            return
+        }
         button.setTitleColor(UIColor.white, for: .normal)
         button.setImage(UIImage(named: "sortAsc"), for: .normal)
     }
     
     private func configDescStyle(button: UIButton) {
+        if button.isEnabled == false {
+            return
+        }
         button.setTitleColor(UIColor.white, for: .normal)
         button.setImage(UIImage(named: "sortDesc"), for: .normal)
     }

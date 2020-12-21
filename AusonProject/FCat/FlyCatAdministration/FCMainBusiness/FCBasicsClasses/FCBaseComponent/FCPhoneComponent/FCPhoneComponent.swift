@@ -184,7 +184,7 @@ class FCPhoneComponent: UIView, UITextFieldDelegate {
         self.dropDown?.anchorView = self.phoneTxd
         self.dropDown?.bottomOffset = CGPoint(x: 0, y: 40)
         self.dropDown?.selectRow(0)  //默认选中
-        self.dropDown?.textFont = UIFont.init(_customTypeSize: 12)
+        self.dropDown?.textFont = UIFont.init(_PingFangSCTypeSize: 12)
         self.dropDown?.textColor = COLOR_MinorTextColor
         self.dropDown?.cellHeight = 40
         self.dropDown?.selectedTextColor = UIColor.white

@@ -31,7 +31,7 @@ class FCRegisterConfirmController: UIViewController {
     
     func setupNavbar () {
         weak var weakSelf = self
-        self.addrightNavigationItemImgNameStr(nil, title: "注册", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 17), clickCallBack: {
+        self.addrightNavigationItemImgNameStr(nil, title: "注册", textColor: COLOR_MinorTextColor, textFont: UIFont(_PingFangSCTypeSize: 17), clickCallBack: {
             weakSelf?.confirmView?.registerBtnClick()
         })
     }

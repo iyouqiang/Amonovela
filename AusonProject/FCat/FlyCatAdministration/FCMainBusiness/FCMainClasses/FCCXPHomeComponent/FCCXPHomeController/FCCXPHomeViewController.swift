@@ -20,6 +20,8 @@ class FCCXPHomeViewController: UIViewController {
     let disposeBag = DisposeBag()
     var homeSubscription: Disposable?
     var sortComponent: FCSortComponent!
+    var sortType:FCMarketSortType = .Default   // Volume Change
+    var orderType:FCMarketOrderType = .Default // Desc Asc
     
     private lazy var homeApi:FCApi_homedata = {
        
@@ -33,7 +35,7 @@ class FCCXPHomeViewController: UIViewController {
         
         let titleL = UILabel.init(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH-30, height: 45))
         titleL.text = "热门产品"
-        titleL.font = UIFont(_customTypeSize: 18)
+        titleL.font = UIFont(_PingFangSCTypeSize: 18)
         titleL.textColor = .white
         menuHeaderView.addSubview(titleL)
         
@@ -44,21 +46,21 @@ class FCCXPHomeViewController: UIViewController {
         /*
         let tradeCategoryL = UILabel.init(frame: CGRect(x: 15, y: 50, width: 60, height: 40))
         tradeCategoryL.text = "交易品种"
-        tradeCategoryL.font = UIFont(_customTypeSize: 14)
+        tradeCategoryL.font = UIFont(_PingFangSCTypeSize: 14)
         tradeCategoryL.textColor = COLOR_CellTitleColor
         menuHeaderView.addSubview(tradeCategoryL)
         
         let newestL = UILabel.init(frame: CGRect(x: 15, y: 50, width: 60, height: 40))
         newestL.center = CGPoint(x: titleL.center.x, y: newestL.center.y)
         newestL.text = "最新价"
-        newestL.font = UIFont(_customTypeSize: 14)
+        newestL.font = UIFont(_PingFangSCTypeSize: 14)
         newestL.textColor = COLOR_CellTitleColor
         menuHeaderView.addSubview(newestL)
         
         let priceLimitL = UILabel.init(frame: CGRect(x: kSCREENWIDTH - 75, y: 50, width: 60, height: 40))
         priceLimitL.textAlignment = .right
         priceLimitL.text = "涨跌幅"
-        priceLimitL.font = UIFont(_customTypeSize: 14)
+        priceLimitL.font = UIFont(_PingFangSCTypeSize: 14)
         priceLimitL.textColor = COLOR_CellTitleColor
         menuHeaderView.addSubview(priceLimitL)
         */
@@ -66,10 +68,12 @@ class FCCXPHomeViewController: UIViewController {
         self.sortComponent = FCSortComponent.init(frame: .zero)
         self.sortComponent.backgroundColor = COLOR_CellBgColor
         menuHeaderView.addSubview(self.sortComponent)
-        
+        self.sortComponent.priceBtn.setImage(nil, for: .normal)
+        self.sortComponent.priceBtn.isEnabled = false
         self.sortComponent.orderBtnClick { [weak self] (sortType: FCMarketSortType, orderType: FCMarketOrderType) in
-            
-            print("排序")
+            self?.orderType = orderType
+            self?.sortType = sortType
+            self?.loadHomeFeedData(sort: orderType.rawValue, order: sortType.rawValue)
         }
         
         self.sortComponent.snp.makeConstraints { (make) in
@@ -131,6 +135,7 @@ class FCCXPHomeViewController: UIViewController {
         
         let logoBtn = fc_buttonInit(imgName: "hi", title: "Hi, Welcome to Auson!", fontSize: 17, titleColor: UIColor.white, bgColor: .clear)
         logoBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
+        logoBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         logoBtn.contentHorizontalAlignment = .left
         logoBtn.addTarget(self, action: #selector(clickHomeLogoAction), for: .touchUpInside)
         navigationView.addSubview(logoBtn)
@@ -152,7 +157,7 @@ class FCCXPHomeViewController: UIViewController {
             make.bottom.equalTo(-10)
         }
         
-        /// 界面数据刷新
+        /// 界面数据刷新 
         self.homeTableView.refreshNormalModelRefresh(true, refreshDataBlock: { [weak self] in
             self?.loadHomeData(manuRefresh: true)
             }, loadMoreDataBlock: nil)
@@ -203,14 +208,47 @@ extension FCCXPHomeViewController {
     func refreshSybolData() {
         
       self.homeSubscription?.dispose()
-      let observable = Observable<Int>.interval(3.0, scheduler: MainScheduler.instance).subscribe {[weak self] (num) in
+      let observable = Observable<Int>.interval(2.0, scheduler: MainScheduler.instance).subscribe {[weak self] (num) in
         
+        let sortStr = self?.sortType.rawValue
+        let orderStr = self?.orderType.rawValue
+        self?.loadHomeFeedData(sort: sortStr ?? "", order: orderStr ?? "")
+        
+        /**
             if(!(self?.homeApi.isExecuting ?? false)) {
                 self?.loadHomeData(manuRefresh: false)
             }
+        */
         }
         observable.disposed(by: self.disposeBag)
         self.homeSubscription = observable
+    }
+    
+    func loadHomeFeedData(sort: String, order: String) {
+        
+        let homeFeedApi = FCApi_home_feed(sort: sort, order: order)
+        homeFeedApi.startWithCompletionBlock { (response) in
+            
+            let responseData = response.responseObject as?  [String : AnyObject]
+            
+            if responseData?["err"]?["code"] as? Int ?? -1 == 0 {
+                
+                let tempModel = FCHomeModel.init(dict: responseData?["data"] as! [String : AnyObject])
+                
+                /// 数据更新
+                self.dataSource?.removeAll()
+                self.dataSource?.append(contentsOf: tempModel.hotSymbolsArray ?? [])
+                
+                DispatchQueue.main.async {
+                    self.homeTableView.reloadData()
+                    self.homeTableView.endRefresh()
+                }
+            }
+            
+        } failure: { (response) in
+            
+        }
+        
     }
     
     func loadHomeData(manuRefresh: Bool) {
@@ -289,7 +327,7 @@ extension FCCXPHomeViewController:UITableViewDataSource, UITableViewDelegate
                 cell.symbolModel = symbolModel
             }
             //cell.textLabel?.textColor = COLOR_MinorTextColor
-            //cell.textLabel?.font = UIFont(_customTypeSize: 14)
+            //cell.textLabel?.font = UIFont(_PingFangSCTypeSize: 14)
             
             return cell
         }
@@ -317,8 +355,8 @@ extension FCCXPHomeViewController:UITableViewDataSource, UITableViewDelegate
         let klineVC = FCKLineController()
         let marketModel = FCMarketModel()
         marketModel.symbol = symbolModel?.symbol
-        marketModel.marketType = symbolModel?.marketType ?? ""
-        marketModel.latestPrice = symbolModel?.latestPrice ?? ""
+        marketModel.marketType = symbolModel?.marketType ?? ""        
+        marketModel.latestPrice = symbolModel?.latestPrice ?? "0"
         marketModel.close = symbolModel?.close ?? ""
         marketModel.high = symbolModel?.high ?? ""
         marketModel.low = symbolModel?.low ?? ""

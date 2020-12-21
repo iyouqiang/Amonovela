@@ -227,6 +227,10 @@
 		D2748929213F822D0062765B /* UITableView+PCRefreshExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D2748927213F822D0062765B /* UITableView+PCRefreshExtension.m */; };
 		D274892C213F82540062765B /* PCCustomRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D274892B213F82540062765B /* PCCustomRefreshHeader.m */; };
 		D701A5E3250B16E8002B8577 /* FCContractSyntheController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D701A5E2250B16E8002B8577 /* FCContractSyntheController.swift */; };
+		D706734D25846C0300A15DE5 /* KLineXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D750D29E25592776005EC29B /* KLineXP.framework */; };
+		D706734E25846C0800A15DE5 /* UtilsXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7331FFA255A222000E215C4 /* UtilsXP.framework */; };
+		D70673CF2584717600A15DE5 /* KLineBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D750D2A025592776005EC29B /* KLineBundle.bundle */; };
+		D70673D52584719400A15DE5 /* UtilsXPBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7332056255A402900E215C4 /* UtilsXPBundle.bundle */; };
 		D711ECEC24E17AB1005B4666 /* FCCXPAssetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D711ECEB24E17AB1005B4666 /* FCCXPAssetController.swift */; };
 		D71258A82549667B009736E2 /* FCShareItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = D71258A72549667B009736E2 /* FCShareItemView.m */; };
 		D71258AD25496712009736E2 /* FCShareItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71258AC25496712009736E2 /* FCShareItemView.xib */; };
@@ -267,8 +271,6 @@
 		D745183424FCD7360001056E /* FCApi_trading_strategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183324FCD7360001056E /* FCApi_trading_strategy.swift */; };
 		D745183624FCD75B0001056E /* FCApi_trading_strategy_set.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183524FCD75B0001056E /* FCApi_trading_strategy_set.swift */; };
 		D745183824FD371B0001056E /* FCBillContractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D745183724FD371B0001056E /* FCBillContractController.swift */; };
-		D750D2E625592C32005EC29B /* KLineXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D750D29E25592776005EC29B /* KLineXP.framework */; };
-		D750D2E725592C39005EC29B /* KLineBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D750D2A025592776005EC29B /* KLineBundle.bundle */; };
 		D75A8DF724FF4BCD00F89F41 /* PopTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A8DF424FF4BCD00F89F41 /* PopTip.swift */; };
 		D75A8DF824FF4BCD00F89F41 /* PopTip+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A8DF524FF4BCD00F89F41 /* PopTip+Draw.swift */; };
 		D75A8DF924FF4BCD00F89F41 /* PopTip+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75A8DF624FF4BCD00F89F41 /* PopTip+Transitions.swift */; };
@@ -344,8 +346,10 @@
 		D77B4DF02536ED12002AAF51 /* FCApi_trigger_pending_orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DEF2536ED12002AAF51 /* FCApi_trigger_pending_orders.swift */; };
 		D77B4DF52536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DF42536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift */; };
 		D77B4DFA2536F02F002AAF51 /* FCApi_trigger_history_orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B4DF92536F02F002AAF51 /* FCApi_trigger_history_orders.swift */; };
+		D77C1D432585A9C100E81A27 /* UIView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C1D422585A9C100E81A27 /* UIView+Placeholder.m */; };
 		D77C6E3525375BE0003F0DA8 /* FCTriggerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C6E3425375BE0003F0DA8 /* FCTriggerModel.swift */; };
 		D77C97CE25285F81008A947B /* FCCXPChargeInstruView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C97CD25285F81008A947B /* FCCXPChargeInstruView.swift */; };
+		D77D3EF3257C86FE0016EDF1 /* FCApi_home_feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D3EF2257C86FE0016EDF1 /* FCApi_home_feed.swift */; };
 		D77F51822539372500E8D62A /* FCContractsEntrustMultiListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */; };
 		D77F518A25393F3A00E8D62A /* FCContractsEntrustListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */; };
 		D77F51C52539A2F900E8D62A /* FCApi_trigger_history.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */; };
@@ -353,23 +357,23 @@
 		D782045A256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7820459256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m */; };
 		D78243712537DDE100497103 /* FCContractProfitLossCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782436F2537DDE100497103 /* FCContractProfitLossCell.swift */; };
 		D78243732537DDE100497103 /* FCContractProfitLossCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78243702537DDE100497103 /* FCContractProfitLossCell.xib */; };
+		D782E2E8257F57A300B9352F /* DINPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D782E2E0257F57A200B9352F /* DINPro-Bold.otf */; };
 		D7837D982541155B006ADE6C /* FCApi_Password_ResetApply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837D972541155B006ADE6C /* FCApi_Password_ResetApply.swift */; };
 		D7837D9D2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837D9C2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift */; };
 		D7837DA42541277C006ADE6C /* FCApi_Get_UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7837DA32541277C006ADE6C /* FCApi_Get_UserInfo.swift */; };
-		D78391A1255EA6DA00D4A6C0 /* UtilsXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7331FFA255A222000E215C4 /* UtilsXP.framework */; };
-		D78391A7255EA6E100D4A6C0 /* UtilsXPBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7332056255A402900E215C4 /* UtilsXPBundle.bundle */; };
+		D787BF6A257D13FA006EBDF4 /* ausonLaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = D787BF69257D13FA006EBDF4 /* ausonLaunchScreen.png */; };
 		D78856B825456268001F8787 /* FCProfitLossShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78856B725456268001F8787 /* FCProfitLossShareView.swift */; };
 		D78856BD25456281001F8787 /* FCProfitLossShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D78856BC25456281001F8787 /* FCProfitLossShareView.xib */; };
 		D78934AB25359B3E00B3858F /* FCProfitLossInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78934AA25359B3D00B3858F /* FCProfitLossInputView.swift */; };
 		D78958C0251D98CF00681280 /* FCApi_support_transfer_assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958BF251D98CF00681280 /* FCApi_support_transfer_assets.swift */; };
 		D78958C2251DBA5400681280 /* FCApi_transfer_records.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958C1251DBA5400681280 /* FCApi_transfer_records.swift */; };
 		D78958C4251DBBCE00681280 /* FCApi_transfer_config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78958C3251DBBCE00681280 /* FCApi_transfer_config.swift */; };
+		D78CCC5B2588916B003C24B2 /* FCEntrustAndPlanEntrustController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CCC5A2588916B003C24B2 /* FCEntrustAndPlanEntrustController.swift */; };
 		D78CE5FF253438D700A4E1E6 /* FCContractProfitLossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE5FE253438D700A4E1E6 /* FCContractProfitLossView.swift */; };
 		D78CE60425343FB300A4E1E6 /* FCTriggerEntrustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE60325343FB300A4E1E6 /* FCTriggerEntrustViewController.swift */; };
 		D78CE60925343FEE00A4E1E6 /* FCContractProfitLossController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78CE60825343FEE00A4E1E6 /* FCContractProfitLossController.swift */; };
 		D78CE616253449FC00A4E1E6 /* FCConstantDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D274891F213EA6920062765B /* FCConstantDefinition.swift */; };
 		D797FE39256BD95800E18D20 /* FCVerificationCodeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D797FE38256BD95800E18D20 /* FCVerificationCodeAlertView.swift */; };
-		D79BFE6A257347E00094AE06 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = D79BFE69257347E00094AE06 /* LaunchScreen.png */; };
 		D79BFEC825734BBF0094AE06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79BFEC725734BBE0094AE06 /* Main.storyboard */; };
 		D79BFECA2573713B0094AE06 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79BFEC92573713B0094AE06 /* Launch Screen.storyboard */; };
 		D79F7F4F24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F4E24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift */; };
@@ -657,7 +661,7 @@
 		D2591FD3214F907E0068C23B /* FCPersonalDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FCPersonalDataController.swift; sourceTree = "<group>"; };
 		D2591FDC2150D23F0068C23B /* FCMarketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMarketModel.swift; sourceTree = "<group>"; };
 		D26F901B215F82A2006FC4BE /* FCMarketTopicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMarketTopicModel.swift; sourceTree = "<group>"; };
-		D2724D14213E1E1A002E43CD /* CXP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CXP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2724D14213E1E1A002E43CD /* Auson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2724D17213E1E1A002E43CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2724D19213E1E1A002E43CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2724D1E213E1E1C002E43CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -931,8 +935,11 @@
 		D77B4DEF2536ED12002AAF51 /* FCApi_trigger_pending_orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trigger_pending_orders.swift; sourceTree = "<group>"; };
 		D77B4DF42536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trigger_order_cancel.swift; sourceTree = "<group>"; };
 		D77B4DF92536F02F002AAF51 /* FCApi_trigger_history_orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trigger_history_orders.swift; sourceTree = "<group>"; };
+		D77C1D412585A9C100E81A27 /* UIView+Placeholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Placeholder.h"; sourceTree = "<group>"; };
+		D77C1D422585A9C100E81A27 /* UIView+Placeholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Placeholder.m"; sourceTree = "<group>"; };
 		D77C6E3425375BE0003F0DA8 /* FCTriggerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCTriggerModel.swift; sourceTree = "<group>"; };
 		D77C97CD25285F81008A947B /* FCCXPChargeInstruView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCXPChargeInstruView.swift; sourceTree = "<group>"; };
+		D77D3EF2257C86FE0016EDF1 /* FCApi_home_feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_home_feed.swift; sourceTree = "<group>"; };
 		D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractsEntrustMultiListController.swift; sourceTree = "<group>"; };
 		D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractsEntrustListController.swift; sourceTree = "<group>"; };
 		D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trigger_history.swift; sourceTree = "<group>"; };
@@ -941,20 +948,22 @@
 		D7820459256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCInputBoxTextFieldView.m; sourceTree = "<group>"; };
 		D782436F2537DDE100497103 /* FCContractProfitLossCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractProfitLossCell.swift; sourceTree = "<group>"; };
 		D78243702537DDE100497103 /* FCContractProfitLossCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCContractProfitLossCell.xib; sourceTree = "<group>"; };
+		D782E2E0257F57A200B9352F /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
 		D7837D972541155B006ADE6C /* FCApi_Password_ResetApply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_Password_ResetApply.swift; sourceTree = "<group>"; };
 		D7837D9C2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_Password_ResetConfirm.swift; sourceTree = "<group>"; };
 		D7837DA32541277C006ADE6C /* FCApi_Get_UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_Get_UserInfo.swift; sourceTree = "<group>"; };
+		D787BF69257D13FA006EBDF4 /* ausonLaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ausonLaunchScreen.png; sourceTree = "<group>"; };
 		D78856B725456268001F8787 /* FCProfitLossShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCProfitLossShareView.swift; sourceTree = "<group>"; };
 		D78856BC25456281001F8787 /* FCProfitLossShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCProfitLossShareView.xib; sourceTree = "<group>"; };
 		D78934AA25359B3D00B3858F /* FCProfitLossInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCProfitLossInputView.swift; sourceTree = "<group>"; };
 		D78958BF251D98CF00681280 /* FCApi_support_transfer_assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_support_transfer_assets.swift; sourceTree = "<group>"; };
 		D78958C1251DBA5400681280 /* FCApi_transfer_records.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_transfer_records.swift; sourceTree = "<group>"; };
 		D78958C3251DBBCE00681280 /* FCApi_transfer_config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_transfer_config.swift; sourceTree = "<group>"; };
+		D78CCC5A2588916B003C24B2 /* FCEntrustAndPlanEntrustController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCEntrustAndPlanEntrustController.swift; sourceTree = "<group>"; };
 		D78CE5FE253438D700A4E1E6 /* FCContractProfitLossView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractProfitLossView.swift; sourceTree = "<group>"; };
 		D78CE60325343FB300A4E1E6 /* FCTriggerEntrustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCTriggerEntrustViewController.swift; sourceTree = "<group>"; };
 		D78CE60825343FEE00A4E1E6 /* FCContractProfitLossController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractProfitLossController.swift; sourceTree = "<group>"; };
 		D797FE38256BD95800E18D20 /* FCVerificationCodeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCVerificationCodeAlertView.swift; sourceTree = "<group>"; };
-		D79BFE69257347E00094AE06 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		D79BFEC725734BBE0094AE06 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D79BFEC92573713B0094AE06 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D79F7F4E24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_email_modify_apply.swift; sourceTree = "<group>"; };
@@ -1006,8 +1015,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D78391A1255EA6DA00D4A6C0 /* UtilsXP.framework in Frameworks */,
-				D750D2E625592C32005EC29B /* KLineXP.framework in Frameworks */,
+				D706734E25846C0800A15DE5 /* UtilsXP.framework in Frameworks */,
+				D706734D25846C0300A15DE5 /* KLineXP.framework in Frameworks */,
 				D274890F213E692C0062765B /* libz.tbd in Frameworks */,
 				D274890D213E69170062765B /* libsqlite3.tbd in Frameworks */,
 				D27488AB213E2BAF0062765B /* AdSupport.framework in Frameworks */,
@@ -1413,6 +1422,7 @@
 				D23E262C214BBEEC00E52B8D /* FCAPI_Account_logout.h */,
 				D23E262D214BBEED00E52B8D /* FCAPI_Account_logout.m */,
 				D737D81824E002C0000DC48A /* FCApi_homedata.swift */,
+				D77D3EF2257C86FE0016EDF1 /* FCApi_home_feed.swift */,
 				01E2BDF0248D2F6800714DE9 /* FCApi_CountryCode.h */,
 				01E2BDF1248D2F6800714DE9 /* FCApi_CountryCode.m */,
 				01E2BDF3248D41B100714DE9 /* FCApi_MarketTypes.h */,
@@ -1552,6 +1562,7 @@
 				D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */,
 				D772E95C250A0A9E007007D2 /* FCSpotSyntheController.swift */,
 				D701A5E2250B16E8002B8577 /* FCContractSyntheController.swift */,
+				D78CCC5A2588916B003C24B2 /* FCEntrustAndPlanEntrustController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1787,7 +1798,7 @@
 		D2724D15213E1E1A002E43CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2724D14213E1E1A002E43CD /* CXP.app */,
+				D2724D14213E1E1A002E43CD /* Auson.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1795,6 +1806,7 @@
 		D2724D16213E1E1A002E43CD /* FlyCatAdministration */ = {
 			isa = PBXGroup;
 			children = (
+				D782E2E0257F57A200B9352F /* DINPro-Bold.otf */,
 				D2EF83E921703EA7001A9FE1 /* FlyCatAdministration.entitlements */,
 				D2748911213E74820062765B /* FCProjectConfiguration */,
 				D2748910213E74550062765B /* FCMainBusiness */,
@@ -1989,6 +2001,8 @@
 				D72669292542C3F800DED2DA /* FCShareTool.m */,
 				D7820458256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.h */,
 				D7820459256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m */,
+				D77C1D412585A9C100E81A27 /* UIView+Placeholder.h */,
+				D77C1D422585A9C100E81A27 /* UIView+Placeholder.m */,
 			);
 			path = PCUtility;
 			sourceTree = "<group>";
@@ -2334,7 +2348,7 @@
 			isa = PBXGroup;
 			children = (
 				D77C2A54252D5BE300A6D65D /* Classes */,
-				D79BFE69257347E00094AE06 /* LaunchScreen.png */,
+				D787BF69257D13FA006EBDF4 /* ausonLaunchScreen.png */,
 				D79BFEC92573713B0094AE06 /* Launch Screen.storyboard */,
 				D274891F213EA6920062765B /* FCConstantDefinition.swift */,
 				D2748914213E76070062765B /* FCMainTabBarController.swift */,
@@ -2371,7 +2385,7 @@
 			);
 			name = Auson;
 			productName = FlyCatAdministration;
-			productReference = D2724D14213E1E1A002E43CD /* CXP.app */;
+			productReference = D2724D14213E1E1A002E43CD /* Auson.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2483,8 +2497,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D78391A7255EA6E100D4A6C0 /* UtilsXPBundle.bundle in Resources */,
-				D750D2E725592C39005EC29B /* KLineBundle.bundle in Resources */,
 				D7F9C44D24E513AB00D739D1 /* FCCXPMentionCoinSubView.xib in Resources */,
 				D78243732537DDE100497103 /* FCContractProfitLossCell.xib in Resources */,
 				D76FDFCB24FE2B1B006AB263 /* FCBillContractCell.xib in Resources */,
@@ -2500,11 +2512,14 @@
 				D79F7F5924F2630D00ABF0C5 /* FCAPPConstructionView.xib in Resources */,
 				0188704824F33CC1003659C2 /* FCTradeHistoryListCell.xib in Resources */,
 				D7F9C44724E4ED2B00D739D1 /* FCCXPAssetQRCodeView.xib in Resources */,
+				D787BF6A257D13FA006EBDF4 /* ausonLaunchScreen.png in Resources */,
+				D782E2E8257F57A300B9352F /* DINPro-Bold.otf in Resources */,
 				D72FE3E624E90E07003E9BCF /* FCTotalAssetsView.xib in Resources */,
 				D7F2C65724E2C32500B5BBFE /* FCCXPGlobalContractCell.xib in Resources */,
-				D79BFE6A257347E00094AE06 /* LaunchScreen.png in Resources */,
 				D737D81424E00209000DC48A /* FCHotSymbolsCell.xib in Resources */,
 				D7F9C45324E52D8000D739D1 /* FCCCXPAssetHistoryCell.xib in Resources */,
+				D70673CF2584717600A15DE5 /* KLineBundle.bundle in Resources */,
+				D70673D52584719400A15DE5 /* UtilsXPBundle.bundle in Resources */,
 				D79BFEC825734BBF0094AE06 /* Main.storyboard in Resources */,
 				D7F2C64F24E2C2A100B5BBFE /* FCCXPCommonAssetCell.xib in Resources */,
 				0138E4C42501CD5100A07709 /* FCPerpetualEntrustListCell.xib in Resources */,
@@ -2672,6 +2687,7 @@
 				01384DCB214B9AF100A0F694 /* PCRequesthelper.m in Sources */,
 				D2748845213E295A0062765B /* NSString+PCExtend.m in Sources */,
 				D23E260B2147DD3800E52B8D /* FCLabelConvenience .swift in Sources */,
+				D78CCC5B2588916B003C24B2 /* FCEntrustAndPlanEntrustController.swift in Sources */,
 				0187164C24966AC1003380C3 /* FCPasswordResetController.swift in Sources */,
 				D274866D213E290D0062765B /* APICurrency_assets.m in Sources */,
 				D711ECEC24E17AB1005B4666 /* FCCXPAssetController.swift in Sources */,
@@ -2695,6 +2711,7 @@
 				011F080124E03562009B1780 /* FCTimeShareChart.swift in Sources */,
 				018716522496A1C5003380C3 /* FCRegisterView.swift in Sources */,
 				01B305AB24BE4297001FF01A /* FCKLineRestingCell.swift in Sources */,
+				D77C1D432585A9C100E81A27 /* UIView+Placeholder.m in Sources */,
 				D23E260A2147DD3800E52B8D /* FCButtonConvenience.swift in Sources */,
 				D76996F624EFF16A0068F262 /* FCChangePhoneNumberController.swift in Sources */,
 				D76C3BBE2515F79000EA88E6 /* FCApi_group_contracts.swift in Sources */,
@@ -2869,6 +2886,7 @@
 				D2591F7C214F44030068C23B /* FCUserInfoManager.swift in Sources */,
 				010EE40A24DEACE800E884D4 /* FCNetworkUtils.swift in Sources */,
 				D274865A213E290D0062765B /* APIAccount_logout.m in Sources */,
+				D77D3EF3257C86FE0016EDF1 /* FCApi_home_feed.swift in Sources */,
 				01DF50F524992DB200A36D37 /* FCSelectForm.swift in Sources */,
 				0169FC7C24F7DBAD00FC3488 /* FCTradeEntrustModel.swift in Sources */,
 				D76FDFCF24FE416C006AB263 /* FCBillContractModel.swift in Sources */,
@@ -3060,8 +3078,9 @@
 				CODE_SIGN_ENTITLEMENTS = FlyCatAdministration/FlyCatAdministration.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = QBVKD84R9G;
+				DEVELOPMENT_TEAM = 2FMQBP2224;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3093,10 +3112,10 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -DBS_TARGETCXP";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stary.innovel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auson.exchange;
 				PRODUCT_MODULE_NAME = FlyCatAdministration;
-				PRODUCT_NAME = CXP;
-				PROVISIONING_PROFILE_SPECIFIER = InnovelDemo;
+				PRODUCT_NAME = Auson;
+				PROVISIONING_PROFILE_SPECIFIER = AusonDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/FlyCatAdministration/BridgingHeader/FlyCatAdministration-Brigding-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3111,10 +3130,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FlyCatAdministration/FlyCatAdministration.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = QBVKD84R9G;
+				DEVELOPMENT_TEAM = 2FMQBP2224;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3146,10 +3166,10 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -DBS_TARGETCXP";
-				PRODUCT_BUNDLE_IDENTIFIER = com.stary.innovel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auson.exchange;
 				PRODUCT_MODULE_NAME = FlyCatAdministration;
-				PRODUCT_NAME = CXP;
-				PROVISIONING_PROFILE_SPECIFIER = InnovelDemo;
+				PRODUCT_NAME = Auson;
+				PROVISIONING_PROFILE_SPECIFIER = AusonDis;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/FlyCatAdministration/BridgingHeader/FlyCatAdministration-Brigding-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

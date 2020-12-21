@@ -44,12 +44,12 @@ class FCChangePhoneNumberController: UIViewController {
             titleStr = titleStr.count == 0 ? "" : titleStr
             
             /// 标题
-            phoneNumTitleL = fc_labelInit(text: titleStr, textColor: COLOR_CellTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+            phoneNumTitleL = fc_labelInit(text: titleStr, textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
             phoneNumTitleL.text = "手机号码"
             self.view.addSubview(phoneNumTitleL)
 
             /// 手机号码
-            phoneNumL = fc_labelInit(text: titleStr, textColor: COLOR_CellTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+            phoneNumL = fc_labelInit(text: titleStr, textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
             phoneNumL.textAlignment = .right
             phoneNumL.text = self.replacePhone(str: titleStr)
             self.view.addSubview(phoneNumL)

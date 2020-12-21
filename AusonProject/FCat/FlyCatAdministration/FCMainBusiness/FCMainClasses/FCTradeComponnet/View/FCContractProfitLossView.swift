@@ -13,14 +13,15 @@ class FCContractProfitLossView: UIView {
     /// 止盈
     lazy var stopLossView: FCProfitLossInputView = {
         let stopLossView = FCProfitLossInputView()
-        stopLossView.priceTxd.placeholder = "止损价"
+        stopLossView.priceTxd.attributedPlaceholder = NSAttributedString.init(string: "止损价", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
+        
         return stopLossView
     }()
     
     /// 止损
     lazy var stopProfitView : FCProfitLossInputView = {
         let stopProfitView = FCProfitLossInputView()
-        stopProfitView.priceTxd.placeholder = "止盈价"
+        stopProfitView.priceTxd.attributedPlaceholder = NSAttributedString.init(string: "止盈价", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
         return stopProfitView
     }()
          

@@ -13,13 +13,12 @@ import Foundation
 func fc_textfiledInit(placeholder: String!, holderColor: UIColor!, textColor: UIColor!, fontSize: CGFloat!, borderStyle: UITextField.BorderStyle!) -> UITextField {
     
     let textFiled = UITextField.init(frame: CGRect.zero)
-    
     textFiled.textColor = textColor
-    textFiled.font = UIFont.init(_customTypeSize: fontSize)
+    textFiled.font = UIFont.init(_PingFangSCTypeSize: fontSize)
     textFiled.borderStyle = borderStyle
     
     //占位符设置
-    let placeholserAttributes = [NSAttributedString.Key.foregroundColor : holderColor, NSAttributedString.Key.font : UIFont(_customTypeSize: fontSize)] as [NSAttributedString.Key : Any]
+    let placeholserAttributes = [NSAttributedString.Key.foregroundColor : holderColor, NSAttributedString.Key.font : UIFont(_PingFangSCTypeSize: fontSize)] as [NSAttributedString.Key : Any]
     textFiled.attributedPlaceholder = NSAttributedString(string: placeholder,attributes: placeholserAttributes)
     
     return textFiled

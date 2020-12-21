@@ -27,11 +27,13 @@ class FCContractOrderView: UIView {
     var depthamountTitleL: UILabel!
     var marketOrderTitleL: UILabel!
     var priceUnitView: UIView!
+    var percentValue = 0.0
+    var ratioView: FCBtnSelectedView!
     
     var showProfitLossItemBlock:((_ isFolded: Bool) -> Void)?
     
     //    var tradeAsset: FCAssetModel?  //交易币资产
-    //    var baseAsset: FCAssetModel? //基础币资产
+    //    var baseAsset: FCAssetModel?   //基础币资产
     
     var accountInfoModel: FCPositionAccountInfoModel? //合约资产
     
@@ -48,11 +50,11 @@ class FCContractOrderView: UIView {
     /// 优化 按钮位置  增加逐仓 杠杆  资金费率 结束时间
     var marginModeBtn = fc_buttonInit(imgName: "", title: "全仓模式", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
     
-    var leverageBtn = fc_buttonInit(imgName: "trade_downtriangle", title: "50X", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
-    var fundsRateNameL = fc_labelInit(text: "资金费率", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
-    var endTimeNameL = fc_labelInit(text: "结束时间", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
-    var fundsRateL = fc_labelInit(text: "0.00%", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 13), bgColor: .clear)
-    var endTimeL = fc_labelInit(text: "00:00:00", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 13), bgColor: .clear)
+    var leverageBtn = fc_buttonInit(imgName: "trade_downtriangle", title: "50X", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
+    var fundsRateNameL = fc_labelInit(text: "资金费率", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: .clear)
+    var endTimeNameL = fc_labelInit(text: "结束时间", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: .clear)
+    var fundsRateL = fc_labelInit(text: "0.00%", textColor: .white, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: .clear)
+    var endTimeL = fc_labelInit(text: "00:00:00", textColor: .white, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: .clear)
     
     lazy var strategyInfoView: UIView = {
         
@@ -60,6 +62,7 @@ class FCContractOrderView: UIView {
         strategyInfoView.backgroundColor = COLOR_BGColor
         self.addSubview(strategyInfoView)
         
+        /**
         marginModeBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -5)
         marginModeBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -5)
         marginModeBtn.tintColor = COLOR_InputText
@@ -99,7 +102,7 @@ class FCContractOrderView: UIView {
             make.top.bottom.equalToSuperview()
             make.width.equalTo(70)
         }
-        
+         */
         let width = fundsRateNameL.labelWidthMaxHeight(20)
         
         /// 费率
@@ -114,26 +117,26 @@ class FCContractOrderView: UIView {
         endTimeNameL.textAlignment = .center
         endTimeL.textAlignment = .center
         
-        endTimeNameL.snp.makeConstraints { (make) in
-            make.right.equalTo(-15)
-            make.top.equalToSuperview()
-            make.width.equalTo(width)
-        }
-        
-        endTimeL.snp.makeConstraints { (make) in
-            make.centerX.equalTo(endTimeNameL.snp_centerX)
-            make.bottom.equalToSuperview()
-        }
-        
         fundsRateNameL.snp.makeConstraints { (make) in
-            make.right.equalTo(endTimeNameL.snp_left).offset(-15)
+            make.left.equalTo(endTimeNameL.snp_left)
             make.top.equalToSuperview()
             make.width.equalTo(width)
         }
         
         fundsRateL.snp.makeConstraints { (make) in
-            make.centerX.equalTo(fundsRateNameL.snp_centerX)
-            make.bottom.equalToSuperview()
+            make.centerY.equalTo(fundsRateNameL.snp_centerY)
+            make.right.equalToSuperview()
+        }
+        
+        endTimeNameL.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.top.equalTo(fundsRateNameL.snp_bottom)
+            make.width.equalTo(width)
+        }
+        
+        endTimeL.snp.makeConstraints { (make) in
+            make.centerY.equalTo(endTimeNameL.snp_centerY)
+            make.right.equalToSuperview()
         }
         
         return strategyInfoView
@@ -159,6 +162,12 @@ class FCContractOrderView: UIView {
             
             /// 资金费率
             fundsRateL.text = "\(contractModel.fundingRate ?? "0.00")%"
+            if (Float(contractModel.fundingRate ?? "0.00") ?? 0) >= 0 {
+                
+                fundsRateL.textColor = COLOR_RiseColor
+            }else {
+                fundsRateL.textColor = COLOR_FailColor
+            }
             /// 倒计时
             let leftSeconds = Int(contractModel.leftSeconds ?? "0")
             self.leftSeconds = leftSeconds ?? 0
@@ -168,7 +177,7 @@ class FCContractOrderView: UIView {
         }
     }
     
-    @objc  func contractLeftSecondsCountDown() {
+    @objc func contractLeftSecondsCountDown() {
         
         leftSeconds = leftSeconds - 1
         let totalminute = (leftSeconds)/60
@@ -221,20 +230,20 @@ class FCContractOrderView: UIView {
         
         let indexPriceView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH/2.0, height: 25))
         
-        let indexPriceNameL = fc_labelInit(text: "指数价", textColor: COLOR_InputColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
+    
+        let indexPriceNameL = fc_labelInit(text: "指数价", textColor: UIColor.white, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: .clear)
         indexPriceView.addSubview(indexPriceNameL)
         indexPriceNameL.snp.makeConstraints { (make) in
             make.left.top.equalToSuperview()
         }
         
-        indexPriceL = fc_labelInit(text: "0.00", textColor: COLOR_InputColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
+        indexPriceL = fc_labelInit(text: "0.00", textColor: UIColor.white, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: .clear)
         indexPriceL.textAlignment = .right
         indexPriceView.addSubview(indexPriceL)
         indexPriceL.snp.makeConstraints { (make) in
-            make.right.equalTo(indexPriceView.snp_right).offset(-10)
+            make.right.equalTo(indexPriceView.snp_right)
             make.centerY.equalTo(indexPriceNameL.snp_centerY)
         }
-        
         
         /**
          let lineView = UIView()
@@ -252,22 +261,24 @@ class FCContractOrderView: UIView {
     lazy var accuracyView: UIView = {
         
         let accuracyView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH/2.0, height: 36))
-        accuracyBtn = fc_buttonInit(imgName: "", title: "0.1", fontSize: 14, titleColor: COLOR_InputColor, bgColor: .clear)
+        accuracyBtn = fc_buttonInit(imgName: "trade_downtriangle", title: "0.1", fontSize: 14, titleColor: COLOR_InputColor, bgColor: .clear)
         accuracyBtn.tintColor = COLOR_InputText
         accuracyBtn.semanticContentAttribute = .forceRightToLeft
-        accuracyBtn.contentHorizontalAlignment = .left
-        accuracyBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        accuracyBtn.layer.cornerRadius = 5
+        //accuracyBtn.contentHorizontalAlignment = .left
+        //accuracyBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        accuracyBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: -5)
+        accuracyBtn.backgroundColor = COLOR_HexColor(0x293247)
+        accuracyBtn.layer.cornerRadius = 4
         accuracyBtn.clipsToBounds = true
-        accuracyBtn.layer.borderWidth = 0.5
+        //accuracyBtn.layer.borderWidth = 0.5
         accuracyBtn.layer.borderColor = COLOR_RichBtnTitleColor.cgColor
         accuracyView.addSubview(accuracyBtn)
         accuracyBtn.addTarget(self, action: #selector(changeaccuracyAction), for: .touchDown)
         
         dropTriangleImgView = UIImageView(image: UIImage(named: "trade_downtriangle"))
         accuracyBtn.addSubview(dropTriangleImgView)
-        
-        /// 列表
+        dropTriangleImgView.isHidden = true
+        /// 列表 
         depthswitchBtn = fc_buttonInit(imgName: "TradingonIcon")
         depthswitchBtn.contentHorizontalAlignment = .right
         depthswitchBtn.addTarget(self, action: #selector(changeDepthViewAction), for: .touchUpInside)
@@ -275,7 +286,7 @@ class FCContractOrderView: UIView {
         
         depthswitchBtn.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.right.equalTo(-10)
+            make.right.equalToSuperview()
             make.height.width.equalTo(24)
         }
         
@@ -295,7 +306,14 @@ class FCContractOrderView: UIView {
     
     //Header
     lazy var symbolBtn: UIButton = {
-        let button = fc_buttonInit(imgName: "kline_drawer", title: "--/--", fontSize: 17, titleColor: UIColor.white, bgColor: COLOR_BGColor)
+        let button = UIButton(type: .custom)
+        button.contentHorizontalAlignment = .left
+        button.setTitle("--/--", for: .normal)
+        button.setImage(UIImage(named: "kline_drawer"), for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.font = UIFont(_DINProBoldTypeSize: 18)
+        button.setTitleColor(.white, for: .normal)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
         return button
     }()
     
@@ -306,56 +324,63 @@ class FCContractOrderView: UIView {
     
     lazy var changeView: UIView = {
         let changeView = UIView.init(frame: .zero)
-        changeView.backgroundColor = COLOR_HexColorAlpha(0x39CC43, alpha: 0.2)
+        changeView.backgroundColor = .clear
+        //changeView.backgroundColor = COLOR_HexColorAlpha(0x39CC43, alpha: 0.2)
         changeView.layer.cornerRadius = 8
         changeView.layer.masksToBounds = true
         return changeView
     }()
     
     lazy var klineBtn: UIButton = {
-        let button = fc_buttonInit(imgName: "trade_kline", title: "", fontSize: 17, titleColor: UIColor.white, bgColor: COLOR_BGColor)
+        let button = fc_buttonInit(imgName: "trade_kline", title: "", fontSize: 17, titleColor: UIColor.white, bgColor: .clear)
         return button
     }()
     
     lazy var ktradeSettingBtn: UIButton = {
-        let button = fc_buttonInit(imgName: "tradingMore", title: "", fontSize: 17, titleColor: UIColor.white, bgColor: COLOR_BGColor)
+        let button = fc_buttonInit(imgName: "tradingMore", title: "", fontSize: 17, titleColor: UIColor.white, bgColor: .clear)
         return button
     }()
     
     //Left
     let leftView: UIView = UIView.init(frame: .zero)
     lazy var bidBtn: UIButton = {
-        let bidBtn = fc_buttonInit(imgName: "", title: "开多", fontSize: 16, titleColor: UIColor.white, bgColor: UIColor.clear)
+        let bidBtn = fc_buttonInit(imgName: "", title: "开多", fontSize: 14, titleColor: UIColor.white, bgColor: UIColor.clear)
         let tintImage = UIImage(named: "kline_buyBtnBg")
         let selectImg = tintImage?.imageWithTintColor(color: COLOR_RiseColor)
         let normalImg = tintImage?.imageWithTintColor(color: COLOR_HexColor(0x3E4046))
-        bidBtn.setTitleColor(COLOR_CharTipsColor, for: .normal)
+        bidBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 8)
+        bidBtn.setTitleColor(COLOR_tabbarNormalColor, for: .normal)
         bidBtn.setTitleColor(UIColor.white, for: .selected)
         bidBtn.isSelected = true
         bidBtn.setBackgroundImage(normalImg, for: .normal)
         bidBtn.setBackgroundImage(selectImg, for: .selected)
+        bidBtn.setImage(UIImage(named: "trade_buyNormal"), for: .normal)
+        bidBtn.setImage(UIImage(named: "trade_buyHighlight"), for: .selected)
         return bidBtn
     }()
     lazy var askBtn: UIButton = {
-        let askBtn = fc_buttonInit(imgName: "", title: "开空", fontSize: 16, titleColor: UIColor.white, bgColor: UIColor.clear)
+        let askBtn = fc_buttonInit(imgName: "", title: "开空", fontSize: 14, titleColor: UIColor.white, bgColor: UIColor.clear)
         let tintImage = UIImage(named: "kline_sellBtnBg")
         let selectImg = tintImage?.imageWithTintColor(color: COLOR_FailColor)
         let normalImg = tintImage?.imageWithTintColor(color: COLOR_HexColor(0x3E4046))
-        askBtn.setTitleColor(COLOR_CharTipsColor, for: .normal)
+        askBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 8)
+        askBtn.setTitleColor(COLOR_tabbarNormalColor, for: .normal)
         askBtn.setTitleColor(UIColor.white, for: .selected)
         askBtn.setBackgroundImage(normalImg, for: .normal)
         askBtn.setBackgroundImage(selectImg, for: .selected)
+        askBtn.setImage(UIImage(named: "trade_saleNormal"), for: .normal)
+        askBtn.setImage(UIImage(named: "trade_saleHighlight"), for: .selected)
         return askBtn
     }()
     
     lazy var typeLab: UILabel = {
-        let typeLab = fc_labelInit(text: "限价委托", textColor: UIColor.white, textFont: 16, bgColor: COLOR_BGColor)
+        let typeLab = fc_labelInit(text: "限价委托", textColor: COLOR_CellTitleColor, textFont: 13, bgColor: COLOR_BGColor)
         return typeLab
     }()
     
     lazy var typeImgView: UIImageView = {
         let arrowImgView = UIImageView.init(frame: .zero)
-        arrowImgView.image = UIImage(named: "arrow_down")
+        arrowImgView.image = UIImage(named: "trade_downtriangle")
         return arrowImgView
     }()
     
@@ -368,9 +393,12 @@ class FCContractOrderView: UIView {
     lazy var typeView: UIView = {
         let typeView = UIView.init(frame: .zero)
         typeView.backgroundColor = COLOR_BGColor
-        typeView.layer.cornerRadius = 5
-        typeView.layer.borderWidth = 0.5
-        typeView.layer.borderColor = COLOR_InputBorder.cgColor
+        
+        //leverageBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -5)
+        leverageBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
+        leverageBtn.tintColor = COLOR_InputText
+        leverageBtn.semanticContentAttribute = .forceRightToLeft
+        leverageBtn.addTarget(self, action: #selector(changeLeverageAction), for: .touchUpInside)
         
         return typeView
     }()
@@ -389,17 +417,16 @@ class FCContractOrderView: UIView {
         let dropDown = DropDown()
         dropDown.dataSource = ["限价委托", "市价委托", "计划委托"]
         dropDown.anchorView = self.typeBtn
-        // dropDown.selectRow(0)  //默认选中
-        dropDown.textFont = UIFont.init(_customTypeSize: 14)
-        dropDown.textColor = COLOR_PrimeTextColor
+        dropDown.textFont = UIFont.init(_PingFangSCTypeSize: 14)
+        dropDown.textColor = COLOR_CellTitleColor
         dropDown.cellHeight = 36
-        dropDown.selectionBackgroundColor = .clear
-        dropDown.selectedTextColor = COLOR_PrimeTextColor
         dropDown.bottomOffset = CGPoint(x: 0, y: 36)
-        dropDown.backgroundColor = COLOR_HexColor(0x232529)
+        dropDown.backgroundColor = COLOR_HexColor(0x2A2F3A)
         dropDown.separatorColor = .clear
         dropDown.shadowOpacity = 0
-        //dropDown.separatorInsetLeft = true //分割线左对齐
+        dropDown.layer.cornerRadius = 5
+        dropDown.selectionBackgroundColor = COLOR_HexColor(0x2A2F3A)
+        dropDown.selectedTextColor = COLOR_CellTitleColor
         return dropDown
     }()
     
@@ -407,49 +434,52 @@ class FCContractOrderView: UIView {
         let dropMoreSettingDown = DropDown()
         dropMoreSettingDown.dataSource = ["  合约设置  ", "  添加自选  "]
         dropMoreSettingDown.anchorView = self.ktradeSettingBtn
-        dropMoreSettingDown.textFont = UIFont.init(_customTypeSize: 14)
-        dropMoreSettingDown.textColor = COLOR_PrimeTextColor
-        //dropMoreSettingDown.width = 150
+        dropMoreSettingDown.textFont = UIFont.init(_PingFangSCTypeSize: 14)
+        dropMoreSettingDown.textColor = COLOR_CellTitleColor
         dropMoreSettingDown.cellHeight = 36
-        dropMoreSettingDown.selectionBackgroundColor = .clear
-        dropMoreSettingDown.selectedTextColor = COLOR_PrimeTextColor
         dropMoreSettingDown.bottomOffset = CGPoint(x: 0, y: 36)
-        dropMoreSettingDown.backgroundColor = COLOR_HexColor(0x232529)
+        dropMoreSettingDown.backgroundColor = COLOR_HexColor(0x2A2F3A)
         dropMoreSettingDown.separatorColor = .clear
         dropMoreSettingDown.shadowOpacity = 0
+        dropMoreSettingDown.layer.cornerRadius = 5
+        dropMoreSettingDown.selectionBackgroundColor = COLOR_HexColor(0x2A2F3A)
+        dropMoreSettingDown.selectedTextColor = COLOR_CellTitleColor
         return dropMoreSettingDown
     }()
     
     lazy var accuracyViewDropDown: DropDown = {
         let dropMoreSettingDown = DropDown()
         dropMoreSettingDown.shadowOpacity = 0
-        dropMoreSettingDown.selectionAction = {
-            (index: Int, title: String) in
-            
-            UIView.animate(withDuration: 0.3, animations: {[weak self] () -> () in
-                
-                self?.dropTriangleImgView.transform = (self?.dropTriangleImgView.transform)!.rotated(by: 180 * CGFloat(Double.pi/180))
-            })
-            
-            self.accuracyBtn.setTitle(title, for: .normal)
-        }
+        
+//        dropMoreSettingDown.selectionAction = {
+//            (index: Int, title: String) in
+//            
+//            UIView.animate(withDuration: 0.3, animations: {[weak self] () -> () in
+//                
+//                self?.dropTriangleImgView.transform = (self?.dropTriangleImgView.transform)!.rotated(by: 180 * CGFloat(Double.pi/180))
+//            })
+//            
+//            self.accuracyBtn.setTitle(title, for: .normal)
+//        }
         
         //dropMoreSettingDown.dataSource = ["1", "0.01", "0.1", "10"]
         dropMoreSettingDown.anchorView = self.accuracyBtn
-        dropMoreSettingDown.textFont = UIFont.init(_customTypeSize: 12)
-        dropMoreSettingDown.textColor = COLOR_PrimeTextColor
+        dropMoreSettingDown.textFont = UIFont.init(_DINProBoldTypeSize: 12)
+        dropMoreSettingDown.textColor = COLOR_CellTitleColor
         dropMoreSettingDown.cellHeight = 30
-        dropMoreSettingDown.selectionBackgroundColor = .clear
-        dropMoreSettingDown.selectedTextColor = COLOR_PrimeTextColor
-        dropMoreSettingDown.bottomOffset = CGPoint(x: 0, y: 30)
-        dropMoreSettingDown.backgroundColor = COLOR_HexColor(0x232529)
+        dropMoreSettingDown.bottomOffset = CGPoint(x: 0, y: 36)
+        dropMoreSettingDown.backgroundColor = COLOR_HexColor(0x2A2F3A)
         dropMoreSettingDown.separatorColor = .clear
+        dropMoreSettingDown.shadowOpacity = 0
+        dropMoreSettingDown.layer.cornerRadius = 5
+        dropMoreSettingDown.selectionBackgroundColor = COLOR_HexColor(0x2A2F3A)
+        dropMoreSettingDown.selectedTextColor = COLOR_CellTitleColor
         return dropMoreSettingDown
     }()
     
     /// 标记价格单位 
     lazy var tagPriceUnitLab: UILabel = {
-        let tagPriceUnitLab = fc_labelInit(text: "USDT 触发价", textColor: COLOR_CharTipsColor, textFont: 13, bgColor: COLOR_BGColor)
+        let tagPriceUnitLab = fc_labelInit(text: "USDT 触发价", textColor: COLOR_CellTitleColor, textFont: 13, bgColor: COLOR_BGColor)
         tagPriceUnitLab.setAttributeColor(.white, range: NSRange(location: 5, length: 3))
         tagPriceUnitLab.textAlignment = .right
         tagPriceUnitLab.numberOfLines = 0
@@ -460,18 +490,19 @@ class FCContractOrderView: UIView {
     /// 标记价格输入框
     lazy var tagPriceTxd: UITextField = {
         
-        /// 限价委托显示下输入
-        let tagPriceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CharTipsColor, textColor: COLOR_InputText, fontSize: 16, borderStyle: .roundedRect)
-        tagPriceTxd.setValue(3, forKey: "paddingLeft")
-        tagPriceTxd.rightViewMode = .always
-        tagPriceTxd.backgroundColor = COLOR_BGColor
-        tagPriceTxd.layer.borderWidth = 0.5
-        tagPriceTxd.layer.borderColor = COLOR_InputBorder.cgColor
-        tagPriceTxd.layer.cornerRadius = 5
-        tagPriceTxd.tintColor = COLOR_InputText
-        tagPriceTxd.delegate = self
+        /// 限价委托显示下输入 //
+        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CellTitleColor, textColor: .white, fontSize: 14, borderStyle: .roundedRect)
+        priceTxd.attributedPlaceholder = NSAttributedString.init(string: "价格", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
+        priceTxd.setValue(3, forKey: "paddingLeft")
+        priceTxd.rightViewMode = .always
+        priceTxd.backgroundColor = COLOR_BGColor
+        priceTxd.layer.borderWidth = 0.7
+        priceTxd.layer.borderColor = COLOR_HexColor(0x293247).cgColor
+        priceTxd.layer.cornerRadius = 5
+        priceTxd.delegate = self
+        priceTxd.tintColor = COLOR_InputText
         
-        return tagPriceTxd
+        return priceTxd
     }()
     
     /// 计划委托下拉列表
@@ -480,7 +511,7 @@ class FCContractOrderView: UIView {
         dropDown.dataSource = ["委托价", "市场价", "对手价"]
         dropDown.anchorView = priceUnitLab
         // dropDown.selectRow(0)  //默认选中
-        dropDown.textFont = UIFont.init(_customTypeSize: 14)
+        dropDown.textFont = UIFont.init(_PingFangSCTypeSize: 14)
         dropDown.textColor = COLOR_PrimeTextColor
         dropDown.cellHeight = 36
         dropDown.selectionBackgroundColor = .clear
@@ -533,19 +564,21 @@ class FCContractOrderView: UIView {
 
     /// 价格输入框
     lazy var priceTxd: UITextField = {
+        
         /// 限价委托显示下输入
-        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CharTipsColor, textColor: COLOR_InputText, fontSize: 16, borderStyle: .roundedRect)
+        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CellTitleColor, textColor: .white, fontSize: 16, borderStyle: .roundedRect)
+        priceTxd.attributedPlaceholder = NSAttributedString.init(string: "价格", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
         priceTxd.setValue(3, forKey: "paddingLeft")
         priceTxd.rightViewMode = .always
         priceTxd.backgroundColor = COLOR_BGColor
-        priceTxd.layer.borderWidth = 0.5
-        priceTxd.layer.borderColor = COLOR_InputBorder.cgColor
+        priceTxd.layer.borderWidth = 0.7
+        priceTxd.layer.borderColor = COLOR_HexColor(0x293247).cgColor
         priceTxd.layer.cornerRadius = 5
-        priceTxd.tintColor = COLOR_InputText
         priceTxd.delegate = self
+        priceTxd.tintColor = COLOR_InputText
         
         /// 市价委托显示提示
-        marketOrderTitleL = fc_labelInit(text: "最优市场价格", textColor: COLOR_CharTipsColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        marketOrderTitleL = fc_labelInit(text: "最优市场价格", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         marketOrderTitleL.textAlignment = .left
         marketOrderTitleL.backgroundColor = COLOR_BGColor
         //marketOrderTitleL.layer.borderWidth = 0.5
@@ -558,20 +591,21 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var amountTxd: UITextField = {
-        let amountTxd = fc_textfiledInit(placeholder: "数量", holderColor: COLOR_CharTipsColor, textColor: COLOR_InputText, fontSize: 16, borderStyle: .roundedRect)
+        let amountTxd = fc_textfiledInit(placeholder: "数量", holderColor: COLOR_CellTitleColor, textColor: .white, fontSize: 16, borderStyle: .roundedRect)
+        amountTxd.attributedPlaceholder = NSAttributedString.init(string: "数量", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
         amountTxd.setValue(3, forKey: "paddingLeft")
         amountTxd.rightViewMode = .always
         amountTxd.backgroundColor = COLOR_BGColor
-        amountTxd.layer.borderWidth = 0.5
-        amountTxd.layer.borderColor = COLOR_InputBorder.cgColor
+        amountTxd.layer.borderWidth = 0.7
+        amountTxd.layer.borderColor = COLOR_HexColor(0x293247).cgColor
         amountTxd.layer.cornerRadius = 5
-        amountTxd.tintColor = COLOR_InputText
         amountTxd.delegate = self
+        amountTxd.tintColor = COLOR_InputText
         return amountTxd
     }()
     
     lazy var priceUnitLab: UILabel = {
-        let priceUnitLab = fc_labelInit(text: "USDT", textColor: COLOR_CharTipsColor, textFont: 13, bgColor: COLOR_BGColor)
+        let priceUnitLab = fc_labelInit(text: "USDT", textColor: COLOR_CellTitleColor, textFont: 13, bgColor: COLOR_BGColor)
         priceUnitLab.adjustsFontSizeToFitWidth = true
         priceUnitLab.textAlignment = .right
         priceUnitLab.numberOfLines = 0
@@ -584,7 +618,7 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var amountUnitLab: UILabel = {
-        let amountUnitLab = fc_labelInit(text: "张", textColor: COLOR_CharTipsColor, textFont: 13, bgColor: COLOR_BGColor)
+        let amountUnitLab = fc_labelInit(text: "张", textColor: COLOR_CellTitleColor, textFont: 13, bgColor: COLOR_BGColor)
         amountUnitLab.adjustsFontSizeToFitWidth = true
         amountUnitLab.textAlignment = .right
         amountUnitLab.numberOfLines = 0
@@ -598,35 +632,39 @@ class FCContractOrderView: UIView {
     
     lazy var slider: PCSlider = {
         let slider = PCSlider.init(frame: CGRect(x: 0, y: 0, width: (kSCREENWIDTH - 30) / 2.0, height: 30), scaleLineNumber: 4)
-        
+        slider?.isHidden = true
         slider?.setSliderValue(0.0)
         return slider!
     }()
     
     lazy var volumeTitleLab: UILabel = {
-        let titleLab = fc_labelInit(text: "可用", textColor: COLOR_CharTipsColor, textFont: 15, bgColor: COLOR_BGColor)
+        //let titleLab = fc_labelInit(text: "可用", textColor: COLOR_CharTipsColor, textFont: 15, bgColor: COLOR_BGColor)
+        
+        let titleLab = fc_labelInit(text: "可用", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 13), bgColor: .clear)
         return titleLab
     }()
     
     lazy var sliderPercentL: UILabel = {
-        let titleLab = fc_labelInit(text: "0%", textColor: COLOR_CharTipsColor, textFont: 13, bgColor: COLOR_BGColor)
+        let titleLab = fc_labelInit(text: "0%", textColor: COLOR_CellTitleColor, textFont: 13, bgColor: COLOR_BGColor)
         titleLab.textAlignment = .right
+        titleLab.isHidden = true
         return titleLab
     }()
     
     lazy var volumeLab: UILabel = {
-        let volumeLab = fc_labelInit(text: "-.--", textColor: COLOR_InputText, textFont: 15, bgColor: COLOR_BGColor)
+        let volumeLab = fc_labelInit(text: "-.--", textColor: .white, textFont: UIFont(_DINProBoldTypeSize: 13), bgColor: .clear)
         volumeLab.numberOfLines = 0
         return volumeLab
     }()
     
     lazy var estimateTitleLab: UILabel = {
-        let titleLab = fc_labelInit(text: "可开多", textColor: COLOR_CharTipsColor, textFont: 15, bgColor: COLOR_BGColor)
+        let titleLab = fc_labelInit(text: "可开多", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 13), bgColor: .clear)
         return titleLab
     }()
     
     lazy var estimateLab: UILabel = {
-        let volumeLab = fc_labelInit(text: "-.--", textColor: COLOR_InputText, textFont: 15, bgColor: COLOR_BGColor)
+        //let volumeLab = fc_labelInit(text: "-.--", textColor: COLOR_InputText, textFont: 15, bgColor: COLOR_BGColor)
+        let volumeLab = fc_labelInit(text: "-.--", textColor: .white, textFont: UIFont(_DINProBoldTypeSize: 13), bgColor: .clear)
         volumeLab.numberOfLines = 0
         return volumeLab
     }()
@@ -643,7 +681,7 @@ class FCContractOrderView: UIView {
     var profitArrowIcon: UIImageView = UIImageView(image: UIImage(named: "trade_downtriangle"))
    
     lazy var profitLossBtn: UIButton = {
-        let profitLossBtn = fc_buttonInit(imgName: nil, title: "止盈止损", fontSize: 16, titleColor: UIColor.white, bgColor: .clear)
+        let profitLossBtn = fc_buttonInit(imgName: nil, title: "止盈止损", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
         profitLossBtn.addTarget(self, action: #selector(showProfitLossViewAction), for: .touchUpInside)
         profitLossBtn.addSubview(self.profitArrowIcon)
         profitArrowIcon.snp.makeConstraints { (make) in
@@ -672,7 +710,9 @@ class FCContractOrderView: UIView {
         let depthTableView = UITableView.init(frame: .zero, style: .grouped)
         depthTableView.isScrollEnabled = false
         depthTableView.separatorInset = .zero
-        
+        depthTableView.separatorStyle = .none
+        depthTableView.delegate = self
+        depthTableView.dataSource = self
         //COLOR_HexColorAlpha(0x141416, alpha: 0.7)
         depthTableView.separatorColor = COLOR_HexColor(0x141416)
         depthTableView.backgroundColor = COLOR_BGColor
@@ -682,9 +722,9 @@ class FCContractOrderView: UIView {
     
     lazy var dethHeader: UIView = {
         let dethHeader = UIView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 25))
-        let priceTitle = fc_labelInit(text: "价格", textColor: COLOR_CharTipsColor, textFont: 12, bgColor: UIColor.clear)
+        let priceTitle = fc_labelInit(text: "价格", textColor: COLOR_CellTitleColor, textFont: 12, bgColor: UIColor.clear)
         
-        let amountTitle = fc_labelInit(text: "数量", textColor: COLOR_CharTipsColor, textFont: 12, bgColor: UIColor.clear)
+        let amountTitle = fc_labelInit(text: "数量", textColor: COLOR_CellTitleColor, textFont: 12, bgColor: UIColor.clear)
         
         dethHeader.addSubview(priceTitle)
         dethHeader.addSubview(amountTitle)
@@ -698,20 +738,53 @@ class FCContractOrderView: UIView {
         
         amountTitle.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
-            make.right.equalToSuperview().offset(-10)
-            make.left.greaterThanOrEqualTo(priceTitle.snp_right).offset(10)
+            make.right.equalToSuperview()
+            make.left.greaterThanOrEqualTo(priceTitle.snp_right).offset(5)
         }
         
         return dethHeader
     }()
     
     lazy var dethFooter: UIView = {
+        
         let dethFooter = UIView.init(frame: .zero)
-        //dethFooter.backgroundColor = .white
         dethFooter.addSubview(dethPriceLab)
         dethFooter.addSubview(priceEstimateLab)
-        dethPriceLab.frame = CGRect(x: 0, y: 5, width: kSCREENWIDTH/2.0, height: 20)
-        priceEstimateLab.frame = CGRect(x: 0, y: dethPriceLab.frame.maxY, width: kSCREENWIDTH/2.0, height: 20)
+        dethPriceLab.snp.makeConstraints { (make) in
+            //make.top.equalToSuperview().offset(16)
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.lessThanOrEqualToSuperview().offset(-12)
+        }
+        
+        priceEstimateLab.snp.makeConstraints { (make) in
+            //make.bottom.equalToSuperview().offset(-16)
+            make.right.equalToSuperview()
+            //make.right.lessThanOrEqualToSuperview().offset(-12)
+            // make.bottom.lessThanOrEqualTo(-12)
+            make.centerY.equalTo(dethPriceLab.snp_centerY)
+        }
+        
+        let line1View = UIView()
+        line1View.backgroundColor = COLOR_LineColor
+        dethFooter.addSubview(line1View)
+        
+        let line2View = UIView()
+        line2View.backgroundColor = COLOR_LineColor
+        dethFooter.addSubview(line2View)
+        
+        line1View.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.height.equalTo(0.7)
+            make.bottom.equalTo(dethPriceLab.snp_top).offset(-10)
+        }
+        
+        line2View.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.height.equalTo(0.7)
+            make.top.equalTo(dethPriceLab.snp_bottom).offset(10)
+        }
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dethPrceSeletedItem))
         dethFooter.addGestureRecognizer(tapGesture)
         
@@ -719,12 +792,14 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var dethPriceLab: UILabel = {
-        let dethPriceLab = fc_labelInit(text: "-.--", textColor: COLOR_RiseColor, textFont: 16, bgColor: UIColor.clear)
+        //let dethPriceLab = fc_labelInit(text: "-.--", textColor: COLOR_RiseColor, textFont: 14, bgColor: UIColor.clear)
+        let dethPriceLab = fc_labelInit(text: "0.00", textColor: COLOR_RiseColor, textFont: UIFont(_DINProBoldTypeSize: 14), bgColor: .clear)
         return dethPriceLab
     }()
     
     lazy var priceEstimateLab: UILabel = {
-        let priceEstimateLab = fc_labelInit(text: "≈-.--", textColor: COLOR_MinorTextColor, textFont: 12, bgColor: UIColor.clear)
+        //let priceEstimateLab = fc_labelInit(text: "≈-.--", textColor: COLOR_MinorTextColor, textFont: 12, bgColor: UIColor.clear)
+        let priceEstimateLab = fc_labelInit(text: "0.00", textColor: COLOR_MinorTextColor, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: .clear)
         return priceEstimateLab
     }()
     
@@ -741,14 +816,14 @@ class FCContractOrderView: UIView {
         self.backgroundColor = COLOR_BGColor
         loadHeader()
         loadLeftView()
-        loadRightView()
     }
     
     func loadHeader () {
         
         let header = UIView.init(frame: .zero)
+        header.backgroundColor = COLOR_navBgColor
         self.addSubview(header)
-        self.addSubview(self.strategyInfoView)
+        
         self.headerSymbolView = header
         
         changeView.addSubview(self.changeLab)
@@ -757,14 +832,9 @@ class FCContractOrderView: UIView {
         header.addSubview(self.klineBtn)
         header.addSubview(self.ktradeSettingBtn)
         
-        strategyInfoView.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(10)
-            make.height.equalTo(36)
-        }
-        
         header.snp.makeConstraints { (make) in
-            make.top.equalTo(strategyInfoView.snp_bottom).offset(10)
+            //make.top.equalTo(strategyInfoView.snp_bottom).offset(10)
+            make.top.equalTo(0)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalTo(45)
@@ -778,13 +848,13 @@ class FCContractOrderView: UIView {
         changeView.snp.makeConstraints { (make) in
             make.left.equalTo(self.symbolBtn.snp.right).offset(5)
             make.centerY.equalToSuperview()
+            make.height.equalTo(20)
         }
         
         changeLab.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
-            make.left.equalToSuperview().offset(2)
-            make.right.equalToSuperview().offset(-2)
-            make.height.equalTo(16)
+            make.left.equalToSuperview().offset(5)
+            make.right.equalToSuperview().offset(-5)
             make.height.equalToSuperview()
         }
         
@@ -803,23 +873,72 @@ class FCContractOrderView: UIView {
     }
     
     func loadLeftView () {
-        self.addSubview(leftView)
         
-        //买卖
         leftView.addSubview(bidBtn)
         leftView.addSubview(askBtn)
         
-        bidBtn.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(5)
-            make.left.equalToSuperview()
+        self.addSubview(leftView)
+        self.addSubview(depthTableView)
+        self.addSubview(indexPriceView)
+        self.addSubview(accuracyView)
+        self.addSubview(self.strategyInfoView)
+        
+        let segLineView = UIView()
+        segLineView.backgroundColor = COLOR_HexColor(0x12151B)
+        self.addSubview(segLineView)
+        
+        segLineView.snp_makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(5)
+        }
+        
+        depthTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(leftView.snp_top).offset(30)
+            make.height.equalTo(345)
+            make.left.equalToSuperview().offset(15)
+            make.bottom.lessThanOrEqualToSuperview()
+        }
+        
+        leftView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.headerSymbolView!.snp_bottom).offset(15)
+            make.left.equalTo(depthTableView.snp.right).offset(15)
+            make.right.equalToSuperview().offset(-15)
+            make.width.equalTo(depthTableView).multipliedBy(1.4)
+            make.height.equalTo(480)
+            make.bottom.lessThanOrEqualToSuperview()
+        }
+        
+        indexPriceView.snp.makeConstraints { (make) in
+            make.top.equalTo(leftView.snp_top)
+            make.height.equalTo(25)
+            make.left.equalTo(depthTableView.snp_left)
+            make.width.equalTo(depthTableView.snp_width)
+        }
+        
+        accuracyView.snp.makeConstraints { (make) in
+            make.top.equalTo(depthTableView.snp_bottom).offset(10)
+            make.height.equalTo(24)
+            make.left.equalTo(depthTableView.snp_left)
+            make.width.equalTo(depthTableView.snp_width)
+        }
+        
+        strategyInfoView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(depthTableView)
+            make.top.equalTo(accuracyView.snp_bottom).offset(10)
             make.height.equalTo(36)
         }
         
+        bidBtn.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.height.equalTo(32)
+        }
+        
         askBtn.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(5)
-            make.left.equalTo(bidBtn.snp.right)
+            make.centerY.equalTo(bidBtn.snp_centerY)
+            make.left.equalTo(bidBtn.snp.right).offset(-5)
             make.right.equalToSuperview()
-            make.height.equalTo(36)
+            make.height.equalTo(32)
             make.width.equalTo(bidBtn)
         }
         
@@ -851,27 +970,35 @@ class FCContractOrderView: UIView {
         typeView.addSubview(typeLab)
         typeView.addSubview(typeImgView)
         typeView.addSubview(typeBtn)
+        typeView.addSubview(leverageBtn)
         leftView.addSubview(typeView)
         
+  
+        
+        leverageBtn.snp.makeConstraints { (make) in
+            make.right.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(70)
+        }
+        
         typeLab.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(10)
+            make.left.equalToSuperview()
             make.height.equalToSuperview()
             make.top.equalToSuperview()
-            make.right.lessThanOrEqualTo(typeImgView.snp.left)
         }
         
         typeImgView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-10)
-            make.size.equalTo(CGSize(width: 6, height: 6))
+            make.left.equalTo(typeLab.snp_right).offset(8)
+            make.size.equalTo(CGSize(width: 13, height: 7.5))
         }
         
         typeBtn.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(typeLab.snp_edges)
         }
         
         typeView.snp.makeConstraints { (make) in
-            make.top.equalTo(askBtn.snp.bottom).offset(8)
+            make.top.equalTo(askBtn.snp.bottom).offset(15)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalTo(36)
@@ -984,6 +1111,7 @@ class FCContractOrderView: UIView {
         priceUnitLab.snp.makeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
             //make.width.greaterThanOrEqualTo(80)
+            make.width.greaterThanOrEqualTo(45)
         }
         
         priceTxd.snp.makeConstraints { (make) in
@@ -1011,13 +1139,28 @@ class FCContractOrderView: UIView {
         leftView.addSubview(profitLossBtn)
         leftView.addSubview(profitLossView)
         
+        // 交易额&提交
+        leftView.addSubview(volumeTitleLab)
+        leftView.addSubview(volumeLab)
+        leftView.addSubview(estimateTitleLab)
+        leftView.addSubview(estimateLab)
+        leftView.addSubview(orderBtn)
+        
+        ratioView = FCBtnSelectedView(frame: CGRect(x: 0, y: 0, width: (kSCREENWIDTH - 60) * 0.6, height: 36))
+        ratioView.cornerRadius = 5
+        ratioView.titleColor = COLOR_tabbarNormalColor
+        ratioView.borderColor = COLOR_LineColor
+        ratioView.clipsToBounds = true
+        ratioView.titleArray = ["25%", "50%", "75%", "100%"]
+        leftView.addSubview(ratioView)
+        
         amountUnitLab.snp.makeConstraints { (make) in
             make.edges.equalTo(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
             make.width.greaterThanOrEqualTo(45)
         }
         
         amountTxd.snp.makeConstraints { (make) in
-            make.top.equalTo(priceTxd.snp_bottom).offset(8)
+            make.top.equalTo(priceTxd.snp_bottom).offset(20)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.height.equalTo(36)
@@ -1043,8 +1186,8 @@ class FCContractOrderView: UIView {
         
         profitLossBtn.snp.makeConstraints { (make) in
             
-            make.left.equalTo(slider.snp_left)
-            make.top.equalTo(sliderPercentL.snp_bottom)
+            make.left.equalToSuperview()
+            make.top.equalTo(ratioView.snp_bottom).offset(20)
             make.height.equalTo(22)
         }
         
@@ -1134,91 +1277,107 @@ class FCContractOrderView: UIView {
         }
         
         
-        // 交易额&提交
-        leftView.addSubview(volumeTitleLab)
-        leftView.addSubview(volumeLab)
-        leftView.addSubview(estimateTitleLab)
-        leftView.addSubview(estimateLab)
-        leftView.addSubview(orderBtn)
+        ratioView.clickItemBlock = {
+            
+            [weak self] (index, str) in
+            
+                if index == 0 {
+  
+                    self?.percentValue = 0.25
+                    
+                }else if (index == 1) {
+                  
+                    self?.percentValue = 0.50
+                    
+                }else if (index == 2) {
+                    
+                    self?.percentValue = 0.75
+                }else {
+                  
+                    self?.percentValue = 1.0
+                }
+            
+            let value = self?.percentValue ?? 0.0
+            
+            self?.amountTxd.endEditing(true)
+            /// 合约size
+            let size = Double(self?.contractModel?.size ?? "1")!
+
+            self?.sliderPercentL.text = String(format: "%.0f%%", value * 100)
+            let availableLongVolume = Double(self?.accountInfoModel?.symbolAccount?.availableLongVolume ?? "0") ?? 0.0
+            let availableShortVolume = Double(self?.accountInfoModel?.symbolAccount?.availableShortVolume ?? "0") ?? 0.0
+            
+            //最小交易单位与张数的转换
+            let arrayStrings: [String] = self?.accountInfoModel?.symbolAccount?.symbol?.split(separator: "-").compactMap { "\($0)" } ?? []
+            
+            var availableVolume = 0.00
+            if(self?.markerSide == "Bid") {
+                //self.amountTxd.text = String(format: "%.4f", Double(value) * availableLongVolume)
+                availableVolume = availableLongVolume
+            } else {
+                //self.amountTxd.text = String(format: "%.4f", Double(value) * availableShortVolume)
+                availableVolume = availableShortVolume
+            }
+            
+            if FCTradeSettingconfig.sharedInstance.tradeTradingUnit == .TradeTradingUnitType_CONT {
+                
+                self?.amountTxd.text = String(format: "%.0f", Double(value) * availableVolume)
+                
+                /// 张 =？币
+                self?.convertLab.text = String(format:"≈%.4f \(arrayStrings.first ?? "")", (Double(value) * availableVolume * size))
+            }else {
+                
+                self?.amountTxd.text = String(format: "%.4f", Double(value) * availableVolume)
+                
+                //币 =？ 张
+                self?.convertLab.text = String(format:"≈%.0f \("(张)")", (Double(value) * availableVolume))
+            }
+        }
+        
+        ratioView.snp_makeConstraints { (make) in
+            
+            make.left.equalTo(0)
+            make.top.equalTo(convertLab.snp_bottom).offset(20)
+            make.height.equalTo(36)
+            make.right.equalToSuperview()
+        }
         
         volumeTitleLab.snp.makeConstraints { (make) in
-            make.top.equalTo(profitLossView.snp_bottom).offset(10)
+            
+            make.top.equalTo(profitLossView.snp_bottom).offset(60)
             make.left.equalToSuperview()
         }
         
         volumeLab.snp.makeConstraints { (make) in
+            
             make.centerY.equalTo(volumeTitleLab.snp_centerY)
-            make.left.equalTo(volumeTitleLab.snp_right)
+            make.right.equalToSuperview()
+            //make.left.equalTo(volumeTitleLab.snp_right)
             // make.right.lessThanOrEqualToSuperview()
         }
         
         estimateTitleLab.snp.makeConstraints { (make) in
+            
             make.top.equalTo(volumeTitleLab.snp_bottom).offset(5)
             make.left.equalToSuperview()
         }
         
         estimateLab.snp.makeConstraints { (make) in
+            
             make.top.equalTo(volumeTitleLab.snp_bottom).offset(5)
-            make.left.equalTo(estimateTitleLab.snp_right)
+            make.right.equalToSuperview()
+            //make.left.equalTo(estimateTitleLab.snp_right)
             // make.right.lessThanOrEqualToSuperview()
         }
         
         orderBtn.snp.makeConstraints { (make) in
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.top.greaterThanOrEqualTo(estimateTitleLab.snp_bottom).offset(12)
-            make.top.greaterThanOrEqualTo(estimateLab.snp_bottom).offset(20)
-            make.height.equalTo(40)
-            make.bottom.lessThanOrEqualToSuperview().offset(-20)
+            make.top.equalTo(estimateLab.snp_bottom).offset(16)
+            make.height.equalTo(37)
         }
+    }
 
-        leftView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.headerSymbolView!.snp_bottom)
-            make.left.equalToSuperview().offset(15)
-            make.width.equalTo((kSCREENWIDTH - 30)/2.0)
-            make.bottom.equalTo(orderBtn.snp_bottom)
-        }
-    }
-    
-    // 加载右边深度
-    func loadRightView () {
-        self.addSubview(depthTableView)
-        self.addSubview(indexPriceView)
-        self.addSubview(accuracyView)
-        
-        depthTableView.snp.makeConstraints { (make) in
-            make.top.equalTo(leftView.snp_top).offset(30)
-            make.left.equalTo(leftView.snp.right).offset(15)
-            make.right.equalToSuperview()
-            make.width.equalTo(leftView.snp_width)
-            make.height.equalTo(340)
-            make.bottom.lessThanOrEqualToSuperview().offset(-20)
-        }
-        
-        depthTableView.delegate = self
-        depthTableView.dataSource = self
-        
-        indexPriceView.snp.makeConstraints { (make) in
-            make.top.equalTo(leftView.snp_top).offset(5)
-            make.height.equalTo(25)
-            make.left.equalTo(depthTableView.snp_left)
-            make.width.equalTo(depthTableView.snp_width)
-        }
-        
-        accuracyView.snp.makeConstraints { (make) in
-            make.top.equalTo(depthTableView.snp_bottom)
-            make.height.equalTo(24)
-            make.left.equalTo(depthTableView.snp_left)
-            make.width.equalTo(depthTableView.snp_width)
-        }
-    }
-    
-    //    func loadAssetsData (tradeAsset: FCAssetModel?, baseAsset: FCAssetModel?) {
-    //        self.tradeAsset = tradeAsset
-    //        self.baseAsset = baseAsset
-    //        self.loadAmountData(markerSide: self.markerSide)
-    //    }
-    
     func loadAssetsData (accountInfoModel: FCPositionAccountInfoModel?) {
         self.accountInfoModel = accountInfoModel
         self.loadAmountData(markerSide: self.markerSide)
@@ -1277,7 +1436,7 @@ class FCContractOrderView: UIView {
         if FCTradeSettingconfig.sharedInstance.depthType == "0" {
             /// 默认状态 上下显示 六点
             self.askData = depthModel?.asks?.suffix(6)
-            var count = depthModel?.bids?.count ?? 0 <= 5 ? (depthModel?.bids?.count ?? 0) : 5
+            var count = depthModel?.bids?.count ?? 0 <= 6 ? (depthModel?.bids?.count ?? 0) : 6
             count = (count - 1) < 0 ? 0 : (count - 1)
             
             self.bidData = Array(depthModel?.bids?[0...count] ?? [])
@@ -1294,8 +1453,7 @@ class FCContractOrderView: UIView {
         /// 头部信息 单位信息设置
         let arrayStrings: [String] = self.accountInfoModel?.symbolAccount?.symbol?.split(separator: "-").compactMap { "\($0)" } ?? []
         self.depthpriceTitleL.text = "价格(\(arrayStrings.last ?? "/"))"
-        self.depthamountTitleL.text = "数量(\(FCTradeSettingconfig.sharedInstance.tradingUnitStr))"
-        
+
         /// 单位设置
         let tradingUnitStr = FCTradeSettingconfig.sharedInstance.tradingUnitStr
         var contractAsset = self.marketModel?.asset ?? ""
@@ -1307,6 +1465,8 @@ class FCContractOrderView: UIView {
             contractAsset = "张"
         }
         
+        self.depthamountTitleL.text = "数量(\(contractAsset))"
+        
         self.amountUnitLab.text = contractAsset
         
         /// 刷新界面数据
@@ -1314,11 +1474,11 @@ class FCContractOrderView: UIView {
         self.changeLab.text = "\(depthModel?.latestTrade?.changePercentage ?? "0.00")%"
         if (((depthModel?.latestTrade?.changePercentage ?? "0.00") as NSString).floatValue >= 0) {
             
-            changeView.backgroundColor = COLOR_HexColorAlpha(0x2CB362, alpha: 0.2)
+            //changeView.backgroundColor = COLOR_HexColorAlpha(0x2CB362, alpha: 0.2)
             self.changeLab.textColor = COLOR_RiseColor
         }else {
             self.changeLab.textColor = COLOR_FailColor
-            changeView.backgroundColor = COLOR_HexColorAlpha(0xE0274A, alpha: 0.2)
+            //changeView.backgroundColor = COLOR_HexColorAlpha(0xE0274A, alpha: 0.2)
         }
         
         self.priceEstimateLab.text = "\(depthModel?.latestTrade?.estimatedValue ?? "") \(depthModel?.latestTrade?.estimatedCurrency ?? "")"
@@ -1424,12 +1584,21 @@ class FCContractOrderView: UIView {
                 make.height.equalTo(height)
             }
             
+            self.leftView.snp.updateConstraints { (make) in
+                make.height.equalTo(480)
+            }
+            
         }else {
             
             self.profitLossView.snp.updateConstraints { (make) in
                 make.top.equalTo(profitLossBtn.snp_bottom).offset(20)
                 make.height.equalTo(height)
             }
+            
+            self.leftView.snp.updateConstraints { (make) in
+                make.height.equalTo(590)
+            }
+            
         }
     
         self.profitLossView.isHidden = !isShow
@@ -1608,15 +1777,15 @@ extension FCContractOrderView: UITableViewDelegate, UITableViewDataSource {
         if FCTradeSettingconfig.sharedInstance.depthType == "1" {
             
             /// 买盘
-            return section == 0  ? 50 : 8
+            return section == 0  ? 70 : 8
             
         }else if (FCTradeSettingconfig.sharedInstance.depthType == "2") {
             
             /// 卖盘
-            return section == 0  ? 50 : 8
+            return section == 0  ? 70 : 8
         }else {
             
-            return 50
+            return 70
         }
     }
     
@@ -1696,6 +1865,8 @@ extension FCContractOrderView: UITextFieldDelegate
         if textField == amountTxd {
             self.slider.setSliderValue(0.0)
             sliderPercentL.text = "0%"
+            self.percentValue = 0.0
+            ratioView.selectedBtn?.isSelected = false
         }
     }
     

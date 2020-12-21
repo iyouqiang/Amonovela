@@ -35,7 +35,7 @@ class FCSegmentControl: UIView {
             
             if isMarket {
                 
-                selectedBtn?.titleLabel?.font = UIFont(_customTypeSize: 22)
+                selectedBtn?.titleLabel?.font = UIFont(_PingFangSCTypeSize: 22)
             }
 
             if self.underLine != nil {
@@ -55,7 +55,7 @@ class FCSegmentControl: UIView {
                 
                 if isMarket && index != i {
                     
-                    button?.titleLabel?.font = UIFont(_customTypeSize: 15)
+                    button?.titleLabel?.font = UIFont(_PingFangSCTypeSize: 15)
                 }
             }
         }
@@ -70,7 +70,7 @@ class FCSegmentControl: UIView {
             
             let button: UIButton = UIButton.init(type: .custom)
             button.setTitle(titles[i], for: .normal)
-            button.titleLabel?.font = UIFont.init(_customTypeSize: fontSize)
+            button.titleLabel?.font = UIFont.init(_PingFangSCTypeSize: fontSize)
             button.setTitleColor(normalColor, for: .normal)
             button.setTitleColor(tintColor, for: .selected)
             button.tag = 1000 + i
@@ -135,7 +135,7 @@ class FCSegmentControl: UIView {
             
             let button: UIButton = UIButton.init(type: .custom)
             button.setTitle(titles[i], for: .normal)
-            button.titleLabel?.font = UIFont.init(_customTypeSize: fontSize)
+            button.titleLabel?.font = UIFont.init(_PingFangSCTypeSize: fontSize)
             button.setTitleColor(normalColor, for: .normal)
             button.setTitleColor(tintColor, for: .selected)
             button.tag = 1000 + i

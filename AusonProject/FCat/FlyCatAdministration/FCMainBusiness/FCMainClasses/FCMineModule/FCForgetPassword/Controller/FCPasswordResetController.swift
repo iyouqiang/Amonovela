@@ -37,7 +37,7 @@ class FCPasswordResetController: UIViewController {
         self.edgesForExtendedLayout = .all
         
         /**
-        self.addrightNavigationItemImgNameStr(nil, title: "重置密码", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 17), clickCallBack: {
+        self.addrightNavigationItemImgNameStr(nil, title: "重置密码", textColor: COLOR_MinorTextColor, textFont: UIFont(_PingFangSCTypeSize: 17), clickCallBack: {
             weakSelf?.resetView?.confirmBtnClick()
         })
          */

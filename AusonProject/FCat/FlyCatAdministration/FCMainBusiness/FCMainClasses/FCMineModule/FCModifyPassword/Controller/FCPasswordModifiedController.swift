@@ -34,7 +34,7 @@ class FCPasswordModifiedController: UIViewController {
         // }
         
         /**
-        self.addrightNavigationItemImgNameStr(nil, title: "修改密码", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 17), clickCallBack: {
+        self.addrightNavigationItemImgNameStr(nil, title: "修改密码", textColor: COLOR_MinorTextColor, textFont: UIFont(_PingFangSCTypeSize: 17), clickCallBack: {
         })
          */
     }

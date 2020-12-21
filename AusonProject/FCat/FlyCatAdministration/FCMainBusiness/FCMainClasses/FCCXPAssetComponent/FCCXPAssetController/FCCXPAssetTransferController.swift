@@ -59,7 +59,7 @@ class FCCXPAssetTransferController: UIViewController {
         
         let dropMoreAssetsDown = DropDown()
         dropMoreAssetsDown.anchorView = symbolL
-        dropMoreAssetsDown.textFont = UIFont.init(_customTypeSize: 14)
+        dropMoreAssetsDown.textFont = UIFont.init(_PingFangSCTypeSize: 14)
         dropMoreAssetsDown.textColor = COLOR_PrimeTextColor
         dropMoreAssetsDown.cellHeight = 36
         dropMoreAssetsDown.selectionBackgroundColor = .clear
@@ -77,7 +77,7 @@ class FCCXPAssetTransferController: UIViewController {
         
         let dropMoreAcountDown = DropDown()
         dropMoreAcountDown.anchorView = symbolL
-        dropMoreAcountDown.textFont = UIFont.init(_customTypeSize: 14)
+        dropMoreAcountDown.textFont = UIFont.init(_PingFangSCTypeSize: 14)
         dropMoreAcountDown.textColor = COLOR_PrimeTextColor
         dropMoreAcountDown.cellHeight = 36
         dropMoreAcountDown.selectionBackgroundColor = .clear

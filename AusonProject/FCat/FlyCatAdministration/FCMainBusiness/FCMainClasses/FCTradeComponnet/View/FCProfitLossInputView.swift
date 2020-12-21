@@ -22,13 +22,13 @@ class FCProfitLossInputView: UIView {
     
     lazy var priceTxd: UITextField = {
         
-        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CharTipsColor, textColor: COLOR_InputText, fontSize: 16, borderStyle: .roundedRect)
+        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CharTipsColor, textColor: UIColor.white, fontSize: 16, borderStyle: .roundedRect)
         priceTxd.delegate = self
         priceTxd.setValue(5, forKey: "paddingLeft")
         priceTxd.rightViewMode = .always
         priceTxd.backgroundColor = COLOR_BGColor
         priceTxd.layer.borderWidth = 0.5
-        priceTxd.layer.borderColor = COLOR_InputBorder.cgColor
+        priceTxd.layer.borderColor = COLOR_HexColor(0x293247).cgColor
         priceTxd.layer.cornerRadius = 5
         priceTxd.tintColor = COLOR_InputText
     

@@ -23,7 +23,7 @@ class FCPerpetualEntrustController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -82,8 +82,7 @@ class FCPerpetualEntrustController: UIViewController {
             
         }
     }
-    
-    
+
     func fetchEntrustOrders () {
         
         var tradingUnit = "COIN"
@@ -108,9 +107,12 @@ class FCPerpetualEntrustController: UIViewController {
                 }
                 
                 if self?.entrustModels.count == 0 {
-                     self?.tableView.tableFooterView = self?.footerHint
+                     //self?.tableView.tableFooterView = self?.footerHint
+                    self?.view.unAvailableDataSourceDefault()
                  }else {
-                     self?.tableView.tableFooterView = nil
+                     //self?.tableView.tableFooterView = nil
+                    
+                    self?.view.removePlaceholderView()
                  }
                 
                 self?.tableView.reloadData()

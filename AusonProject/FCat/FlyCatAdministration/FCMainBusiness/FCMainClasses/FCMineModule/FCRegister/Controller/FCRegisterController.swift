@@ -27,12 +27,12 @@ class FCRegisterController: UIViewController {
     
     func setupNavbar () {
         
-        self.addleftNavigationItemImgNameStr("", title: " ", textColor: UIColor.clear, textFont: UIFont(_customTypeSize: 12)) {
+        self.addleftNavigationItemImgNameStr("", title: " ", textColor: UIColor.clear, textFont: UIFont(_PingFangSCTypeSize: 12)) {
             
         }
         /**
         weak var weakSelf = self
-        self.addrightNavigationItemImgNameStr(nil, title: "注册", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 17), clickCallBack: {
+        self.addrightNavigationItemImgNameStr(nil, title: "注册", textColor: COLOR_MinorTextColor, textFont: UIFont(_PingFangSCTypeSize: 17), clickCallBack: {
             weakSelf?.registerView?.registerBtnClick()
         })
          */

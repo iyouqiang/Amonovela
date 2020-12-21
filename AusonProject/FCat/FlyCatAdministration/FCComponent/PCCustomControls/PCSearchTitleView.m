@@ -42,7 +42,7 @@
         searchTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         searchTextField.autocorrectionType = UITextAutocorrectionTypeNo;
         searchTextField.backgroundColor = COLOR_HexColor(0x282833);
-        searchTextField.font =[UIFont font_customTypeSize:13];
+        searchTextField.font =[UIFont font_PingFangSCTypeSize:13];
         searchTextField.textColor = [UIColor whiteColor];
         searchTextField.tintColor = COLOR_BtnTouchDownColor;
         searchTextField.placeholder = @"搜索币种";

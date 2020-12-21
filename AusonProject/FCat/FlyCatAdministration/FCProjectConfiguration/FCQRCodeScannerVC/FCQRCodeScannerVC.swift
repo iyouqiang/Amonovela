@@ -33,7 +33,7 @@ class FCQRCodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         self.maskView = FCQRCodeScannerView.init(frame: UIScreen.main.bounds)
         self.view = self.maskView
         
-        self.addrightNavigationItemImgNameStr(nil, title: "相册", textColor: COLOR_HighlightColor, textFont: UIFont (_customTypeSize: 17), clickCallBack: {
+        self.addrightNavigationItemImgNameStr(nil, title: "相册", textColor: COLOR_HighlightColor, textFont: UIFont (_PingFangSCTypeSize: 17), clickCallBack: {
             
             //获取相册权限, 有则打开相册
             self.photoAlbumPermissions(authorizedBlock: {

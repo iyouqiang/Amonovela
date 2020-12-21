@@ -56,7 +56,7 @@ class FCVerificationCodeAlertView: UIView {
         self.backgroundColor = COLOR_HexColor(0x2A2F3A)
         
         /// 验证码title
-        titleL = fc_labelInit(text: "验证码", textColor: COLOR_MainThemeColor, textFont: UIFont(_customTypeSize: 30), bgColor: UIColor.clear)
+        titleL = fc_labelInit(text: "验证码", textColor: COLOR_MainThemeColor, textFont: UIFont(_PingFangSCTypeSize: 30), bgColor: UIColor.clear)
         self.addSubview(titleL)
         
         /// 验证码重试按钮

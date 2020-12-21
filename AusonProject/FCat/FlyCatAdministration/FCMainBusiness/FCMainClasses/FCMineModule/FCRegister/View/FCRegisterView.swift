@@ -74,7 +74,7 @@ class FCRegisterView: UIView {
             make.width.height.equalTo(50)
         }
         
-        self.registerTipL = fc_labelInit(text: "手机注册", textColor: UIColor.white, textFont: UIFont(_customTypeSize: 28), bgColor: UIColor.clear)
+        self.registerTipL = fc_labelInit(text: "手机注册", textColor: UIColor.white, textFont: UIFont(_PingFangSCTypeSize: 28), bgColor: UIColor.clear)
         self.addSubview(self.registerTipL)
         
         self.registerTipL.snp.makeConstraints { (make) in

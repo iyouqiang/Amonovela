@@ -262,7 +262,7 @@
     
     if (_title.length > 0 && _title) {
         
-        titleL.font = [UIFont font_customTypeSize:18];
+        titleL.font = [UIFont font_PingFangSCTypeSize:18];
         titleL.textColor = COLOR_CellTitleColor;
         titleL.textAlignment = NSTextAlignmentCenter;
         titleL.text = _title;
@@ -392,7 +392,7 @@
         //[actionBtn setTitleColor:COLOR_BackgroundColor forState:UIControlStateHighlighted];
         
         [actionBtn setTitle:alertEventAction.btnTitle forState:UIControlStateNormal];
-        actionBtn.titleLabel.font = [UIFont font_customTypeSize:16];
+        actionBtn.titleLabel.font = [UIFont font_PingFangSCTypeSize:16];
         [actionBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         actionBtn.tag = 144;
         [self addSubview:actionBtn];
@@ -462,7 +462,7 @@
             
             [actionBtn setTitle:alertAction.btnTitle forState:UIControlStateNormal];
             
-            actionBtn.titleLabel.font = [UIFont font_customTypeSize:17];
+            actionBtn.titleLabel.font = [UIFont font_PingFangSCTypeSize:17];
             [actionBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
             actionBtn.tag = 144 + i;
             [self addSubview:actionBtn];
@@ -657,7 +657,7 @@
         
         _inputTextField = [[UITextField alloc] init];
         //_inputTextField.secureTextEntry = YES;
-        _inputTextField.font = [UIFont font_customTypeSize:13];
+        _inputTextField.font = [UIFont font_PingFangSCTypeSize:13];
         //_inputTextField.spellCheckingType = UITextSpellCheckingTypeNo;
         _inputTextField.borderStyle = UITextBorderStyleNone;
         _inputTextField.layer.borderColor = COLOR_HexColor(0x8E8E93).CGColor;
@@ -679,7 +679,7 @@
     if (!_messageL) {
         
         _messageL = [[UILabel alloc] init];
-        _messageL.font = [UIFont font_customTypeSize:14];
+        _messageL.font = [UIFont font_PingFangSCTypeSize:14];
         _messageL.textColor = [UIColor whiteColor];
         _messageL.textAlignment = NSTextAlignmentLeft;
         _messageL.numberOfLines = 0;

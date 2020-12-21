@@ -25,11 +25,20 @@ class FCContractPositionCell: UITableViewCell {
     
     @IBOutlet weak var adjustmentBtn: UIButton!
     @IBOutlet weak var closePositionBtn: UIButton!
+    @IBOutlet weak var profitLossBtn: UIButton!
 
+    @IBOutlet weak var profitTitleL: UILabel!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var bottomBtnWidth: NSLayoutConstraint!
-    @IBOutlet weak var profitLossBtn: UIButton!
     @IBOutlet weak var availableVolumeL: UILabel!
+    
+    @IBOutlet weak var closePositionTitleL: UILabel!
+    @IBOutlet weak var earnestMoneyL: UILabel!
+    @IBOutlet weak var flagTitleL: UILabel!
+    @IBOutlet weak var positionTitleL: UILabel!
+    
+    @IBOutlet weak var bgViewBtn: UIButton!
+    @IBOutlet weak var rateTitleL: UILabel!
     var accountInfoModel: FCPositionAccountInfoModel?
     
     var sharePosionInfoBlock: ((_ accountInfo: FCPositionInfoModel) -> Void)?
@@ -39,28 +48,60 @@ class FCContractPositionCell: UITableViewCell {
         // Initialization code
         
         self.positionBgView.backgroundColor = COLOR_CellBgColor
-        self.adjustmentBtn.layer.cornerRadius = 5
-        self.adjustmentBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
-        self.adjustmentBtn.layer.borderWidth = 0.7
         
-        self.closePositionBtn.layer.cornerRadius = 5
-        self.closePositionBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
-        self.closePositionBtn.layer.borderWidth = 0.7
+        self.shareBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 8)
         
-        self.profitLossBtn.layer.cornerRadius = 5
-        self.profitLossBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
-        self.profitLossBtn.layer.borderWidth = 0.7
+        self.adjustmentBtn.layer.cornerRadius = 2
+        adjustmentBtn.layer.shadowColor = UIColor.black.cgColor
+        adjustmentBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        adjustmentBtn.layer.shadowRadius = 2;
+        adjustmentBtn.layer.shadowOpacity = 0.3;
         
-//        self.shareBtn.layer.cornerRadius = 5
-//        self.shareBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
-//        self.shareBtn.layer.borderWidth = 0.7
+        var imageIcon = UIImage(named: "revokeOrder")
+        imageIcon = imageIcon?.stretchableImage(withLeftCapWidth: 20, topCapHeight: 15)
+        //adjustmentBtn.setBackgroundImage(imageIcon, for: .normal)
+        self.closePositionBtn.layer.cornerRadius = 2
+        closePositionBtn.layer.shadowColor = UIColor.black.cgColor
+        closePositionBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        closePositionBtn.layer.shadowRadius = 2;
+        closePositionBtn.layer.shadowOpacity = 0.3;
+        //closePositionBtn.setBackgroundImage(imageIcon, for: .normal)
         
-        //self.shareBtn.isHidden = true
+        self.profitLossBtn.layer.cornerRadius = 2
+        profitLossBtn.layer.shadowColor = UIColor.black.cgColor
+        profitLossBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        profitLossBtn.layer.shadowRadius = 2;
+        profitLossBtn.layer.shadowOpacity = 0.3;
+        //profitLossBtn.setBackgroundImage(imageIcon, for: .normal)
         
-        //self.shareBtn.tintColor = .white
-        //self.shareBtn.setTitle("", for: .normal)
-        //self.shareBtn.setImage(UIImage(named: "shareIcon"), for: .normal)
-        self.shareBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        bgViewBtn.layer.cornerRadius = 2
+        bgViewBtn.layer.shadowColor = UIColor.black.cgColor
+        bgViewBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        bgViewBtn.layer.shadowRadius = 2;
+        bgViewBtn.layer.shadowOpacity = 0.3;
+        bgViewBtn.setBackgroundImage(imageIcon, for: .normal)
+        /**********/
+        
+        avgPriceL.font = UIFont(_DINProBoldTypeSize: 16)
+        avgPriceNameL.font = UIFont(_PingFangSCTypeSize: 13)
+        symbolTitleL.font = UIFont(_DINProBoldTypeSize: 15)
+        currencyL.font = UIFont(_DINProBoldTypeSize: 16)
+        liquidatedPriceNameL.font = UIFont(_PingFangSCTypeSize: 13)
+        liquidatedPriceL.font = UIFont(_DINProBoldTypeSize: 16)
+        pnlRateL.font = UIFont(_DINProBoldTypeSize: 13)
+        marginL.font = UIFont(_DINProBoldTypeSize: 13)
+        realisedPNLL.font = UIFont(_DINProBoldTypeSize: 13)
+        leverageL.font = UIFont(_DINProBoldTypeSize: 13)
+        volumeL.font = UIFont(_DINProBoldTypeSize: 13)
+        availableVolumeL.font = UIFont(_DINProBoldTypeSize: 13)
+        
+        closePositionTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        earnestMoneyL.font = UIFont(_PingFangSCTypeSize: 13)
+        flagTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        positionTitleL.font = UIFont(_PingFangSCTypeSize: 13)
+        shareBtn.semanticContentAttribute = .forceRightToLeft
+        shareBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
+        shareBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10)
     }
     
     /**
@@ -112,7 +153,7 @@ class FCContractPositionCell: UITableViewCell {
             }
             var btnWidth = (kSCREENWIDTH - 15 * 4)/3.0
             if positionModel.marginMode == "Cross" {
-                btnWidth = (kSCREENWIDTH - 15 * 3)/2.0
+                btnWidth = (kSCREENWIDTH - 15 * 2)/2.0
                 self.adjustmentBtn.isHidden = true
                 self.bottomBtnWidth.constant = btnWidth
             }else {
@@ -174,12 +215,14 @@ class FCContractPositionCell: UITableViewCell {
                 self.realisedPNLL.textColor = COLOR_InputText
             }
             
-            /// 保证金
+            /// 保证金 
             self.marginL.text = positionModel.margin ?? ""
             /// 收益率
             let pnlRate = positionModel.pnlRate ?? ""
             let rpnlRateFloat = (pnlRate as NSString).floatValue
             self.pnlRateL.text =  "\(pnlRate)%"
+            
+            /*
             if rpnlRateFloat > 0 {
                            
                 self.pnlRateL.textColor = COLOR_RiseColor
@@ -190,6 +233,7 @@ class FCContractPositionCell: UITableViewCell {
                         
                 self.pnlRateL.textColor = COLOR_InputText
             }
+             */
             
             /// 可平量
             let contractSizeFloat = ((positionModel.contractSize ?? "") as NSString).doubleValue
@@ -215,7 +259,7 @@ class FCContractPositionCell: UITableViewCell {
     
     @IBAction func closePositionAction(_ sender: Any) {
         
-        let positionView = FCClosePositionView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 430))
+        let positionView = FCClosePositionView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 450))
         positionView.positionModel = self.positionModel
         
        let alertView = PCCustomAlert(customView: positionView)

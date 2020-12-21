@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="4096" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,22 +11,23 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="40y-Ri-5zg"/>
+                        <viewControllerLayoutGuide type="bottom" id="CGv-bz-yrt"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleAspectFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="fci-Ed-WB6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="fci-Ed-WB6" secondAttribute="height" multiplier="750:1334" id="wpe-Rv-CW1"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ausonLaunchScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="fci-Ed-WB6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="ThX-ou-uw5"/>
-                        <color key="backgroundColor" red="0.094117647058823528" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fci-Ed-WB6" firstAttribute="leading" secondItem="ThX-ou-uw5" secondAttribute="leading" id="6ma-Nf-mP8"/>
-                            <constraint firstItem="ThX-ou-uw5" firstAttribute="trailing" secondItem="fci-Ed-WB6" secondAttribute="trailing" id="PeY-i2-fim"/>
+                            <constraint firstAttribute="bottom" secondItem="fci-Ed-WB6" secondAttribute="bottom" id="0KA-mB-9nB"/>
+                            <constraint firstItem="fci-Ed-WB6" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="6ma-Nf-mP8"/>
+                            <constraint firstAttribute="trailing" secondItem="fci-Ed-WB6" secondAttribute="trailing" id="PeY-i2-fim"/>
                             <constraint firstItem="fci-Ed-WB6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="k7Z-gT-a2V"/>
                         </constraints>
                     </view>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreen.png" width="2484" height="5376"/>
+        <image name="ausonLaunchScreen.png" width="1656" height="3584"/>
     </resources>
 </document>

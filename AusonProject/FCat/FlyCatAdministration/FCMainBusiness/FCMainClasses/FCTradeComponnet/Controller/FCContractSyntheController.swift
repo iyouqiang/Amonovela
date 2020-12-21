@@ -123,8 +123,9 @@ class FCContractSyntheController: UIViewController {
                 self.currentVC?.view.frame = CGRect(x: 0, y: topViewHeight + self.addContentHeight, width: kSCREENWIDTH, height: self.currentVC?.view.frame.height ?? kSCREENHEIGHT)
                 
                 self.controlOrderVC.view.snp.remakeConstraints { (make) in
-                    make.left.right.top.equalToSuperview()
+                    make.left.top.equalToSuperview()
                     make.height.equalTo(tradeViewHeight + self.addContentHeight)
+                    make.width.equalTo(kSCREENWIDTH)
                 }
             }
         }
@@ -188,8 +189,9 @@ class FCContractSyntheController: UIViewController {
         
         /// 交易高度
         controlOrderVC.view.snp.makeConstraints { (make) in
-            make.top.left.right.equalToSuperview()
+            make.top.left.equalToSuperview()
             make.height.equalTo(tradeViewHeight)
+            make.width.equalTo(kSCREENWIDTH)
         }
         
         ///  第一次进入界面请求接口
@@ -238,32 +240,36 @@ class FCContractSyntheController: UIViewController {
         mainScrollView.addSubview(menuSectionView)
         
         /// 三个 按钮 和 底部选择 按钮
-        positionBtn = fc_buttonInit(imgName: "", title: "持仓(0)", fontSize: 14, titleColor: COLOR_TabBarTintColor, bgColor: .clear)
+        positionBtn = fc_buttonInit(imgName: "", title: "持仓(0)", fontSize: 14, titleColor: .white, bgColor: .clear)
+        positionBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
         positionBtn.tag = 100
         positionBtn.addTarget(self, action: #selector(changeContractContent(sender:)), for: .touchUpInside)
-        positionBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
+        //positionBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
         positionBtn.isSelected = true
-        positionBtn.setTitleColor(COLOR_CellTitleColor, for: .normal)
+        positionBtn.setTitleColor(.white, for: .normal)
         menuSectionView.addSubview(positionBtn)
         self.selectedBtn = positionBtn
         
         entrustBtn = fc_buttonInit(imgName: "", title: "委托(0)", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
-        entrustBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
-        entrustBtn.setTitleColor(COLOR_CellTitleColor, for: .normal)
+        //entrustBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
+        entrustBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
+        entrustBtn.setTitleColor(.white, for: .normal)
         entrustBtn.tag = 101
         entrustBtn.addTarget(self, action: #selector(changeContractContent(sender:)), for: .touchUpInside)
         menuSectionView.addSubview(entrustBtn)
         
         planEntrustBtn = fc_buttonInit(imgName: "", title: "计划委托(0)", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
-        planEntrustBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
-        planEntrustBtn.setTitleColor(COLOR_CellTitleColor, for: .normal)
+        //planEntrustBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
+        planEntrustBtn.setTitleColor(.white, for: .normal)
+        planEntrustBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
         planEntrustBtn.tag = 102
         planEntrustBtn.addTarget(self, action: #selector(changeContractContent(sender:)), for: .touchUpInside)
         menuSectionView.addSubview(planEntrustBtn)
         
-        profitLossBtn = fc_buttonInit(imgName: "", title: "止盈止损(0)", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
-        profitLossBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
-        profitLossBtn.setTitleColor(COLOR_CellTitleColor, for: .normal)
+        profitLossBtn = fc_buttonInit(imgName: "", title: "止盈/止损(0)", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
+        //profitLossBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
+        profitLossBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
+        profitLossBtn.setTitleColor(.white, for: .normal)
         profitLossBtn.tag = 103
         profitLossBtn.addTarget(self, action: #selector(changeContractContent(sender:)), for: .touchUpInside)
         menuSectionView.addSubview(profitLossBtn)
@@ -295,8 +301,8 @@ class FCContractSyntheController: UIViewController {
         }
         
         /// 按钮底部选择条
-        selectedView = UIView(frame: CGRect(x: 0, y: 0, width: btnWidth, height: 2))
-        selectedView.backgroundColor = COLOR_TabBarTintColor
+        selectedView = UIView(frame: CGRect(x: 0, y: 0, width: btnWidth, height: 3))
+        selectedView.backgroundColor = COLOR_MainThemeColor
         menuSectionView.addSubview(selectedView)
         selectedView.snp.makeConstraints { (make) in
             
@@ -306,8 +312,17 @@ class FCContractSyntheController: UIViewController {
             make.width.equalTo(btnWidth)
         }
         
-        let historyBtn = fc_buttonInit(imgName: "historyIcon", title: "", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
-        historyBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        let sgeLineView = UIView()
+        sgeLineView.backgroundColor = COLOR_HexColor(0x394155)
+        menuSectionView.addSubview(sgeLineView)
+        sgeLineView.snp_makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
+        }
+        
+        
+        let historyBtn = fc_buttonInit(imgName: "historyIcon", title: "全部", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
+        historyBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 8)
         historyBtn.frame = CGRect(x: kSCREENWIDTH - 60, y: 0, width: 44, height: 44)
         historyBtn.contentHorizontalAlignment = .right
         menuSectionView.addSubview(historyBtn)
@@ -339,10 +354,11 @@ class FCContractSyntheController: UIViewController {
           
             self.selectedView.snp.remakeConstraints { (make) in
                 
-                make.left.equalTo(self.selectedBtn.snp_left)
+                //make.left.equalTo(self.selectedBtn.snp_left)
                 make.bottom.equalToSuperview()
-                make.height.equalTo(2)
-                make.width.equalTo(self.selectedBtn.snp.width)
+                make.height.equalTo(3)
+                make.width.equalTo(self.selectedBtn.snp.width).offset(-10)
+                make.centerX.equalTo(self.selectedBtn.snp_centerX)
             }
             
             self.menuSectionView.layoutIfNeeded()

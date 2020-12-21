@@ -43,7 +43,7 @@ class FCEmailComponent: FCTextFieldComponent {
         //        self.dropDown.dataSource = getDropDownDataSource()
         self.dropDown?.anchorView = self
         self.dropDown?.bottomOffset = CGPoint(x: 0, y: 40)
-        self.dropDown?.textFont = UIFont.init(_customTypeSize: 12)
+        self.dropDown?.textFont = UIFont.init(_PingFangSCTypeSize: 12)
         self.dropDown?.textColor = COLOR_PrimeTextColor
         self.dropDown?.cellHeight = 40
         self.dropDown?.backgroundColor = COLOR_HexColor(0x232529)

@@ -62,7 +62,7 @@
         alert.tag = 1998;
         if (btnFirstTitle.length > 0) {
             
-            [alert addAction:btnFirstTitle style:(PCCustomAction_Normal) btnAction:^(NSString *message) {
+            [alert addAction:btnFirstTitle style:(PCCustomAction_highlight) btnAction:^(NSString *message) {
                 
                 if (btnFirstBlock) {
                     btnFirstBlock();
@@ -72,7 +72,7 @@
         
         if (btnSecondTitle.length > 0) {
             
-            [alert addAction:btnSecondTitle style:(PCCustomAction_highlight) btnAction:^(NSString *message) {
+            [alert addAction:btnSecondTitle style:(PCCustomAction_Normal) btnAction:^(NSString *message) {
                 
                 if (btnSecondBlcok) {
                     btnSecondBlcok();

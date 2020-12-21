@@ -62,6 +62,8 @@ class FCContractsEntrustListController: UIViewController {
         segmentedDataSource.isTitleColorGradientEnabled = true
         segmentedDataSource.titleNormalColor = .white
         segmentedDataSource.titleSelectedColor = COLOR_TabBarTintColor
+        segmentedDataSource.titleSelectedFont = UIFont(_PingFangSCTypeSize: 14)
+        segmentedDataSource.titleNormalFont = UIFont(_PingFangSCTypeSize: 14)
         segmentedDataSource.titles = titles
         segmentedDataSource.itemWidth = 50
 

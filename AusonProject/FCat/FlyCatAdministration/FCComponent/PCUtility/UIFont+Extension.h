@@ -10,7 +10,11 @@
 
 @interface UIFont (Extension)
 
-+ (UIFont *)font_customTypeSize:(CGFloat)size;
+/// 因为数字字体
++ (UIFont *)font_DINProBoldTypeSize:(CGFloat)size;
+
+/// 中文字体
++ (UIFont *)font_PingFangSCTypeSize:(CGFloat)size;
 
 + (UIFont *)font_mediumTypeSize:(CGFloat)size;
 

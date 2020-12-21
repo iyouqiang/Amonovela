@@ -30,33 +30,46 @@ let disposeBag = DisposeBag()
     
     private lazy var sectionHeaderView: UIView = {
        
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 49))
         headerView.backgroundColor = COLOR_BGColor
         
+        let sectionLineView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 5))
+        sectionLineView.backgroundColor = COLOR_HexColor(0x12151B)
+        headerView.addSubview(sectionLineView)
+        
         /// 当前委托
-        let entrustL = fc_labelInit(text: "当前委托(0)", textColor: COLOR_TabBarTintColor, textFont: UIFont(_customTypeSize: 16), bgColor: .clear)
+        let entrustL = fc_labelInit(text: "委托(0)", textColor: .white, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         headerView.addSubview(entrustL)
-        entrustL.frame = CGRect(x: 15, y: 0, width: 150, height: 44)
+        entrustL.frame = CGRect(x: 15, y: 5, width: 150, height: 44)
         self.entrustL = entrustL
+        entrustL.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(5)
+            make.height.equalTo(44)
+        }
         
         /// 历史记录
-        let historyBtn = fc_buttonInit(imgName: "historyIcon", title: "历史记录", fontSize: 16, titleColor: COLOR_CellTitleColor, bgColor: .clear)
-        historyBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
-        historyBtn.frame = CGRect(x: kSCREENWIDTH - 145, y: 0, width: 130, height: 44)
+        let historyBtn = fc_buttonInit(imgName: "historyIcon", title: "历史记录", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
+        historyBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
+        historyBtn.frame = CGRect(x: kSCREENWIDTH - 145, y: 5, width: 130, height: 44)
         historyBtn.contentHorizontalAlignment = .right
         headerView.addSubview(historyBtn)
         historyBtn.addTarget(self, action: #selector(gotoHistoryVC), for: .touchUpInside)
         
-        let bottomLine = UIView(frame: CGRect(x: 0, y: 43.2, width: kSCREENWIDTH, height: 0.8))
-        bottomLine.backgroundColor = COLOR_TabBarBgColor
-        headerView.addSubview(bottomLine)
+        let bottomLine = UIView(frame: CGRect(x: 0, y: 43.2, width: 50, height: 2))
+        bottomLine.backgroundColor = .white
+        entrustL.addSubview(bottomLine)
+        bottomLine.snp_makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(2)
+        }
         
         return headerView
     }()
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -99,7 +112,7 @@ let disposeBag = DisposeBag()
     func loadSubViews () {
         
         let orderView = self.orderController.view
-        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 430));
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 480));
         containerView.clipsToBounds = true
         containerView.addSubview(orderView!)
         tableView.tableHeaderView = containerView
@@ -130,6 +143,7 @@ let disposeBag = DisposeBag()
          }
         
         self.view.addSubview(tableView)
+        tableView.separatorColor = COLOR_HexColor(0x12151B)
         self.tableView.backgroundColor = COLOR_BGColor
         tableView.snp.makeConstraints { (make) in
             /**
@@ -170,27 +184,31 @@ let disposeBag = DisposeBag()
                             
             FCNetworkUtils.handleResponse(response: response, success: { (resData) in
                 self?.entrustModels = []
-                self?.entrustL?.text = "当前委托(\(resData?["totalNum"] ?? ""))"
+                self?.entrustL?.text = "委托(\(resData?["totalNum"] ?? ""))"
                 for item in (resData?["orders"] as? Array<[String : Any]>) ?? [] {
                     let model = FCTradeHistroyListModel.stringToObject(jsonData: item)
                     self?.entrustModels.append(model)
                 }
                 
                 if self?.entrustModels.count == 0 {
-                    self?.tableView.tableFooterView = self?.footerHint
+                    //self?.tableView.tableFooterView = self?.footerHint
+                    self?.view.unAvailableDataSourceDefault()
                 }else {
-                    self?.tableView.tableFooterView = nil
+                    //self?.tableView.tableFooterView = nil
+                    self?.view.removePlaceholderView()
                 }
                 self?.tableView.reloadData()
                 
             }) { (errMsg) in
                 //self?.view.makeToast(errMsg, position: .center)
-                self?.footerHint.text = errMsg
-                self?.tableView.tableFooterView = self?.footerHint
+                //self?.footerHint.text = errMsg
+                //self?.tableView.tableFooterView = self?.footerHint
+                self?.view.unAvailableDataSource(errMsg ?? "", imgStr: "")
             }
         }) { [weak self](response) in
             //self.view.makeToast(response.error?.localizedDescription, position: .center)
-            self?.tableView.tableFooterView = self?.footerHint
+            //self?.tableView.tableFooterView = self?.footerHint
+            self?.view.unAvailableDataSourceDefault()
         }
     }
     
@@ -246,7 +264,7 @@ extension FCSpotSyntheController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        return 135
     }
 }
 

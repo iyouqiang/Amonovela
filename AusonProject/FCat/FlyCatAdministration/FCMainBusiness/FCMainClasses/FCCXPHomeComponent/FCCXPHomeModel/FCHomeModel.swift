@@ -78,6 +78,7 @@ class FCHomeSymbolsModel: NSObject {
     var tradingAmount: String?
     var priceTrend: String?
     var tradingType: String?
+    var iconUrl: String?
     
     init(dict: [String: AnyObject]){
         super.init()
@@ -97,6 +98,7 @@ class FCHomeSymbolsModel: NSObject {
         tradingAmount = json["tradingAmount"].stringValue
         priceTrend = json["priceTrend"].stringValue
         tradingType = json["tradingType"].stringValue
+        iconUrl = json["iconUrl"].stringValue
     }
 }
 

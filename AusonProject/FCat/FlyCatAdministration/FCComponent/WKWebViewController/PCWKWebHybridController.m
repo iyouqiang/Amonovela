@@ -212,7 +212,7 @@
 
         _wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, kSCREENWIDTH, kSCREENHEIGHT-kNAVIGATIONHEIGHT) configuration:config];
         _wkWebView.scrollView.backgroundColor = COLOR_BackgroundColor;
-        
+        _wkWebView.backgroundColor = COLOR_BackgroundColor;
         _wkWebView.scrollView.showsVerticalScrollIndicator = NO;
         
         [self.wkWebView setValue:@"purcow-ios" forKey:@"applicationNameForUserAgent"];

@@ -34,7 +34,7 @@ class FCMarketListController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -122,7 +122,7 @@ class FCMarketListController: UIViewController {
         
           // 定时轮询行情列表
         listSubscription?.dispose()
-        let observable = Observable<Int>.interval(5.0, scheduler: MainScheduler.instance).subscribe {[weak self] (num) in
+        let observable = Observable<Int>.interval(2.0, scheduler: MainScheduler.instance).subscribe {[weak self] (num) in
               self?.requestlistData()
           }
         observable.disposed(by: self.disposeBag)
@@ -147,6 +147,8 @@ class FCMarketListController: UIViewController {
         }
         
         self.pageIndex = loadMore ? self.pageIndex : 0
+        
+        self.requestlistData()
     }
     
     func requestlistData () {
@@ -190,9 +192,11 @@ class FCMarketListController: UIViewController {
                 DispatchQueue.main.async {
                     if self.marketArray.count > 0 {
                         
-                        self.marketTableView.tableFooterView = UIView()
+                        //self.marketTableView.tableFooterView = UIView()
+                        self.view.removePlaceholderView()
                     }else {
-                        self.marketTableView.tableFooterView = self.footerHint
+                        //self.marketTableView.tableFooterView = self.footerHint
+                        self.view.unAvailableDataSourceDefault()
                     }
                     self.marketTableView.reloadData()
                 }
@@ -280,15 +284,26 @@ class FCMarketListController: UIViewController {
     }
     
     func loadloginoutView () {
+        
         // 未登录提示界面
-        self.loginoutView = UIView.init(frame: self.marketTableView.bounds)
+        self.loginoutView = UIView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height:320))
         self.loginoutView?.backgroundColor = UIColor.clear
         
         let loginBtn = UIButton(type: .custom)
         loginBtn.setTitle("登录", for: .normal)
-        loginBtn.setTitleColor(COLOR_HighlightColor, for: .normal)
-        loginBtn.backgroundColor = UIColor.white
-        loginBtn.frame = CGRect(x: 0, y: 0, width: 80, height: 40)
+        loginBtn.setTitleColor(.white, for: .normal)
+        
+        loginBtn.layer.cornerRadius = 2
+        loginBtn.layer.shadowColor = UIColor.black.cgColor
+        loginBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        loginBtn.layer.shadowRadius = 2;
+        loginBtn.layer.shadowOpacity = 0.3;
+        
+        var imageIcon = UIImage(named: "revokeOrder")
+        imageIcon = imageIcon?.stretchableImage(withLeftCapWidth: 20, topCapHeight: 15)
+        loginBtn.setBackgroundImage(imageIcon, for: .normal)
+        
+        loginBtn.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         loginBtn.center = (self.loginoutView?.center)!
         loginBtn.addTarget(self, action: #selector(marketLoginAction), for: .touchUpInside)
         self.loginoutView?.addSubview(loginBtn)
@@ -377,7 +392,7 @@ extension FCMarketListController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 110
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

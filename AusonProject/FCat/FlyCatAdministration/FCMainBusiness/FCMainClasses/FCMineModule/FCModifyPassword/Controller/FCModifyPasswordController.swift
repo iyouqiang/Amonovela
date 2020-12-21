@@ -28,7 +28,7 @@ class FCModifyPasswordController: UIViewController {
         self.title = "修改密码"
         /// 只显示文字
         /**
-        self.addrightNavigationItemImgNameStr(nil, title: "修改密码", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 17), clickCallBack: {
+        self.addrightNavigationItemImgNameStr(nil, title: "修改密码", textColor: COLOR_MinorTextColor, textFont: UIFont(_PingFangSCTypeSize: 17), clickCallBack: {
             //weakSelf?.modifyView?.confirmBtnClick()
         })
          */

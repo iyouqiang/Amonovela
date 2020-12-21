@@ -21,7 +21,7 @@ class FCTradingUnitSwitchController: UIViewController {
     private lazy var switchableDesView: UIView? = {
         
         let sctionView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 50))
-        let titleL = fc_labelInit(text: "", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 13), bgColor: .clear)
+        let titleL = fc_labelInit(text: "", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_PingFangSCTypeSize: 13), bgColor: .clear)
         //titleL.text = "每一张合约代表0.01 BTC≈115.96个USDT"
         titleL.frame = CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 50)
         sctionView.addSubview(titleL)
@@ -110,7 +110,7 @@ extension FCTradingUnitSwitchController:UITableViewDelegate, UITableViewDataSour
         if let cell = cell {
             
             cell.textLabel?.textColor = COLOR_InputText
-            cell.textLabel?.font = UIFont(_customTypeSize: 16)
+            cell.textLabel?.font = UIFont(_PingFangSCTypeSize: 16)
             cell.selectionStyle = .none
             let str = dataSource?[indexPath.row]
             cell.textLabel?.text = str

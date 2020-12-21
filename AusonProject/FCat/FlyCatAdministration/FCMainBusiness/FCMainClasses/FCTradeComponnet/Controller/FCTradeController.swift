@@ -98,14 +98,14 @@ class FCTradeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.addrightNavigationItemImgNameStr("", title: "账单", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14)) { [weak self] in
+        self.addrightNavigationItemImgNameStr("", title: "账单", textColor: COLOR_HexColor(0x828D9C), textFont: UIFont(_PingFangSCTypeSize: 14)) { [weak self] in
              
             let billContractVC = FCBillContractController()
             billContractVC.hidesBottomBarWhenPushed = true
             self?.navigationController?.pushViewController(billContractVC, animated: true)
         }
         
-        self.addrightNavigationItemImgNameStr("", title: "持币", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14)) { [weak self] in
+        self.addrightNavigationItemImgNameStr("", title: "持币", textColor: COLOR_HexColor(0x828D9C), textFont: UIFont(_PingFangSCTypeSize: 14)) { [weak self] in
         
             let assetContractVC = FCAccountAssetController()
             assetContractVC.hidesBottomBarWhenPushed = true
@@ -136,31 +136,38 @@ class FCTradeController: UIViewController {
     
     func loadSegmentControl () {
         
-        let totalItemWidth = 200
-        let titles = ["永续合约", "币币交易"]
+        let totalItemWidth = 120
+        let titles = ["合约", "现货"]
         let titleDataSource = JXSegmentedTitleDataSource()
-        titleDataSource.itemWidth = 100
+        titleDataSource.itemWidth = 60
         titleDataSource.titles = titles
-        titleDataSource.isTitleMaskEnabled = true
-        titleDataSource.titleNormalColor = .white
-        titleDataSource.titleSelectedColor = COLOR_TabBarTintColor
+        //titleDataSource.isTitleMaskEnabled = true
+        titleDataSource.titleNormalColor = COLOR_HexColor(0x828D9C)
+        titleDataSource.titleSelectedColor = COLOR_HexColor(0xffffff)
+        titleDataSource.titleNormalFont = UIFont(_PingFangSCTypeSize: 16)
+        titleDataSource.titleSelectedFont = UIFont(_PingFangSCTypeSize: 18)
         titleDataSource.itemSpacing = 0
         segmentedDataSource = titleDataSource
         segmentedView.dataSource = titleDataSource
-        segmentedView.frame = CGRect(x: 0, y: 0, width: totalItemWidth, height: 36)
+        segmentedView.frame = CGRect(x: 0, y: 0, width: totalItemWidth, height: 44)
+        
+        /**
         segmentedView.layer.masksToBounds = true
         segmentedView.layer.cornerRadius = 18
         segmentedView.layer.borderColor = COLOR_HexColor(0x3E4046).cgColor
         segmentedView.layer.borderWidth = 1/UIScreen.main.scale
-        navigationItem.titleView = segmentedView
+         */
 
-        let indicator = JXSegmentedIndicatorBackgroundView()
-        indicator.indicatorHeight = 36
+        let indicator = JXSegmentedIndicatorLineView()
+        //indicator.indicatorHeight = 36
+        indicator.lineStyle = .lengthen
+        indicator.indicatorWidth = 30
         indicator.indicatorWidthIncrement = 0
-        indicator.indicatorColor = COLOR_HexColor(0x3E4046)
+        indicator.indicatorColor = .white
         segmentedView.indicators = [indicator]
         
         segmentedView.listContainer = listContainerView
+        navigationItem.titleView = segmentedView
         view.addSubview(listContainerView)
     }
     

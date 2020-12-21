@@ -19,7 +19,7 @@
     
     [button setTitleColor:titleColor forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont font_customTypeSize:titleFont]];
+    [button.titleLabel setFont:[UIFont font_PingFangSCTypeSize:titleFont]];
     
     if (imageStr.length > 0) {
         [button setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];

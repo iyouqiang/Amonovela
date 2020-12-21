@@ -39,11 +39,11 @@ class FCContractLeverageController: UIViewController {
         
         let leverNum: String = (self.leverType == .LeverageType_long ? FCTradeSettingconfig.sharedInstance.longLeverage : FCTradeSettingconfig.sharedInstance.shortLeverage) ?? "0"
         
-        titlebullBearL = fc_labelInit(text: leverStr, textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        titlebullBearL = fc_labelInit(text: leverStr, textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         titlebullBearL.textAlignment = .center
         view.addSubview(titlebullBearL)
         
-        levelL = fc_labelInit(text: "\(leverNum)", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 30), bgColor: .clear)
+        levelL = fc_labelInit(text: "\(leverNum)", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 30), bgColor: .clear)
         levelL.textAlignment = .right
         view.addSubview(levelL)
         levelL.isHidden = true
@@ -58,7 +58,7 @@ class FCContractLeverageController: UIViewController {
         numTextfield?.borderStyle = .none
         view.addSubview(numTextfield!)
         
-        xunitL = fc_labelInit(text: "X", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 30), bgColor: .clear)
+        xunitL = fc_labelInit(text: "X", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 30), bgColor: .clear)
         xunitL.textAlignment = .left
         view.addSubview(xunitL)
         
@@ -82,7 +82,7 @@ class FCContractLeverageController: UIViewController {
         let itemWidth = (kSCREENWIDTH - 30)/4.0
         for num in 0...4 {
         
-            let itemL = fc_labelInit(text: "\((num) * ((Int(stepSize) ?? 0)/4))", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+            let itemL = fc_labelInit(text: "\((num) * ((Int(stepSize) ?? 0)/4))", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
             levelNumView.addSubview(itemL)
             
             itemL.frame = CGRect(x: CGFloat(num)*itemWidth, y: 0, width: itemWidth, height: 30)
@@ -107,7 +107,7 @@ class FCContractLeverageController: UIViewController {
             , animated: true)
         
         /// 风险提示
-        warmL = fc_labelInit(text: "* 当前杠杆倍数较高，请注意风险", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        warmL = fc_labelInit(text: "* 当前杠杆倍数较高，请注意风险", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         warmL.setAttributeColor(COLOR_TabBarTintColor, range: NSRange(location: 0, length: 1))
         view.addSubview(warmL)
         //warmL.isHidden = true

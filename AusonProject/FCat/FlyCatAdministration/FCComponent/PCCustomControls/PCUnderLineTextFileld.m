@@ -43,7 +43,7 @@
 {
     self.textColor = [UIColor whiteColor];
     self.tintColor = COLOR_HexColor(0xb3b3b3);
-    self.font = [UIFont font_customTypeSize:14];
+    self.font = [UIFont font_PingFangSCTypeSize:14];
     self.borderStyle = UITextBorderStyleNone;
     [self addSubview:self.underLineView];
 }

@@ -69,7 +69,7 @@ class FCMarketModel: NSObject, HandyJSON, Codable {
     /// 传值用，未赋值不要获取
     var asset: String = ""
     var size: String = ""
-    
+    var iconUrl: String = ""
 //    init(dict: [String: AnyObject]) {
 //        super.init()
 //        

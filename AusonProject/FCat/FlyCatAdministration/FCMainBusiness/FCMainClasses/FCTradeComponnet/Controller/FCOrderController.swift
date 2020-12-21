@@ -50,12 +50,13 @@ class FCOrderController: UIViewController {
         
         view.backgroundColor = COLOR_BGColor
         self.view.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: kSCREENHEIGHT-kNAVIGATIONHEIGHT-kTABBARHEIGHT - 50)
+        
         self.loadSubviews()
         
         //弹出抽屉
         self.loadDrawer()
         
-        FCTradeSettingconfig.sharedInstance.symbol = self.marketModel?.symbol
+        //FCTradeSettingconfig.sharedInstance.symbol = self.marketModel?.symbol
         
         // 默认线先加载一次数据
         self.fetchPriceData()
@@ -125,14 +126,17 @@ class FCOrderController: UIViewController {
                 self.view.makeToast(errMsg ?? "", position: .center)
             }
         }) { (response) in
-            self.view.makeToast(response.error?.localizedDescription, position: .center)
+            //self.view.makeToast(response.error?.localizedDescription, position: .center)
         }
     }
     
     // 深度
     func fetchRestDatas () {
+        
         //let restApi = FCApi_ticker_depth.init(symbol: self.marketModel?.symbol ?? "", step: "step0")
-        let restApi = FCApi_spot_market_depth(symbol: self.marketModel?.symbol ?? "", step: "step0")
+        
+        let restApi = FCApi_spot_market_depth(symbol: self.marketModel?.symbol ?? "", step: self.orderView?.precision ?? "step0")
+        
         restApi.startWithCompletionBlock(success: { (response) in
             
             let responseData = response.responseObject as?  [String : AnyObject]
@@ -140,6 +144,7 @@ class FCOrderController: UIViewController {
             if responseData?["err"]?["code"] as? Int ?? -1 == 0 {
                 let depthModel = FCKLineRestingModel.stringToObject(jsonData: responseData?["data"] as? [String : Any])
                 self.orderView?.loadDethDatas(depthModel: depthModel)
+                
             } else{
                 let errMsg = responseData?["err"]?["msg"] as? String
                 self.view.makeToast(errMsg ?? "", position: .center)
@@ -147,7 +152,7 @@ class FCOrderController: UIViewController {
             
             
         }) { (response) in
-            self.view.makeToast(response.error?.localizedDescription, position: .center)
+            //self.view.makeToast(response.error?.localizedDescription, position: .center)
         }
     }
     
@@ -188,7 +193,7 @@ class FCOrderController: UIViewController {
             
         }) { (response) in
             
-            self.view.makeToast(response.error?.localizedDescription, position: .center)
+            //self.view.makeToast(response.error?.localizedDescription, position: .center)
         }
     }
     
@@ -224,6 +229,13 @@ class FCOrderController: UIViewController {
     // 下单按钮
     func handleOrderButtonAction () {
         
+        /// 资产刷新
+        self.orderView?.availableBalanceRefreshBlock = {
+            [weak self] in
+            
+            self?.fetchAsset()
+        }
+        
         self.orderView?.placeOrder = {[weak self] (price: String, amount: String, orderType: String, markerSide: String, volumeType: String) -> Void in
             self?.placeOrder(price: price, amount: amount, orderType: orderType, markerSide: markerSide, volumeType: volumeType)
         }
@@ -238,8 +250,8 @@ class FCOrderController: UIViewController {
         leftSideMenuManager.menuBlurEffectStyle = .dark
         leftSideMenuManager.menuAnimationUsingSpringWithDamping = 0.8
         leftSideMenuManager.menuAnimationInitialSpringVelocity = 0.05
-        leftSideMenuManager.menuAnimationFadeStrength = 0.5
-        leftSideMenuManager.menuAnimationBackgroundColor = COLOR_BGColor
+        leftSideMenuManager.menuAnimationFadeStrength = 0.7
+        leftSideMenuManager.menuAnimationBackgroundColor = COLOR_HexColor(0x131829)
         leftSideMenuManager.menuShadowOpacity = 0.8
         leftSideMenuManager.menuFadeStatusBar = false
         
@@ -293,10 +305,9 @@ class FCOrderController: UIViewController {
     
     func getSectionHeader () -> UIView{
         let header = UIView.init(frame: CGRect.zero)
-        header.backgroundColor = COLOR_SectionFooterBgColor
+        header.backgroundColor = COLOR_navBgColor
         return header
     }
-    
 }
 
 extension FCOrderController : JXSegmentedListContainerViewListDelegate {

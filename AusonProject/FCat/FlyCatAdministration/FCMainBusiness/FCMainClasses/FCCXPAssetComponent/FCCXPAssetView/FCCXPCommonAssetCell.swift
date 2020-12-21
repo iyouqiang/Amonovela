@@ -15,12 +15,12 @@ class FCCXPCommonAssetCell: UITableViewCell {
         // Initialization code
         
         self.assetBgImageView.backgroundColor = COLOR_navBgColor
-        self.contentView.backgroundColor = COLOR_BGColor
-        self.fiatEquityL.font = UIFont(_customTypeSize: 14)
-        self.assetAccountTitleL.font = UIFont(_customTypeSize: 16)
+        self.contentView.backgroundColor = COLOR_HexColor(0x0C131B)
+        self.fiatEquityL.font = UIFont(_PingFangSCTypeSize: 14)
+        self.assetAccountTitleL.font = UIFont(_PingFangSCTypeSize: 16)
         self.assetBgImageView.layer.cornerRadius = 8
         self.assetBgImageView.clipsToBounds = true
-        self.digitEquityL.font = UIFont(_customTypeSize: 24)
+        self.digitEquityL.font = UIFont(_PingFangSCTypeSize: 24)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -53,16 +53,16 @@ class FCCXPCommonAssetCell: UITableViewCell {
             
             if assetModel.accountType == "spot" {
                 
-                self.assetAccountTitleL?.text = "币币账户"
-                //self.assetBgImageView.image = UIImage(named: "assetcoincoins")
+                self.assetAccountTitleL?.text = "现货账户"
+                self.assetBgImageView.image = UIImage(named: "positionBgIcon")
                 
             }else if (assetModel.accountType == "Otc") {
                 
                 self.assetAccountTitleL?.text = "法币账户"
-                //self.assetBgImageView.image = UIImage(named: "asset_fiatBg")
+                self.assetBgImageView.image = UIImage(named: "positionBgIcon")
             }else {
                 
-                 //self.assetBgImageView.image = UIImage(named: "assetcoincoins")
+                 self.assetBgImageView.image = UIImage(named: "positionBgIcon")
             }
         }
     }

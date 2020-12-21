@@ -140,7 +140,7 @@ class FCMainSymbolsView: UIView {
                             column1NumL.textColor = COLOR_FailColor
                             //column1PercentL.textColor = COLOR_FailColor
                         }else {
-                            // Stable
+                            // Stable market
                             column1NumL.textColor = COLOR_HexColor(0xdadada)
                             //column1PercentL.textColor = COLOR_HexColor(0xdadada)
                             
@@ -161,7 +161,6 @@ class FCMainSymbolsView: UIView {
                             column1PercentL.text = column1PercentL.text!
                             //column1measureL.textColor = COLOR_FailColor
                         }
-                        
                     }
                     break
                 case 1:

@@ -21,7 +21,7 @@ class FCContractHistoryController: UIViewController {
     
     private lazy var footerHint:UILabel = {
         
-        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        let footerHint = fc_labelInit(text: "暂无数据", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         footerHint.textAlignment = .center
         footerHint.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44)
         return footerHint
@@ -33,9 +33,9 @@ class FCContractHistoryController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.title = "历史合约"
-        
+        self.view.backgroundColor = COLOR_BGColor
         dataSource = []
-        /// 界面布局
+        /// 界面布局 
         self.setupView()
     }
     
@@ -46,7 +46,8 @@ class FCContractHistoryController: UIViewController {
            historyTableView.delegate = self
            historyTableView.dataSource = self
            historyTableView.separatorStyle = .none
-           historyTableView.backgroundColor = COLOR_TabBarBgColor
+           historyTableView.backgroundColor = COLOR_BGColor
+        
            self.view.addSubview(historyTableView)
            
            historyTableView.register(UINib(nibName: "FCContractHistoryCell", bundle: Bundle.main), forCellReuseIdentifier: cellidentify)
@@ -97,10 +98,14 @@ class FCContractHistoryController: UIViewController {
                     
                     if self?.dataSource?.count == 0 {
                         
-                        self?.historyTableView.tableFooterView = self?.footerHint
+                        //self?.historyTableView.tableFooterView = self?.footerHint
+                        
+                        self?.view.unAvailableDataSourceDefault()
                     }else {
                         
-                        self?.historyTableView.tableFooterView = nil
+                        //self?.historyTableView.tableFooterView = nil
+                        
+                        self?.view.removePlaceholderView()
                     }
                 }
                 

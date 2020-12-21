@@ -105,7 +105,7 @@ class FCMarketViewController: UIViewController {
         searchView.layer.cornerRadius = 5
         searchView.leftView = leftView
         //searchView.placeholder = "搜索"
-        searchView.font = UIFont(_customTypeSize: 14)
+        searchView.font = UIFont(_PingFangSCTypeSize: 14)
         searchView.textColor = COLOR_MinorTextColor
         searchView.backgroundColor = COLOR_HexColor(0x22283A)
         searchView.borderStyle = .none
@@ -147,7 +147,7 @@ class FCMarketViewController: UIViewController {
         cancelBtn.setTitleColor(COLOR_MinorTextColor, for: .disabled)
         cancelBtn.addTarget(self, action: #selector(cancelSearchAction), for: .touchUpInside)
         cancelBtn.contentHorizontalAlignment = .right
-        cancelBtn.titleLabel?.font = UIFont(_customTypeSize: 14)
+        cancelBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
         cancelBtn.isEnabled = false
         cancelBtn.setTitleColor(UIColor.white, for: .normal)
         navigationView.addSubview(cancelBtn)
@@ -178,13 +178,13 @@ class FCMarketViewController: UIViewController {
         //let totalItemWidth = 100 * (self.marketTypes?.count ?? 0)
         let titles = self.marketTypes
         let titleDataSource = JXSegmentedTitleDataSource()
-        titleDataSource.itemWidth = 100
+        titleDataSource.itemWidth = (kSCREENWIDTH - 30.0)/CGFloat(titles!.count)
         titleDataSource.titles = titles!
         titleDataSource.isTitleMaskEnabled = true
         titleDataSource.titleNormalColor = COLOR_HexColor(0x71819A)
         titleDataSource.titleSelectedColor = .white
-        titleDataSource.titleSelectedFont = UIFont(_customTypeSize: 15)
-        titleDataSource.titleNormalFont = UIFont(_customTypeSize: 14)
+        titleDataSource.titleSelectedFont = UIFont(_PingFangSCTypeSize: 15)
+        titleDataSource.titleNormalFont   = UIFont(_PingFangSCTypeSize: 14)
         titleDataSource.itemSpacing = 0
         segmentedDataSource = titleDataSource
         segmentedView.dataSource = titleDataSource
@@ -195,13 +195,14 @@ class FCMarketViewController: UIViewController {
         segmentedView.layer.borderColor = COLOR_HexColorAlpha(0x000000, alpha: 0.2).cgColor//COLOR_HexColor(0x3E4046).cgColor
         segmentedView.layer.borderWidth = 1
         segmentedView.delegate = self
-        
-        //UIScreen.main.scale
-        //navigationItem.titleView = segmentedView
 
         let indicator = JXSegmentedIndicatorBackgroundView()
+        indicator.layer.shadowColor =  UIColor.black.cgColor
+        indicator.layer.shadowOffset = CGSize(width: 0, height: 10)
+        indicator.layer.shadowOpacity = 0.3
+        indicator.layer.shadowRadius = 3
         indicator.indicatorHeight = 40
-        indicator.indicatorWidth = 95
+        indicator.indicatorWidth = titleDataSource.itemWidth
         indicator.indicatorCornerRadius = 5
         indicator.indicatorWidthIncrement = 0
         indicator.indicatorColor = COLOR_HexColor(0x323B4F)
@@ -294,6 +295,15 @@ class FCMarketViewController: UIViewController {
 
 extension FCMarketViewController: UITextFieldDelegate
 {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField.text?.count ?? 0 == 0 {
+            
+            self.cancelSearchAction()
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if let marketList = self.marketList {

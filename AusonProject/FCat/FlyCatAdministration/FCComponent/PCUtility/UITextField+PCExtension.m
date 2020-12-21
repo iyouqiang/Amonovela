@@ -18,7 +18,7 @@
     UITextField *textField = [[UITextField alloc] init];
     textField.leftViewMode =  UITextFieldViewModeAlways;
     textField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 0)];
-    textField.font = [UIFont font_customTypeSize:fontSize];
+    textField.font = [UIFont font_PingFangSCTypeSize:fontSize];
     textField.textColor = textColor;
     textField.placeholder = placeholder;
     textField.layer.borderColor = borderColor.CGColor;

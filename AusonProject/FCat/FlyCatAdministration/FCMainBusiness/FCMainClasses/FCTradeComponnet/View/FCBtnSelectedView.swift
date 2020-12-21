@@ -10,6 +10,11 @@ import UIKit
 
 class FCBtnSelectedView: UIView {
     
+    var cornerRadius:CGFloat = 5
+    var borderColor = COLOR_InputText
+    var borderWidth:CGFloat = 0.8
+    var titleColor = COLOR_CellTitleColor
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -34,7 +39,7 @@ class FCBtnSelectedView: UIView {
             }
             
             let viewWidth = self.frame.width > 0 ? self.frame.width : kSCREENWIDTH
-            let gap: CGFloat = 15.0
+            let gap: CGFloat = 8.0
             let totoalGap = CGFloat((titleArray.count - 1)) * gap
             let btnWidth = (viewWidth - totoalGap)/CGFloat(titleArray.count)
             
@@ -43,19 +48,26 @@ class FCBtnSelectedView: UIView {
             for (index, str) in titleArray.enumerated() {
                 
                 let btn = UIButton(type: .custom)
-                btn.layer.cornerRadius = btnHeight/2.0
-                btn.titleLabel?.font = UIFont(_customTypeSize: 13)
+                btn.layer.cornerRadius = cornerRadius
+                btn.titleLabel?.font = UIFont(_DINProBoldTypeSize: 13)
                 btn.clipsToBounds = true
                 addSubview(btn)
                 btn.tag = 1000 + index
-                btn.layer.borderColor = COLOR_InputText.cgColor
-                btn.layer.borderWidth = 0.8
+                btn.layer.borderColor = borderColor.cgColor
+                btn.layer.borderWidth = borderWidth
                 
                 btn.setTitle(str, for: .normal)
-                btn.setTitleColor(COLOR_CellTitleColor, for: .normal)
-                btn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
+                btn.setTitleColor(titleColor, for: .normal)
+                btn.setTitleColor(COLOR_MainThemeColor, for: .selected)
                 btn.addTarget(self, action: #selector(clickItem(sender:)), for: .touchUpInside)
                 btn.frame = CGRect(x: CGFloat(index)*(btnWidth + gap), y: 0, width: btnWidth, height: btnHeight)
+                
+                btn.snp_makeConstraints { (make) in
+                    make.left.equalTo(CGFloat(index)*(btnWidth + gap))
+                    make.top.equalToSuperview()
+                    make.width.equalTo(btnWidth)
+                    make.height.equalTo(btnHeight)
+                }
                 
                 /**
                 if index == 0 {
@@ -70,15 +82,16 @@ class FCBtnSelectedView: UIView {
     
     @objc func clickItem(sender: UIButton) {
         
-        if self.selectedBtn == sender {
+        
+        if self.selectedBtn == sender && self.selectedBtn?.isSelected == true {
             return
         }
         
         selectedBtn?.isSelected = false
         sender.isSelected = true
         
-        selectedBtn?.layer.borderColor = COLOR_InputText.cgColor
-        sender.layer.borderColor = COLOR_TabBarTintColor.cgColor
+        //selectedBtn?.layer.borderColor = borderColor.cgColor
+        //sender.layer.borderColor = COLOR_TabBarTintColor.cgColor
         
         selectedBtn = sender
         

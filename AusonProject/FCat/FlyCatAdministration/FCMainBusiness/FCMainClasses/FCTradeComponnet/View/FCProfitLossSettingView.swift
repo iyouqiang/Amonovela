@@ -31,6 +31,7 @@ class FCProfitLossSettingView: UIView {
     var availableNum: Float = 0.0
     var tradeType = "Limit"
     var percentageStr = "0.1"
+    var positionTitleL: UILabel!
     
     ///止盈 止损输入框
     var takeProfitView: FCContractInputView!
@@ -137,7 +138,7 @@ class FCProfitLossSettingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // 平仓界面
-        self.backgroundColor = .white
+        self.backgroundColor = COLOR_BGColor
         self.setupView()
         self.layoutPositionSubView()
         self.loadClickEvnet()
@@ -149,16 +150,22 @@ class FCProfitLossSettingView: UIView {
     
     func setupView() {
          
+        positionTitleL = fc_labelInit(text: "止盈止损", textColor: COLOR_MainThemeColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        addSubview(positionTitleL)
+        
         /// 第一栏 平仓永续 多头
-        symbolTitleL = fc_labelInit(text: "平仓BTCUSDT永续", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        symbolTitleL = fc_labelInit(text: "平仓BTCUSDT永续", textColor: .white, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        symbolTitleL.textAlignment = .right
         addSubview(symbolTitleL)
         
-        leverageL = fc_labelInit(text: "多头100.00X", textColor: COLOR_RiseColor, textFont: UIFont(_customTypeSize: 14), bgColor: .clear)
+        leverageL = fc_labelInit(text: "多头100.00X", textColor: COLOR_RiseColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        leverageL.textAlignment = .right
         addSubview(leverageL)
         
         //trade_close
         closeBtn = fc_buttonInit(imgName: "trade_close", title: "", fontSize: 16, titleColor: .clear, bgColor: .clear)
         addSubview(closeBtn)
+        closeBtn.isHidden = true
         
         /// 止盈止损
         /**
@@ -217,8 +224,9 @@ class FCProfitLossSettingView: UIView {
          */
         
         /// 比例按钮
-        ratioView = FCBtnSelectedView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH - 30, height: 30))
-        ratioView.layer.cornerRadius = 15
+        ratioView = FCBtnSelectedView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH - 30, height: 40))
+        ratioView.titleColor = COLOR_tabbarNormalColor
+        ratioView.borderColor = COLOR_LineColor
         ratioView.clipsToBounds = true
         ratioView.titleArray = ["10%", "20%", "50%", "100%"]
         //ratioView.backgroundColor = COLOR_TabBarTintColor
@@ -245,40 +253,47 @@ class FCProfitLossSettingView: UIView {
         }
         
         /// 可平量
-        availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
+        availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_tabbarNormalColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: .clear)
         addSubview(availableVolumeL)
         
         /// 市价平仓 平仓去人按钮
-        closeProfitLossBtn = fc_buttonInit(imgName: "", title: "取消", fontSize: 16, titleColor: COLOR_TabBarTintColor, bgColor: .clear)
-        closeProfitLossBtn.layer.cornerRadius = 25
+        closeProfitLossBtn = fc_buttonInit(imgName: "", title: "取消", fontSize: 16, titleColor: .white, bgColor: .clear)
+        closeProfitLossBtn.layer.cornerRadius = 8
         closeProfitLossBtn.clipsToBounds = true
-        closeProfitLossBtn.layer.borderWidth = 1
-        closeProfitLossBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
+        closeProfitLossBtn.layer.borderWidth = 0.7
+        closeProfitLossBtn.layer.borderColor = COLOR_LineColor.cgColor
         addSubview(closeProfitLossBtn)
         
         /// 平仓
-        triggerConfirBtn = FCThemeButton(title: "确认设置", titleColor: COLOR_TabBarBgColor, fontSize: 16, frame: CGRect(x: 0, y: 0, width: (kSCREENWIDTH - 50)/2.0, height: 50), cornerRadius: 25)
+        triggerConfirBtn = FCThemeButton(title: "确认设置", titleColor: .black, fontSize: 16, frame: CGRect(x: 0, y: 0, width: (kSCREENWIDTH - 50)/2.0, height: 50), cornerRadius: 8)
         addSubview(triggerConfirBtn)
     }
     
     func layoutPositionSubView()
     {
-            /// 界面布局
-            //let symbolWidth = symbolTitleL.labelWidthMaxHeight(30)
-            symbolTitleL.snp.makeConstraints { (make) in
+        positionTitleL.snp.makeConstraints { (make) in
+            
+            make.left.equalTo(15)
+            make.top.equalTo(20)
+            //make.width.equalTo(symbolWidth + 10)
+            make.height.equalTo(30)
+        }
+    
+        symbolTitleL.snp.makeConstraints { (make) in
                 
-                make.left.equalTo(15)
-                make.top.equalTo(20)
-                make.height.equalTo(30)
-            }
+            //make.left.equalTo(15)
+            make.right.equalTo(leverageL.snp_left).offset(-10)
+            make.top.equalTo(20)
+            make.height.equalTo(30)
+        }
             
-            leverageL.snp.makeConstraints { (make) in
-                make.left.equalTo(symbolTitleL.snp_right).offset(15)
-                make.bottom.equalTo(symbolTitleL.snp_bottom)
-                make.right.equalTo(closeBtn.snp_left)
-                make.height.equalTo(30)
-            }
-            
+        leverageL.snp.makeConstraints { (make) in
+            //make.left.equalTo(symbolTitleL.snp_right)
+            make.bottom.equalTo(symbolTitleL.snp_bottom)
+            //make.right.equalTo(closeBtn.snp_left)
+            make.right.equalTo(-15)
+            make.height.equalTo(30)
+        }
             closeBtn.snp.makeConstraints { (make) in
                 
                 make.right.equalTo(-15)
@@ -290,7 +305,7 @@ class FCProfitLossSettingView: UIView {
             takeProfitView!.snp.makeConstraints { (make) in
                 
                 make.left.equalTo(15)
-                make.top.equalTo(symbolTitleL.snp_bottom).offset(20)
+                make.top.equalTo(symbolTitleL.snp_bottom).offset(10)
                 make.right.equalTo(-15)
                 make.height.equalTo(50)
             }
@@ -298,7 +313,7 @@ class FCProfitLossSettingView: UIView {
             stopLossView.snp.makeConstraints { (make) in
                 
                 make.left.equalTo(15)
-                make.top.equalTo(takeProfitView.snp_bottom).offset(20)
+                make.top.equalTo(takeProfitView.snp_bottom).offset(10)
                 make.right.equalTo(-15)
                 make.height.equalTo(50)
             }
@@ -306,23 +321,23 @@ class FCProfitLossSettingView: UIView {
             numberInputView.snp.makeConstraints { (make) in
             
                 make.left.equalTo(15)
-                make.top.equalTo(stopLossView.snp_bottom).offset(20)
+                make.top.equalTo(stopLossView.snp_bottom).offset(10)
                 make.right.equalTo(-15)
                 make.height.equalTo(50)
             }
         
             ratioView.snp.makeConstraints { (make) in
             
-                make.top.equalTo(numberInputView.snp_bottom).offset(10)
+                make.top.equalTo(numberInputView.snp_bottom).offset(16)
                 make.left.equalTo(15)
                 make.right.equalTo(-15)
-                make.height.equalTo(30)
+                make.height.equalTo(40)
             }
             
             availableVolumeL.snp.makeConstraints { (make) in
                 
                 make.left.equalTo(15)
-                make.top.equalTo(ratioView.snp_bottom).offset(10)
+                make.top.equalTo(ratioView.snp_bottom).offset(8)
                 make.right.equalTo(-15)
                 make.height.equalTo(30)
             }

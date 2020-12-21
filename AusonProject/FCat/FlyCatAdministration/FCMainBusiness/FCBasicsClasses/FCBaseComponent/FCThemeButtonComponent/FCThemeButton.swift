@@ -25,7 +25,7 @@ class FCThemeButton: UIButton {
     init(title: String? = "", titleColor: UIColor? = COLOR_ThemeBtnTextColor, fontSize: CGFloat? = 16, frame: CGRect? = CGRect.zero,cornerRadius: CGFloat? = 0 ) {
         super.init(frame: frame!)
         self.setTitle(title, for: .normal)
-        self.titleLabel?.font = UIFont.init(_customTypeSize: fontSize!)
+        self.titleLabel?.font = UIFont.init(_PingFangSCTypeSize: fontSize!)
         self.setTitleColor(titleColor, for: .normal)
         self.layer.cornerRadius = cornerRadius!
         self.backgroundColor = COLOR_ThemeBtnBgColor

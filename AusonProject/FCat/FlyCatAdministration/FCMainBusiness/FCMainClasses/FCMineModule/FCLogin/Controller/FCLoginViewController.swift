@@ -98,7 +98,7 @@ class FCLoginViewController: UIViewController {
          */
         
         /**
-        self.addrightNavigationItemImgNameStr(nil, title: "登录", textColor: COLOR_MinorTextColor, textFont: UIFont(_customTypeSize: 16), clickCallBack: {
+        self.addrightNavigationItemImgNameStr(nil, title: "登录", textColor: COLOR_MinorTextColor, textFont: UIFont(_PingFangSCTypeSize: 16), clickCallBack: {
             // weakSelf?.loginView?.loginBtnClick()
             //            let modifyVC = FCModifyPasswordController.init()
             //            weakSelf?.navigationController?.pushViewController(modifyVC, animated: true)

@@ -136,6 +136,7 @@ class FCPerpetualModifyView: UIView {
            /// 比例按钮
            ratioView = FCBtnSelectedView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH - 30, height: 30))
            ratioView.layer.cornerRadius = 15
+            ratioView.cornerRadius = 15
            ratioView.clipsToBounds = true
            ratioView.titleArray = ["10%", "20%", "50%", "100%"]
            //ratioView.backgroundColor = COLOR_TabBarTintColor
@@ -163,7 +164,7 @@ class FCPerpetualModifyView: UIView {
            
            
            /// 可平量
-           availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_customTypeSize: 12), bgColor: .clear)
+           availableVolumeL = fc_labelInit(text: "可平量 10BTC", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: .clear)
            addSubview(availableVolumeL)
            
            /// 市价平仓 平仓去人按钮

@@ -53,7 +53,7 @@ class FCPasswordResetView: UIView {
     
     private func loadSubviews() {
         
-        self.resetPasswordL = fc_labelInit(text: "重置密码", textColor: UIColor.white, textFont: UIFont(_customTypeSize: 28), bgColor: UIColor.clear)
+        self.resetPasswordL = fc_labelInit(text: "重置密码", textColor: UIColor.white, textFont: UIFont(_PingFangSCTypeSize: 28), bgColor: UIColor.clear)
         self.addSubview(self.resetPasswordL!)
         
         self.resetPasswordL.snp.makeConstraints { (make) in
