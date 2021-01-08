@@ -20,6 +20,7 @@ class FCKLineDealHeader: UIView {
     static func dealingView() -> FCKLineDealHeader {
         let view = Bundle.main.loadNibNamed("FCKLineDealHeader", owner: self, options: nil)?.last as! FCKLineDealHeader
         view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40)
+        view.backgroundColor = COLOR_BGColor
         return view
     }
     

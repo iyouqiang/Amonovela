@@ -281,9 +281,9 @@ class FCAdjustmentMarginController: UIViewController, UIGestureRecognizerDelegat
         if self.marginSide == "Increase" {
     
             /// 增加保证金方向
-            maximumL.text = "最多增加：₮\(self.accountInfoModel?.availableMargin ?? "0.0000")"
+            maximumL.text = "最多增加：\(self.accountInfoModel?.availableMargin ?? "0.0000")"
             //print("第一次进：", self.accountInfoModel?.availableMargin)
-            closePositionL.text = "追加后强平价格：₮\(self.positionModel?.liquidatedPrice ?? "0.0000")"
+            closePositionL.text = "追加后强平价格：\(self.positionModel?.liquidatedPrice ?? "0.0000")"
             endValueL.text = self.accountInfoModel?.availableMargin
             availableMargin = (self.accountInfoModel?.availableMargin ?? "0.0") as String
             //margin = self.accountInfoModel?.usedMargin ?? ""
@@ -293,8 +293,8 @@ class FCAdjustmentMarginController: UIViewController, UIGestureRecognizerDelegat
             /// 减少保证金方向
             availableMargin = (self.positionModel?.availableMargin ?? "0.0") as String
             //margin = self.positionModel?.margin ?? ""
-            maximumL.text = "最多减少：₮\(self.positionModel?.availableMargin ?? "0.0")"
-            closePositionL.text = "追加后强平价格：₮\(self.positionModel?.liquidatedPrice ?? "0.00")"
+            maximumL.text = "最多减少：\(self.positionModel?.availableMargin ?? "0.0")"
+            closePositionL.text = "追加后强平价格：\(self.positionModel?.liquidatedPrice ?? "0.00")"
             endValueL.text = self.positionModel?.availableMargin
             self.sliderView.setValue(self.decreaseValue ?? 00, animated: true)
         }
@@ -447,7 +447,7 @@ class FCAdjustmentMarginController: UIViewController, UIGestureRecognizerDelegat
             }
         }
         
-        closePositionL.text = String(format: "追加后强平价格：₮%.4f", newLiquidatedPrice)
+        closePositionL.text = String(format: "追加后强平价格：%.4f", newLiquidatedPrice)
         closePositionL.setAttributeColor(COLOR_RichBtnTitleColor, range: NSRange(location: 0, length: 7))
     }
     

@@ -129,7 +129,9 @@ class FCContractHistoryModel: NSObject {
         symbolName = jsonData["symbolName"].stringValue
         pnlRate = jsonData["pnlRate"].stringValue
         contractAsset = jsonData["contractAsset"].stringValue
-        pnlShare = FCPnlShareModel(dict: jsonData["pnlShare"].dictionaryValue as [String : AnyObject])    }
+        pnlShare = FCPnlShareModel(dict: jsonData["pnlShare"].dictionaryValue as [String : AnyObject])
+        symbolName = jsonData["symbolName"].stringValue
+    }
 }
 
 class FCHistoryDelModel: NSObject {
@@ -149,6 +151,7 @@ class FCHistoryDelModel: NSObject {
     var filledTm: String?
     var price: String?
     var volume: String?
+    var contractAsset: String?
     
     init(dict: [String: AnyObject]){
            super.init()
@@ -162,5 +165,6 @@ class FCHistoryDelModel: NSObject {
         price = jsonData["price"].stringValue
         currency = jsonData["currency"].stringValue
         volume = jsonData["volume"].stringValue
+        contractAsset = jsonData["contractAsset"].stringValue
     }
 }

@@ -32,8 +32,8 @@ class FCContractOrderView: UIView {
     
     var showProfitLossItemBlock:((_ isFolded: Bool) -> Void)?
     
-    //    var tradeAsset: FCAssetModel?  //交易币资产
-    //    var baseAsset: FCAssetModel?   //基础币资产
+    // var tradeAsset: FCAssetModel?  //交易币资产
+    // var baseAsset: FCAssetModel?   //基础币资产
     
     var accountInfoModel: FCPositionAccountInfoModel? //合约资产
     
@@ -103,6 +103,7 @@ class FCContractOrderView: UIView {
             make.width.equalTo(70)
         }
          */
+        
         let width = fundsRateNameL.labelWidthMaxHeight(20)
         
         /// 费率
@@ -303,7 +304,6 @@ class FCContractOrderView: UIView {
         return accuracyView
     }()
     
-    
     //Header
     lazy var symbolBtn: UIButton = {
         let button = UIButton(type: .custom)
@@ -318,7 +318,10 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var changeLab: UILabel = {
-        let lab = fc_labelInit(text: "0.00%", textColor: COLOR_RiseColor, textFont: 13, bgColor: UIColor.clear)
+        
+        //let lab = fc_labelInit(text: "0.00%", textColor: COLOR_RiseColor, textFont: 13, bgColor: UIColor.clear)
+        let lab = fc_labelInit(text: "0.00%", textColor: COLOR_RiseColor, textFont: UIFont(_DINProBoldTypeSize: 13), bgColor: .clear)
+        
         return lab
     }()
     
@@ -566,7 +569,7 @@ class FCContractOrderView: UIView {
     lazy var priceTxd: UITextField = {
         
         /// 限价委托显示下输入
-        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CellTitleColor, textColor: .white, fontSize: 16, borderStyle: .roundedRect)
+        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CellTitleColor, textColor: .white, fontSize: 14, borderStyle: .roundedRect)
         priceTxd.attributedPlaceholder = NSAttributedString.init(string: "价格", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
         priceTxd.setValue(3, forKey: "paddingLeft")
         priceTxd.rightViewMode = .always
@@ -591,7 +594,7 @@ class FCContractOrderView: UIView {
     }()
     
     lazy var amountTxd: UITextField = {
-        let amountTxd = fc_textfiledInit(placeholder: "数量", holderColor: COLOR_CellTitleColor, textColor: .white, fontSize: 16, borderStyle: .roundedRect)
+        let amountTxd = fc_textfiledInit(placeholder: "数量", holderColor: COLOR_CellTitleColor, textColor: .white, fontSize: 14, borderStyle: .roundedRect)
         amountTxd.attributedPlaceholder = NSAttributedString.init(string: "数量", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
         amountTxd.setValue(3, forKey: "paddingLeft")
         amountTxd.rightViewMode = .always
@@ -625,9 +628,15 @@ class FCContractOrderView: UIView {
         return amountUnitLab
     }()
     
-    lazy var convertLab: UILabel = {
-        let convertLab = fc_labelInit(text: "≈-.--", textColor: COLOR_InputText, textFont: 12, bgColor: UIColor.clear)
+    lazy var convertLab: UILabel = { 
+        //let convertLab = fc_labelInit(text: "0.00", textColor: COLOR_InputText, textFont: 12, bgColor: UIColor.clear)
+        let convertLab = fc_labelInit(text: "0.00", textColor: COLOR_InputText, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: UIColor.clear)
         return convertLab
+    }()
+    
+    lazy var marginTitleL: UILabel = {
+        let marginTitleL = fc_labelInit(text: "保证金", textColor: COLOR_CellTitleColor, textFont: 12, bgColor: UIColor.clear)
+        return marginTitleL
     }()
     
     lazy var slider: PCSlider = {
@@ -689,7 +698,7 @@ class FCContractOrderView: UIView {
             make.right.equalToSuperview().offset(20)
         }
         
-        //self.profitArrowIcon.transform = (self.profitArrowIcon.transform).rotated(by: 180 * CGFloat(Double.pi/180))
+        //self.profitArrowIcon.transform = (self.profitArrowIcon.transform).rotated(by: 180 * CGFloat(Double.pi/180)) 
         
         return profitLossBtn
     }()
@@ -1134,6 +1143,7 @@ class FCContractOrderView: UIView {
         amountTxd.rightView = amountUnitView
         leftView.addSubview(amountTxd)
         leftView.addSubview(convertLab)
+        leftView.addSubview(marginTitleL)
         leftView.addSubview(slider)
         leftView.addSubview(sliderPercentL)
         leftView.addSubview(profitLossBtn)
@@ -1167,8 +1177,14 @@ class FCContractOrderView: UIView {
         }
         
         convertLab.snp.makeConstraints { (make) in
-            make.top.equalTo(amountTxd.snp_bottom)
+            make.top.equalTo(amountTxd.snp_bottom).offset(5)
             make.right.equalToSuperview()
+        }
+        
+        marginTitleL.snp.makeConstraints { (make) in
+            
+            make.left.equalTo(0)
+            make.top.equalTo(amountTxd.snp_bottom).offset(5)
         }
         
         slider.snp.makeConstraints { (make) in
@@ -1225,15 +1241,28 @@ class FCContractOrderView: UIView {
                 contractAsset = tradingUnitStr
             }
             
+            // 价格*数据量/杠杆
+            var leverage = Double(self.strateSetModel?.shortLeverage ?? "0") ?? 0.0
+            if (self.markerSide == "Bid") {
+                /// 卖盘 开多杠杆
+                leverage = Double(self.strateSetModel?.longLeverage ?? "0") ?? 0.0
+            }
+            
+            let priceValue = Double(self.priceTxd.text ?? "0") ?? 0.0
+            let qtyFactor = self.contractModel?.qtyFactor ?? 1.0
+            self.convertLab.text = String(format: "%0.4f", ((value*priceValue*qtyFactor)/(leverage)))
+            
+            if (leverage == 0.0) {self.convertLab.text = "0.00"}
+            
             /// 合约单位判断
             if FCTradeSettingconfig.sharedInstance.tradeTradingUnit == .TradeTradingUnitType_CONT {
                 
                 /// 张 =？币
-                self.convertLab.text = String(format:"≈%.4f \(contractAsset)", (value * size))
+                //self.convertLab.text = String(format:"≈%.4f \(contractAsset)", (value * size))
             }else {
                 
                 //币 =？ 张
-                self.convertLab.text = String(format:"≈%.0f \("(张)")", (value/size))
+                //self.convertLab.text = String(format:"≈%.0f \("(张)")", (value/size))
             }
             
             
@@ -1266,16 +1295,15 @@ class FCContractOrderView: UIView {
                 self.amountTxd.text = String(format: "%.0f", Double(value) * availableVolume)
                 
                 /// 张 =？币
-                self.convertLab.text = String(format:"≈%.4f \(arrayStrings.first ?? "")", (Double(value) * availableVolume * size))
+                //self.convertLab.text = String(format:"≈%.4f \(arrayStrings.first ?? "")", (Double(value) * availableVolume * size))
             }else {
                 
                 self.amountTxd.text = String(format: "%.4f", Double(value) * availableVolume)
                 
                 //币 =？ 张
-                self.convertLab.text = String(format:"≈%.0f \("(张)")", (Double(value) * availableVolume))
+                //self.convertLab.text = String(format:"≈%.0f \("(张)")", (Double(value) * availableVolume))
             }
         }
-        
         
         ratioView.clickItemBlock = {
             
@@ -1324,16 +1352,28 @@ class FCContractOrderView: UIView {
                 self?.amountTxd.text = String(format: "%.0f", Double(value) * availableVolume)
                 
                 /// 张 =？币
-                self?.convertLab.text = String(format:"≈%.4f \(arrayStrings.first ?? "")", (Double(value) * availableVolume * size))
+                //self?.convertLab.text = String(format:"≈%.4f \(arrayStrings.first ?? "")", (Double(value) * availableVolume * size))
             }else {
                 
                 self?.amountTxd.text = String(format: "%.4f", Double(value) * availableVolume)
                 
                 //币 =？ 张
-                self?.convertLab.text = String(format:"≈%.0f \("(张)")", (Double(value) * availableVolume))
+                //self?.convertLab.text = String(format:"≈%.0f \("(张)")", (Double(value) * availableVolume))
             }
+            
+            // 价格*数据量/杠杆
+            var leverage = Double(self?.strateSetModel?.shortLeverage ?? "0") ?? 0.0
+            if (self?.markerSide == "Bid") {
+                /// 卖盘 开多杠杆
+                leverage = Double(self?.strateSetModel?.longLeverage ?? "0") ?? 0.0
+            }
+            
+            let amountValue = Double(self?.amountTxd.text ?? "0") ?? 0.0
+            let priceValue = Double(self?.priceTxd.text ?? "0") ?? 0.0
+            let qtyFactor = self?.contractModel?.qtyFactor ?? 1.0
+            self?.convertLab.text = String(format: "%0.4f", (amountValue*priceValue*qtyFactor)/(leverage))
         }
-        
+    
         ratioView.snp_makeConstraints { (make) in
             
             make.left.equalTo(0)
@@ -1344,7 +1384,7 @@ class FCContractOrderView: UIView {
         
         volumeTitleLab.snp.makeConstraints { (make) in
             
-            make.top.equalTo(profitLossView.snp_bottom).offset(60)
+            make.top.equalTo(profitLossView.snp_bottom).offset(50)
             make.left.equalToSuperview()
         }
         
@@ -1439,7 +1479,10 @@ class FCContractOrderView: UIView {
             var count = depthModel?.bids?.count ?? 0 <= 6 ? (depthModel?.bids?.count ?? 0) : 6
             count = (count - 1) < 0 ? 0 : (count - 1)
             
-            self.bidData = Array(depthModel?.bids?[0...count] ?? [])
+            if (depthModel?.bids?.count ?? 0 > count) {
+                self.bidData = Array(depthModel?.bids?[0...count] ?? [])
+            }
+            
         }else {
             
             /// 非默认状态 显示12条
@@ -1447,12 +1490,15 @@ class FCContractOrderView: UIView {
             var count = depthModel?.bids?.count ?? 0 <= 11 ? (depthModel?.bids?.count ?? 0) : 11
             count = (count - 1) < 0 ? 0 : (count - 1)
             
-            self.bidData = Array(depthModel?.bids?[0...count] ?? [])
+            if depthModel?.bids?.count ?? 0 > count {
+                self.bidData = Array(depthModel?.bids?[0...count] ?? [])
+            }
         }
 
         /// 头部信息 单位信息设置
         let arrayStrings: [String] = self.accountInfoModel?.symbolAccount?.symbol?.split(separator: "-").compactMap { "\($0)" } ?? []
-        self.depthpriceTitleL.text = "价格(\(arrayStrings.last ?? "/"))"
+        self.depthpriceTitleL.text = "价格"
+        //"价格(\(arrayStrings.last ?? "/"))"
 
         /// 单位设置
         let tradingUnitStr = FCTradeSettingconfig.sharedInstance.tradingUnitStr
@@ -1465,7 +1511,8 @@ class FCContractOrderView: UIView {
             contractAsset = "张"
         }
         
-        self.depthamountTitleL.text = "数量(\(contractAsset))"
+        self.depthamountTitleL.text = "数量"
+            //"数量(\(contractAsset))"
         
         self.amountUnitLab.text = contractAsset
         

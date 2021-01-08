@@ -555,4 +555,13 @@
     return [numberTest evaluateWithObject:self];
 }
 
+- (NSString *)precisionSpecification:(NSInteger)precision value:(float)value
+{
+    NSString* format = [NSString stringWithFormat:@"%%.%ldf",(long)precision];
+
+    NSString* resultStr = [NSString stringWithFormat:format,value];
+    
+    return resultStr;
+}
+
 @end

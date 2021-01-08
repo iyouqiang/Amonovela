@@ -68,6 +68,7 @@ class FCContractsModel: NSObject, HandyJSON, Codable {
     var tradingType:String?
     var isOptional: Bool = false
     var iconUrl: String?
+    var qtyFactor: Double = 1.0
     
     init(dict: [String: AnyObject]){
               super.init()
@@ -100,6 +101,7 @@ class FCContractsModel: NSObject, HandyJSON, Codable {
         tradingType = jsonData["tradingType"].stringValue
         isOptional = jsonData["isOptional"].boolValue
         iconUrl = jsonData["iconUrl"].stringValue
+        qtyFactor = jsonData["qtyFactor"].doubleValue
        }
     
     required public override init() {

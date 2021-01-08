@@ -18,7 +18,7 @@ open class KLineChartView: UIView {
         }
     }
     public var isScale = false
-    public var isDrag = false
+    public var isDrag  = false
     public var isLongPress = false {
         didSet {
             painterView?.isLongPress = isLongPress
@@ -59,9 +59,9 @@ open class KLineChartView: UIView {
     }
     
     var lastScrollX: CGFloat = 0.0
-    var dragbeginX: CGFloat = 0
-    var dragbeginY: CGFloat = 0
-    var lastscaleX: CGFloat = 1
+    var dragbeginX: CGFloat  = 0
+    var dragbeginY: CGFloat  = 0
+    var lastscaleX: CGFloat  = 1
     
     var longPressX: CGFloat = 0 {
         didSet {
@@ -75,7 +75,6 @@ open class KLineChartView: UIView {
     }
     
     var speedX: CGFloat = 0
-    
     var displayLink: CADisplayLink?
     
     lazy var infoView: KLineInfoView = {

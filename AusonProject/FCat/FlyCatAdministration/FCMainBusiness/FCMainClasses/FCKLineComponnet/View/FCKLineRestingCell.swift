@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import KLineXP
 
 class FCKLineRestingCell: UITableViewCell {
 
-    
     @IBOutlet weak var buyRankLab: UILabel!
     
     @IBOutlet weak var buyAmountLab: UILabel!
@@ -27,9 +27,18 @@ class FCKLineRestingCell: UITableViewCell {
     
     @IBOutlet weak var sellDepth: NSLayoutConstraint!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.contentView.backgroundColor = COLOR_BGColor
+        self.backgroundColor = COLOR_BGColor
+        self.buyRankLab.font = UIFont(_DINProBoldTypeSize: 12)
+        self.buyAmountLab.font = UIFont(_DINProBoldTypeSize: 12)
+        self.buyPriceLab.font = UIFont(_DINProBoldTypeSize: 12)
+        self.sellPriceLab.font = UIFont(_DINProBoldTypeSize: 12)
+        self.sellAmountLab.font = UIFont(_DINProBoldTypeSize: 12)
+        self.sellRankLab.font = UIFont(_DINProBoldTypeSize: 12)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,13 +52,19 @@ class FCKLineRestingCell: UITableViewCell {
         self.sellRankLab.text = "\(index + 1)"
         
         //买
-        self.buyAmountLab.text = bidModel?.volume
-        self.buyPriceLab.text = bidModel?.price
+        let bidvolume = ((bidModel?.volume ?? "0.00") as NSString).floatValue
+        
+        let priceValue = ((bidModel?.price ?? "0.00") as NSString).floatValue
+        self.buyAmountLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(bidvolume))
+        self.buyPriceLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(priceValue))
+            // bidModel?.price
         self.buyDepth.constant = CGFloat(Double(kSCREENWIDTH - 30) * 0.5 * (bidModel?.barPercent ?? 0.0))
         
         //卖
-        self.sellAmountLab.text = askModel?.volume
-        self.sellPriceLab.text = askModel?.price
+        let askValue = ((askModel?.price ?? "0.00") as NSString).floatValue
+        let askvolume = ((askModel?.volume ?? "0.00") as NSString).floatValue
+        self.sellAmountLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(askvolume))
+        self.sellPriceLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(askValue))
         let askWidth = CGFloat(Double(kSCREENWIDTH - 30) * 0.5 * (askModel?.barPercent ?? 0.0))
         self.sellDepth.constant = askWidth
         //CGFloat((Double(kSCREENWIDTH - 30) * 0.5)) - buyWidth

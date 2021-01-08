@@ -218,7 +218,9 @@ class FCMarketViewController: UIViewController {
         self.sortComponent = FCSortComponent.init(frame: .zero)
         self.sortComponent.backgroundColor = COLOR_CellBgColor
         self.view.addSubview(self.sortComponent)
-        
+        self.sortComponent.priceBtn.snp_updateConstraints { (make) in
+            make.centerX.equalToSuperview().offset(8)
+        }
         self.sortComponent.orderBtnClick { [weak self] (sortType: FCMarketSortType, orderType: FCMarketOrderType) in
             for marketVC in self?.marketList ?? [] {
                 marketVC.sortMarketList(sortType: sortType, orderType: orderType)

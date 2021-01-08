@@ -23,6 +23,7 @@ class FCContractPositionCell: UITableViewCell {
     @IBOutlet weak var leverageL: UILabel!
     @IBOutlet weak var volumeL: UILabel!
     
+    @IBOutlet weak var adjustSegLIne: UIView!
     @IBOutlet weak var adjustmentBtn: UIButton!
     @IBOutlet weak var closePositionBtn: UIButton!
     @IBOutlet weak var profitLossBtn: UIButton!
@@ -155,10 +156,12 @@ class FCContractPositionCell: UITableViewCell {
             if positionModel.marginMode == "Cross" {
                 btnWidth = (kSCREENWIDTH - 15 * 2)/2.0
                 self.adjustmentBtn.isHidden = true
+                self.adjustSegLIne.isHidden = true
                 self.bottomBtnWidth.constant = btnWidth
             }else {
                 self.bottomBtnWidth.constant = btnWidth
                 self.adjustmentBtn.isHidden = false
+                self.adjustSegLIne.isHidden = false
             }
             self.symbolTitleL.text = positionModel.symbolName
                 //"\(positionModel.symbol ?? "")永续"

@@ -70,6 +70,9 @@ class FCCXPHomeViewController: UIViewController {
         menuHeaderView.addSubview(self.sortComponent)
         self.sortComponent.priceBtn.setImage(nil, for: .normal)
         self.sortComponent.priceBtn.isEnabled = false
+        self.sortComponent.priceBtn.snp_updateConstraints { (make) in
+            make.centerX.equalToSuperview().offset(20)
+        }
         self.sortComponent.orderBtnClick { [weak self] (sortType: FCMarketSortType, orderType: FCMarketOrderType) in
             self?.orderType = orderType
             self?.sortType = sortType
@@ -93,7 +96,6 @@ class FCCXPHomeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.homeSubscription?.dispose()
-        
     }
     override func viewDidLoad() {
         
@@ -355,13 +357,14 @@ extension FCCXPHomeViewController:UITableViewDataSource, UITableViewDelegate
         let klineVC = FCKLineController()
         let marketModel = FCMarketModel()
         marketModel.symbol = symbolModel?.symbol
+        marketModel.name = symbolModel?.name ?? ""
         marketModel.marketType = symbolModel?.marketType ?? ""        
         marketModel.latestPrice = symbolModel?.latestPrice ?? "0"
         marketModel.close = symbolModel?.close ?? ""
         marketModel.high = symbolModel?.high ?? ""
         marketModel.low = symbolModel?.low ?? ""
         marketModel.tradingType = symbolModel?.tradingType ?? ""
-        marketModel.amount = symbolModel?.tradingAmount ?? ""
+        marketModel.volume = symbolModel?.tradingAmount ?? ""
         marketModel.changePercent = symbolModel?.changePercent ?? ""
         marketModel.name = symbolModel?.name ?? ""
         

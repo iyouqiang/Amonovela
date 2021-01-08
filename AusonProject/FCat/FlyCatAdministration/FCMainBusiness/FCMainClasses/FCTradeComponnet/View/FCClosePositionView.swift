@@ -76,7 +76,8 @@ class FCClosePositionView: UIView {
             /// 持仓均价
             let symbolArray = positionModel.symbol?.split(separator: "-")
             //let symbolStr = symbolArray?.last ?? ""
-            var sheetStr = symbolArray?.first ?? ""
+            var sheetStr = positionModel.contractAsset ?? ""
+                //symbolArray?.first ?? ""
             self.numberInputView.suffixL.text =  "\(sheetStr)"
   
             if FCTradeSettingconfig.sharedInstance.tradeTradingUnit == .TradeTradingUnitType_COIN {
@@ -149,9 +150,8 @@ class FCClosePositionView: UIView {
         addSubview(limitPriceBtn)
         
         /// 市价平仓按钮
-        marketPriceBtn = fc_buttonInit(imgName: "", title: "市价平仓", fontSize: 16, titleColor: COLOR_RichBtnTitleColor, bgColor: .clear)
+        marketPriceBtn = fc_buttonInit(imgName: "", title: "市价平仓", fontSize: 16, titleColor: COLOR_HexColor(0x848D9B), bgColor: .clear)
         addSubview(marketPriceBtn)
-        
         
         bottomLine = UIView(frame: CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 0.8))
         bottomLine.backgroundColor = COLOR_HexColorAlpha(0xdadadd, alpha: 0.2)

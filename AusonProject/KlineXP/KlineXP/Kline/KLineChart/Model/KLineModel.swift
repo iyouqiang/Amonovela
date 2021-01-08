@@ -45,7 +45,6 @@ open class KLineModel {
     public var k: CGFloat = 0
     public var d: CGFloat = 0
     public var j: CGFloat = 0
-    
     public var r: CGFloat = 0
     
     public init() {

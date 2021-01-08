@@ -17,7 +17,6 @@ class FCCountryCodeItem: NSObject, HandyJSON, Codable {
     required public override init() {
         
     }
-    
 }
 
  class FCountryCodeModel: NSObject, HandyJSON, Codable {

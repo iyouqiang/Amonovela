@@ -116,7 +116,8 @@ class FCProfitLossSettingView: UIView {
             /// 持仓均价
             let symbolArray = positionModel.symbol?.split(separator: "-")
             //let symbolStr = symbolArray?.last ?? ""
-            let sheetStr = symbolArray?.first ?? ""
+            let sheetStr = positionModel.contractAsset ?? ""
+                //symbolArray?.first ?? ""
             self.availableNum = ((positionModel.availableVolume ?? "" ) as NSString).floatValue
             if FCTradeSettingconfig.sharedInstance.tradeTradingUnit == .TradeTradingUnitType_COIN {
 

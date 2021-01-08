@@ -40,7 +40,6 @@ class FCHomeModel: NSObject {
             let noticeModel = FCHomenoticesModel.init(dict: subJSON.dictionaryValue as [String : AnyObject])
             noticesArray?.append(noticeModel)
         }
-        
     }
 }
 

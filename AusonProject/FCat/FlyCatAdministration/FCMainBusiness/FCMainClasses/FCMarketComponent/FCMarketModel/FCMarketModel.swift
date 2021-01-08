@@ -70,6 +70,7 @@ class FCMarketModel: NSObject, HandyJSON, Codable {
     var asset: String = ""
     var size: String = ""
     var iconUrl: String = ""
+    var priceDigitNum: Int = 2
 //    init(dict: [String: AnyObject]) {
 //        super.init()
 //        

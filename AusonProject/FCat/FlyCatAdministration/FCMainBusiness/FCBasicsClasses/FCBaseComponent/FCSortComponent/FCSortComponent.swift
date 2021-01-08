@@ -59,6 +59,7 @@ class FCSortComponent: UIView {
         self.nameBtn = fc_buttonInit(imgName: "sortNone", title: "交易对/成交量", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
         self.nameBtn.contentHorizontalAlignment = .left
         self.priceBtn = fc_buttonInit(imgName: "sortNone", title: "最新价", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
+        self.priceBtn.contentHorizontalAlignment = .center
         self.changeBtn = fc_buttonInit(imgName: "sortNone", title: "24h涨跌幅", fontSize: 13, titleColor: COLOR_CellTitleColor, bgColor: UIColor.clear)
         self.changeBtn.contentHorizontalAlignment = .right
         self.nameBtn.setTitleAndImageInset(insetType: .FCBtnInsetTypeImgRight, imgLabInset: 5, imgWidth: 10)
@@ -101,7 +102,6 @@ class FCSortComponent: UIView {
                 self.configBtnsStyle(buttons: [self.nameBtn, self.priceBtn, self.changeBtn], allDefault: false, orderType: .Asc, sortType: .Volume)
             }
             
-            
         }.disposed(by: self.disposeBag)
         
         self.priceBtn.rx.tap.subscribe {(event) in
@@ -113,7 +113,6 @@ class FCSortComponent: UIView {
                 self.configBtnsStyle(buttons: [self.priceBtn, self.nameBtn, self.changeBtn], allDefault: false, orderType: .Asc, sortType: .Price)
             }
         }.disposed(by: self.disposeBag)
-        
         
         self.changeBtn.rx.tap.subscribe {(event) in
             if (self.sortType == .Change && self.orderType == .Desc) {

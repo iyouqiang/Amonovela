@@ -90,5 +90,6 @@
 /** 判断是否满足自定义的正则表达式 */
 - (BOOL)isMatch:(NSString *)regex;
 
+- (NSString *)precisionSpecification:(NSInteger)precision value:(float)value;
 
 @end

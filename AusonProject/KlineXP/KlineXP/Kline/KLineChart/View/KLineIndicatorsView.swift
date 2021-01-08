@@ -40,11 +40,10 @@ open class KLineIndicatorsView: UIView {
             bollButton.isSelected = false
             KLineStateManger.manager.setMainState(MainState.ma)
             self.callback?(MainState.ma, "MA")
-                    case 2:
+        case 2:
             maButton.isSelected = false
             bollButton.isSelected = true
             KLineStateManger.manager.setMainState(MainState.boll)
-           
             self.callback?(MainState.boll, "BOLL")
         default:
             UserDefaults.standard.removeObject(forKey: MAINCHARTINDEXKEY)
@@ -56,9 +55,9 @@ open class KLineIndicatorsView: UIView {
     @IBAction func vicebuttonClick(_ sender: UIButton) {
         
         macdButton.isSelected = false
-        kdjButton.isSelected = false
-        rsiButton.isSelected = false
-        wrButton.isSelected = false
+        kdjButton.isSelected  = false
+        rsiButton.isSelected  = false
+        wrButton.isSelected   = false
         
         UserDefaults.standard.set("\(sender.tag)", forKey: AUXILIARYCHARTKEY)
         UserDefaults.standard.synchronize()
@@ -89,7 +88,6 @@ open class KLineIndicatorsView: UIView {
         maButton.isSelected = false
         bollButton.isSelected = false
         KLineStateManger.manager.setMainState(MainState.none)
-        
         self.callback?(MainState.none, "指标")
     }
     
@@ -159,5 +157,4 @@ open class KLineIndicatorsView: UIView {
     func didSelectViceItem (callback: @escaping (() -> Void)) {
         self.viceCallback = callback
     }
-    
 }

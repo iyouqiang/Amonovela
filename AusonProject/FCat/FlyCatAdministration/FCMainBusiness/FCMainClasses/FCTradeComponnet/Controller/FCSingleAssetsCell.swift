@@ -17,6 +17,7 @@ protocol FCSingleAssetsCellDelegate : class {
 
 class FCSingleAssetsCell: UITableViewCell {
 
+    @IBOutlet weak var ContentBgView: UIView!
     @IBOutlet weak var estimateAssetL: UILabel!
     @IBOutlet weak var symbolTitleL: UILabel!
     @IBOutlet weak var symbolIconImgView: UIImageView!
@@ -76,6 +77,7 @@ class FCSingleAssetsCell: UITableViewCell {
         
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
         
         /// 手动适配布局
@@ -88,21 +90,30 @@ class FCSingleAssetsCell: UITableViewCell {
         self.assetEquivalentWidth.constant = accountWidth
         
         self.tradeTransferBtn.layer.cornerRadius = 3
-        self.tradeTransferBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
-        self.tradeTransferBtn.layer.borderWidth = 0.7
-        self.tradeTransferBtn.setTitleColor(COLOR_TabBarTintColor, for: .normal)
+        self.tradeTransferBtn.backgroundColor = COLOR_HexColor(0x394155)
+        //self.tradeTransferBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
+        //self.tradeTransferBtn.layer.borderWidth = 0.7
+        self.tradeTransferBtn.setTitleColor(.white, for: .normal)
         
         self.tradeHistoryBtn.layer.cornerRadius = 3
-        self.tradeHistoryBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
-        self.tradeHistoryBtn.layer.borderWidth = 0.7
-        self.tradeHistoryBtn.setTitleColor(COLOR_TabBarTintColor, for: .normal)
+        //self.tradeHistoryBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
+        //self.tradeHistoryBtn.layer.borderWidth = 0.7
+        self.tradeHistoryBtn.setTitleColor(.white, for: .normal)
+        self.tradeHistoryBtn.backgroundColor = COLOR_HexColor(0x394155)
         
         self.tradeTransactionBtn.layer.cornerRadius = 3
-        self.tradeTransactionBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
-        self.tradeTransactionBtn.layer.borderWidth = 0.7
-        self.tradeTransactionBtn.setTitleColor(COLOR_TabBarTintColor, for: .normal)
-        
+        //self.tradeTransactionBtn.layer.borderColor = COLOR_TabBarTintColor.cgColor
+        //self.tradeTransactionBtn.layer.borderWidth = 0.7
+        self.tradeTransactionBtn.setTitleColor(.white, for: .normal)
+        self.tradeTransactionBtn.backgroundColor = COLOR_HexColor(0x394155)
         self.menuView.isHidden = true
+        ContentBgView.layer.cornerRadius = 8
+        ContentBgView.backgroundColor = COLOR_HexColor(0x202933)
+        self.contentView.backgroundColor = COLOR_HexColor(0x0C141A)
+        self.symbolTitleL.font = UIFont(_DINProBoldTypeSize: 16)
+        self.assetFreezeL.font = UIFont(_DINProBoldTypeSize: 17)
+        self.assetEquivalentL.font = UIFont(_DINProBoldTypeSize: 17)
+        self.assetAvailableL.font = UIFont(_DINProBoldTypeSize: 17)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

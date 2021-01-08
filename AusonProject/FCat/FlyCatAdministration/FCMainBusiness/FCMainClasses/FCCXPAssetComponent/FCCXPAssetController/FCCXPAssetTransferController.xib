@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,16 +35,16 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="brR-rJ-tWM">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="410"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0I-Dm-vQA">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="128" id="FOw-MO-Qxg"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qul-AC-2ff">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asset_traarrow" translatesAutoresizingMaskIntoConstraints="NO" id="lru-F1-In1">
-                                    <rect key="frame" x="375" y="122.5" width="24" height="24"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="24" id="wxT-e9-fro"/>
-                                        <constraint firstAttribute="width" constant="24" id="zeM-rm-AS3"/>
-                                    </constraints>
-                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="币种" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIN-Xc-xEC">
                                     <rect key="frame" x="15" y="94" width="384" height="25"/>
                                     <constraints>
@@ -62,6 +63,13 @@
                                     <color key="textColor" red="0.85490196078431369" green="0.85490196078431369" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asset_traarrow" translatesAutoresizingMaskIntoConstraints="NO" id="lru-F1-In1">
+                                    <rect key="frame" x="375" y="122.5" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="wxT-e9-fro"/>
+                                        <constraint firstAttribute="width" constant="24" id="zeM-rm-AS3"/>
+                                    </constraints>
+                                </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ao-L5-Ryy">
                                     <rect key="frame" x="0.0" y="100" width="414" height="60"/>
                                     <constraints>
@@ -255,17 +263,20 @@
                         <constraint firstItem="55n-Ih-Jeg" firstAttribute="leading" secondItem="brR-rJ-tWM" secondAttribute="leading" constant="15" id="2Rf-WQ-5yB"/>
                         <constraint firstAttribute="trailing" secondItem="Qul-AC-2ff" secondAttribute="trailing" id="4Al-ga-Dz4"/>
                         <constraint firstAttribute="trailing" secondItem="9dJ-PC-CNQ" secondAttribute="trailing" id="7QQ-tf-bQO"/>
+                        <constraint firstAttribute="trailing" secondItem="n0I-Dm-vQA" secondAttribute="trailing" id="AE5-r5-7Zb"/>
                         <constraint firstItem="w95-Z2-6Hq" firstAttribute="top" secondItem="9dJ-PC-CNQ" secondAttribute="bottom" constant="20" id="Cwn-Dd-nSd"/>
                         <constraint firstAttribute="trailing" secondItem="mQc-K3-WnW" secondAttribute="trailing" id="HII-gp-23S"/>
+                        <constraint firstItem="n0I-Dm-vQA" firstAttribute="top" secondItem="brR-rJ-tWM" secondAttribute="top" id="IOn-Cj-git"/>
                         <constraint firstItem="mQc-K3-WnW" firstAttribute="leading" secondItem="brR-rJ-tWM" secondAttribute="leading" id="KBN-6T-AVu"/>
                         <constraint firstItem="9dJ-PC-CNQ" firstAttribute="leading" secondItem="brR-rJ-tWM" secondAttribute="leading" id="KPc-bA-Ow1"/>
                         <constraint firstItem="Qul-AC-2ff" firstAttribute="leading" secondItem="brR-rJ-tWM" secondAttribute="leading" id="TJn-eJ-8sE"/>
                         <constraint firstItem="55n-Ih-Jeg" firstAttribute="top" secondItem="9dJ-PC-CNQ" secondAttribute="bottom" constant="20" id="URN-Gu-o5o"/>
+                        <constraint firstItem="Qul-AC-2ff" firstAttribute="top" secondItem="n0I-Dm-vQA" secondAttribute="bottom" constant="-128" id="WKc-Oh-f4M"/>
                         <constraint firstItem="mQc-K3-WnW" firstAttribute="top" secondItem="Qul-AC-2ff" secondAttribute="bottom" constant="8" id="gGQ-D1-Ajn"/>
                         <constraint firstAttribute="height" constant="410" id="hMi-Az-wV1"/>
                         <constraint firstItem="9dJ-PC-CNQ" firstAttribute="top" secondItem="mQc-K3-WnW" secondAttribute="bottom" constant="8" id="qhn-sU-D1L"/>
+                        <constraint firstItem="n0I-Dm-vQA" firstAttribute="leading" secondItem="brR-rJ-tWM" secondAttribute="leading" id="soH-DC-avA"/>
                         <constraint firstItem="w95-Z2-6Hq" firstAttribute="leading" secondItem="55n-Ih-Jeg" secondAttribute="trailing" constant="3" id="wWx-Fo-f8B"/>
-                        <constraint firstItem="Qul-AC-2ff" firstAttribute="top" secondItem="brR-rJ-tWM" secondAttribute="top" id="z0e-8t-ZX7"/>
                     </constraints>
                 </view>
             </subviews>
@@ -275,11 +286,14 @@
                 <constraint firstItem="brR-rJ-tWM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lI9-QT-SzU"/>
                 <constraint firstAttribute="trailing" secondItem="brR-rJ-tWM" secondAttribute="trailing" id="yMN-a6-kic"/>
             </constraints>
-            <point key="canvasLocation" x="-1030" y="-389"/>
+            <point key="canvasLocation" x="-1157" y="-398"/>
         </view>
     </objects>
     <resources>
         <image name="asset_exchange" width="32" height="32"/>
         <image name="asset_traarrow" width="18" height="18"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

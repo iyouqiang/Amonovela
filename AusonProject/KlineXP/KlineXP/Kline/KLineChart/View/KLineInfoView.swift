@@ -32,10 +32,14 @@ class KLineInfoView: UIView {
                 return
             }
             timeLable.text = calculateDateText(timestamp: _model.id, dateFormat: "yy-MM-dd HH:mm")
-            openLable.text = String(format: "%.2f", _model.open)
-            highLable.text = String(format: "%.2f", _model.high)
-            lowLabel.text = String(format: "%.2f", _model.low)
-            clsoeLabel.text = String(format: "%.2f", _model.close)
+            openLable.text = KLineStateManger.manager.precisionSpecification(value: _model.open)
+                //String(format: "%.2f", _model.open)
+            highLable.text = KLineStateManger.manager.precisionSpecification(value: _model.high)
+                //String(format: "%.2f", _model.high)
+            lowLabel.text = KLineStateManger.manager.precisionSpecification(value: _model.low)
+                //String(format: "%.2f", _model.low)
+            clsoeLabel.text = KLineStateManger.manager.precisionSpecification(value: _model.close)
+                //String(format: "%.2f", _model.close)
             let upDown = _model.close - _model.open
             var symbol = "-"
             if upDown > 0 {
@@ -47,15 +51,21 @@ class KLineInfoView: UIView {
                 self.amplitudeLabel.textColor = ChartColors.dnColor
             }
             let upDownPercent = upDown / _model.open * 100;
-            IncreaseLabel.text = symbol + String(format: "%.2f", abs(upDown))
-            amplitudeLabel.text = symbol + String(format: "%.2f", abs(upDownPercent)) + "%"
-            amountLable.text = String(format: "%.2f", _model.vol)
+            
+            IncreaseLabel.text = symbol + KLineStateManger.manager.precisionSpecification(value: abs(upDown))
+                //symbol + String(format: "%.2f", abs(upDown))
+            
+            amplitudeLabel.text = symbol + KLineStateManger.manager.precisionSpecification(value: abs(upDownPercent)) + "%"
+                //symbol + String(format: "%.2f", abs(upDownPercent)) + "%"
+            
+            amountLable.text = KLineStateManger.manager.precisionSpecification(value: _model.vol)
+                //String(format: "%.2f", _model.vol)
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = ChartColors.bgColor
+        //self.backgroundColor = ChartColors.bgColor
         self.layer.borderWidth = 1
         self.layer.borderColor = ChartColors.gridColor.cgColor
     }

@@ -16,6 +16,23 @@ let KLINEPERIODTIMESHARINGKETY = "KLINEPERIODTIMESHARINGKETY"
 let MAINCHARTINDEXKEY = "MAINCHARTINDEXKEY"
 let AUXILIARYCHARTKEY = "AUXILIARYCHARTKEY"
 
+/***字体***/
+
+public func font_DINProBoldTypeSize(size:CGFloat) -> UIFont {
+    
+    return UIFont(name: "DINPro-Bold", size: size) ?? UIFont.systemFont(ofSize: size)
+}
+
+public func font_PingFangSCTypeSize(size:CGFloat) -> UIFont {
+    
+    return UIFont(name: "PingFangSC-Semibold", size: size) ?? UIFont.systemFont(ofSize: size)
+}
+
+public func font_mediumTypeSize(size:CGFloat) -> UIFont {
+    
+    return UIFont(name: "PingFangSC-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
+}
+ 
 /**************颜色值******************/
 public func COLOR_KLineColor(_ rgbValue: Int) -> (UIColor) {
     
@@ -36,9 +53,9 @@ public func COLOR_KLineColorAlpha(_ rgbValue: Int, alpha: CGFloat) -> (UIColor) 
 class ChartColors {
  
       //背景颜色
-    static let bgColor    = COLOR_KLineColor(0x06141D)
+    static let bgColor    = COLOR_KLineColor(0x131E2F)
     static let kLineColor = COLOR_KLineColor(0x4C86CD)
-    static let gridColor  = COLOR_KLineColor(0x4c5c74)
+    static let gridColor  = COLOR_KLineColor(0x131E2F)
     static let ma5Color   = COLOR_KLineColor(0xC9B885)
     static let ma10Color  = COLOR_KLineColor(0x6CB0A6)
     static let ma30Color  = COLOR_KLineColor(0x9979C6)
@@ -57,8 +74,8 @@ class ChartColors {
     
     static let wrColor  = COLOR_KLineColor(0xD2D2B4)
     
-    static let yAxisTextColor = COLOR_KLineColor(0x70839E)  //右边y轴刻度
-    static let xAxisTextColor = COLOR_KLineColor(0x60738E)  //下方时间刻度
+    static let yAxisTextColor = COLOR_KLineColor(0x848D9B)  //右边y轴刻度
+    static let xAxisTextColor = COLOR_KLineColor(0x848D9B)  //下方时间刻度
     
     static let maxMinTextColor = COLOR_KLineColor(0xffffff)  //最大最小值的颜色
     
@@ -82,12 +99,10 @@ class ChartColors {
     static let realTimeLineColor = COLOR_KLineColor(0xffffff)
     static let realTimeLongLineColor = COLOR_KLineColor(0x4C86CD)
     
-    
-    //表格右边文字颜色
+    //表格右边文字颜色 
     static let reightTextColor = COLOR_KLineColor(0x70839E)
     static let bottomDateTextColor = COLOR_KLineColor(0x70839E)
-    
-    static let crossHlineColor = COLOR_KLineColor(0x1FFFFFFF)
+    static let crossHlineColor = COLOR_KLineColor(0x2C303F)
 }
 
 class ChartStyle {
@@ -105,13 +120,13 @@ class ChartStyle {
     static  let candleWidth: CGFloat = 5
 
      //蜡烛中间线的宽度
-    static let  candleLineWidth: CGFloat = 1.5
+    static let  candleLineWidth: CGFloat = 0.9
 
      //vol柱子宽度
     static let  volWidth: CGFloat = 5
 
      //macd柱子宽度
-    static let  macdWidth: CGFloat = 3.0
+    static let  macdWidth: CGFloat = 4.0
 
      //垂直交叉线宽度
     static let  vCrossWidth: CGFloat = 5

@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 网络数据配置
         self.networkConfigure()
         
+        // 数据配置
+        self.appConfigInfo()
+        
         //初始化数据字典服务
         self.initDictionayService()
         

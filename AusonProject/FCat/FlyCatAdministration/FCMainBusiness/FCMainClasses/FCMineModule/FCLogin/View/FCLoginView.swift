@@ -153,6 +153,7 @@ class FCLoginView: UIView {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
+        
         // mine_phonePwd
         self.phonePwdComponent = FCPasswordComponent.init(placeholder: "密码", leftImg: "")
         self.phoneContentView?.addSubview(self.phonePwdComponent!)
@@ -169,7 +170,6 @@ class FCLoginView: UIView {
             make.top.equalTo(self.segmentControl!.snp.bottom).offset(40)
             make.left.equalToSuperview().offset(kMarginScreenLR)
             make.right.equalToSuperview().offset(-kMarginScreenLR)
-            
         })
     }
     

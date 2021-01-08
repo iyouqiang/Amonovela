@@ -17,4 +17,11 @@ extension String {
         let predicate =  NSPredicate(format: "SELF MATCHES %@" ,pattern)
         return predicate.evaluate(with:self)
     }
+    
+  static func precisionSpecification(value: CGFloat, precision: Int) -> String {
+        
+        let format = String(format: "%%.%df", precision)
+        let resultStr = String(format: format, value)
+        return resultStr
+    }
 }

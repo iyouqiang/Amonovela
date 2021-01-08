@@ -11,12 +11,12 @@ import UIKit
 class FCHistoryDetialHeaderView: UIView {
 
     @IBOutlet weak var symbolTitleL: UILabel!
-      @IBOutlet weak var avgFilledPriceL: UILabel!
-      @IBOutlet weak var cumFilledVolumeL: UILabel!
-      @IBOutlet weak var tradeTypeL: UILabel!
-      @IBOutlet weak var entrustTmL: UILabel!
-      @IBOutlet weak var entrustPriceL: UILabel!
-      @IBOutlet weak var entrustVolumeL: UILabel!
+    @IBOutlet weak var avgFilledPriceL: UILabel!
+    @IBOutlet weak var cumFilledVolumeL: UILabel!
+    @IBOutlet weak var tradeTypeL: UILabel!
+    @IBOutlet weak var entrustTmL: UILabel!
+    @IBOutlet weak var entrustPriceL: UILabel!
+    @IBOutlet weak var entrustVolumeL: UILabel!
     @IBOutlet weak var leverL: UILabel!
     @IBOutlet weak var actionTypeL: UILabel!
     @IBOutlet weak var commissionL: UILabel!
@@ -86,7 +86,7 @@ class FCHistoryDetialHeaderView: UIView {
             self.entrustVolumeL.text = "\(historyModel.entrustVolume ?? "")"
             self.cumFilledVolumeL.text = "\(historyModel.cumFilledVolume ?? "")"
                      
-            self.entrustPriceL.text = "₮\(historyModel.entrustPrice ?? "")"
+            self.entrustPriceL.text = "\(historyModel.entrustPrice ?? "")"
             self.entrustTmL.text = "\(historyModel.entrustTm ?? "")"
                      
             if (historyModel.tradeType == "Limit") {
@@ -96,11 +96,11 @@ class FCHistoryDetialHeaderView: UIView {
                 self.tradeTypeL.text = "市价委托"
             }
                      
-            self.avgFilledPriceL.text = "₮\(historyModel.avgFilledPrice ?? "")"
+            self.avgFilledPriceL.text = "\(historyModel.avgFilledPrice ?? "")"
             
             self.commissionL.text = historyModel.commission
             self.leverL.text = historyModel.leverage
-            self.symbolTitleL.text = "\(historyModel.symbol ?? "") 永续"
+            self.symbolTitleL.text = historyModel.symbolName ?? (historyModel.symbol)
         }
     }
     

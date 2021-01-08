@@ -12,12 +12,10 @@ class KLineVerticalIndicatorsView: UIView {
 
     @IBOutlet weak var maButton: UIButton!   // tag == 1
     @IBOutlet weak var bollButton: UIButton! // tag == 2
-        
     @IBOutlet weak var macdButton: UIButton! // tag == 1
     @IBOutlet weak var kdjButton: UIButton!  // tag == 2
     @IBOutlet weak var rsiButton: UIButton!  // tag == 3
     @IBOutlet weak var wrButton: UIButton!   // tag == 4
-        
         
     static func verticalIndicatorsView() -> KLineVerticalIndicatorsView {
         let view = Bundle.main.loadNibNamed("KLineVerticalIndicatorsView", owner: self, options: nil)?.last as! KLineVerticalIndicatorsView

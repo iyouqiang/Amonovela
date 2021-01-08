@@ -248,10 +248,6 @@ class FCTradeSettingconfig: NSObject {
                     /// 数据保存
                     FCTradeSettingconfig.sharedInstance.savetradeConfigInfo(strategy)
                     
-                    print("我是空的吗：", model)
-                    
-                    print("接下来呢：", completion(model, ""))
-                    
                     completion(model, "")                }
                 
             } else{

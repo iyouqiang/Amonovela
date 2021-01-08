@@ -101,7 +101,7 @@ class FCContractInputView: UIView {
         suffixL.snp.makeConstraints { (make) in
             make.right.equalTo(-15)
             make.top.bottom.equalTo(0)
-            make.width.equalTo(36)
+            make.width.equalTo(50)
         }
         
         textField.snp.makeConstraints { (make) in

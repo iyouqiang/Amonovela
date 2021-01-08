@@ -19,6 +19,7 @@ open class FCUserInfoManager: NSObject {
     @objc var isGestureVerify = false
     @objc var userId: String?
     @objc var userInfo: FCUserInfoModel?
+    @objc var configModel: FCSystemConfigModel?
     
     override public init() {
         super.init()

@@ -140,7 +140,7 @@ class FCContractHistoryCell: UITableViewCell {
             
             self.cumFilledVolumeL.text = "成交量 \(historyModel.cumFilledVolume ?? "")"
             
-            self.entrustPriceL.text = "委托价格 ₮\(historyModel.entrustPrice ?? "")"
+            self.entrustPriceL.text = "委托价格 \(historyModel.entrustPrice ?? "")"
             self.entrustPriceL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 4))
             self.entrustTmL.text = "委托时间 \(historyModel.entrustTm ?? "")"
             self.entrustTmL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 4))
@@ -173,9 +173,9 @@ class FCContractHistoryCell: UITableViewCell {
             
             let pnlRateFloat = Float(historyModel.pnlRate ?? "0") ?? 0
             
-            self.profitL.text = "收益 ₮\(historyModel.profitAmount ?? "")"
+            self.profitL.text = "收益 \(historyModel.profitAmount ?? "")"
             self.profitRateL.text = "收益率 \(String(format: "%.2f%%", pnlRateFloat*100))"
-            self.avgFilledPriceL.text = "成交价 ₮\(historyModel.avgFilledPrice ?? "")"
+            self.avgFilledPriceL.text = "成交价 \(historyModel.avgFilledPrice ?? "")"
             
             /// 修改字体颜色
             self.entrustVolumeL.setAttributeColor(COLOR_CellTitleColor, range: NSRange(location: 0, length: 4))

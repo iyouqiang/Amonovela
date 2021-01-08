@@ -35,7 +35,7 @@ class FCSegmentControl: UIView {
             
             if isMarket {
                 
-                selectedBtn?.titleLabel?.font = UIFont(_PingFangSCTypeSize: 22)
+                selectedBtn?.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
             }
 
             if self.underLine != nil {
@@ -55,7 +55,7 @@ class FCSegmentControl: UIView {
                 
                 if isMarket && index != i {
                     
-                    button?.titleLabel?.font = UIFont(_PingFangSCTypeSize: 15)
+                    button?.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
                 }
             }
         }
@@ -144,20 +144,30 @@ class FCSegmentControl: UIView {
             self.addSubview(button)
             self.items.add(button)
             
+            let btnWidth = (kSCREENWIDTH - 30)/CGFloat(titles.count)
             
             button.snp.makeConstraints { (make) in
                 make.top.equalToSuperview()
                 make.bottom.equalToSuperview()
-
+                make.width.equalTo(btnWidth)
+                
                 if i == 0 {
                     make.left.equalToSuperview()
-
                 }else if (titles.count > 2 ){
                     make.centerX.equalToSuperview().multipliedBy(Float(i)/Float(titles.count - 2))
                 } else if i == titles.count - 1 {
                      make.right.equalToSuperview()
                 }
             }
+        }
+        
+        let bottomLine = fc_UIViewInit(bgColor: COLOR_HexColor(0x121522))
+        self.addSubview(bottomLine)
+        bottomLine.snp_makeConstraints { (make) in
+            
+            make.bottom.equalToSuperview()
+            make.height.equalTo(2)
+            make.left.right.equalToSuperview()
         }
         
         if showUnderLine {

@@ -158,7 +158,6 @@ class FCCrypto: NSObject {
         return bytes
     }
     
-    
     private static func BytesToHexString(bytes: [UInt8]) -> String {
         
         var hexStr : String = String()

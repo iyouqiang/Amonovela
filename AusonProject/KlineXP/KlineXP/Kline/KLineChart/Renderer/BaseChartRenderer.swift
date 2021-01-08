@@ -49,17 +49,21 @@ class BaseChartRenderer {
         let locations:[CGFloat] = [0,1]
         let gradient = CGGradient(colorSpace: colorSpace, colorComponents: compoents, locations: locations, count: locations.count)
         //渐变开始位置
-        let start = CGPoint(x: chartRect.width / 2, y: chartRect.minY)
+        //let start = CGPoint(x: chartRect.width / 2, y: chartRect.minY)
         //渐变结束位置
-        let end = CGPoint(x: chartRect.width / 2 , y: chartRect.maxY)
+        //let end = CGPoint(x: chartRect.width / 2 , y: chartRect.maxY)
+        
+        //渐变开始位置
+        let start = CGPoint(x: 0, y: 0)
+        //渐变结束位置
+        let end = CGPoint(x: 0, y: 0)
+        
         context.drawLinearGradient(gradient!, start: start, end: end, options: .drawsBeforeStartLocation)
         context.resetClip()
     }
     
-    
     //画图表 
     func drawChart(context: CGContext, lastPoint: KLineModel?, curPoint: KLineModel, curX: CGFloat) {
-        
     }
     
     func drawLine(context: CGContext, lastValue: CGFloat, curValue: CGFloat, curX: CGFloat, color: UIColor) {

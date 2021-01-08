@@ -157,7 +157,7 @@ class FCPerpetualEntrustListCell: UITableViewCell {
             symbolUnit = "张"
         }
         self.entrustVolumeLab.text = "\(model.entrustVolume ?? "")\(symbolUnit ?? "")"
-        self.entrustPriceLab.text = "₮\(model.entrustPrice ?? "")"
+        self.entrustPriceLab.text = "\(model.entrustPrice ?? "")"
         self.filleVolumeLab.text = "\(model.cumFilledVolume ?? "")\(symbolUnit ?? "")"
         self.fillPriceLab.text = "\(model.avgFilledPrice ?? "")"
     }
@@ -210,7 +210,7 @@ class FCPerpetualEntrustListCell: UITableViewCell {
             symbolUnit = "张"
         }
         self.entrustVolumeLab.text = "\(model.entrustVolume ?? "")\(symbolUnit ?? "")"
-        self.entrustPriceLab.text = "₮\(model.entrustPrice ?? "")"
+        self.entrustPriceLab.text = "\(model.entrustPrice ?? "")"
         self.filleVolumeLab.text = "\(model.cumFilledVolume ?? "")\(symbolUnit ?? "")"
         self.fillPriceLab.text = "\(model.avgFilledPrice ?? "")"
     }

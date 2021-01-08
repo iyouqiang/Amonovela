@@ -12,14 +12,11 @@ import UIKit
 class KLinePeriodMoreView: UIView {
 
     var callback: ((_ perriod: String, _ title: String) -> Void)?
+    
     @IBOutlet weak var periodM1Btn: UIButton!
-    
     @IBOutlet weak var periodM5Btn: UIButton!
-    
     @IBOutlet weak var period6HBtn: UIButton!
-    
     @IBOutlet weak var periodW1Btn: UIButton!
-    
     @IBOutlet weak var periodMonthBtn: UIButton!
     
     override func awakeFromNib() {
@@ -31,7 +28,6 @@ class KLinePeriodMoreView: UIView {
         view.frame = CGRect(x: 0, y: 0, width: 236, height: 50)
        return view
     }
-    
     
     @IBAction func btnClick(_ sender: UIButton) {
         self.deselectAllBtn()
@@ -68,15 +64,14 @@ class KLinePeriodMoreView: UIView {
     }
     
    func deselectAllBtn () {
-        periodM1Btn.isSelected = false
-        periodM5Btn.isSelected = false
-        period6HBtn.isSelected = false
-        periodW1Btn.isSelected = false
+        periodM1Btn.isSelected    = false
+        periodM5Btn.isSelected    = false
+        period6HBtn.isSelected    = false
+        periodW1Btn.isSelected    = false
         periodMonthBtn.isSelected = false
     }
     
     func didSelectPriod (callback: @escaping ((String, String) -> Void)) {
         self.callback = callback
     }
-
 }

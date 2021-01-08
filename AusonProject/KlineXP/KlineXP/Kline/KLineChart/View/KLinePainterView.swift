@@ -190,7 +190,6 @@ open class KLinePainterView: UIView {
         //标记时候已经绘制过坐左边的k线，若已经绘制过则不再处理
     }
     
-
     func drawChart(context: CGContext) {
         for index in startIndex...stopIndex {
             let curpoint = datas[index]
@@ -247,7 +246,8 @@ open class KLinePainterView: UIView {
             let dateStr = calculateDateText(timestamp: data.id, dateFormat: fromat) as NSString
             let rect = calculateTextRect(text: dateStr as String, fontSize: ChartStyle.bottomDatefontSize)
             let y = self.dateRect.minY + (ChartStyle.bottomDateHigh - rect.height) / 2 //- rect.height
-            dateStr.draw(at: CGPoint(x: CGFloat(columSpace * CGFloat(i)) - rect.width / 2, y: y), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.bottomDatefontSize),NSAttributedString.Key.foregroundColor: ChartColors.bottomDateTextColor])
+            //UIFont.systemFont(ofSize: ChartStyle.bottomDatefontSize)
+            dateStr.draw(at: CGPoint(x: CGFloat(columSpace * CGFloat(i)) - rect.width / 2, y: y), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.bottomDatefontSize),NSAttributedString.Key.foregroundColor: ChartColors.bottomDateTextColor])
         }
     }
     
@@ -279,7 +279,8 @@ open class KLinePainterView: UIView {
     }
     
     func drawLongPressCrossLineText(context: CGContext, curPoint: KLineModel, curX: CGFloat, y: CGFloat) {
-        let text = String(format: "%.2f", curPoint.close)
+        let text = KLineStateManger.manager.precisionSpecification(value: curPoint.close)
+            //String(format: "%.2f", curPoint.close)
         let rect = calculateTextRect(text: text, fontSize: ChartStyle.defaultTextSize)
         let padding: CGFloat = 3
         let textHeight = rect.height + padding * 2
@@ -297,8 +298,9 @@ open class KLinePainterView: UIView {
             context.setStrokeColor(ChartColors.markerBorderColor.cgColor)
             context.setFillColor(ChartColors.markerBgColor.cgColor)
             context.drawPath(using: CGPathDrawingMode.fillStroke)
-            (text as NSString).draw(at: CGPoint(x: self.frame.width - textWidth - 2 , y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),  NSAttributedString.Key.foregroundColor : UIColor.white
+            (text as NSString).draw(at: CGPoint(x: self.frame.width - textWidth - 2 , y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),  NSAttributedString.Key.foregroundColor : UIColor.white
             ])
+            //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
         } else {
             isLeft = false
             context.move(to: CGPoint(x: 0, y: y - textHeight / 2))
@@ -311,9 +313,12 @@ open class KLinePainterView: UIView {
             context.setStrokeColor(ChartColors.markerBorderColor.cgColor)
             context.setFillColor(ChartColors.markerBgColor.cgColor)
             context.drawPath(using: CGPathDrawingMode.fillStroke)
-            (text as NSString).draw(at: CGPoint(x: 2, y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),  NSAttributedString.Key.foregroundColor : UIColor.white
+            (text as NSString).draw(at: CGPoint(x: 2, y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),  NSAttributedString.Key.foregroundColor : UIColor.white
             ])
         }
+        
+        //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
+        
         let dateText = calculateDateText(timestamp: curPoint.id, dateFormat: fromat)
         let dateRect = calculateTextRect(text: dateText, fontSize: ChartStyle.defaultTextSize)
         let datepadding: CGFloat = 3
@@ -321,36 +326,44 @@ open class KLinePainterView: UIView {
         context.setFillColor(ChartColors.bgColor.cgColor)
         context.addRect(CGRect(x: curX - dateRect.width / 2 - datepadding, y: self.dateRect.minY, width: dateRect.width + 2 * datepadding, height: dateRect.height + datepadding * 2))
         context.drawPath(using: CGPathDrawingMode.fillStroke)
-        (dateText as NSString).draw(at: CGPoint(x: curX - dateRect.width / 2, y: self.dateRect.minY + datepadding), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor : UIColor.white])
+        (dateText as NSString).draw(at: CGPoint(x: curX - dateRect.width / 2, y: self.dateRect.minY + datepadding), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor : UIColor.white])
         
         showInfoBlock?(curPoint,isLeft)
         self.drawTopText(context: context, curPoint: curPoint)
     }
-    
+    //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
     func drawMaxAndMin(context: CGContext) {
         if isLine { return }
         let itemWidth = candleWidth + ChartStyle.canldeMargin
         let y1 = mainRenderer.getY(mMainHighMaxValue)
         let x1 = self.frame.width - (CGFloat(mMainMaxIndex - startIndex) * itemWidth + startX + candleWidth / 2)
         if x1 < self.frame.width / 2 {
-            let text = "——" + String(format: "%.2f", mMainHighMaxValue)
+            let text = "——" + KLineStateManger.manager.precisionSpecification(value: mMainHighMaxValue)
+                //String(format: "%.2f", mMainHighMaxValue)
             let rect = calculateTextRect(text: text, fontSize: ChartStyle.defaultTextSize)
-            (text as NSString).draw(at: CGPoint(x: x1, y: y1 - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize), NSAttributedString.Key.foregroundColor : UIColor.white])
+            (text as NSString).draw(at: CGPoint(x: x1, y: y1 - rect.height / 2), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize), NSAttributedString.Key.foregroundColor : UIColor.white])
+            //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
         } else {
-            let text = String(format: "%.2f", mMainHighMaxValue) + "——"
+            let text = KLineStateManger.manager.precisionSpecification(value: mMainHighMaxValue) + "——"
+                // String(format: "%.2f", mMainHighMaxValue) + "——"
             let rect = calculateTextRect(text: text, fontSize: ChartStyle.defaultTextSize)
-            (text as NSString).draw(at: CGPoint(x: x1 - rect.width, y: y1 - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize), NSAttributedString.Key.foregroundColor : UIColor.white])
+            (text as NSString).draw(at: CGPoint(x: x1 - rect.width, y: y1 - rect.height / 2), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize), NSAttributedString.Key.foregroundColor : UIColor.white])
+            //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
         }
         let y2 = mainRenderer.getY(mMainLowMinValue)
         let x2 = self.frame.width - (CGFloat(mMainMinIndex - startIndex) * itemWidth + startX + candleWidth / 2)
         if x2 < self.frame.width / 2 {
-            let text = "——" + String(format: "%.2f", mMainLowMinValue)
+            let text = "——" + KLineStateManger.manager.precisionSpecification(value: mMainLowMinValue)
+                //String(format: "%.2f", mMainLowMinValue)
             let rect = calculateTextRect(text: text, fontSize: ChartStyle.defaultTextSize)
-            (text as NSString).draw(at: CGPoint(x: x2, y: y2 - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize), NSAttributedString.Key.foregroundColor : UIColor.white])
+            (text as NSString).draw(at: CGPoint(x: x2, y: y2 - rect.height / 2), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize), NSAttributedString.Key.foregroundColor : UIColor.white])
+            //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
         } else {
-            let text = String(format: "%.2f", mMainLowMinValue) + "——"
+            let text = KLineStateManger.manager.precisionSpecification(value: mMainLowMinValue) + "——"
+                //String(format: "%.2f", mMainLowMinValue) + "——"
             let rect = calculateTextRect(text: text, fontSize: ChartStyle.defaultTextSize)
-            (text as NSString).draw(at: CGPoint(x: x2 - rect.width, y: y2 - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize), NSAttributedString.Key.foregroundColor : UIColor.white])
+            (text as NSString).draw(at: CGPoint(x: x2 - rect.width, y: y2 - rect.height / 2), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize), NSAttributedString.Key.foregroundColor : UIColor.white])
+            //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
         }
     }
     
@@ -371,7 +384,8 @@ open class KLinePainterView: UIView {
             textColor = ChartColors.upColor
         }
         
-        let text = String(format: "%.2f", point.close)
+        let text = KLineStateManger.manager.precisionSpecification(value: point.close)
+            //String(format: "%.2f", point.close)
         let fontSize : CGFloat = 10
         let rect = calculateTextRect(text: text, fontSize: fontSize)
         var y =  mainRenderer.getY(point.close)
@@ -393,10 +407,11 @@ open class KLinePainterView: UIView {
             context.addLine(to: CGPoint(x: self.frame.width, y: y))
             context.drawPath(using: CGPathDrawingMode.stroke)
             
-            context.addRect(CGRect(x: self.frame.width - rect.width, y: y - rect.height / 2, width: rect.width, height: rect.height))
-            context.setFillColor(ChartColors.bgColor.cgColor)
+            context.addRect(CGRect(x: self.frame.width - rect.width, y: y - (rect.height + 3) / 2.0 + 1, width: rect.width, height: rect.height + 3))
+            context.setFillColor(textColor.cgColor)
             context.drawPath(using: CGPathDrawingMode.fill)
-            (text as NSString).draw(at: CGPoint(x: self.frame.width - rect.width, y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize), NSAttributedString.Key.foregroundColor : textColor/*ChartColors.reightTextColor*/])
+            (text as NSString).draw(at: CGPoint(x: self.frame.width - rect.width, y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: fontSize), NSAttributedString.Key.foregroundColor : UIColor.white/*ChartColors.reightTextColor*/])
+            //UIFont.systemFont(ofSize: fontSize)
             if isLine {
                 context.setFillColor(UIColor.white.cgColor)
                 context.addArc(center: CGPoint(x: self.frame.width + scrollX - candleWidth / 2, y: y), radius: 2, startAngle: 0, endAngle: CGFloat(Double.pi * 2.0), clockwise: true)
@@ -446,7 +461,8 @@ open class KLinePainterView: UIView {
              context.addLine(to: CGPoint(x: _startX - 3, y: y + 3))
             context.closePath()
             context.drawPath(using: CGPathDrawingMode.fill)
-            (text as NSString).draw(at: CGPoint(x: curX - rect.width / 2 - 4, y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize), NSAttributedString.Key.foregroundColor : textColor /*ChartColors.reightTextColor*/])
+            (text as NSString).draw(at: CGPoint(x: curX - rect.width / 2 - 4, y: y - rect.height / 2), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: fontSize), NSAttributedString.Key.foregroundColor : textColor /*ChartColors.reightTextColor*/])
+            //UIFont.systemFont(ofSize: fontSize)
         }
     }
     
@@ -584,3 +600,4 @@ open class KLinePainterView: UIView {
       }
     }
 }
+

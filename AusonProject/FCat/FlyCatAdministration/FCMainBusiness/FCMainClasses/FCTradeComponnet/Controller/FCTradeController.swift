@@ -105,13 +105,6 @@ class FCTradeController: UIViewController {
             self?.navigationController?.pushViewController(billContractVC, animated: true)
         }
         
-        self.addrightNavigationItemImgNameStr("", title: "持币", textColor: COLOR_HexColor(0x828D9C), textFont: UIFont(_PingFangSCTypeSize: 14)) { [weak self] in
-        
-            let assetContractVC = FCAccountAssetController()
-            assetContractVC.hidesBottomBarWhenPushed = true
-            self?.navigationController?.pushViewController(assetContractVC, animated: true)
-        }
-        
         loadSegmentControl()
     }
     
@@ -150,7 +143,7 @@ class FCTradeController: UIViewController {
         segmentedDataSource = titleDataSource
         segmentedView.dataSource = titleDataSource
         segmentedView.frame = CGRect(x: 0, y: 0, width: totalItemWidth, height: 44)
-        
+        segmentedView.delegate = self
         /**
         segmentedView.layer.masksToBounds = true
         segmentedView.layer.cornerRadius = 18
@@ -231,5 +224,26 @@ extension FCTradeController: JXSegmentedViewDelegate {
     
     func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
         // self.fetchQuoteTickers(index: index)
+        
+        self.removeRightItems()
+        
+        if index == 0 {
+            
+            self.addrightNavigationItemImgNameStr("", title: "账单", textColor: COLOR_HexColor(0x828D9C), textFont: UIFont(_PingFangSCTypeSize: 14)) { [weak self] in
+                 
+                let billContractVC = FCBillContractController()
+                billContractVC.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(billContractVC, animated: true)
+            }
+            
+        }else {
+            
+            self.addrightNavigationItemImgNameStr("", title: "持币", textColor: COLOR_HexColor(0x828D9C), textFont: UIFont(_PingFangSCTypeSize: 14)) { [weak self] in
+            
+                let assetContractVC = FCAccountAssetController()
+                assetContractVC.hidesBottomBarWhenPushed = true
+                self?.navigationController?.pushViewController(assetContractVC, animated: true)
+            }
+        }
     }
 }

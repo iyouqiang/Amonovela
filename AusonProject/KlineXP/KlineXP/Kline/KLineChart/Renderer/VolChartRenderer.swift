@@ -44,15 +44,15 @@ class VolChartRenderer: BaseChartRenderer {
     override func drawTopText(context: CGContext, curPoint: KLineModel) {
         let topAttributeText = NSMutableAttributedString()
        let vol = volFormat(value: curPoint.vol)
-       let volAttr = NSAttributedString(string: "VOL:\(vol)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.volColor])
+       let volAttr = NSAttributedString(string: "VOL:\(vol)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.volColor])
        topAttributeText.append(volAttr)
         
         let ma5 = volFormat(value: curPoint.MA5Volume)
-        let ma5Attr = NSAttributedString(string: "MA5:\(ma5)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma5Color])
+        let ma5Attr = NSAttributedString(string: "MA5:\(ma5)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma5Color])
         topAttributeText.append(ma5Attr)
         
         let ma10 = volFormat(value: curPoint.MA10Volume)
-        let ma10Attr = NSAttributedString(string: "MA10:\(ma10)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma10Color])
+        let ma10Attr = NSAttributedString(string: "MA10:\(ma10)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma10Color])
         topAttributeText.append(ma10Attr)
         topAttributeText.draw(at: CGPoint(x: 5, y: chartRect.minY))
     }
@@ -60,7 +60,7 @@ class VolChartRenderer: BaseChartRenderer {
     override func drawRightText(context: CGContext, gridRows: Int, gridColums: Int) {
         let text = volFormat(value: maxValue)
         let rect = calculateTextRect(text: text, fontSize: ChartStyle.reightTextSize)
-        (text as NSString).draw(at: CGPoint(x: chartRect.width - rect.width, y: chartRect.minY), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.reightTextSize),NSAttributedString.Key.foregroundColor: ChartColors.reightTextColor])
+        (text as NSString).draw(at: CGPoint(x: chartRect.width - rect.width, y: chartRect.minY), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.reightTextSize),NSAttributedString.Key.foregroundColor: ChartColors.reightTextColor])
     }
     
     func drawVolChart(context: CGContext, curPoint: KLineModel, curX: CGFloat) {

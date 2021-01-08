@@ -350,6 +350,9 @@
 		D77C6E3525375BE0003F0DA8 /* FCTriggerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C6E3425375BE0003F0DA8 /* FCTriggerModel.swift */; };
 		D77C97CE25285F81008A947B /* FCCXPChargeInstruView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77C97CD25285F81008A947B /* FCCXPChargeInstruView.swift */; };
 		D77D3EF3257C86FE0016EDF1 /* FCApi_home_feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D3EF2257C86FE0016EDF1 /* FCApi_home_feed.swift */; };
+		D77D41FD25A2BB5C0000D197 /* FCApi_system_config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D41FC25A2BB5C0000D197 /* FCApi_system_config.swift */; };
+		D77D420625A2BDD50000D197 /* FCSystemConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D420525A2BDD50000D197 /* FCSystemConfigModel.swift */; };
+		D77D423425A2EE230000D197 /* FCCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D423325A2EE230000D197 /* FCCacheManager.swift */; };
 		D77F51822539372500E8D62A /* FCContractsEntrustMultiListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */; };
 		D77F518A25393F3A00E8D62A /* FCContractsEntrustListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */; };
 		D77F51C52539A2F900E8D62A /* FCApi_trigger_history.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */; };
@@ -940,6 +943,9 @@
 		D77C6E3425375BE0003F0DA8 /* FCTriggerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCTriggerModel.swift; sourceTree = "<group>"; };
 		D77C97CD25285F81008A947B /* FCCXPChargeInstruView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCXPChargeInstruView.swift; sourceTree = "<group>"; };
 		D77D3EF2257C86FE0016EDF1 /* FCApi_home_feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_home_feed.swift; sourceTree = "<group>"; };
+		D77D41FC25A2BB5C0000D197 /* FCApi_system_config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_system_config.swift; sourceTree = "<group>"; };
+		D77D420525A2BDD50000D197 /* FCSystemConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCSystemConfigModel.swift; sourceTree = "<group>"; };
+		D77D423325A2EE230000D197 /* FCCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCacheManager.swift; sourceTree = "<group>"; };
 		D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractsEntrustMultiListController.swift; sourceTree = "<group>"; };
 		D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractsEntrustListController.swift; sourceTree = "<group>"; };
 		D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trigger_history.swift; sourceTree = "<group>"; };
@@ -1512,6 +1518,7 @@
 				D7837D972541155B006ADE6C /* FCApi_Password_ResetApply.swift */,
 				D7837D9C2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift */,
 				D7837DA32541277C006ADE6C /* FCApi_Get_UserInfo.swift */,
+				D77D41FC25A2BB5C0000D197 /* FCApi_system_config.swift */,
 			);
 			name = FCRequestAPI;
 			sourceTree = "<group>";
@@ -1740,6 +1747,7 @@
 				D23E26042147DD3700E52B8D /* FCButtonConvenience.swift */,
 				D23E26052147DD3700E52B8D /* FCLabelConvenience .swift */,
 				019A646E21549EDF00817772 /* String+FCExtension.swift */,
+				D77D423325A2EE230000D197 /* FCCacheManager.swift */,
 			);
 			path = FCUtility;
 			sourceTree = "<group>";
@@ -2259,6 +2267,7 @@
 			isa = PBXGroup;
 			children = (
 				D737D7F924E00209000DC48A /* FCHomeModel.swift */,
+				D77D420525A2BDD50000D197 /* FCSystemConfigModel.swift */,
 			);
 			path = FCCXPHomeModel;
 			sourceTree = "<group>";
@@ -2639,6 +2648,7 @@
 				D7F9C45724E5348100D739D1 /* FCCXPAssetChargeView.swift in Sources */,
 				010EE41224DF9B8600E884D4 /* FCSymbolsDrawerCell.swift in Sources */,
 				D78CE60425343FB300A4E1E6 /* FCTriggerEntrustViewController.swift in Sources */,
+				D77D420625A2BDD50000D197 /* FCSystemConfigModel.swift in Sources */,
 				D72FE3E424E90DFF003E9BCF /* FCTotalAssetsView.swift in Sources */,
 				D76996F424EFBCAE0068F262 /* FCApi_password_modify.swift in Sources */,
 				D7B24ECA24F6801A0057C0B6 /* FCContractLeverageController.swift in Sources */,
@@ -2650,6 +2660,7 @@
 				D7F9C45B24E535BD00D739D1 /* FCCXPAssetOptionController.swift in Sources */,
 				D72FE3DE24E8CBCF003E9BCF /* FCCXPMentionInstruView.swift in Sources */,
 				D7706479253FDBDD00ECD9B6 /* YTKBatchRequestAgent.m in Sources */,
+				D77D41FD25A2BB5C0000D197 /* FCApi_system_config.swift in Sources */,
 				01871648249628B3003380C3 /* FCCountDownButton.swift in Sources */,
 				D2591FD2214F5F7E0068C23B /* FCMarketListController.swift in Sources */,
 				011F080724E7BC89009B1780 /* FCTradeDepthCell.swift in Sources */,
@@ -2897,6 +2908,7 @@
 				01C60AF824A8CFFD000281CB /* FCUserSettingController.swift in Sources */,
 				D7717EFF250700FA0060AA72 /* FCTradingHistoryDetailCell.swift in Sources */,
 				D7450C9B250520AB005E9415 /* FCContractHistoryCell.swift in Sources */,
+				D77D423425A2EE230000D197 /* FCCacheManager.swift in Sources */,
 				D27488E4213E31C60062765B /* APPdelegateExtension.swift in Sources */,
 				0169FC7E24F7DC8700FC3488 /* FCApi_trade_entrust.swift in Sources */,
 				D73422BB2538363C0057E3BC /* FCProfitLossSettingView.swift in Sources */,
@@ -3078,7 +3090,7 @@
 				CODE_SIGN_ENTITLEMENTS = FlyCatAdministration/FlyCatAdministration.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 10;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2FMQBP2224;
 				ENABLE_BITCODE = NO;
@@ -3132,7 +3144,7 @@
 				CODE_SIGN_ENTITLEMENTS = FlyCatAdministration/FlyCatAdministration.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 10;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2FMQBP2224;
 				ENABLE_BITCODE = NO;

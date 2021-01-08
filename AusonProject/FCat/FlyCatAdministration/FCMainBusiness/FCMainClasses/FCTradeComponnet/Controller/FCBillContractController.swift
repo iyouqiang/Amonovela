@@ -36,7 +36,7 @@ class FCBillContractController: UIViewController {
         contractTableView.delegate = self
         contractTableView.dataSource = self
         contractTableView.separatorStyle = .none
-        contractTableView.backgroundColor = COLOR_TabBarBgColor
+        contractTableView.backgroundColor = COLOR_BGColor
         self.view.addSubview(contractTableView)
                
         contractTableView.register(UINib(nibName: "FCBillContractCell", bundle: Bundle.main), forCellReuseIdentifier: cellidentify)
@@ -90,10 +90,12 @@ class FCBillContractController: UIViewController {
                 
                 if (self?.dataSource?.count == 0) {
                     
-                    self?.contractTableView.tableFooterView = self?.footerHint
+                    //self?.contractTableView.tableFooterView = self?.footerHint
+                    self?.contractTableView.unAvailableDataSourceDefault()
                 }else {
                     
-                    self?.contractTableView.tableFooterView = nil
+                    //self?.contractTableView.tableFooterView = nil
+                    self?.contractTableView.removePlaceholderView()
                 }
                self?.contractTableView.reloadData()
             }

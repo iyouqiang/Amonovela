@@ -19,7 +19,8 @@ func clamp<T : Comparable>(value: T,min: T, max: T) -> T {
 }
 
 func calculateTextRect(text: String, fontSize: CGFloat) -> CGRect {
-     let rect = text.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: fontSize)], context: nil)
+     let rect = text.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: fontSize)], context: nil)
+    //UIFont.systemFont(ofSize: fontSize)
     return rect
 }
 
@@ -33,11 +34,18 @@ func calculateDateText(timestamp: Int64, dateFormat: String) -> String {
 func volFormat(value: CGFloat) -> String {
     if (value > 10000 && value < 999999) {
          let d = value / 1000;
-         return "\(String(format: "%.2f", d))K"
+        
+         return "\(KLineStateManger.manager.precisionSpecification(value: d))K"
        } else if (value > 1000000) {
          let d = value / 1000000;
-         return "\(String(format: "%.2f", d))M"
+         return "\(KLineStateManger.manager.precisionSpecification(value: d))M"
        }
-       return String(format: "%.2f", value)
-    
+       return KLineStateManger.manager.precisionSpecification(value: value)
+}
+
+func precisionSpecification(value: CGFloat, precision: Int) -> String {
+      
+      let format = String(format: "%%.%df", precision)
+      let resultStr = String(format: format, value)
+      return resultStr
 }

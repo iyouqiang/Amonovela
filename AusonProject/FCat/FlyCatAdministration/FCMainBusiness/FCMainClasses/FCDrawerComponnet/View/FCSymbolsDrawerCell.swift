@@ -24,7 +24,6 @@ class FCSymbolsDrawerCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state
     }
     
@@ -58,7 +57,7 @@ class FCSymbolsDrawerCell: UITableViewCell {
         self.contentView.addSubview(priceLab!)
         
         self.tradeSymbolLab?.snp.makeConstraints({ (make) in
-            make.centerY.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-10)
             make.left.equalTo(self.iconImgView!.snp_right).offset(5)
         })
         
@@ -74,10 +73,9 @@ class FCSymbolsDrawerCell: UITableViewCell {
         }
         
         self.baseSymbolLab?.snp.makeConstraints({ (make) in
-            make.bottom.equalTo(self.tradeSymbolLab!.snp.bottom)
-            //            make.baseline.equalTo(self.tradeSymbolLab!.snp.bottom)
-            make.left.equalTo(seperateLab.snp.right)
-            make.right.lessThanOrEqualTo(self.priceLab!.snp.left)
+            
+            make.centerY.equalToSuperview().offset(10)
+            make.left.equalTo(self.iconImgView!.snp_right).offset(5)
         })
         
         self.priceLab?.snp.makeConstraints({ (make) in
@@ -88,15 +86,14 @@ class FCSymbolsDrawerCell: UITableViewCell {
     
     func loadData(model: FCMarketModel?) {
         
-        
         if model == nil { return }
         
         self.iconImgView?.sd_setImage(with: URL(string: (model?.iconUrl ?? "")), placeholderImage: UIImage(named: "btc"), options: .retryFailed, completed: nil)
         
         let arrayStrings: [String] = model?.symbol?.split(separator: "-").compactMap { "\($0)" } ?? []
         self.tradeSymbolLab?.text = arrayStrings.first
-        self.baseSymbolLab?.text = arrayStrings.last ?? ""
-        self.priceLab?.text = model?.latestPrice
+        self.baseSymbolLab?.text = "$\(model?.latestPrice ?? "0.00")"
+        self.priceLab?.text = "\(model?.changePercent ?? "0.00")%"
         
         let percentValue = Double(model?.changePercent ?? "0") ?? 0.0
         if percentValue == 0.0 {
@@ -119,9 +116,9 @@ class FCSymbolsDrawerCell: UITableViewCell {
             //self.tradeSymbolLab?.text = contractModel.asset
             self.tradeSymbolLab?.text = contractModel.name
             //self.baseSymbolLab?.text = contractModel.currency
-            self.baseSymbolLab?.text = ""
-            self.priceLab?.text = contractModel.tradePrice
-             
+            self.baseSymbolLab?.text = "$\(contractModel.tradePrice ?? "0.00")"
+            self.priceLab?.text = "\(contractModel.changePercentage ?? "0.00")%"
+            
              let percentValue = Double(contractModel.changePercentage ?? "0") ?? 0.0
              if percentValue == 0.0 {
                  self.priceLab?.textColor = COLOR_RiseColor

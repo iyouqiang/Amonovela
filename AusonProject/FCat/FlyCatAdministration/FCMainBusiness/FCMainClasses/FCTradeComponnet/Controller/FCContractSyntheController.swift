@@ -196,15 +196,15 @@ class FCContractSyntheController: UIViewController {
         
         ///  第一次进入界面请求接口
         controlOrderVC.updateSymbol(model: self.marketModel)
-        
+    
         controlOrderVC.klineViewItemBlock = {
             [weak self] in
+            
             let klineVC = FCKLineController()
             let marketModel = self?.marketModel
- 
+            marketModel?.name = self?.controlOrderVC.contractModel?.name ?? ""
             klineVC.marketModel = marketModel
             klineVC.hidesBottomBarWhenPushed = true
-                       
             self?.navigationController?.pushViewController(klineVC, animated: true)
         }
         
@@ -240,36 +240,36 @@ class FCContractSyntheController: UIViewController {
         mainScrollView.addSubview(menuSectionView)
         
         /// 三个 按钮 和 底部选择 按钮
-        positionBtn = fc_buttonInit(imgName: "", title: "持仓(0)", fontSize: 14, titleColor: .white, bgColor: .clear)
+        positionBtn = fc_buttonInit(imgName: "", title: "持仓(0)", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
+        positionBtn.setTitleColor(.white, for: .selected)
         positionBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
         positionBtn.tag = 100
         positionBtn.addTarget(self, action: #selector(changeContractContent(sender:)), for: .touchUpInside)
         //positionBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
         positionBtn.isSelected = true
-        positionBtn.setTitleColor(.white, for: .normal)
         menuSectionView.addSubview(positionBtn)
         self.selectedBtn = positionBtn
         
-        entrustBtn = fc_buttonInit(imgName: "", title: "委托(0)", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
+        entrustBtn = fc_buttonInit(imgName: "", title: "委托(0)", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
+        entrustBtn.setTitleColor(.white, for: .selected)
         //entrustBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
         entrustBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
-        entrustBtn.setTitleColor(.white, for: .normal)
         entrustBtn.tag = 101
         entrustBtn.addTarget(self, action: #selector(changeContractContent(sender:)), for: .touchUpInside)
         menuSectionView.addSubview(entrustBtn)
         
-        planEntrustBtn = fc_buttonInit(imgName: "", title: "计划委托(0)", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
+        planEntrustBtn = fc_buttonInit(imgName: "", title: "计划委托(0)", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
+        planEntrustBtn.setTitleColor(.white, for: .selected)
         //planEntrustBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
-        planEntrustBtn.setTitleColor(.white, for: .normal)
         planEntrustBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
         planEntrustBtn.tag = 102
         planEntrustBtn.addTarget(self, action: #selector(changeContractContent(sender:)), for: .touchUpInside)
         menuSectionView.addSubview(planEntrustBtn)
         
-        profitLossBtn = fc_buttonInit(imgName: "", title: "止盈/止损(0)", fontSize: 14, titleColor: COLOR_InputText, bgColor: .clear)
+        profitLossBtn = fc_buttonInit(imgName: "", title: "止盈/止损(0)", fontSize: 14, titleColor: COLOR_CellTitleColor, bgColor: .clear)
+        profitLossBtn.setTitleColor(.white, for: .selected)
         //profitLossBtn.setTitleColor(COLOR_TabBarTintColor, for: .selected)
         profitLossBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
-        profitLossBtn.setTitleColor(.white, for: .normal)
         profitLossBtn.tag = 103
         profitLossBtn.addTarget(self, action: #selector(changeContractContent(sender:)), for: .touchUpInside)
         menuSectionView.addSubview(profitLossBtn)

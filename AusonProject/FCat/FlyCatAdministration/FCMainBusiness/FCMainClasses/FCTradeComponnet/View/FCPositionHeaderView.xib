@@ -70,8 +70,8 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K26-18-xi4">
-                                    <rect key="frame" x="295" y="126.5" width="29" height="17"/>
+                                <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K26-18-xi4">
+                                    <rect key="frame" x="248" y="126.5" width="29" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未实现盈亏" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dR-6e-79u">
-                                    <rect key="frame" x="215.5" y="126.5" width="71.5" height="17"/>
+                                    <rect key="frame" x="168.5" y="126.5" width="71.5" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.43137254899999999" green="0.4941176471" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -115,15 +115,15 @@
                                 <constraint firstItem="fvc-79-Zpc" firstAttribute="width" secondItem="dda-Fc-PJ0" secondAttribute="width" multiplier="1.08571" id="YdG-wc-cpc"/>
                                 <constraint firstAttribute="trailing" secondItem="Qkq-He-jhY" secondAttribute="trailing" constant="20" id="b14-gj-qDN"/>
                                 <constraint firstItem="cFX-Bi-lgU" firstAttribute="leading" secondItem="8oM-df-gqE" secondAttribute="leading" id="bdO-5I-Ldi"/>
+                                <constraint firstItem="K26-18-xi4" firstAttribute="leading" secondItem="8dR-6e-79u" secondAttribute="trailing" constant="8" symbolic="YES" id="dMH-di-Zzf"/>
                                 <constraint firstItem="cFX-Bi-lgU" firstAttribute="top" secondItem="8oM-df-gqE" secondAttribute="top" id="dPR-qc-Pv7"/>
                                 <constraint firstItem="kbL-Pa-bmR" firstAttribute="centerX" secondItem="8oM-df-gqE" secondAttribute="centerX" id="gz5-3K-vXZ"/>
+                                <constraint firstItem="8dR-6e-79u" firstAttribute="leading" secondItem="dda-Fc-PJ0" secondAttribute="trailing" constant="30" id="hub-Z0-wlY"/>
                                 <constraint firstItem="GlA-9R-vg4" firstAttribute="centerY" secondItem="fvc-79-Zpc" secondAttribute="centerY" id="hzY-gS-Ldr"/>
                                 <constraint firstItem="GlA-9R-vg4" firstAttribute="centerX" secondItem="kbL-Pa-bmR" secondAttribute="centerX" id="mRy-33-Cul"/>
                                 <constraint firstItem="dda-Fc-PJ0" firstAttribute="centerY" secondItem="fvc-79-Zpc" secondAttribute="centerY" id="oA3-8T-ze7"/>
-                                <constraint firstItem="8dR-6e-79u" firstAttribute="leading" secondItem="dda-Fc-PJ0" secondAttribute="trailing" constant="77" id="qvY-up-N9b"/>
                                 <constraint firstItem="O1m-fg-ki7" firstAttribute="top" secondItem="pg4-4f-yi2" secondAttribute="bottom" constant="20" id="wEw-Kl-ydk"/>
                                 <constraint firstItem="8dR-6e-79u" firstAttribute="centerY" secondItem="GlA-9R-vg4" secondAttribute="centerY" id="wPi-rW-dP9"/>
-                                <constraint firstItem="K26-18-xi4" firstAttribute="leading" secondItem="8dR-6e-79u" secondAttribute="trailing" constant="8" id="y0C-DH-h8Q"/>
                                 <constraint firstItem="dda-Fc-PJ0" firstAttribute="leading" secondItem="fvc-79-Zpc" secondAttribute="trailing" constant="8" id="ztT-7g-995"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -178,7 +178,7 @@
                 <outlet property="unrealisedPNLL" destination="K26-18-xi4" id="52J-Tm-TYJ"/>
                 <outlet property="unrealisedPNLNameL" destination="8dR-6e-79u" id="MiG-bf-9cm"/>
             </connections>
-            <point key="canvasLocation" x="-377" y="-143"/>
+            <point key="canvasLocation" x="-378.26086956521743" y="-143.30357142857142"/>
         </view>
     </objects>
     <resources>

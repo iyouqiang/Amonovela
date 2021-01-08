@@ -65,48 +65,59 @@ class SecondaryChartRenderer: BaseChartRenderer {
     override func drawTopText(context: CGContext, curPoint: KLineModel) {
         let topAttributeText = NSMutableAttributedString()
         switch state {
+        //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
         case .macd:
-            let valueAttr = NSAttributedString(string: "MACD(12,26,9)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.yAxisTextColor])
+            let valueAttr = NSAttributedString(string: "MACD(12,26,9)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.yAxisTextColor])
             topAttributeText.append(valueAttr)
             if curPoint.macd != 0 {
-                let value  = String(format: "%.2f", curPoint.macd)
-                let valueAttr = NSAttributedString(string: "MACD:\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.macdColor])
+                let value  = KLineStateManger.manager.precisionSpecification(value: curPoint.macd)
+                    //String(format: "%.2f", curPoint.macd)
+                let valueAttr = NSAttributedString(string: "MACD:\(value)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.macdColor])
                 topAttributeText.append(valueAttr)
             }
+            // UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
             if curPoint.dif != 0 {
-                let value  = String(format: "%.2f", curPoint.dif)
-                let valueAttr = NSAttributedString(string: "DIF:\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.difColor])
+                let value  = KLineStateManger.manager.precisionSpecification(value: curPoint.dif)
+                    //String(format: "%.2f", curPoint.dif)
+                let valueAttr = NSAttributedString(string: "DIF:\(value)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.difColor])
                 topAttributeText.append(valueAttr)
             }
+            //UIFont.systemFont(ofSize: ChartStyle.defaultTextSize)
             if curPoint.dea != 0 {
-                let value  = String(format: "%.2f", curPoint.dea)
-                let valueAttr = NSAttributedString(string: "DEA:\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.deaColor])
+                let value  = KLineStateManger.manager.precisionSpecification(value: curPoint.dea)
+                    //String(format: "%.2f", curPoint.dea)
+                let valueAttr = NSAttributedString(string: "DEA:\(value)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.deaColor])
                 topAttributeText.append(valueAttr)
             }
         case .rsi:
-            let value  = String(format: "%.2f", curPoint.rsi)
-            let valueAttr = NSAttributedString(string: "RSI(14):\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.rsiColor])
+            let value  = KLineStateManger.manager.precisionSpecification(value: curPoint.rsi)
+                //String(format: "%.2f", curPoint.rsi)
+            let valueAttr = NSAttributedString(string: "RSI(14):\(value)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.rsiColor])
             topAttributeText.append(valueAttr)
         case .wr:
-            let value  = String(format: "%.2f", curPoint.r)
-            let valueAttr = NSAttributedString(string: "WR(14):\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.wrColor])
+            let value  = KLineStateManger.manager.precisionSpecification(value: curPoint.r)
+                //String(format: "%.2f", curPoint.r)
+            let valueAttr = NSAttributedString(string: "WR(14):\(value)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.wrColor])
             topAttributeText.append(valueAttr)
         case .kdj:
-            let valueAttr = NSAttributedString(string: "KDJ(14,1,3)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.yAxisTextColor])
+            let valueAttr = NSAttributedString(string: "KDJ(14,1,3)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.yAxisTextColor])
             topAttributeText.append(valueAttr)
             if curPoint.k != 0 {
-                let value  = String(format: "%.2f", curPoint.macd)
-                let valueAttr = NSAttributedString(string: "K:\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.kColor])
+                let value  = KLineStateManger.manager.precisionSpecification(value: curPoint.k)
+                    //String(format: "%.2f", curPoint.macd)
+                let valueAttr = NSAttributedString(string: "K:\(value)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.kColor])
                 topAttributeText.append(valueAttr)
             }
             if curPoint.d != 0 {
-                let value  = String(format: "%.2f", curPoint.d)
-                let valueAttr = NSAttributedString(string: "D:\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.dColor])
+                let value  = KLineStateManger.manager.precisionSpecification(value: curPoint.d)
+                    //String(format: "%.2f", curPoint.d)
+                let valueAttr = NSAttributedString(string: "D:\(value)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.dColor])
                 topAttributeText.append(valueAttr)
             }
             if curPoint.j != 0 {
-                let value  = String(format: "%.2f", curPoint.j)
-                let valueAttr = NSAttributedString(string: "J:\(value)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.jColor])
+                let value  = KLineStateManger.manager.precisionSpecification(value: curPoint.j)
+                    //String(format: "%.2f", curPoint.j)
+                let valueAttr = NSAttributedString(string: "J:\(value)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.jColor])
                 topAttributeText.append(valueAttr)
             }
         case .none:
@@ -118,7 +129,7 @@ class SecondaryChartRenderer: BaseChartRenderer {
     override func drawRightText(context: CGContext, gridRows: Int, gridColums: Int) {
         let text = volFormat(value: maxValue)
         let rect = calculateTextRect(text: text, fontSize: ChartStyle.reightTextSize)
-        (text as NSString).draw(at: CGPoint(x: chartRect.width - rect.width, y: chartRect.minY), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.reightTextSize),NSAttributedString.Key.foregroundColor: ChartColors.reightTextColor])
+        (text as NSString).draw(at: CGPoint(x: chartRect.width - rect.width, y: chartRect.minY), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.reightTextSize),NSAttributedString.Key.foregroundColor: ChartColors.reightTextColor])
     }
     
     func drawMACD(context: CGContext, lastPoint: KLineModel?, curPoint: KLineModel, curX: CGFloat) {

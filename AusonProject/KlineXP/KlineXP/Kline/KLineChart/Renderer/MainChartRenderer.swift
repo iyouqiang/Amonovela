@@ -97,10 +97,15 @@ class MainChartRenderer: BaseChartRenderer {
                                   locations: locations, count: locations.count)!
          
         //渐变开始位置
-        let start = CGPoint(x: (x1 + x2) / 2, y: chartRect.minY)
+        //let start = CGPoint(x: (x1 + x2) / 2, y: chartRect.minY)
         //渐变结束位置
-        let end = CGPoint(x: (x1 + x2) / 2, y: chartRect.maxY)
+        //let end = CGPoint(x: (x1 + x2) / 2, y: chartRect.maxY)
+        
         //绘制渐变
+        let start = CGPoint(x: 0, y: 0)
+        //渐变结束位置
+        let end = CGPoint(x: 0, y: 0)
+        
         context.drawLinearGradient(gradient, start: start, end: end,
                                    options: .drawsAfterEndLocation)
         context.resetClip()
@@ -159,7 +164,8 @@ class MainChartRenderer: BaseChartRenderer {
             var  position: CGFloat = 0;
             position = CGFloat(gridRows - i) * rowSpace
             let value = position / scaleY + minValue
-            let valueStr = String(format: "%.2f", value)
+            let valueStr = KLineStateManger.manager.precisionSpecification(value: value)
+                //String(format: "%.2f", value)
             let rect = calculateTextRect(text: valueStr, fontSize: ChartStyle.reightTextSize)
             var y: CGFloat = 0
             if i == 0 {
@@ -167,26 +173,29 @@ class MainChartRenderer: BaseChartRenderer {
             } else {
                 y = getY(value) - rect.height
             }
-            valueStr.draw(at: CGPoint(x: chartRect.width - rect.width, y: y), withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.reightTextSize), NSAttributedString.Key.foregroundColor: ChartColors.reightTextColor])
+            valueStr.draw(at: CGPoint(x: chartRect.width - rect.width, y: y), withAttributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.reightTextSize), NSAttributedString.Key.foregroundColor: ChartColors.reightTextColor])
         }
     }
     
     override func drawTopText(context: CGContext, curPoint: KLineModel) {
         let topAttributeText = NSMutableAttributedString()
         if curPoint.MA5Price != 0 {
-            let ma5Price  = String(format: "%.2f", curPoint.MA5Price)
-            let ma5Attr = NSAttributedString(string: "MA5:\(ma5Price)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma5Color])
+            let ma5Price  = KLineStateManger.manager.precisionSpecification(value: curPoint.MA5Price)
+                //String(format: "%.2f", curPoint.MA5Price)
+            let ma5Attr = NSAttributedString(string: "MA5:\(ma5Price)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma5Color])
             topAttributeText.append(ma5Attr)
         }
         if curPoint.MA10Price != 0 {
-            let ma10Price  = String(format: "%.2f", curPoint.MA5Price)
-            let ma10Attr = NSAttributedString(string: "MA10:\(ma10Price)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma10Color])
+            let ma10Price  = KLineStateManger.manager.precisionSpecification(value: curPoint.MA10Price)
+                //String(format: "%.2f", curPoint.MA5Price)
+            let ma10Attr = NSAttributedString(string: "MA10:\(ma10Price)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma10Color])
             topAttributeText.append(ma10Attr)
         }
         
         if curPoint.MA30Price != 0 {
-            let ma30Price  = String(format: "%.2f", curPoint.MA5Price)
-            let ma30Attr = NSAttributedString(string: "MA30:\(ma30Price)    ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma30Color])
+            let ma30Price  = KLineStateManger.manager.precisionSpecification(value: curPoint.MA30Price)
+                //String(format: "%.2f", curPoint.MA30Price)
+            let ma30Attr = NSAttributedString(string: "MA30:\(ma30Price)    ", attributes: [NSAttributedString.Key.font : font_DINProBoldTypeSize(size: ChartStyle.defaultTextSize),NSAttributedString.Key.foregroundColor: ChartColors.ma30Color])
             topAttributeText.append(ma30Attr)
         }
         topAttributeText.draw(at: CGPoint(x: 5, y: 6))

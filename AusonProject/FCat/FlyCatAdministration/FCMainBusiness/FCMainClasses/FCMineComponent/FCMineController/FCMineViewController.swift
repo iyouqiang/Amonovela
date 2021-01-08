@@ -10,6 +10,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+import ZendeskCoreSDK
+import SupportProvidersSDK
+import AnswerBotProvidersSDK
+import ChatProvidersSDK
+
+import AnswerBotSDK
+import MessagingSDK
+import MessagingAPI
+import SDKConfigurations
+
+import SupportSDK
+import ChatSDK
+import UtilsXP
+
 class FCMineViewController: UIViewController {
     
     let disposeBag = DisposeBag()
@@ -53,6 +67,8 @@ class FCMineViewController: UIViewController {
         self.navigationController?.delegate = self
         
         self.loadSubviews()
+        
+        configZendesk()
         
         //登入登出通知
         _ = NotificationCenter.default.rx.notification(NSNotification.Name(rawValue: kNotificationUserLogin))
@@ -214,6 +230,83 @@ class FCMineViewController: UIViewController {
         }
     }
     
+    func configZendesk() {
+        
+        /// 账号初始化
+        /*
+        Zendesk.initialize(appId: "608de082c4033714aa5abb4ba1ef786778db8d5ecb05b5e2",
+            clientId: "mobile_sdk_client_0f056517e831c4c25103",
+            zendeskUrl: "https://supportchex.zendesk.com")
+        Support.initialize(withZendesk: Zendesk.instance)
+         */
+        /// 小机器人
+        //AnswerBot.initialize(withZendesk: Zendesk.instance, support: Support.instance!)
+        Chat.initialize(accountKey: "VujaUKe7FbT54z0hZwHIe9SOmIbfT1RZ")
+        let chatConfiguration = ChatConfiguration()
+        chatConfiguration.isAgentAvailabilityEnabled = false
+        
+        let chatAPIConfiguration = ChatAPIConfiguration()
+        //chatAPIConfiguration.department = "Department name"
+        let userInfo = FCUserInfoManager.sharedInstance.userInfo
+        chatAPIConfiguration.visitorInfo = VisitorInfo(name: userInfo?.userName ?? "", email: userInfo?.email ?? "", phoneNumber: userInfo?.phoneNumber ?? "")
+        Chat.instance?.configuration = chatAPIConfiguration
+        
+        /// 创建匿名账号
+        //let ident = Identity.createAnonymous()
+        //Zendesk.instance?.setIdentity(ident)
+        
+        /**
+         surfingzhang@163.com
+         团队名称：supportchex
+         密码：xiangbing2020！
+         */
+        //let identity = Identity.createAnonymous(name: "supportchex", email: "surfingzhang@163.com")
+        //Zendesk.instance?.setIdentity(identity)
+    }
+    
+    func startChat() throws {
+      // Name for Bot messages
+      let messagingConfiguration = MessagingConfiguration()
+      messagingConfiguration.name = "Auson"
+
+      let chatConfiguration = ChatConfiguration()
+      chatConfiguration.isPreChatFormEnabled = true
+
+      // Build view controller
+      let chatEngine = try ChatEngine.engine()
+      let viewController = try Messaging.instance.buildUI(engines: [chatEngine], configs: [messagingConfiguration, chatConfiguration])
+
+      // Present view controller
+        viewController.hidesBottomBarWhenPushed = true
+      self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    
+    private func pushViewController() throws {
+        
+        let viewController = try buildUI()
+        viewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func buildUI() throws -> UIViewController {
+        
+        let messagingConfiguration = MessagingConfiguration()
+        messagingConfiguration.name = "Auson"
+        //messagingConfiguration.botAvatar = UIImage(named: "APPIcon")!
+        messagingConfiguration.isMultilineResponseOptionsEnabled = true
+        
+        let answerBotEngine = try AnswerBotEngine.engine()
+        let supportEngine = try SupportEngine.engine()
+        let chatEngine = try ChatEngine.engine()
+        
+        /*
+        return try Messaging.instance.buildUI(engines: [ answerBotEngine, supportEngine, chatEngine],
+                                              configs: [messagingConfiguration])
+         */
+        return try Messaging.instance.buildUI(engines: [chatEngine],
+                                              configs: [messagingConfiguration])
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -255,14 +348,27 @@ extension FCMineViewController : UITableViewDataSource, UITableViewDelegate {
                 
             }else {
                 
-                PCCustomAlert.showAppInConstructionAlert()
+                do {
+                           
+                    try startChat()
+                           
+                } catch {
+                              
+                    print("在线客服报错",error)
+                }
             }
             
         } else if indexPath.section == 1 {
             
             if indexPath.row == 0 {
                 
-                PCCustomAlert.showAppInConstructionAlert()
+                //PCCustomAlert.showAppInConstructionAlert()
+                let jumpModel = FCUserInfoManager.sharedInstance.configModel?.jumps[help_center_jumpkey]
+                
+                let webVC = PCWKWebHybridController.init(url: URL(string: jumpModel?.jumpLink ?? ""))!
+                webVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(webVC, animated: true)
+                
             }else if indexPath.row == 1 {
             
             // self.view.makeToast("打开设置", duration: 0.5, position: .center)

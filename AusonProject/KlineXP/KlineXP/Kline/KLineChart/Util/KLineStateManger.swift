@@ -34,7 +34,7 @@ open class KLineStateManger {
     //默认显示1hour的k线 
     var period: String = KLinePeriod.min01.rawValue
     var timer: Timer?
-    
+    var priceDigitNum: Int = 2
     // 主图默认无指标
     //var mainState: MainState = .none
     var mainState: MainState = .ma
@@ -104,6 +104,10 @@ open class KLineStateManger {
     
     public func cancelPolling () {
         timer?.invalidate()
+    }
+    
+    public  func setPriceDigitNum(_ num: Int) {
+        priceDigitNum = num
     }
     
     public func setDefaultState () {
@@ -205,6 +209,13 @@ open class KLineStateManger {
         
     }
     
+   public func precisionSpecification(value: CGFloat) -> String {
+          
+    let format = String(format: "%%.%df", self.priceDigitNum)
+          let resultStr = String(format: format, value)
+          return resultStr
+    }
+    
     //从右边插入数据， 需要正确查找数据插入位置
     public func setKLineRight (kline: KLineModel) {
         var datas = self.datas
@@ -251,3 +262,4 @@ extension Date {
         return "\(millisecond)"
     }
 }
+

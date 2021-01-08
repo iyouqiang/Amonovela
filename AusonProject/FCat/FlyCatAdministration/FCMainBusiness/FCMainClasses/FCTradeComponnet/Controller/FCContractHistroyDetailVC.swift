@@ -20,25 +20,25 @@ class FCContractHistroyDetailVC: UIViewController {
         let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 40))
         sectionHeaderView.backgroundColor = COLOR_BGColor
         /// 成交明细
-        let titleL = fc_labelInit(text: "成交明细", textColor: COLOR_InputText, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
+        let titleL = fc_labelInit(text: "成交明细", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 16), bgColor: .clear)
         sectionHeaderView.addSubview(titleL)
-        titleL.frame = CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 40)
+        titleL.frame = CGRect(x: 15, y: 10, width: kSCREENWIDTH - 30, height: 40)
         
         // 成交时间 成交价 成交量
-        let tradingTm = fc_labelInit(text: "成交时间", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        let tradingTm = fc_labelInit(text: "成交时间", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         sectionHeaderView.addSubview(tradingTm)
-        tradingTm.frame = CGRect(x: 15, y: 50, width: 100, height: 40)
+        tradingTm.frame = CGRect(x: 15, y: 40, width: 100, height: 40)
         
-        let tradeingPrice = fc_labelInit(text: "成交价", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        let tradeingPrice = fc_labelInit(text: "成交价", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         tradeingPrice.textAlignment = .center
         sectionHeaderView.addSubview(tradeingPrice)
-        tradeingPrice.frame = CGRect(x: 15, y: 50, width: 100, height: 40)
+        tradeingPrice.frame = CGRect(x: 15, y: 40, width: 100, height: 40)
         tradeingPrice.center = CGPoint(x: sectionHeaderView.center.x, y: tradeingPrice.center.y)
         
-        let tradeingVolum = fc_labelInit(text: "成交量", textColor: COLOR_RichBtnTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
+        let tradeingVolum = fc_labelInit(text: "成交量", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 14), bgColor: .clear)
         tradeingVolum.textAlignment = .right
         sectionHeaderView.addSubview(tradeingVolum)
-        tradeingVolum.frame = CGRect(x: kSCREENWIDTH - 115, y: 40, width: 100, height: 50)
+        tradeingVolum.frame = CGRect(x: kSCREENWIDTH - 115, y: 40, width: 100, height: 40)
         
         return sectionHeaderView
     }
@@ -63,7 +63,7 @@ class FCContractHistroyDetailVC: UIViewController {
         headerView?.backgroundColor = COLOR_BGColor
         headerView?.snp.makeConstraints({ (make) in
             make.left.right.top.equalTo(0)
-            make.height.equalTo(290)
+            make.height.equalTo(320)
         })
         
         headerView?.tradeEventBlock = {
@@ -95,7 +95,11 @@ class FCContractHistroyDetailVC: UIViewController {
     
     func loadTradingDetailData() {
      
-        let historyApi = FCApi_trade_order_fills(orderId: self.historyModel?.orderId ?? "", tradingUnit: FCTradeSettingconfig.sharedInstance.tradingUnitStr, symbol: self.historyModel?.symbol ?? "")
+        var tradingUnit = "COIN"
+        if FCTradeSettingconfig.sharedInstance.tradeTradingUnit == .TradeTradingUnitType_CONT {
+            tradingUnit = "CONT"
+        }
+        let historyApi = FCApi_trade_order_fills(orderId: self.historyModel?.orderId ?? "", tradingUnit: tradingUnit, symbol: self.historyModel?.symbol ?? "")
        historyApi.startWithCompletionBlock(success: { [weak self] (response) in
             
             self?.historyTableView.endRefresh()
@@ -157,7 +161,7 @@ extension FCContractHistroyDetailVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 80
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -176,7 +180,7 @@ extension FCContractHistroyDetailVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 50
     }
 }
 

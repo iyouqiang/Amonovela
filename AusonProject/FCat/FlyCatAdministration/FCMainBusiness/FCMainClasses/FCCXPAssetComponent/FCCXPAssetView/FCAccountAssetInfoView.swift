@@ -22,6 +22,7 @@ class FCAccountAssetInfoView: UIView {
     var totalAssetView: FCTotalAssetsView?
     var assetModel: FCAssetSummaryModel?
     var hideMicro: Bool?
+    var headerView: UIView!
     weak var parentVC: UIViewController?
     
     override init(frame: CGRect) {
@@ -29,11 +30,15 @@ class FCAccountAssetInfoView: UIView {
         self.backgroundColor = COLOR_BGColor
         
         totalAssetView = Bundle.main.loadNibNamed("FCTotalAssetsView", owner: nil, options: nil)?.first as? FCTotalAssetsView
-        totalAssetView?.frame = CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 155)
+        totalAssetView?.frame = CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 155)
+        totalAssetView?.layer.cornerRadius = 8
+        totalAssetView?.clipsToBounds = true
+        headerView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 155))
+        headerView.backgroundColor = COLOR_HexColor(0x0C141A)
+        headerView.addSubview(totalAssetView!)
         
         totalAssetView?.hideMicroBlock = {
             [weak self] (hideMicro) in
-            
             self?.loadAccountAllAsset(hideMicro: hideMicro)
             self?.hideMicro = hideMicro
         }
@@ -53,6 +58,7 @@ class FCAccountAssetInfoView: UIView {
     lazy var assetTableView = { () -> UITableView in
         let assetTableView = UITableView.init(frame: .zero, style: .grouped)
 
+        assetTableView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         assetTableView.delegate = self
         assetTableView.dataSource = self
         assetTableView.rowHeight = 190.0
@@ -60,7 +66,7 @@ class FCAccountAssetInfoView: UIView {
         //assetTableView.separatorColor = COLOR_TabBarBgColor
         assetTableView.separatorStyle = .none
         assetTableView.layer.masksToBounds = true
-        assetTableView.backgroundColor = .clear
+        assetTableView.backgroundColor = COLOR_HexColor(0x0C141A)
         addSubview(assetTableView)
         assetTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -139,7 +145,7 @@ extension FCAccountAssetInfoView:UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return self.totalAssetView
+        return self.headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

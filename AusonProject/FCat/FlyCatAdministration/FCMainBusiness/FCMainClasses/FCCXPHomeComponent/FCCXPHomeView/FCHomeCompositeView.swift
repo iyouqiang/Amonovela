@@ -319,11 +319,18 @@ class FCHomeCompositeView: UIView {
     @objc func fastBuyCoinsAction() {
 
         FCUserInfoManager.sharedInstance.loginState { (model) in
+            let webVC = PCWKWebHybridController.init(url: URL(string: HOSTURL_EASYTRADE))!
+            webVC.hidesBottomBarWhenPushed = true
+            self.parentVC?.navigationController?.pushViewController(webVC, animated: true)
+        }
+        /*
+        FCUserInfoManager.sharedInstance.loginState { (model) in
             let assetVC = FCCXPAssetOptionController()
             assetVC.assetOptionType = .AssetOptionType_deposit
             assetVC.hidesBottomBarWhenPushed = true
             self.parentVC?.navigationController?.pushViewController(assetVC, animated: true)
         }
+         */
     }
     
     /*
@@ -356,7 +363,9 @@ extension FCHomeCompositeView {
             
             FCUserInfoManager.sharedInstance.loginState { (model) in
                 
-                let webVC = PCWKWebHybridController.init(url: URL(string: HOSTURL_INVITE))!
+                let jumpModel = FCUserInfoManager.sharedInstance.configModel?.jumps[user_invitation_jumpkey]
+                
+                let webVC = PCWKWebHybridController.init(url: URL(string: jumpModel?.jumpLink ?? ""))!
                 webVC.hidesBottomBarWhenPushed = true
                 self?.parentVC?.navigationController?.pushViewController(webVC, animated: true)
             }
@@ -365,14 +374,13 @@ extension FCHomeCompositeView {
         
         agreeMentView.tradingSkillBlock = {
             [weak self] in
-            PCCustomAlert.showAppInConstructionAlert()
-            /**
-            let webVC = PCWKWebHybridController.init(url: URL(string: "http://www.baidu.com"))!
+            
+            let jumpModel = FCUserInfoManager.sharedInstance.configModel?.jumps[help_center_jumpkey]
+            
+            let webVC = PCWKWebHybridController.init(url: URL(string: jumpModel?.jumpLink ?? ""))!
             webVC.hidesBottomBarWhenPushed = true
             self?.parentVC?.navigationController?.pushViewController(webVC, animated: true)
-             */
         }
-        
     }
 }
 

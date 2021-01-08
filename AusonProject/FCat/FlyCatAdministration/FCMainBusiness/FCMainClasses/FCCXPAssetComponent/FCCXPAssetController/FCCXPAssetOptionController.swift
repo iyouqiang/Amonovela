@@ -122,8 +122,8 @@ class FCCXPAssetOptionController: UIViewController {
         arrowImgView.snp.makeConstraints { (make) in
             
             make.right.equalTo(-15)
-            make.width.equalTo(18)
-            make.height.equalTo(18)
+            make.width.equalTo(6)
+            make.height.equalTo(10)
             make.centerY.equalTo(selectCurrencyView.snp_centerY)
         }
         

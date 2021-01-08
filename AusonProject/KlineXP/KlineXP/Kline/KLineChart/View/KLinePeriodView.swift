@@ -12,7 +12,6 @@ import UIKit
 
 open class KLinePeriodView: UIView {
     
-    
     @IBOutlet weak var centerXConstraint: NSLayoutConstraint!
     
     /// 时间
@@ -310,8 +309,6 @@ open class KLinePeriodView: UIView {
             }
         }
     }
-
-    
     
     func loadMoreDropDown () {
         

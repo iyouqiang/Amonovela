@@ -29,11 +29,9 @@ class FCKLineHeaderView: UIView {
     func loadLastMarketData(model: FCMarketModel?) {
         if model == nil { return }
         
-        print("model?.latestPrice : ", model?.latestPrice ?? "")
-        
         self.priceLab?.text = model?.latestPrice
         self.CNYLab?.text = "≈\(model?.estimatedValue ?? "")\(model?.estimatedCurrency ?? "")"
-        
+        self.CNYLab?.isHidden = true
         self.highLab?.text = model?.high
         self.lowLab?.text = model?.low
         self.volumelab?.text = model?.volume
@@ -51,19 +49,19 @@ class FCKLineHeaderView: UIView {
             self.percentLab?.textColor = COLOR_RiseColor
         }
     }
-    
 
     func loadSubviews () {
-        self.priceLab = fc_labelInit(text: "-.--", textColor: COLOR_FailColor, textFont: UIFont.boldSystemFont(ofSize: 27), bgColor: COLOR_BGColor)
-        self.CNYLab = fc_labelInit(text: "=-.--CNY", textColor: COLOR_CharTipsColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
-        self.percentLab = fc_labelInit(text: "-.--%", textColor: COLOR_FailColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
-        self.highLab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
-        self.lowLab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
-        self.volumelab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
         
-        let highLeftLab = fc_labelInit(text: "高", textColor: COLOR_CharTipsColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
-        let lowLeftLab = fc_labelInit(text: "低", textColor: COLOR_CharTipsColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
-        let volumeLeftLab = fc_labelInit(text: "24H", textColor: COLOR_CharTipsColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        self.priceLab = fc_labelInit(text: "-.--", textColor: COLOR_FailColor, textFont: UIFont(_DINProBoldTypeSize: 27), bgColor: COLOR_BGColor)
+        self.CNYLab = fc_labelInit(text: "=-.--CNY", textColor: .white, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: COLOR_BGColor)
+        self.percentLab = fc_labelInit(text: "-.--%", textColor: COLOR_FailColor, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: COLOR_BGColor)
+        self.highLab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: COLOR_BGColor)
+        self.lowLab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: COLOR_BGColor)
+        self.volumelab = fc_labelInit(text: "-.--", textColor: COLOR_ChartAxisColor, textFont: UIFont(_DINProBoldTypeSize: 12), bgColor: COLOR_BGColor)
+        
+        let highLeftLab = fc_labelInit(text: "24h高", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        let lowLeftLab = fc_labelInit(text: "24h低", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
+        let volumeLeftLab = fc_labelInit(text: "24h量", textColor: COLOR_CellTitleColor, textFont: UIFont(_PingFangSCTypeSize: 12), bgColor: COLOR_BGColor)
         
         self.addSubview(self.priceLab!)
         self.addSubview(self.CNYLab!)
@@ -86,14 +84,17 @@ class FCKLineHeaderView: UIView {
         })
         
         self.percentLab?.snp.makeConstraints({ (make) in
+            
+            make.left.equalToSuperview().offset(kMarginScreenLR)
             make.centerY.equalTo(self.CNYLab!)
-            make.left.equalTo(self.CNYLab!.snp.right).offset(15)
+            //make.left.equalTo(self.CNYLab!.snp.right).offset(15)
             make.bottom.equalToSuperview().offset(-15)
         })
         
         self.highLab?.snp.makeConstraints({ (make) in
             make.top.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-kMarginScreenLR)
+            make.height.equalTo(16)
         })
         
         highLeftLab.snp.makeConstraints { (make) in
@@ -104,6 +105,7 @@ class FCKLineHeaderView: UIView {
         self.lowLab?.snp.makeConstraints({ (make) in
             make.top.equalTo(self.highLab!.snp.bottom).offset(5)
             make.right.equalToSuperview().offset(-kMarginScreenLR)
+            make.height.equalTo(16)
         })
         
         lowLeftLab.snp.makeConstraints { (make) in
@@ -115,6 +117,7 @@ class FCKLineHeaderView: UIView {
         self.volumelab?.snp.makeConstraints({ (make) in
             make.top.equalTo(self.lowLab!.snp.bottom).offset(5)
             make.right.equalToSuperview().offset(-kMarginScreenLR)
+            make.height.equalTo(17)
         })
         
         volumeLeftLab.snp.makeConstraints { (make) in
@@ -123,5 +126,4 @@ class FCKLineHeaderView: UIView {
             make.right.lessThanOrEqualTo(self.volumelab!.snp.left).offset(-15)
         }
     }
-    
 }

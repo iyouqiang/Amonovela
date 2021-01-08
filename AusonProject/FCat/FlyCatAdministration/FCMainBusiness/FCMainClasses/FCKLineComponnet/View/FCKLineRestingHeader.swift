@@ -10,7 +10,6 @@ import UIKit
 
 class FCKLineRestingHeader: UIView {
 
-    
     @IBOutlet weak var buyAccountLab: UILabel!
     
     @IBOutlet weak var priceLab: UILabel!
@@ -27,6 +26,7 @@ class FCKLineRestingHeader: UIView {
     static func restingView() -> FCKLineRestingHeader {
         let view = Bundle.main.loadNibNamed("FCKLineRestingHeader", owner: self, options: nil)?.last as! FCKLineRestingHeader
         view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40)
+        view.backgroundColor = COLOR_BGColor
         return view
     }
     

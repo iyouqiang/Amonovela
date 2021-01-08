@@ -10,7 +10,6 @@ import UIKit
 
 class FCTradingHistoryDetailCell: UITableViewCell {
 
-    
     @IBOutlet weak var tradingVolumL: UILabel!
     @IBOutlet weak var tradingPriceL: UILabel!
     @IBOutlet weak var tradingTmL: UILabel!
@@ -43,8 +42,8 @@ class FCTradingHistoryDetailCell: UITableViewCell {
             self.tradingTmL.text = timestr.replacingOccurrences(of: "T", with: " ")
             
             //self.tradingTmL.text = historyModel.filledTm
-            self.tradingPriceL.text = "₮\(historyModel.price ?? "")"
-            self.tradingVolumL.text = (historyModel.volume ?? "") + (historyModel.currency ?? "")
+            self.tradingPriceL.text = "\(historyModel.price ?? "")"
+            self.tradingVolumL.text = (historyModel.volume ?? "") + (historyModel.contractAsset ?? "")
         }
     }
 

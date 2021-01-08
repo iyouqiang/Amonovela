@@ -19,13 +19,14 @@ class FCTotalAssetsView: UIView {
     @IBOutlet weak var tradeCheckBtn: UIButton!
     
     @IBOutlet weak var explainBtn: UIButton!
+    
     var hideMicroBlock: HideMicroBlock?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         assetAcountL.text = "0.00≈0.00 CNY"
-        self.assetAcountL.setAttributeFont(UIFont(_PingFangSCTypeSize: 27), range: NSRange(location: 0, length: 4))
+        self.assetAcountL.setAttributeFont(UIFont(_DINProBoldTypeSize: 27), range: NSRange(location: 0, length: 4))
         self.assetAcountL.setAttributeColor(COLOR_TabBarTintColor, range: NSRange(location: 0, length: 4))
     }
     
@@ -38,7 +39,7 @@ class FCTotalAssetsView: UIView {
             
             assetTitleL.text = "币币总资产折合 （\(assetSummaryModel.estimatedAsset!)）"
             assetAcountL.text = "\(assetSummaryModel.estimatedValue ?? "0.00")≈\(assetSummaryModel.estimatedFiatValue ?? "0.00") \(assetSummaryModel.estimatedFiatAsset ?? "")"
-            
+            assetTitleL.font = UIFont(_PingFangSCTypeSize: 16)
             let estimatedValueStr = assetSummaryModel.estimatedValue
             
             self.assetAcountL.setAttributeFont(UIFont(_PingFangSCTypeSize: 27), range: NSRange(location: 0, length: estimatedValueStr?.count ?? 0))

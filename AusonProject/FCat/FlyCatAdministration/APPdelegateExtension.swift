@@ -19,10 +19,9 @@ extension AppDelegate {
      */
     
     public func setupStatusBar () {
-        //设置状态栏
+        //设置状态栏 
         UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
     }
-    
     
     public func networkConfigure() {
         
@@ -40,6 +39,7 @@ extension AppDelegate {
     
     // 根视图
     public func launchImagesConfigure() {
+        
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
@@ -51,6 +51,7 @@ extension AppDelegate {
     }
     
     public func appIQKeyboardManagerConfigure() {
+        
         IQKeyboardManager.shared().isEnableAutoToolbar = true
         IQKeyboardManager.shared().isEnabled = true
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
@@ -65,6 +66,34 @@ extension AppDelegate {
         report_deviceInfo?.startWithCompletionBlock(success: nil, failure: nil)
     }
     
+    public func appConfigInfo() {
+        
+        let systemConfigApi = FCApi_system_config()
+        systemConfigApi.startWithCompletionBlock { (response) in
+            
+            /// 数据解析
+            let responseData = response.responseObject as?  [String : AnyObject]
+            if let data = responseData?["data"] as? [String : AnyObject] {
+                UserDefaults.standard.set(data, forKey: "SystemConfigKEY")
+                UserDefaults.standard.synchronize()
+                let configModel = FCSystemConfigModel.init(dict: data)
+                FCUserInfoManager.sharedInstance.configModel = configModel
+            }
+            
+        } failure: { (response) in
+            
+            let systemConfigData = UserDefaults.standard.object(forKey: "SystemConfigKEY")
+            
+            if let data = systemConfigData as? [String : AnyObject] {
+                
+                UserDefaults.standard.set(data, forKey: "SystemConfigKEY")
+                UserDefaults.standard.synchronize()
+                let configModel = FCSystemConfigModel.init(dict: data)
+                FCUserInfoManager.sharedInstance.configModel = configModel
+            }
+        }
+    }
+    
     // Bugly
     public func configureBugly() {
         
@@ -77,12 +106,10 @@ extension AppDelegate {
         appId = "6d68e221c7"
         
         #endif
-        
         Bugly.start(withAppId: appId)
     }
     
     // 初始化数据字典服务
-    
     public func initDictionayService () {
         FCDictionaryService.sharedInstance.fetchCountryCodeList()
     }

@@ -41,7 +41,7 @@ class FCBillContractCell: UITableViewCell {
             }else {
                 self.symbolNumL.textColor = COLOR_FailColor
             }
-            self.symbolNumL.text = "₮\(model.volume ?? "/")"
+            self.symbolNumL.text = "\(model.volume ?? "/")"
             
             /**
              // FundRecord 资金修改记录

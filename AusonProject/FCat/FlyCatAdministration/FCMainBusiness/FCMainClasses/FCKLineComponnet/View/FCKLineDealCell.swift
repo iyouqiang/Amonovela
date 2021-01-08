@@ -21,11 +21,27 @@ class FCKLineDealCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.contentView.backgroundColor = COLOR_BGColor
+        self.backgroundColor = COLOR_BGColor
+        
+        self.timeLab.font = UIFont(_DINProBoldTypeSize: 12)
+        self.bidLab.font = UIFont(_PingFangSCTypeSize: 12)
+        self.priceLab.font = UIFont(_DINProBoldTypeSize: 12)
+        self.amountLab.font = UIFont(_DINProBoldTypeSize: 12)
+        /**
+         @IBOutlet weak var timeLab: UILabel!
+         
+         @IBOutlet weak var bidLab: UILabel!
+         
+         @IBOutlet weak var priceLab: UILabel!
+         
+         @IBOutlet weak var amountLab: UILabel!
+         */
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -37,6 +53,4 @@ class FCKLineDealCell: UITableViewCell {
         self.priceLab.text = tradeModel?.price
         self.amountLab.text = tradeModel?.volume
     }
-
-    
 }

@@ -153,7 +153,7 @@ class FCSpotOrderView: UIView {
     
     lazy var priceTxd: UITextField = {
         
-        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CharTipsColor, textColor: .white, fontSize: 16, borderStyle: .roundedRect)
+        let priceTxd = fc_textfiledInit(placeholder: "价格", holderColor: COLOR_CharTipsColor, textColor: .white, fontSize: 14, borderStyle: .roundedRect)
         priceTxd.attributedPlaceholder = NSAttributedString.init(string: "价格", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
         priceTxd.setValue(3, forKey: "paddingLeft")
         priceTxd.rightViewMode = .always
@@ -205,7 +205,7 @@ class FCSpotOrderView: UIView {
     }()
     
     lazy var amountTxd: UITextField = {
-        let amountTxd = fc_textfiledInit(placeholder: "数量", holderColor: COLOR_CharTipsColor, textColor: .white, fontSize: 16, borderStyle: .roundedRect)
+        let amountTxd = fc_textfiledInit(placeholder: "数量", holderColor: COLOR_CharTipsColor, textColor: .white, fontSize: 14, borderStyle: .roundedRect)
         amountTxd.attributedPlaceholder = NSAttributedString.init(string: "数量", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_CellTitleColor])
         amountTxd.setValue(3, forKey: "paddingLeft")
         amountTxd.rightViewMode = .always

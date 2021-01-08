@@ -19,8 +19,8 @@ class FCKLineController: UIViewController {
     let disposeBag = DisposeBag()
     let klineCharView = KLineChartView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 450))
     let klinePeriodView = KLinePeriodView.linePeriodView()
-    
     var marketModel: FCMarketModel?
+
     var optionalRefreshBlock: kFCBlock?
     var optionalBtn: UIButton?
     var scrollView: UIScrollView?
@@ -59,6 +59,8 @@ class FCKLineController: UIViewController {
         self.loadSubviews()
         
         /// 合约类型 现货 合约
+        KLineStateManger.manager.setPriceDigitNum(self.marketModel?.priceDigitNum ?? 2)
+        self.klineHeaderView?.loadLastMarketData(model: self.marketModel)
         KLineHTTPTool.tool.accountType = self.accountType
         KLineRequestTool.tool.delegate = KLineHTTPTool.tool
         
@@ -221,9 +223,10 @@ class FCKLineController: UIViewController {
     }
     
     func loadScrollView () {
+        
         self.scrollView = UIScrollView.init(frame: .zero)
         self.scrollView?.showsHorizontalScrollIndicator = false
-        self.scrollView?.showsVerticalScrollIndicator = true
+        self.scrollView?.showsVerticalScrollIndicator = false
         self.scrollView?.bounces = true
         self.scrollView?.isScrollEnabled = true
         self.view.addSubview(self.scrollView!)
@@ -236,9 +239,10 @@ class FCKLineController: UIViewController {
     }
     
     func loadHeaderView () {
+        
         self.klineHeaderView = FCKLineHeaderView.init(frame: .zero)
         self.scrollView?.addSubview(self.klineHeaderView!)
-        self.klineHeaderView?.loadLastMarketData(model:self.marketModel)
+        //self.klineHeaderView?.loadLastMarketData(model:self.marketModel)
         
         self.klineHeaderView?.snp.makeConstraints({ (make) in
             make.top.equalToSuperview()
@@ -249,6 +253,7 @@ class FCKLineController: UIViewController {
     }
     
     func loadKLineChart () {
+        
         self.scrollView?.addSubview(self.klinePeriodView)
         self.scrollView?.addSubview(self.klineCharView)
         
@@ -274,7 +279,7 @@ class FCKLineController: UIViewController {
             make.top.equalTo(self.klineCharView.snp.bottom).offset(10)
             make.left.equalToSuperview().offset(kMarginScreenLR)
             make.right.equalToSuperview().offset(-kMarginScreenLR)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
         }
         
         self.scrollView?.addSubview(self.bottomScrollView)
@@ -296,15 +301,15 @@ class FCKLineController: UIViewController {
         
         self.buyBtn.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(kMarginScreenLR)
-            make.height.equalTo(40)
+            make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-kMarginScreenLR)
-            make.right.equalTo(self.sellBtn.snp.left).offset(10)
+            make.right.equalTo(self.sellBtn.snp.left).offset(15)
             make.width.equalTo(self.sellBtn)
         }
         
         self.sellBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-kMarginScreenLR)
-            make.height.equalTo(40)
+            make.height.equalTo(50)
             make.bottom.equalToSuperview().offset(-kMarginScreenLR)
         }
         
@@ -366,6 +371,7 @@ class FCKLineController: UIViewController {
                     self.marketModel =  FCMarketModel.stringToObject(jsonData: data?["ticker"] as? [String : Any])
                     self.klineHeaderView?.loadLastMarketData(model:self.marketModel)
                     self.optionalBtn?.isSelected = self.marketModel?.isOptional ?? false
+                    KLineStateManger.manager.setPriceDigitNum(self.marketModel?.priceDigitNum ?? 2)
                 } else{
                     let errMsg = responseData?["err"]?["msg"] as? String
                     self.view.makeToast(errMsg ?? "", position: .center)
@@ -387,6 +393,7 @@ class FCKLineController: UIViewController {
                 self.marketModel =  FCMarketModel.stringToObject(jsonData: data?["ticker"] as? [String : Any])
                 self.klineHeaderView?.loadLastMarketData(model:self.marketModel)
                 self.optionalBtn?.isSelected = self.marketModel?.isOptional ?? false
+                KLineStateManger.manager.setPriceDigitNum(self.marketModel?.priceDigitNum ?? 2)
             } else{
                 let errMsg = responseData?["err"]?["msg"] as? String
                 self.view.makeToast(errMsg ?? "", position: .center)
@@ -394,7 +401,6 @@ class FCKLineController: UIViewController {
         }) { (response) in
             self.view.makeToast(response.error?.localizedDescription, position: .center)
         }
-        
     }
     
     
@@ -611,7 +617,6 @@ class FCKLineController: UIViewController {
         }) { (response) in
             self.view.makeToast(response.error?.localizedDescription, position: .center)
         }
-        
     }
     
         private func checkLoginStatus (callback: kFCBlock?) {
@@ -645,7 +650,6 @@ class FCKLineController: UIViewController {
         return bottomview
     }()
     
-    
     lazy var restingTableView: FCKLineRestingView = {
         let restView = FCKLineRestingView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 500), style: .plain)
         restView.reloadWithDatas(symbol: self.marketModel?.symbol ?? "", model: nil)
@@ -655,13 +659,13 @@ class FCKLineController: UIViewController {
     lazy var dealTableView: FCKLineDealingView = {
         let dealView = FCKLineDealingView.init(frame: CGRect(x: kSCREENWIDTH, y: 0, width: kSCREENWIDTH, height: 500), style: .plain)
         dealView.reloadWithDatas(symbol: self.marketModel?.symbol ?? "", model: nil)
+        dealView.backgroundColor = COLOR_BGColor
         return dealView
     }()
     
-    
     lazy var tradeSegment: FCSegmentControl = {
         let segmentControl = FCSegmentControl.init(frame: CGRect.zero)
-        segmentControl.setFixedWidth(titles: ["委托挂单", "最新成交"], fontSize: 16, normalColor: COLOR_MinorTextColor, tintColor: COLOR_ThemeBtnEndColor, showUnderLine: true)
+        segmentControl.setFixedWidth(titles: ["委托订单", "最新成交"], fontSize: 14, normalColor: COLOR_CellTitleColor, tintColor: COLOR_MainThemeColor, showUnderLine: true)
         segmentControl.backgroundColor = COLOR_BGColor
         segmentControl.didSelectedItem { [weak self] (index: Int) in
             self?.bottomScrollView.setContentOffset(CGPoint(x: kSCREENWIDTH * CGFloat(index), y: 0) , animated: false)

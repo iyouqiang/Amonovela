@@ -63,22 +63,23 @@ class FCHotSymbolsCell: UITableViewCell {
              */
             
             self.symbolIconImgView.sd_setImage(with: URL(string: (symbolModel.iconUrl ?? "")), placeholderImage: UIImage(named: "trade_BTC"), options: .retryFailed, completed: nil)
-            tradeSymbolL.text = symbolModel.symbol?.replacingOccurrences(of: "-", with: "/") //symbolModel.name
             
-            let array : Array = tradeSymbolL.text?.components(separatedBy: "/") ?? []
+            let array : Array = symbolModel.symbol?.components(separatedBy: "-") ?? []
+            
             var symbolStr = array.first
             
+            var tradeSymbolStr = symbolModel.symbol?.replacingOccurrences(of: "-", with: "/") //symbolModel.name
+            
             if (symbolModel.name?.count ?? 0) > 0 {
-                
-                tradeSymbolL.text = symbolModel.name
+                tradeSymbolStr = symbolModel.name
                 symbolStr = symbolModel.name
             }
             
-            let attrStr = NSMutableAttributedString.init(string: tradeSymbolL.text ?? "")
-    
+            let attrStr = NSMutableAttributedString.init(string: tradeSymbolStr ?? "")
+            
             // 富文本修改位置大小
-            attrStr.addAttribute(NSAttributedString.Key.foregroundColor, value:UIColor.white, range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
-            attrStr.addAttribute(NSAttributedString.Key.font, value:UIFont(_DINProBoldTypeSize: 16), range:NSRange.init(location:0, length: symbolStr?.count ?? 0))
+            attrStr.addAttribute(NSAttributedString.Key.foregroundColor, value:UIColor.white, range:NSMakeRange(0,  symbolStr?.count ?? 0))
+            attrStr.addAttribute(NSAttributedString.Key.font, value:UIFont(_DINProBoldTypeSize: 16), range:NSMakeRange(0, symbolStr?.count ?? 0))
             
             tradeSymbolL.attributedText = attrStr
             
@@ -86,7 +87,6 @@ class FCHotSymbolsCell: UITableViewCell {
             tradeLatesPriceL.text = "$ \(symbolModel.latestPrice ?? "")"
             tradeLatesPriceL.setAttributeColor(COLOR_MinorTextColor, range: NSMakeRange(0, 1))
             trademeasureL.text = "\(symbolModel.fiatPrice ?? "")\(symbolModel.fiatCurrency ?? "")"
-            
             
             if symbolModel.priceTrend == "Up" {
                 

@@ -14,7 +14,7 @@ func fc_textfiledInit(placeholder: String!, holderColor: UIColor!, textColor: UI
     
     let textFiled = UITextField.init(frame: CGRect.zero)
     textFiled.textColor = textColor
-    textFiled.font = UIFont.init(_PingFangSCTypeSize: fontSize)
+    textFiled.font = UIFont.init(_DINProBoldTypeSize: fontSize)
     textFiled.borderStyle = borderStyle
     
     //占位符设置

@@ -38,7 +38,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-/** 清除cookie */
+/** 清除cookie */ 
 - (void)clearCookies
 {
     if (kSYSTEM(9)) {
@@ -75,6 +75,8 @@
     if (self) {
         
         _requestURL = URL;
+        
+        NSLog(@"webURL : %@", _requestURL.absoluteString);
         
         if ([[FCUserInfoManager sharedInstance] isLogin]) {
             

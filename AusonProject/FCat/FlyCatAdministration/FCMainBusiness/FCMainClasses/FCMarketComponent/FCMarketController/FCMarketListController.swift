@@ -258,7 +258,7 @@ class FCMarketListController: UIViewController {
         }
     }
     
-    // 所有
+    // 所有 
     func configureAllView() {
         self.requestAllData(false)
         self.marketTableView.refreshNormalModelRefresh(false, refreshDataBlock: {
@@ -270,7 +270,7 @@ class FCMarketListController: UIViewController {
      
     func loadMarketView()  {
         
-        self.marketTableView = UITableView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: kSCREENHEIGHT-kTABBARHEIGHT - 100 - KSTATUSBARHEIGHT), style: .plain)
+        self.marketTableView = UITableView.init(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: kSCREENHEIGHT-kTABBARHEIGHT - 200), style: .plain)
         self.marketTableView.estimatedRowHeight = 100
         self.marketTableView.separatorStyle = .none
         self.marketTableView.delegate = self

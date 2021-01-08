@@ -120,6 +120,7 @@ let disposeBag = DisposeBag()
         self.orderController.klineViewItemBlock = {
             [weak self] in
             let klineVC = FCKLineController()
+            self?.marketModel?.name = ""
             let marketModel = self?.marketModel
             marketModel?.tradingType = "Spot"
             klineVC.marketModel = marketModel
