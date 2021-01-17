@@ -292,6 +292,12 @@
 		D76996F824EFF1900068F262 /* FCAddEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76996F724EFF1900068F262 /* FCAddEmailViewController.swift */; };
 		D76996FA24EFF2000068F262 /* FCChangePhoneInvoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76996F924EFF2000068F262 /* FCChangePhoneInvoController.swift */; };
 		D76AC5EA24E746F700BB9448 /* FCQRCodeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76AC5E924E746F700BB9448 /* FCQRCodeTool.swift */; };
+		D76ADC3825AC3B630034C88F /* FCTransferRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76ADC3725AC3B630034C88F /* FCTransferRecordModel.swift */; };
+		D76ADC4225AC43A70034C88F /* FCTransferRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76ADC4025AC43A70034C88F /* FCTransferRecordCell.swift */; };
+		D76ADC4325AC43A70034C88F /* FCTransferRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76ADC4125AC43A70034C88F /* FCTransferRecordCell.xib */; };
+		D76ADC8A25B065500034C88F /* FCDigitalListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D76ADC8925B0654E0034C88F /* FCDigitalListViewController.m */; };
+		D76ADC8D25B065A00034C88F /* FCDigitalListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D76ADC8C25B065A00034C88F /* FCDigitalListCell.m */; };
+		D76ADC8F25B0747A0034C88F /* FCDigitalCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76ADC8E25B0747A0034C88F /* FCDigitalCurrencyCell.swift */; };
 		D76AEA6C24EBC19F0064A879 /* FCGesturePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76AEA6B24EBC19F0064A879 /* FCGesturePasswordController.swift */; };
 		D76AEAE724EBCC840064A879 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76AEAE624EBCC840064A879 /* Toast.swift */; };
 		D76C3BAE2515AF6700EA88E6 /* FCApi_market_kline_history.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C3BAD2515AF6700EA88E6 /* FCApi_market_kline_history.swift */; };
@@ -353,6 +359,7 @@
 		D77D41FD25A2BB5C0000D197 /* FCApi_system_config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D41FC25A2BB5C0000D197 /* FCApi_system_config.swift */; };
 		D77D420625A2BDD50000D197 /* FCSystemConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D420525A2BDD50000D197 /* FCSystemConfigModel.swift */; };
 		D77D423425A2EE230000D197 /* FCCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D423325A2EE230000D197 /* FCCacheManager.swift */; };
+		D77EF30525A9ECDB00567571 /* FCTransferrecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77EF30425A9ECDB00567571 /* FCTransferrecordController.swift */; };
 		D77F51822539372500E8D62A /* FCContractsEntrustMultiListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */; };
 		D77F518A25393F3A00E8D62A /* FCContractsEntrustListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */; };
 		D77F51C52539A2F900E8D62A /* FCApi_trigger_history.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */; };
@@ -379,6 +386,9 @@
 		D797FE39256BD95800E18D20 /* FCVerificationCodeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D797FE38256BD95800E18D20 /* FCVerificationCodeAlertView.swift */; };
 		D79BFEC825734BBF0094AE06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79BFEC725734BBE0094AE06 /* Main.storyboard */; };
 		D79BFECA2573713B0094AE06 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79BFEC92573713B0094AE06 /* Launch Screen.storyboard */; };
+		D79EC2C425B2E283001FEAD1 /* FCApi_check_update.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79EC2C325B2E283001FEAD1 /* FCApi_check_update.swift */; };
+		D79EC2C625B2E968001FEAD1 /* FCVersionUpdatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79EC2C525B2E968001FEAD1 /* FCVersionUpdatingView.swift */; };
+		D79EC2C825B2E975001FEAD1 /* FCVersionUpdatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79EC2C725B2E975001FEAD1 /* FCVersionUpdatingView.xib */; };
 		D79F7F4F24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F4E24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift */; };
 		D79F7F5124F1F3EC00ABF0C5 /* FCApi_email_moify_confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F5024F1F3EC00ABF0C5 /* FCApi_email_moify_confirm.swift */; };
 		D79F7F5324F1F41500ABF0C5 /* FCApi_phone_modify_apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F7F5224F1F41500ABF0C5 /* FCApi_phone_modify_apply.swift */; };
@@ -873,6 +883,14 @@
 		D76996F724EFF1900068F262 /* FCAddEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCAddEmailViewController.swift; sourceTree = "<group>"; };
 		D76996F924EFF2000068F262 /* FCChangePhoneInvoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCChangePhoneInvoController.swift; sourceTree = "<group>"; };
 		D76AC5E924E746F700BB9448 /* FCQRCodeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCQRCodeTool.swift; sourceTree = "<group>"; };
+		D76ADC3725AC3B630034C88F /* FCTransferRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCTransferRecordModel.swift; sourceTree = "<group>"; };
+		D76ADC4025AC43A70034C88F /* FCTransferRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCTransferRecordCell.swift; sourceTree = "<group>"; };
+		D76ADC4125AC43A70034C88F /* FCTransferRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCTransferRecordCell.xib; sourceTree = "<group>"; };
+		D76ADC8825B0654E0034C88F /* FCDigitalListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCDigitalListViewController.h; sourceTree = "<group>"; };
+		D76ADC8925B0654E0034C88F /* FCDigitalListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCDigitalListViewController.m; sourceTree = "<group>"; };
+		D76ADC8B25B065A00034C88F /* FCDigitalListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCDigitalListCell.h; sourceTree = "<group>"; };
+		D76ADC8C25B065A00034C88F /* FCDigitalListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCDigitalListCell.m; sourceTree = "<group>"; };
+		D76ADC8E25B0747A0034C88F /* FCDigitalCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCDigitalCurrencyCell.swift; sourceTree = "<group>"; };
 		D76AEA6B24EBC19F0064A879 /* FCGesturePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCGesturePasswordController.swift; sourceTree = "<group>"; };
 		D76AEAE624EBCC840064A879 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		D76C3BAD2515AF6700EA88E6 /* FCApi_market_kline_history.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_market_kline_history.swift; sourceTree = "<group>"; };
@@ -946,6 +964,7 @@
 		D77D41FC25A2BB5C0000D197 /* FCApi_system_config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_system_config.swift; sourceTree = "<group>"; };
 		D77D420525A2BDD50000D197 /* FCSystemConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCSystemConfigModel.swift; sourceTree = "<group>"; };
 		D77D423325A2EE230000D197 /* FCCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCCacheManager.swift; sourceTree = "<group>"; };
+		D77EF30425A9ECDB00567571 /* FCTransferrecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCTransferrecordController.swift; sourceTree = "<group>"; };
 		D77F51812539372500E8D62A /* FCContractsEntrustMultiListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractsEntrustMultiListController.swift; sourceTree = "<group>"; };
 		D77F518925393F3A00E8D62A /* FCContractsEntrustListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCContractsEntrustListController.swift; sourceTree = "<group>"; };
 		D77F51C42539A2F800E8D62A /* FCApi_trigger_history.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_trigger_history.swift; sourceTree = "<group>"; };
@@ -972,6 +991,9 @@
 		D797FE38256BD95800E18D20 /* FCVerificationCodeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCVerificationCodeAlertView.swift; sourceTree = "<group>"; };
 		D79BFEC725734BBE0094AE06 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D79BFEC92573713B0094AE06 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D79EC2C325B2E283001FEAD1 /* FCApi_check_update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_check_update.swift; sourceTree = "<group>"; };
+		D79EC2C525B2E968001FEAD1 /* FCVersionUpdatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCVersionUpdatingView.swift; sourceTree = "<group>"; };
+		D79EC2C725B2E975001FEAD1 /* FCVersionUpdatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCVersionUpdatingView.xib; sourceTree = "<group>"; };
 		D79F7F4E24F1F3CC00ABF0C5 /* FCApi_email_modify_apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_email_modify_apply.swift; sourceTree = "<group>"; };
 		D79F7F5024F1F3EC00ABF0C5 /* FCApi_email_moify_confirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_email_moify_confirm.swift; sourceTree = "<group>"; };
 		D79F7F5224F1F41500ABF0C5 /* FCApi_phone_modify_apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCApi_phone_modify_apply.swift; sourceTree = "<group>"; };
@@ -1519,6 +1541,7 @@
 				D7837D9C2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift */,
 				D7837DA32541277C006ADE6C /* FCApi_Get_UserInfo.swift */,
 				D77D41FC25A2BB5C0000D197 /* FCApi_system_config.swift */,
+				D79EC2C325B2E283001FEAD1 /* FCApi_check_update.swift */,
 			);
 			name = FCRequestAPI;
 			sourceTree = "<group>";
@@ -2191,6 +2214,7 @@
 		D711ECE824E17A31005B4666 /* FCCXPAssetView */ = {
 			isa = PBXGroup;
 			children = (
+				D76ADC8E25B0747A0034C88F /* FCDigitalCurrencyCell.swift */,
 				D7F2C64C24E2C2A100B5BBFE /* FCCXPCommonAssetCell.swift */,
 				D7F2C64D24E2C2A100B5BBFE /* FCCXPCommonAssetCell.xib */,
 				D7F2C65024E2C2F300B5BBFE /* FCCXPSustainableContractCell.swift */,
@@ -2210,6 +2234,10 @@
 				D7F9C45624E5348100D739D1 /* FCCXPAssetChargeView.swift */,
 				D7F9C45824E5349400D739D1 /* FCCXPAssetMentionView.swift */,
 				D76AC5E924E746F700BB9448 /* FCQRCodeTool.swift */,
+				D76ADC4025AC43A70034C88F /* FCTransferRecordCell.swift */,
+				D76ADC4125AC43A70034C88F /* FCTransferRecordCell.xib */,
+				D76ADC8B25B065A00034C88F /* FCDigitalListCell.h */,
+				D76ADC8C25B065A00034C88F /* FCDigitalListCell.m */,
 			);
 			path = FCCXPAssetView;
 			sourceTree = "<group>";
@@ -2222,6 +2250,9 @@
 				D7F9C45A24E535BD00D739D1 /* FCCXPAssetOptionController.swift */,
 				D76FDFD424FE6920006AB263 /* FCCXPAssetTransferController.swift */,
 				D76FDFD524FE6920006AB263 /* FCCXPAssetTransferController.xib */,
+				D77EF30425A9ECDB00567571 /* FCTransferrecordController.swift */,
+				D76ADC8825B0654E0034C88F /* FCDigitalListViewController.h */,
+				D76ADC8925B0654E0034C88F /* FCDigitalListViewController.m */,
 			);
 			path = FCCXPAssetController;
 			sourceTree = "<group>";
@@ -2230,6 +2261,7 @@
 			isa = PBXGroup;
 			children = (
 				D7F9C43C24E41FD300D739D1 /* FCCXPAssetModel.swift */,
+				D76ADC3725AC3B630034C88F /* FCTransferRecordModel.swift */,
 			);
 			path = FCCXPAssetModel;
 			sourceTree = "<group>";
@@ -2294,6 +2326,8 @@
 				D737D7FF24E00209000DC48A /* FCMarqueeView.h */,
 				D737D80824E00209000DC48A /* FCMarqueeView.m */,
 				D737D80924E00209000DC48A /* FCQuickNavView.swift */,
+				D79EC2C525B2E968001FEAD1 /* FCVersionUpdatingView.swift */,
+				D79EC2C725B2E975001FEAD1 /* FCVersionUpdatingView.xib */,
 			);
 			path = FCCXPHomeView;
 			sourceTree = "<group>";
@@ -2507,6 +2541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7F9C44D24E513AB00D739D1 /* FCCXPMentionCoinSubView.xib in Resources */,
+				D79EC2C825B2E975001FEAD1 /* FCVersionUpdatingView.xib in Resources */,
 				D78243732537DDE100497103 /* FCContractProfitLossCell.xib in Resources */,
 				D76FDFCB24FE2B1B006AB263 /* FCBillContractCell.xib in Resources */,
 				D2748891213E29BD0062765B /* SSKeychain.strings in Resources */,
@@ -2544,6 +2579,7 @@
 				D737D80C24E00209000DC48A /* FCHomeAgreementView.xib in Resources */,
 				D7450C9C250520AB005E9415 /* FCContractHistoryCell.xib in Resources */,
 				01B305B624BE434F001FF01A /* FCKLineRestingHeader.xib in Resources */,
+				D76ADC4325AC43A70034C88F /* FCTransferRecordCell.xib in Resources */,
 				D7717F00250700FA0060AA72 /* FCTradingHistoryDetailCell.xib in Resources */,
 				D7F2C65324E2C2F300B5BBFE /* FCCXPSustainableContractCell.xib in Resources */,
 				D21E36FC214763AD0049CD04 /* FCCommonCell.xib in Resources */,
@@ -2679,6 +2715,7 @@
 				01AF5E6824CC0B7C00F5135F /* FCSymbolsDrawerController.swift in Sources */,
 				0140B22D25065B190042B56A /* FCPerpetualModifyView.swift in Sources */,
 				D23B079B215B331500EEEFC6 /* PCDropDownListView.m in Sources */,
+				D76ADC3825AC3B630034C88F /* FCTransferRecordModel.swift in Sources */,
 				D7F9C44524E4ED2100D739D1 /* FCCXPAssetQRCodeView.swift in Sources */,
 				D7706473253FDBDD00ECD9B6 /* YTKBatchRequest.m in Sources */,
 				D274865F213E290D0062765B /* ExampleAPI.m in Sources */,
@@ -2706,6 +2743,7 @@
 				D782045A256C9F9D00B8AFA2 /* FCInputBoxTextFieldView.m in Sources */,
 				D79F7F5524F1F43500ABF0C5 /* FCApi_phone_modify_confirm.swift in Sources */,
 				D7162A4225060C1D002095FA /* FCContractHistroyDetailVC.swift in Sources */,
+				D76ADC8A25B065500034C88F /* FCDigitalListViewController.m in Sources */,
 				0187163B249529ED003380C3 /* FCRegularExpression.swift in Sources */,
 				D76C3BBA2515F1BE00EA88E6 /* FCApi_swap_add_optional.swift in Sources */,
 				D23E260C2147DD3800E52B8D /* FCCrypto.swift in Sources */,
@@ -2761,6 +2799,7 @@
 				015C7756215371DC00F4C8FA /* APIOrder_allcurrentorders.m in Sources */,
 				D78856B825456268001F8787 /* FCProfitLossShareView.swift in Sources */,
 				0138E4C02501CB1000A07709 /* FCPerpetualEntrustController.swift in Sources */,
+				D76ADC8D25B065A00034C88F /* FCDigitalListCell.m in Sources */,
 				D7F9C46124E5705500D739D1 /* UIButton+Gradient.m in Sources */,
 				01B305A224BE4101001FF01A /* FCKLineRestingView.swift in Sources */,
 				D77B4DF52536EF9B002AAF51 /* FCApi_trigger_order_cancel.swift in Sources */,
@@ -2800,6 +2839,7 @@
 				D76FDFD624FE6920006AB263 /* FCCXPAssetTransferController.swift in Sources */,
 				0174C01C24DFEBAF0010CC52 /* FCTradeUtil.swift in Sources */,
 				01957D80250F051700A65DEF /* FCApi_Contract_cancel.swift in Sources */,
+				D76ADC4225AC43A70034C88F /* FCTransferRecordCell.swift in Sources */,
 				D2748672213E290D0062765B /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
 				D2748847213E295A0062765B /* PCCMethod.c in Sources */,
 				0138E4C32501CD5100A07709 /* FCPerpetualEntrustListCell.swift in Sources */,
@@ -2816,6 +2856,7 @@
 				D76AEA6C24EBC19F0064A879 /* FCGesturePasswordController.swift in Sources */,
 				D77F518A25393F3A00E8D62A /* FCContractsEntrustListController.swift in Sources */,
 				D77C97CE25285F81008A947B /* FCCXPChargeInstruView.swift in Sources */,
+				D76ADC8F25B0747A0034C88F /* FCDigitalCurrencyCell.swift in Sources */,
 				D2591F7A214F43BE0068C23B /* FCUserDefaults.swift in Sources */,
 				D7837D9D2541158C006ADE6C /* FCApi_Password_ResetConfirm.swift in Sources */,
 				01B305A824BE4185001FF01A /* FCKLineDealModel.swift in Sources */,
@@ -2845,6 +2886,7 @@
 				D76DE2A02511F8DA00D6A389 /* FCContractDepthAlertVeiw.swift in Sources */,
 				D2724D18213E1E1A002E43CD /* AppDelegate.swift in Sources */,
 				015C7757215371DC00F4C8FA /* APIOrder_cancel.m in Sources */,
+				D77EF30525A9ECDB00567571 /* FCTransferrecordController.swift in Sources */,
 				D78958C2251DBA5400681280 /* FCApi_transfer_records.swift in Sources */,
 				D2748658213E290D0062765B /* APIAccount_check_phone.m in Sources */,
 				D769659024FA31000010FFD4 /* FCPositionInfoModel.swift in Sources */,
@@ -2892,6 +2934,7 @@
 				015C7760215371EB00F4C8FA /* APIOrder_preplace.m in Sources */,
 				D7714672250E05F7008660F7 /* FCContractsModel.swift in Sources */,
 				D737D81124E00209000DC48A /* FCHomeAgreementView.swift in Sources */,
+				D79EC2C625B2E968001FEAD1 /* FCVersionUpdatingView.swift in Sources */,
 				01B80FE324B87B57009080CD /* FCApi_delete_optional.m in Sources */,
 				D2748670213E290D0062765B /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
 				D2591F7C214F44030068C23B /* FCUserInfoManager.swift in Sources */,
@@ -2900,6 +2943,7 @@
 				D77D3EF3257C86FE0016EDF1 /* FCApi_home_feed.swift in Sources */,
 				01DF50F524992DB200A36D37 /* FCSelectForm.swift in Sources */,
 				0169FC7C24F7DBAD00FC3488 /* FCTradeEntrustModel.swift in Sources */,
+				D79EC2C425B2E283001FEAD1 /* FCApi_check_update.swift in Sources */,
 				D76FDFCF24FE416C006AB263 /* FCBillContractModel.swift in Sources */,
 				D274884B213E295A0062765B /* NSDictionary+PreventNull.m in Sources */,
 				D745183424FCD7360001056E /* FCApi_trading_strategy.swift in Sources */,
@@ -3090,7 +3134,7 @@
 				CODE_SIGN_ENTITLEMENTS = FlyCatAdministration/FlyCatAdministration.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2FMQBP2224;
 				ENABLE_BITCODE = NO;
@@ -3144,7 +3188,7 @@
 				CODE_SIGN_ENTITLEMENTS = FlyCatAdministration/FlyCatAdministration.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2FMQBP2224;
 				ENABLE_BITCODE = NO;

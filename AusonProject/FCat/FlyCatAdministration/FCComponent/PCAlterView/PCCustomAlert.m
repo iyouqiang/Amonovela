@@ -36,11 +36,11 @@
         return nil;
     }
     
-    PCCustomAlert *alert =[kAPPDELEGATE.window viewWithTag:198];
+    PCCustomAlert *alert =[kAPPDELEGATE.window viewWithTag:1998];
     if (!alert) {
     
         alert = [[PCCustomAlert alloc] init];
-        alert.tag = 198;
+        alert.tag = 1998;
     }
     
     alert.backgroundColor = COLOR_PartColor;
@@ -53,6 +53,34 @@
     alert.clipsToBounds = YES;
     
     [alert loadCustomAlert];
+    
+    return alert;
+}
+
+/** 界面完全外部自定义 中间弹窗 */
++ (instancetype _Nullable )alertCustomCenterPointView:(UIView *_Nullable)customView
+{
+    PCCustomAlert *alert = [[PCCustomAlert alloc] init];
+    alert.arbitrarilyDisappear = NO;
+    alert.frame = CGRectMake(0, 0, kSCREENWIDTH, kSCREENHEIGHT);
+    [alert addSubview:alert.shadeView];
+    [kAPPDELEGATE.window addSubview:alert];
+    
+    if (customView) {
+        
+        [customView setUserInteractionEnabled:YES];
+        customView.layer.cornerRadius = 10;
+        customView.clipsToBounds = YES;
+        customView.frame = CGRectMake(30, (kSCREENHEIGHT - CGRectGetHeight(customView.frame))/2.0, kSCREENWIDTH - 60, CGRectGetHeight(customView.frame));
+        [alert addSubview:customView];
+        
+        customView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.15, 1.15);
+        customView.alpha = 0.0;
+        [UIView animateWithDuration:0.2 animations:^{
+            customView.transform = CGAffineTransformIdentity;
+            customView.alpha = 1.0;
+        }];
+    }
     
     return alert;
 }
@@ -159,7 +187,7 @@
         
         /// 底部按钮界面
         FCShareItemView *itemView = [[[NSBundle mainBundle] loadNibNamed:@"FCShareItemView" owner:nil options:nil] lastObject];
-        itemView.frame = CGRectMake(0, kSCREENHEIGHT + customView.frame.size.height, kSCREENWIDTH, 170);
+        itemView.frame = CGRectMake(0, kSCREENHEIGHT + customView.frame.size.height, CGRectGetWidth(customView.frame), CGRectGetHeight(customView.frame));
         itemView.clipsToBounds = YES;
         itemView.layer.cornerRadius = 8;
         [alert addSubview:itemView];
@@ -173,7 +201,7 @@
             [alert disappearAlert];
         };
         
-        CGFloat scaleVale = 0.8;
+        CGFloat scaleVale = 0.9;
         
         if (iPhonePlusPRO) {scaleVale = 1.0;};
         
@@ -181,8 +209,8 @@
         
         #elif defined TARGET_VERSION_CXP
         
-        scaleVale = 0.5;
-        if (iPhonePlusPRO) {scaleVale = 0.6;};
+        scaleVale = 0.8;
+        if (iPhonePlusPRO) {scaleVale = 0.9;};
 
         #else
         
@@ -192,9 +220,9 @@
         
         [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.85 initialSpringVelocity:1.0 options:(UIViewAnimationOptionTransitionFlipFromBottom) animations:^{
             
-            customView.frame = CGRectMake(20, kNAVIGATIONHEIGHT - 20 - topSpace, kSCREENWIDTH - 40, CGRectGetHeight(customView.frame));
+            customView.frame = CGRectMake(20, kNAVIGATIONHEIGHT - 20 - topSpace, CGRectGetWidth(customView.frame), CGRectGetHeight(customView.frame));
             
-            itemView.frame = CGRectMake(0,  kSCREENHEIGHT - 165, kSCREENWIDTH, 170);
+            itemView.frame = CGRectMake(0,  kSCREENHEIGHT - 165, CGRectGetWidth(customView.frame), CGRectGetHeight(customView.frame));
             
         } completion:^(BOOL finished) {
             
@@ -491,7 +519,6 @@
     }
     
     alertHeight = alertHeight + 50;
-    
     _totlaheight = alertHeight;
 }
 
@@ -633,6 +660,12 @@
     if (!self.arbitrarilyDisappear) {
         return;
     }
+    
+    [self cloasAlertView];
+}
+
+- (void)cloasAlertView
+{
     [UIView animateWithDuration:0.2 animations:^{
         
         self.shadeView.alpha = 0.0;
@@ -696,7 +729,7 @@
         _shadeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kSCREENWIDTH, kSCREENHEIGHT)];
         _shadeView.tag = 199;
         _shadeView.backgroundColor = [UIColor blackColor];
-        _shadeView.alpha = 0.6;
+        _shadeView.alpha = 0.7;
         
         // UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disappearAlert)];
         // [_shadeView addGestureRecognizer:tapGesture];

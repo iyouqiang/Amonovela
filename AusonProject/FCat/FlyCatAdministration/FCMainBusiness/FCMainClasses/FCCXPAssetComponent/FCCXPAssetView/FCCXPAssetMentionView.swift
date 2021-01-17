@@ -107,7 +107,7 @@ class FCCXPAssetMentionView: UIView {
         })
         
         let lineView = UIView()
-        lineView.backgroundColor = COLOR_TabBarBgColor
+        lineView.backgroundColor = COLOR_PartingLineColor
         addSubview(lineView)
         lineView.snp.makeConstraints { (make) in
             

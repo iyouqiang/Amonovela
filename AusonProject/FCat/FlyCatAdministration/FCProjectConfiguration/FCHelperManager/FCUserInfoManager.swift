@@ -20,6 +20,7 @@ open class FCUserInfoManager: NSObject {
     @objc var userId: String?
     @objc var userInfo: FCUserInfoModel?
     @objc var configModel: FCSystemConfigModel?
+    @objc var updateModel: FCAppUpdateModel?
     
     override public init() {
         super.init()

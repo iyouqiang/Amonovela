@@ -109,7 +109,7 @@ class FCSingleAssetsCell: UITableViewCell {
         self.menuView.isHidden = true
         ContentBgView.layer.cornerRadius = 8
         ContentBgView.backgroundColor = COLOR_HexColor(0x202933)
-        self.contentView.backgroundColor = COLOR_HexColor(0x0C141A)
+        self.contentView.backgroundColor = COLOR_PartingLineColor
         self.symbolTitleL.font = UIFont(_DINProBoldTypeSize: 16)
         self.assetFreezeL.font = UIFont(_DINProBoldTypeSize: 17)
         self.assetEquivalentL.font = UIFont(_DINProBoldTypeSize: 17)

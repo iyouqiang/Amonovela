@@ -61,7 +61,7 @@ class FCContractHistoryCell: UITableViewCell {
         
         let profitShareView = Bundle.main.loadNibNamed("FCProfitLossShareView", owner: nil, options:     nil)?.first as? FCProfitLossShareView
         
-        profitShareView?.frame = CGRect(x: 20, y: 0, width: kSCREENWIDTH - 40, height: 520)
+        profitShareView?.frame = CGRect(x: 20, y: 0, width: kSCREENWIDTH - 40, height: kSCREENWIDTH - 40)
         
         profitShareView?.shareModel = model.pnlShare
         

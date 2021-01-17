@@ -39,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 上传设备信息
         self.reportDeviceInfo()
         
+        // APP 版本更新
+        self.appVersionUpdating()
+        
         //bugly配置
         self.configureBugly()
         

@@ -34,7 +34,7 @@ class FCAccountAssetInfoView: UIView {
         totalAssetView?.layer.cornerRadius = 8
         totalAssetView?.clipsToBounds = true
         headerView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 155))
-        headerView.backgroundColor = COLOR_HexColor(0x0C141A)
+        headerView.backgroundColor = COLOR_PartingLineColor
         headerView.addSubview(totalAssetView!)
         
         totalAssetView?.hideMicroBlock = {
@@ -66,7 +66,7 @@ class FCAccountAssetInfoView: UIView {
         //assetTableView.separatorColor = COLOR_TabBarBgColor
         assetTableView.separatorStyle = .none
         assetTableView.layer.masksToBounds = true
-        assetTableView.backgroundColor = COLOR_HexColor(0x0C141A)
+        assetTableView.backgroundColor = COLOR_PartingLineColor
         addSubview(assetTableView)
         assetTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()

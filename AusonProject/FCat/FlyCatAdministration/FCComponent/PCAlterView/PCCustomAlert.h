@@ -48,6 +48,9 @@ typedef enum : NSUInteger {
 /** 界面完全外部自定义 底部弹窗 */
 + (instancetype _Nullable )alertCustomView:(UIView *_Nullable)customView;
 
+/** 界面完全外部自定义 中间弹窗 */
++ (instancetype _Nullable )alertCustomCenterPointView:(UIView *_Nullable)customView;
+
 /// 分享弹窗
 + (instancetype _Nullable )alertShareCustomView:(UIView *_Nullable)customView;
 
@@ -67,5 +70,7 @@ typedef enum : NSUInteger {
 - (void)presentViewAlert;
 
 - (void)disappearAlert;
+
+- (void)cloasAlertView;
 
 @end

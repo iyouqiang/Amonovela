@@ -23,6 +23,7 @@ class FCCXPAssetOptionController: UIViewController {
     var mainScrollView:UIScrollView?
     var assetsArray = [FCAllAssetsConfigModel]()
     var symbolTitleL: UILabel!
+    var symbolImgView: UIImageView!
     
     lazy var assetsdropDown: DropDown = {
         let dropMoreAssetsDown = DropDown()
@@ -44,7 +45,12 @@ class FCCXPAssetOptionController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = COLOR_BGColor
+        self.view.backgroundColor = COLOR_PartingLineColor
+        
+        var navTitle = "提币"
+        if assetOptionType == .AssetOptionType_deposit {
+            navTitle = "充币"
+        }
         
         /// 配置资产列表 默认显示第一个
         self.requestWalletAllAssetConfig()
@@ -70,26 +76,52 @@ class FCCXPAssetOptionController: UIViewController {
         let containerView = UIView()
         self.mainScrollView?.addSubview(containerView)
     
+        let naviTitleView = UIView()
+        containerView.addSubview(naviTitleView)
+        naviTitleView.backgroundColor = COLOR_navBgColor
+        naviTitleView.snp.makeConstraints { (make) in
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(80)
+        }
+        
+        let naviTitleL = fc_labelInit(text: navTitle, textColor: .white, textFont: UIFont(_PingFangSCTypeSize: 24), bgColor: .clear)
+        naviTitleView.addSubview(naviTitleL)
+        naviTitleL.snp_makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.right.equalTo(-15)
+            make.bottom.equalTo(-15)
+        }
+        
         /// 选择币种
         let selectCurrencyView = UIView()
-        selectCurrencyView.backgroundColor = COLOR_BGColor
+        selectCurrencyView.backgroundColor = COLOR_PartingLineColor
         containerView.addSubview(selectCurrencyView)
         
         selectCurrencyView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.top.equalTo(0)
+            make.top.equalTo(naviTitleView.snp_bottom)
             make.height.equalTo(60)
         }
         
         let symbolTitleL = UILabel()
         //symbolTitleL.text = "USDT"
-        symbolTitleL.font = UIFont(_PingFangSCTypeSize: 16)
-        symbolTitleL.textColor = COLOR_ChartAxisColor
+        symbolTitleL.font = UIFont(_DINProBoldTypeSize: 17)
+        symbolTitleL.textColor = .white
         selectCurrencyView.addSubview(symbolTitleL)
         self.symbolTitleL = symbolTitleL
+        
+        let symbolImgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        selectCurrencyView.addSubview(symbolImgView)
+        symbolImgView.snp.makeConstraints { (make) in
+            make.left.equalTo(15)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(25)
+        }
+        self.symbolImgView = symbolImgView
+        
         symbolTitleL.snp.makeConstraints { (make) in
             
-            make.left.equalTo(15)
+            make.left.equalTo(symbolImgView.snp_right).offset(5)
             make.bottom.top.equalToSuperview()
             make.width.equalTo(100)
         }
@@ -98,7 +130,7 @@ class FCCXPAssetOptionController: UIViewController {
         selectedL.text = "选择币种"
         selectedL.textAlignment = .right
         selectedL.font = UIFont(_PingFangSCTypeSize: 16)
-        selectedL.textColor = COLOR_RichBtnTitleColor
+        selectedL.textColor = COLOR_MinorTextColor
         selectCurrencyView.addSubview(selectedL)
         
         let arrowImgView = UIImageView.init(image: UIImage.init(named: "cell_arrow_right"))
@@ -115,7 +147,6 @@ class FCCXPAssetOptionController: UIViewController {
         }
         
         self.assetsdropDown.selectionAction = { [weak self] (index: Int, item: String) in
-            
             self?.configListView(index: index)
         }
         
@@ -135,20 +166,20 @@ class FCCXPAssetOptionController: UIViewController {
         }
         
         let lineView = UIView()
-        lineView.backgroundColor = COLOR_TabBarBgColor
+        lineView.backgroundColor = .black
         containerView.addSubview(lineView)
         lineView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
             make.top.equalTo(selectCurrencyView.snp_bottom)
-            make.height.equalTo(15)
+            make.height.equalTo(3)
         }
         
         if assetOptionType == .AssetOptionType_deposit {
-            self.title = "充币"
+            //self.title = "充币"
             
             // 充币界面
             assetChargeView = FCCXPAssetChargeView()
-            assetChargeView?.backgroundColor = COLOR_BGColor
+            assetChargeView?.backgroundColor = COLOR_PartingLineColor
             containerView.addSubview(assetChargeView!)
             assetChargeView?.snp.makeConstraints { (make) in
                 make.top.equalTo(lineView.snp_bottom)
@@ -161,11 +192,11 @@ class FCCXPAssetOptionController: UIViewController {
              }
             
         }else if (assetOptionType == .AssetOptionType_withdraw) {
-                self.title = "提币"
+                //self.title = "提币"
             
             // 提币界面
             assetMentionView = FCCXPAssetMentionView()
-            assetMentionView?.backgroundColor = COLOR_BGColor
+            assetMentionView?.backgroundColor = COLOR_PartingLineColor
             containerView.addSubview(assetMentionView!)
             assetMentionView?.snp.makeConstraints { (make) in
                 make.top.equalTo(lineView.snp_bottom)
@@ -192,7 +223,30 @@ class FCCXPAssetOptionController: UIViewController {
             return
         }
         
-        self.assetsdropDown.show()
+        let listVC = FCDigitalListViewController()
+        listVC.assetsArry = self.assetsArray
+        listVC.modalPresentationStyle = .fullScreen
+        self.present(listVC, animated: true) {
+            
+        }
+        
+        listVC.callBackItemBlock = { model in
+            
+            let configModel = model as! FCAllAssetsConfigModel
+            
+            self.symbolTitleL.text = configModel.asset
+            self.symbolImgView.sd_setImage(with: URL(string: configModel.iconUrl), completed: nil)
+            /// 配置下拉列表
+            if self.assetOptionType == .AssetOptionType_deposit {
+                
+                self.assetChargeView?.configModel = configModel
+                
+            }else if (self.assetOptionType == .AssetOptionType_withdraw) {
+             
+                self.assetMentionView?.configModel = configModel
+            }
+        }
+        //self.assetsdropDown.show()
     }
     
     func configListView(index: Int) {
@@ -204,6 +258,7 @@ class FCCXPAssetOptionController: UIViewController {
         let configModel = assetsArray[index]
         
         symbolTitleL.text = configModel.asset
+        self.symbolImgView.sd_setImage(with: URL(string: configModel.iconUrl), completed: nil)
         
         /// 配置下拉列表
         if assetOptionType == .AssetOptionType_deposit {

@@ -28,7 +28,7 @@ class FCHomeAgreementView: UIView {
     @IBOutlet weak var tradingSkillView: UIView!
     var inviteFriendBlock: FCClickInviteFriendBlcok?
     var tradingSkillBlock: FCClickTradingSkillBlcok?
-    
+    var activityBlock: (() -> Void)?
     @IBAction func inviteFriendAction(_ sender: Any) {
         
         if let inviteFriendBlock = self.inviteFriendBlock {
@@ -45,7 +45,12 @@ class FCHomeAgreementView: UIView {
      
     @IBAction func gotoContractAction(_ sender: Any) {
         
-        kAPPDELEGATE?.tabBarViewController.showContractAccount()
+        if let activityBlock = self.activityBlock {
+            
+            activityBlock()
+        }
+        
+        //kAPPDELEGATE?.tabBarViewController.showContractAccount()
     }
     
     override func awakeFromNib() {

@@ -54,7 +54,8 @@ class FCProfitLossShareView: UIView {
                 longShortLeverL.backgroundColor = COLOR_FailColor
                 longShortLeverL.text = " 做空 \(leverage) "
             }
-                        
+                     
+            /**
             if pnlRateFloat >= 0 {
                 
                 themeImgView.image = UIImage(named: "shareProfitIcon")
@@ -66,11 +67,12 @@ class FCProfitLossShareView: UIView {
                 themeImgView.image = UIImage(named: "shareLossIcon")
                 longShortLeverL.backgroundColor = COLOR_FailColor
             }
+             */
             
             currentPriceL.text = shareModel.closePrice
             openPriceL.text = shareModel.openPrice
             
-            let qrcodeUrl = shareModel.qrcodeUrl ?? "https://testflight.apple.com/join/k0eHFEwv"
+            let qrcodeUrl = shareModel.qrcodeUrl ?? "https://testflight.apple.com/join/v4BgzvMJ"
             
             if (qrUrl != qrcodeUrl) {
                 
@@ -98,7 +100,8 @@ class FCProfitLossShareView: UIView {
         self.longShortLeverL.layer.cornerRadius = 3
         self.longShortLeverL.clipsToBounds = true
         
-        productNameL.text = NSString.getAppName()
+        productNameL.text = "下载安森APP"
+            //NSString.getAppName()
         /**
         let qrcode = FCQRCodeTool()
         let image = qrcode.setupQRCodeImage("https://testflight.apple.com/join/k0eHFEwv", image: nil, successBlock: {

@@ -106,7 +106,7 @@ class FCHomeCompositeView: UIView {
         let imageSize:CGSize = fastBuyCoinsBtn.imageView!.frame.size
         let titleSize:CGSize = fastBuyCoinsBtn.titleLabel!.frame.size
         fastBuyCoinsBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left:-imageSize.width, bottom: -imageSize.height - 5, right: 0)
-        fastBuyCoinsBtn.imageEdgeInsets = UIEdgeInsets(top: -titleSize.height - 5, left: 0, bottom: 0, right: -titleSize.width - 10)
+        fastBuyCoinsBtn.imageEdgeInsets = UIEdgeInsets(top: -titleSize.height - 5, left: 0, bottom: 0, right: -65)
         
         self.fastRechangeBtn = fc_buttonInit(imgName: "home_fastrechange", title: "快速充币", fontSize: 16, titleColor: UIColor.white, bgColor: COLOR_HexColor(0x232A3F))
         self.fastRechangeBtn.addTarget(self, action: #selector(fastRechangeAction), for: .touchUpInside)
@@ -115,8 +115,7 @@ class FCHomeCompositeView: UIView {
         self.addSubview(self.fastRechangeBtn)
         self.fastRechangeBtn.frame = CGRect(x: 0, y: 0, width: itemwidth, height: bannerView.frame.height/2.0 - 8)
         fastRechangeBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left:-imageSize.width, bottom: -imageSize.height - 5, right: 0)
-        fastRechangeBtn.imageEdgeInsets = UIEdgeInsets(top: -titleSize.height - 5, left: 0, bottom: 0, right: -titleSize.width - 10)
-        
+        fastRechangeBtn.imageEdgeInsets = UIEdgeInsets(top: -titleSize.height - 5, left: 0, bottom: 0, right: -65)
         self.fastRechangeBtn.snp_makeConstraints { (make) in
             make.left.equalTo(self.bannerView.snp_right).offset(15)
             make.top.equalTo(self.bannerView.snp_top)
@@ -370,6 +369,17 @@ extension FCHomeCompositeView {
                 self?.parentVC?.navigationController?.pushViewController(webVC, animated: true)
             }
 
+        }
+        
+        agreeMentView.activityBlock = {
+            
+            [weak self] in
+            
+            let jumpModel = FCUserInfoManager.sharedInstance.configModel?.jumps[activity_jumpkey]
+            
+            let webVC = PCWKWebHybridController.init(url: URL(string: jumpModel?.jumpLink ?? ""))!
+            webVC.hidesBottomBarWhenPushed = true
+            self?.parentVC?.navigationController?.pushViewController(webVC, animated: true)
         }
         
         agreeMentView.tradingSkillBlock = {

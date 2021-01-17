@@ -25,12 +25,17 @@ class FCCXPAssetTransferController: UIViewController {
     @IBOutlet weak var transferbaseView: UIView!
     @IBOutlet weak var transferTextField: UITextField!
     
+    @IBOutlet weak var topAssetTypeL: UILabel!
+    @IBOutlet weak var bottomAssetTypeL: UILabel!
     @IBOutlet weak var symbolArrowIcon: UIImageView!
-    
     @IBOutlet weak var firstArrowIcon: UIButton!
-    
     @IBOutlet weak var secondArrowIcon: UIButton!
+    @IBOutlet weak var topDotView: UIView!
+    @IBOutlet weak var bottomDotView: UIView!
+    @IBOutlet weak var spotIcon: UIImageView!
     
+    @IBOutlet weak var navTitleView: UIView!
+    @IBOutlet weak var contractIcon: UIImageView!
     let disposebag = DisposeBag()
     var configBtn:FCThemeButton!
     
@@ -91,16 +96,30 @@ class FCCXPAssetTransferController: UIViewController {
     }()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.title = "划转"
+        //self.title = "划转"
+        
         self.edgesForExtendedLayout = .all
-        bgView1.backgroundColor = COLOR_BGColor
-        bgView2.backgroundColor = COLOR_BGColor
-        bgView3.backgroundColor = COLOR_BGColor
-        transferbaseView.backgroundColor = COLOR_TabBarBgColor
-        self.view.backgroundColor = COLOR_TabBarBgColor
+        bgView1.backgroundColor = COLOR_PartingLineColor
+        bgView2.backgroundColor = COLOR_navBgColor
+        bgView3.backgroundColor = COLOR_PartingLineColor
+        transferbaseView.backgroundColor = COLOR_PartingLineColor
+        self.view.backgroundColor = COLOR_PartingLineColor
+        self.navTitleView.backgroundColor = COLOR_navBgColor
+        self.topDotView.backgroundColor = COLOR_HexColor(0x1971D7)
+        self.bottomDotView.backgroundColor = COLOR_HexColor(0xFFC400)
+        
+        self.transferTextField.attributedPlaceholder = NSAttributedString.init(string: "输入数量", attributes: [NSAttributedString.Key.font:UIFont(_PingFangSCTypeSize: 14),NSAttributedString.Key.foregroundColor:COLOR_HexColor(0x6A6A6E)])
+        
+        self.addrightNavigationItemImgNameStr("", title: "划转记录", textColor: COLOR_HexColor(0x828D9C), textFont: UIFont(_PingFangSCTypeSize: 15)) {
+            [weak self] in
+            
+            let transferRecord = FCTransferrecordController()
+            self?.navigationController?.pushViewController(transferRecord, animated: true)
+        }
         
         configBtn = FCThemeButton.init(title: "确定划转", frame:CGRect(x: 0, y: 0, width: kSCREENWIDTH - CGFloat(2 * kMarginScreenLR), height: 50) , cornerRadius: 4)
         self.view.addSubview(configBtn)
@@ -131,11 +150,29 @@ class FCCXPAssetTransferController: UIViewController {
                 self?.currentOptionalModel = model
                 
                 if self?.actionStr == "accounts" {
-                           
+                    if model.type == "Otc" {
+                        self?.bottomDotView.backgroundColor = COLOR_RiseColor
+                        self?.bottomAssetTypeL.text = "法"
+                        self?.bottomAssetTypeL.backgroundColor = COLOR_RiseColor
+                    }else {
+                        self?.bottomDotView.backgroundColor = COLOR_MainThemeColor
+                        self?.bottomAssetTypeL.text = "合"
+                        self?.bottomAssetTypeL.backgroundColor = COLOR_HexColor(0xFFC400)
+                    }
                     self?.totransferL.text = model.name
                     self?.secondAccount = model.type ?? ""
                 }else {
-                           
+                         
+                    if model.type == "Otc" {
+                        self?.topDotView.backgroundColor = COLOR_RiseColor
+                        self?.topAssetTypeL.text = "法"
+                        self?.topAssetTypeL.backgroundColor = COLOR_RiseColor
+                    }else {
+                        self?.topDotView.backgroundColor = COLOR_HexColor(0xFFC400)
+                        self?.topAssetTypeL.text = "合"
+                        self?.topAssetTypeL.backgroundColor = COLOR_HexColor(0xFFC400)
+                    }
+                    
                     self?.firstAccount = model.type ?? ""
                     self?.fromtransferL.text = model.name
                 }
@@ -147,20 +184,54 @@ class FCCXPAssetTransferController: UIViewController {
         
         /// 获取账户配置信息
         requestTransferconfigData()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.transferTextField.becomeFirstResponder()
+        //self.transferTextField.becomeFirstResponder()
     }
     
     @IBAction func showSymbolListView(_ sender: UIButton) {
         
         if self.assetsdropDown.dataSource.count > 0 {
             
-            self.assetsdropDown.show()
+            //self.assetsdropDown.show()
+            /// 选择列表 supportAssetsModel
+            let listVC = FCDigitalListViewController()
+            var tempAsset = [FCAllAssetsConfigModel]()
+            
+            if let supportAssets = self.supportAssetsModel?.supportAssets {
+                
+                for model in supportAssets {
+                    let assetModel = FCAllAssetsConfigModel()
+                    assetModel.asset = model.asset ?? "";
+                    assetModel.iconUrl = model.iconUrl ?? "";
+                    assetModel.name = model.name ?? "";
+                    tempAsset.append(assetModel);
+                }
+            }
+            
+            listVC.assetsArry = tempAsset
+            listVC.modalPresentationStyle = .fullScreen
+            self.present(listVC, animated: true) {
+                
+            }
+            
+            listVC.callBackItemBlock = { model in
+                
+                let tempModel = model as! FCAllAssetsConfigModel
+                
+                let configModel = FCSupportSubAsset()
+                configModel.asset = tempModel.asset;
+                configModel.iconUrl = tempModel.iconUrl;
+                configModel.name = tempModel.name;
+                
+                self.currentAssetModel = configModel
+                self.symbolL.text = configModel.asset
+                self.refreshAssetData(asset: configModel.asset ?? "")
+            }
+            
         }else {
             
             self.requestTransferSupportAssets()
@@ -177,7 +248,26 @@ class FCCXPAssetTransferController: UIViewController {
         
         if self.actionStr == "accounts" {
             
+            self.bottomAssetTypeL.text = "币"
+            self.bottomAssetTypeL.backgroundColor = COLOR_HexColor(0x1971D7)
+            
+            if self.currentOptionalModel?.type == "Otc" {
+                
+                self.topAssetTypeL.text = "法"
+                self.topAssetTypeL.backgroundColor = COLOR_RiseColor
+                self.topDotView.backgroundColor    = COLOR_RiseColor
+            }else {
+                
+                self.topAssetTypeL.text = "合"
+                self.topAssetTypeL.backgroundColor = COLOR_HexColor(0xFFC400)
+                self.topDotView.backgroundColor    = COLOR_HexColor(0xFFC400)
+            }
+            
             /// 合约或者法币账户
+            self.bottomDotView.backgroundColor = COLOR_HexColor(0x1971D7)
+            self.spotIcon.image = UIImage(named: "asset_contract")
+            self.contractIcon.image = UIImage(named: "asset_spot")
+            
             self.actionStr = "opponentAccounts"
             self.firstArrowIcon.isHidden = false
             self.secondArrowIcon.isHidden = true
@@ -189,14 +279,34 @@ class FCCXPAssetTransferController: UIViewController {
             
         }else {
             
+            
+            self.topAssetTypeL.text = "币"
+            self.topAssetTypeL.backgroundColor = COLOR_HexColor(0x1971D7)
+            
+            if self.currentOptionalModel?.type == "Otc" {
+                
+                self.bottomAssetTypeL.text = "法"
+                self.bottomAssetTypeL.backgroundColor = COLOR_RiseColor
+                self.bottomDotView.backgroundColor = COLOR_RiseColor
+            }else {
+                
+                self.bottomAssetTypeL.text = "合"
+                self.bottomAssetTypeL.backgroundColor = COLOR_HexColor(0xFFC400)
+                self.bottomDotView.backgroundColor = COLOR_HexColor(0xFFC400)
+            }
+            
             /// 币币账户
+            self.topDotView.backgroundColor = COLOR_HexColor(0x1971D7)
+            
+            self.spotIcon.image = UIImage(named: "asset_spot")
+            self.contractIcon.image = UIImage(named: "asset_contract")
             self.actionStr = "accounts"
             self.firstArrowIcon.isHidden = true
             self.secondArrowIcon.isHidden = false
             self.accountDropDown.anchorView = self.secondArrowIcon
             self.fromtransferL.text = acountConfigModel?.name
             self.totransferL.text = currentOptionalModel?.name
-            self.firstAccount = acountConfigModel?.type ?? ""
+            self.firstAccount  = acountConfigModel?.type ?? ""
             self.secondAccount = currentOptionalModel?.type ?? ""
         }
         
@@ -217,7 +327,6 @@ class FCCXPAssetTransferController: UIViewController {
     @IBAction func firstAcountAction(_ sender: UIButton) {
         
         if self.actionStr == "opponentAccounts" {
-            
              self.accountDropDown.show()
         }
     }
@@ -237,11 +346,9 @@ class FCCXPAssetTransferController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
 extension FCCXPAssetTransferController {
-    
     
     /// 获取支持的币种
     func requestTransferSupportAssets() {
@@ -278,6 +385,9 @@ extension FCCXPAssetTransferController {
                         titleArray.append(model.asset ?? "")
                     }
                     
+                    self?.assetsdropDown.dataSource = titleArray
+                    
+                    /**
                     if titleArray.count > 1 {
                         self?.symbolArrowIcon.isHidden = false
                         self?.assetsdropDown.dataSource = titleArray
@@ -285,6 +395,7 @@ extension FCCXPAssetTransferController {
                         self?.symbolArrowIcon.isHidden = true
                         self?.assetsdropDown.dataSource = []
                     }
+                     */
                 }
                 
              }) { (errMsg) in
@@ -418,7 +529,6 @@ extension FCCXPAssetTransferController {
         if (transferValue > (self.maxBalance ?? 0.0) || transferValue == 0.0) {
             
             PCAlertManager.showAlertMessage("划转数据不正确")
-            
             return
         }
         
@@ -450,7 +560,6 @@ extension FCCXPAssetTransferController {
         }) { (resposne) in
             
         }
-         
     }
     
     /// 配置划转账户
@@ -475,7 +584,6 @@ extension FCCXPAssetTransferController {
         if let opponentAccounts = self.accountConfigModel?.opponentAccounts {
             
             for model in opponentAccounts {
-                
                 titleArray.append(model.name ?? "")
             }
             
@@ -509,7 +617,6 @@ extension FCCXPAssetTransferController {
             
             self.firstAccount = currentOptionalModel?.type ?? ""
             self.secondAccount = acountConfigModel?.type ?? ""
-            
         }
          */
     }

@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import HandyJSON
 
 public let user_invitation_jumpkey = "user-invitation"
 public let help_center_jumpkey     = "help-center"
 public let user_kyc_jumpkey        = "user-kyc"
-public let easy_buy_coin           = "easy-buy-coin"
-public let fiat_assets             = "fiat-assets"
+public let easy_buy_coin_jumpkey   = "easy-buy-coin"
+public let fiat_assets_jumpkey     = "fiat-assets"
+public let usage_terms_jumpkey     = "usage-terms"
+public let privacy_statement_jumpkey = "privacy-statement"
+public let activity_jumpkey        = "activity"
 
 class FCAppJumpModel: NSObject {
 
@@ -74,5 +78,23 @@ class FCSystemConfigModel: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         countryCodes = aDecoder.decodeObject(forKey: "countryCodes") as? [FCCountryCodeModel] ?? [FCCountryCodeModel]()
         jumps = aDecoder.decodeObject(forKey: "jumps") as? [String:FCAppJumpModel] ?? [String:FCAppJumpModel]()
+    }
+}
+
+class FCAppUpdateModel: NSObject , HandyJSON, Codable {
+    
+    var downloadURL: String?
+    var isForceUpdate: Bool?
+    var needUpdate: Bool?
+    var packageSize: String?
+    var targetVersion: String?
+    var updateMsg: String?
+    
+    required public override init() {
+        
+    }
+    
+    static public func stringToObject(jsonData: [String : Any]?) -> FCAppUpdateModel{
+        return FCAppUpdateModel.deserialize(from: jsonData) ?? FCAppUpdateModel()
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +61,7 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGq-XX-rPn">
-                        <rect key="frame" x="130" y="58.5" width="120" height="19.5"/>
+                        <rect key="frame" x="150" y="58.5" width="120" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="ss6-gp-Nca"/>
                         </constraints>
@@ -91,7 +91,7 @@
                     <constraint firstItem="L9h-fb-Z1s" firstAttribute="leading" secondItem="WNR-To-kIt" secondAttribute="trailing" constant="8" id="0ks-fx-hKX"/>
                     <constraint firstItem="3Wi-5J-3Z5" firstAttribute="leading" secondItem="L9h-fb-Z1s" secondAttribute="leading" id="4qs-ba-gq2"/>
                     <constraint firstItem="oD6-ue-KfU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="85n-hG-fyK"/>
-                    <constraint firstItem="hGq-XX-rPn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="30" id="A0L-Cs-lQ4"/>
+                    <constraint firstItem="hGq-XX-rPn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="50" id="A0L-Cs-lQ4"/>
                     <constraint firstAttribute="trailing" secondItem="52h-Gl-pRe" secondAttribute="trailing" constant="25" id="GQb-n6-gRM"/>
                     <constraint firstItem="hGq-XX-rPn" firstAttribute="centerY" secondItem="52h-Gl-pRe" secondAttribute="centerY" id="Pcl-Gv-9GW"/>
                     <constraint firstItem="hGq-XX-rPn" firstAttribute="top" secondItem="L9h-fb-Z1s" secondAttribute="bottom" constant="-7" id="Siw-iL-iHa"/>
@@ -113,7 +113,7 @@
                 <outlet property="tradeSymbolL" destination="L9h-fb-Z1s" id="rdd-p1-SNN"/>
                 <outlet property="trademeasureL" destination="sCU-Oi-gbG" id="ydB-ZN-RSR"/>
             </connections>
-            <point key="canvasLocation" x="-342.02898550724638" y="50.223214285714285"/>
+            <point key="canvasLocation" x="-275" y="33"/>
         </tableViewCell>
     </objects>
 </document>

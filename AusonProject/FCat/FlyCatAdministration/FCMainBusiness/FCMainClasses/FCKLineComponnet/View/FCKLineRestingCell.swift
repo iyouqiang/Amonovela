@@ -55,7 +55,8 @@ class FCKLineRestingCell: UITableViewCell {
         let bidvolume = ((bidModel?.volume ?? "0.00") as NSString).floatValue
         
         let priceValue = ((bidModel?.price ?? "0.00") as NSString).floatValue
-        self.buyAmountLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(bidvolume))
+        self.buyAmountLab.text = bidModel?.volume
+            //KLineStateManger.manager.precisionSpecification(value: CGFloat(bidvolume))
         self.buyPriceLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(priceValue))
             // bidModel?.price
         self.buyDepth.constant = CGFloat(Double(kSCREENWIDTH - 30) * 0.5 * (bidModel?.barPercent ?? 0.0))
@@ -63,7 +64,8 @@ class FCKLineRestingCell: UITableViewCell {
         //卖
         let askValue = ((askModel?.price ?? "0.00") as NSString).floatValue
         let askvolume = ((askModel?.volume ?? "0.00") as NSString).floatValue
-        self.sellAmountLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(askvolume))
+        self.sellAmountLab.text = askModel?.volume
+            //KLineStateManger.manager.precisionSpecification(value: CGFloat(askvolume))
         self.sellPriceLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(askValue))
         let askWidth = CGFloat(Double(kSCREENWIDTH - 30) * 0.5 * (askModel?.barPercent ?? 0.0))
         self.sellDepth.constant = askWidth

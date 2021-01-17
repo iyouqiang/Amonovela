@@ -52,6 +52,20 @@ class FCRegisterController: UIViewController {
             make.bottom.equalToSuperview()
         })
         
+        self.registerView?.privateAgrBlock = {
+           
+            let jumpModel = FCUserInfoManager.sharedInstance.configModel?.jumps[privacy_statement_jumpkey]
+            let webVC = PCWKWebHybridController.init(url: URL(string: jumpModel?.jumpLink ?? ""))!
+            self.present(webVC, animated: true, completion: nil)
+        }
+        
+        self.registerView?.usertermBlock = {
+            
+            let jumpModel = FCUserInfoManager.sharedInstance.configModel?.jumps[usage_terms_jumpkey]
+            let webVC = PCWKWebHybridController.init(url: URL(string: jumpModel?.jumpLink ?? ""))!
+            self.present(webVC, animated: true, completion: nil)
+        }
+        
         /// 点击注册按钮
         self.registerView?.registerAction(callback: { [weak self] (loginType: FCLoginType, countryCode: String?, phone: String?, email:String?, password: String, code: String?) in
             self?.loginType = loginType

@@ -123,6 +123,7 @@ class FCSupportSubAsset:  NSObject, HandyJSON, Codable  {
     var asset: String?
     var balance: String?
     var name: String?
+    var iconUrl: String?
     
     required public override init() {
         
@@ -133,7 +134,7 @@ class FCSupportSubAsset:  NSObject, HandyJSON, Codable  {
     }
 }
 
-class FCSupportAssetsModel:  NSObject, HandyJSON, Codable  {
+class FCSupportAssetsModel: NSObject, HandyJSON, Codable  {
     
     var defaultAsset: String?
     var supportAssets:[FCSupportSubAsset]?
@@ -196,12 +197,13 @@ class FCChainsModel: NSObject, HandyJSON, Codable {
         return FCChainsModel.deserialize(from: jsonData) ?? FCChainsModel()
     }
 }
-
-class FCAllAssetsConfigModel: NSObject, HandyJSON, Codable {
+ class FCAllAssetsConfigModel: NSObject, HandyJSON, Codable {
     
-    var asset: String?
-    var chains:[FCChainsModel]?
-    var name: String?
+@objc   var asset = ""
+        var chains:[FCChainsModel]?
+@objc   var name = ""
+@objc var iconUrl = ""
+        var chainOptional: String?
     
     required public override init() {
         

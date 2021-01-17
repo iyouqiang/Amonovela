@@ -47,9 +47,11 @@ class FCKLineController: UIViewController {
         self.accountType = self.marketModel?.tradingType == "Perpetual" ? .tradingAccountType_swap : .tradingAccountType_spot
         
         if self.accountType == .tradingAccountType_swap {
-            self.buyBtn.setTitle("开多", for: .normal)
-            self.sellBtn.setTitle("开空", for: .normal)
+            self.buyBtn.setTitle("买入", for: .normal)
+            self.sellBtn.setTitle("卖出", for: .normal)
         }
+        
+        KLineStateManger.manager.setPriceDigitNum(self.marketModel?.priceDigitNum ?? 2)
         
         // Do any additional setup after loading the view.
         self.loadDrawer()
@@ -59,7 +61,6 @@ class FCKLineController: UIViewController {
         self.loadSubviews()
         
         /// 合约类型 现货 合约
-        KLineStateManger.manager.setPriceDigitNum(self.marketModel?.priceDigitNum ?? 2)
         self.klineHeaderView?.loadLastMarketData(model: self.marketModel)
         KLineHTTPTool.tool.accountType = self.accountType
         KLineRequestTool.tool.delegate = KLineHTTPTool.tool

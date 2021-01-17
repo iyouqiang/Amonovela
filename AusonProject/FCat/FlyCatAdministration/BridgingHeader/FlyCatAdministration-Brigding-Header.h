@@ -34,6 +34,7 @@
 #import "UIButton+Gradient.h"
 #import "FCUrlArgumentsFilter.h"
 #import "FCAPI_Account_logout.h"
+#import "FCDigitalListViewController.h"
 
 //bugly
 #import <Bugly/Bugly.h>

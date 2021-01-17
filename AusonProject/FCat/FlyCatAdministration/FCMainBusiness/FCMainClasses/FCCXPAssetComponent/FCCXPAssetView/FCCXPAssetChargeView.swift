@@ -112,13 +112,13 @@ class FCCXPAssetChargeView: UIView {
         
         /// 分割线
         let lineView = UIView()
-        lineView.backgroundColor = COLOR_TabBarBgColor
+        lineView.backgroundColor = .black
         addSubview(lineView)
         lineView.snp.makeConstraints { (make) in
             
             make.top.equalTo(assetQRCodeView!.snp_bottom)
             make.left.right.equalToSuperview()
-            make.height.equalTo(15)
+            make.height.equalTo(3)
         }
         
         /// 说明

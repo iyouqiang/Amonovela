@@ -37,7 +37,6 @@ class FCTradeHistoryListController: UIViewController {
         self.title = "历史记录"
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.resetStartTimeAndEndTime()

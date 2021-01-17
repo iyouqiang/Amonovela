@@ -19,7 +19,7 @@ class FCContractListController: UIViewController {
     let segmentedView = JXSegmentedView()
     var segmentedDataSource :JXSegmentedTitleDataSource?
     var searchbar: UISearchBar?
-    
+    var currentIndex:Int = 0
     var quotes: FCQuoteTypesModel?
     var tableView: UITableView?
     var searchResult: Array<FCContractsModel> = []
@@ -160,7 +160,6 @@ class FCContractListController: UIViewController {
             make.height.equalTo(10)
         })
         
-        
         self.tableView?.snp.makeConstraints({ (make) in
             make.top.equalTo(lineView.snp.bottom)
             make.left.equalToSuperview()
@@ -185,7 +184,8 @@ class FCContractListController: UIViewController {
                     self.loadDataSource()
                     //self.fetchQuoteTickers(index:0)
                     let count = self.segmentedView.selectedIndex
-                    self.fetchQuoteTickers(index:count)
+                    self.currentIndex = count
+                    self.fetchQuoteTickers()
                 }
                 
             }) { (errMsg) in
@@ -200,15 +200,23 @@ class FCContractListController: UIViewController {
         }
     }
     
-    func fetchQuoteTickers(index: Int) {
+    @objc func fetchQuoteTickers() {
+    
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(fetchQuoteTickers), object:nil)
+        self.perform(#selector(fetchQuoteTickers), with:nil, afterDelay: 2)
+        
+        self .requestTiming()
+    }
+    
+   @objc func requestTiming(){
         
         var tradeUnitStr = "COIN"
         if FCTradeSettingconfig.sharedInstance.tradeTradingUnit == .TradeTradingUnitType_CONT {
-            
             tradeUnitStr = "CONT"
         }
         
-        let contractGroup = FCApi_group_contracts(optional: self.quotes?.marketGroups?[index].group ?? "", tradingUnit: tradeUnitStr)
+    let index = self.currentIndex
+    let contractGroup = FCApi_group_contracts(optional: self.quotes?.marketGroups?[index].group ?? "", tradingUnit: tradeUnitStr)
         contractGroup.startWithCompletionBlock(success: { (response) in
             
             FCNetworkUtils.handleResponse(response: response, success: { (resData) in
@@ -248,7 +256,8 @@ class FCContractListController: UIViewController {
 extension FCContractListController: JXSegmentedViewDelegate {
     
     func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
-        self.fetchQuoteTickers(index: index)
+        self.currentIndex = index
+        self.fetchQuoteTickers()
     }
 }
 

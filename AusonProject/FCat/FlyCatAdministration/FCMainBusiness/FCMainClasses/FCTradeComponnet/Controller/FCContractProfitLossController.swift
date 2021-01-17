@@ -170,7 +170,6 @@ class FCContractProfitLossController: UIViewController {
         
         let timestampStr = NSString.timestampTo()
         let startDate = currentDateToWantDate(year: 0, month: -6, day: 0)
-        
         let startTimestamp = NSString.dateTotimestamp(startDate)
         
         let startTime: String = (startTimestamp! as NSString).timestampTodateFormatter("yyyy-MM-dd HH:mm:ss")!

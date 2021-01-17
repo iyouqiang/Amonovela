@@ -43,6 +43,9 @@ class FCRegisterView: UIView {
     typealias loginlock = () -> Void
     var loginCallback: loginlock?
     
+    var privateAgrBlock: (() -> Void)?
+    var usertermBlock: (() -> Void)?
+    
     /*
      // Only override draw() if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.
@@ -109,6 +112,30 @@ class FCRegisterView: UIView {
         self.addSubview(privacyAgreementL)
         privacyAgreementL.numberOfLines = 0
         
+        let privacyBtn = UIButton(type: .custom)
+        privacyBtn.tag = 10001
+        self.addSubview(privacyBtn)
+        privacyBtn.addTarget(self, action: #selector(useragreementClickAction(sender:)), for: .touchUpInside)
+        
+        let usertermBtn = UIButton(type: .custom)
+        usertermBtn.tag = 10002
+        self.addSubview(usertermBtn)
+        usertermBtn.addTarget(self, action: #selector(useragreementClickAction(sender:)), for: .touchUpInside)
+        
+        usertermBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(privacyAgreementL.snp_left).offset(80)
+            make.top.equalTo(privacyAgreementL.snp_top)
+            make.bottom.equalTo(privacyAgreementL.snp_bottom)
+            make.width.equalTo(52)
+        }
+        
+        privacyBtn.snp.makeConstraints { (make) in
+            make.left.equalTo(usertermBtn.snp_right).offset(18)
+            make.top.equalTo(privacyAgreementL.snp_top)
+            make.bottom.equalTo(privacyAgreementL.snp_bottom)
+            make.width.equalTo(52)
+        }
+        
         privacyAgreementL.setAttributeColor(COLOR_MainThemeColor, range: NSRange(location: 8, length: 4))
         privacyAgreementL.setAttributeColor(COLOR_MainThemeColor, range: NSRange(location: 13, length: 4))
         
@@ -170,6 +197,24 @@ class FCRegisterView: UIView {
             make.centerX.equalToSuperview()
         }
          */
+    }
+    
+    @objc func useragreementClickAction(sender: UIButton)
+    {
+        if sender.tag == 10001 {
+            // 隐私协议
+            
+            if let privateAgr = self.privateAgrBlock {
+                privateAgr()
+            }
+        }else {
+            // 使用条款
+            
+            if let usertermAgr = self.usertermBlock {
+            
+                usertermAgr()
+            }
+        }
     }
     
     @objc func dismissLoginViewClick() {

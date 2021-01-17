@@ -9,8 +9,8 @@
 import UIKit
 
 class FCApi_transfer_records: YTKRequest {
-
     
+    // 秒
     var startTime = ""
     var endTime = ""
     var Asset = ""
@@ -47,7 +47,7 @@ class FCApi_transfer_records: YTKRequest {
     
     override func requestArgument() -> Any? {
                 
-        return ["userId" : userId, "startTime" : startTime, "endTime": endTime, "Asset" : Asset, "fromAccount" : fromAccount, "toAccount" : toAccount, "page" : page, "pageSize" : pageSize]
+        return ["userId" : userId, "startTime" : startTime, "endTime": endTime, "asset" : Asset, "fromAccount" : fromAccount, "toAccount" : toAccount, "page" : Int(page) ?? 1, "pageSize" : Int(pageSize) ?? 20]
     }
     
     override func requestHeaderFieldValueDictionary() -> [String : String]? {

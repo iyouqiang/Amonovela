@@ -1728,7 +1728,12 @@ class FCContractOrderView: UIView {
         let triggerClose = ["userId" : triggerUserId,
                             "triggerSource" : triggerSource,
                             "stopLossPrice" : stopLossPrice,
-                            "takeProfitPrice" : takeProfitPrice,"entrustVolume" : Float(entrustVolume) ?? 0.0, "volumeType" : volumeType, "tradingUnit" : tradingUnit, "entrustTradeType" : self.orderType, "action": "Close"] as [String : Any]
+                            "takeProfitPrice" : takeProfitPrice,
+                            "entrustVolume" : Float(entrustVolume) ?? 0.0,
+                            "volumeType" : volumeType,
+                            "tradingUnit" : tradingUnit,
+                            "entrustTradeType" : self.orderType,
+                            "action": "Close"] as [String : Any]
         
         /// 合约下单
         self.placeOrder?(tradingUnit, entrustVolume, entrustPrice, side, action, tradeType, volumeType,triggerClose)

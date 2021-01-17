@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import KLineXP
 class FCKLineDealCell: UITableViewCell {
 
     @IBOutlet weak var timeLab: UILabel!
@@ -50,7 +50,8 @@ class FCKLineDealCell: UITableViewCell {
         self.timeLab.text = tradeModel?.time
         self.bidLab.text = tradeModel?.makerSide == "Ask" ? "卖出" : "买入"
         self.bidLab.textColor = tradeModel?.makerSide == "Ask" ? COLOR_FailColor : COLOR_RiseColor
-        self.priceLab.text = tradeModel?.price
+        let priceValue = ((tradeModel?.price ?? "0.00") as NSString).floatValue
+        self.priceLab.text = KLineStateManger.manager.precisionSpecification(value: CGFloat(priceValue))
         self.amountLab.text = tradeModel?.volume
     }
 }

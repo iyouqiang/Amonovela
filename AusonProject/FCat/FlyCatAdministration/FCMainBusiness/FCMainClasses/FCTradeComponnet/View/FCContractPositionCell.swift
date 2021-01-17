@@ -50,7 +50,7 @@ class FCContractPositionCell: UITableViewCell {
         
         self.positionBgView.backgroundColor = COLOR_CellBgColor
         
-        self.shareBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 8)
+        //self.shareBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 8)
         
         self.adjustmentBtn.layer.cornerRadius = 2
         adjustmentBtn.layer.shadowColor = UIColor.black.cgColor
@@ -102,7 +102,7 @@ class FCContractPositionCell: UITableViewCell {
         positionTitleL.font = UIFont(_PingFangSCTypeSize: 13)
         shareBtn.semanticContentAttribute = .forceRightToLeft
         shareBtn.titleLabel?.font = UIFont(_PingFangSCTypeSize: 14)
-        shareBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10)
+        //shareBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10)
     }
     
     /**
@@ -185,7 +185,8 @@ class FCContractPositionCell: UITableViewCell {
             }
             
             let tempStr = self.leverageL.text ?? ""
-            self.leverageL.text = tempStr + marginModelStr
+            self.leverageL.text = tempStr
+                //tempStr + marginModelStr
             
             //self.leverageL.setAttributeColor(COLOR_InputText, range: NSRange(location: ((self.leverageL.text?.count ?? 0) - marginModelStr.count), length: marginModelStr.count))
             

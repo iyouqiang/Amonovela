@@ -27,16 +27,16 @@ class FCCXPAssetHistoryController: UIViewController {
     
     private lazy var sectionHeaderView: UIView =  {
     
-        let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 44))
-        sectionHeaderView.backgroundColor = COLOR_BGColor
-        
-        let titleL = fc_labelInit(text: "", textColor: COLOR_HexColor(0xDADADE), textFont: UIFont(_PingFangSCTypeSize: 21), bgColor: COLOR_BGColor)
+        let sectionHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 5))
+        sectionHeaderView.backgroundColor = COLOR_PartingLineColor
+        /**
+        let titleL = fc_labelInit(text: "All", textColor: COLOR_HexColor(0xDADADE), textFont: UIFont(_PingFangSCTypeSize: 21), bgColor: COLOR_PartingLineColor)
         titleL.frame = CGRect(x: 15, y: 0, width: kSCREENWIDTH - 30, height: 36)
         sectionHeaderView.addSubview(titleL)
         sectionTitleL = titleL
-        
-        let lineView = UIView(frame: CGRect(x: 0, y: 36, width: kSCREENWIDTH, height: 8))
-        lineView.backgroundColor = COLOR_TabBarBgColor
+         */
+        let lineView = UIView(frame: CGRect(x: 0, y: 0, width: kSCREENWIDTH, height: 5))
+        lineView.backgroundColor = .black
         sectionHeaderView.addSubview(lineView)
         
         return sectionHeaderView
@@ -48,7 +48,7 @@ class FCCXPAssetHistoryController: UIViewController {
         historyTableView.delegate = self
         historyTableView.dataSource = self
         historyTableView.rowHeight = 120.0
-        
+        historyTableView.tableFooterView = UIView()
         historyTableView.showsVerticalScrollIndicator = false
         //homeTableView.separatorStyle = .none
         historyTableView.separatorColor = COLOR_TabBarBgColor
@@ -69,7 +69,7 @@ class FCCXPAssetHistoryController: UIViewController {
 
         self.edgesForExtendedLayout = .all
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = COLOR_BGColor
+        self.view.backgroundColor = COLOR_PartingLineColor
         self.title = "历史记录"
         dataSource = [] 
         self.historyTableView.refreshNormalModelRefresh(true, refreshDataBlock: {
@@ -176,7 +176,7 @@ extension FCCXPAssetHistoryController: UITableViewDelegate, UITableViewDataSourc
             
                 let model = dataSource[indexPath.row]
                 cell.walletInfoModel = model
-                cell.backgroundColor = COLOR_BGColor
+                cell.backgroundColor = COLOR_PartingLineColor
                 //cell.contentView.backgroundColor = COLOR_BGColor
             }
             
@@ -187,7 +187,7 @@ extension FCCXPAssetHistoryController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return 5
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -195,6 +195,4 @@ extension FCCXPAssetHistoryController: UITableViewDelegate, UITableViewDataSourc
         self.sectionTitleL?.text = self.asset
         return self.dataSource?.count ?? 0 > 0 ? sectionView : UIView()
     }
-    
-    
 }

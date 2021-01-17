@@ -58,6 +58,77 @@ extension AppDelegate {
         IQKeyboardManager.shared().shouldShowToolbarPlaceholder = false
     }
     
+    public func appVersionUpdating()
+    {
+        /**
+         data =     {
+             downloadURL = "";
+             isForceUpdate = 0;
+             needUpdate = 1;
+             packageSize = "";
+             targetVersion = "";
+             updateMsg = "";
+         };
+         err =     {
+             code = 0;
+             msg = Success;
+             msgDebug = "";
+         };
+         */
+        let updateApi = FCApi_check_update()
+        updateApi.startWithCompletionBlock { (response) in
+            
+            let responseData = response.responseObject as?  [String : AnyObject]
+                       
+            if responseData?["err"]?["code"] as? Int ?? -1 == 0 {
+                      
+                if let data = responseData?["data"] as? [String : Any] {
+                    
+                    let updateModel = FCAppUpdateModel.stringToObject(jsonData: data)
+                    FCUserInfoManager.sharedInstance.updateModel = updateModel
+                    
+                    if updateModel.needUpdate == true {
+                        
+                        let updateView = Bundle.main.loadNibNamed("FCVersionUpdatingView", owner: nil, options:     nil)?.first as? FCVersionUpdatingView
+                        if updateModel.isForceUpdate == true {
+                            updateView?.cancelBtn.isHidden = true
+                        }
+                        updateView?.updateModel = updateModel
+                        
+                        let alertView = PCCustomAlert(customCenterPointView: updateView)
+                         updateView?.cancelAction = {
+                             alertView?.cloasAlertView()
+                        
+                         }
+                        
+                        updateView?.updateAction = {
+                            
+                            alertView?.cloasAlertView()
+                            
+                            // 调整testflight
+                            var jumLink = updateModel.downloadURL ?? ""
+                            if jumLink.count == 0 {
+                                jumLink = "https://testflight.apple.com/join/v4BgzvMJ"
+                            }
+                            
+                            if #available(iOS 10.0, *){
+
+                                UIApplication.shared.open(URL(string: jumLink)!, options: [:], completionHandler: nil)
+                                
+                            }  else{
+
+                                UIApplication.shared.openURL(URL(string: jumLink)!)
+                            }
+                        }
+                    }
+                }
+            }
+            
+        } failure: { (response) in
+            
+        }
+    }
+    
     // 设备信息上报
     public func reportDeviceInfo() {
         

@@ -173,11 +173,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHX-hl-RXA">
-                                <rect key="frame" x="310" y="13.5" width="50" height="22"/>
+                                <rect key="frame" x="300" y="13" width="60" height="23"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="jH3-B6-XNV"/>
+                                    <constraint firstAttribute="width" constant="60" id="jH3-B6-XNV"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="分享" image="shareIcon">
                                     <color key="titleColor" red="0.51764705879999995" green="0.55294117649999996" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -311,7 +313,7 @@
                 <outlet property="symbolTitleL" destination="RW8-b1-gvA" id="DGb-Bf-OGj"/>
                 <outlet property="volumeL" destination="Hq0-5P-V2E" id="ZWC-Ff-c2t"/>
             </connections>
-            <point key="canvasLocation" x="-1570.289855072464" y="-40.513392857142854"/>
+            <point key="canvasLocation" x="-1598" y="-140"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -86,7 +86,7 @@ class FCBillContractCell: UITableViewCell {
                 self.billDesTitleL.text = "出金"
             }else if (model.action == "FundCost") {
                 
-                self.billDesTitleL.text = "费用资金"
+                self.billDesTitleL.text = "资金费用"
             }else if (model.action == "DeleveragingLong") {
                 
                 self.billDesTitleL.text = "减仓平多"
